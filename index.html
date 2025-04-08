@@ -282,6 +282,44 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Quiz data - with support for multiple media types
             const quizData = [
+                // Your new videos added here first
+                {
+                    question: "What instrument is being played in this video?",
+                    media: [
+                        { type: "iframe", src: "https://yarn.co/yarn-clip/d42da0c0-bcb2-4192-b899-795941e0f028/embed?autoplay=false&responsive=true", poster: "/api/placeholder/400/300" }
+                    ],
+                    options: [
+                        { text: "Piano", correct: false },
+                        { text: "Guitar", correct: true },
+                        { text: "Violin", correct: false },
+                        { text: "Drums", correct: false }
+                    ]
+                },
+                {
+                    question: "What instrument is being played in this video?",
+                    media: [
+                        { type: "iframe", src: "https://drive.google.com/file/d/1sztR8eXa__--4lqHWpE_IK49Zkyb9eVR/preview", poster: "/api/placeholder/400/300" }
+                    ],
+                    options: [
+                        { text: "Piano", correct: false },
+                        { text: "Guitar", correct: true },
+                        { text: "Violin", correct: false },
+                        { text: "Drums", correct: false }
+                    ]
+                },
+                {
+                    question: "What instrument is being played in this video?",
+                    media: [
+                        { type: "youtube", src: "https://www.youtube.com/embed/3PxAw535HYs?si=9qnsWIGv035k4pDg", poster: "/api/placeholder/400/300" }
+                    ],
+                    options: [
+                        { text: "I went", correct: false },
+                        { text: "Going to", correct: true },
+                        { text: "I got there", correct: false },
+                        { text: "I get", correct: false }
+                    ]
+                },
+                // Original questions below
                 {
                     question: "What did you hear?",
                     media: [
@@ -452,6 +490,18 @@
                             mediaContainer.appendChild(videoDiv);
                         }
                         else if (mediaItem.type === "youtube") {
+                            const videoDiv = document.createElement('div');
+                            videoDiv.className = 'video-player';
+                            
+                            const iframe = document.createElement('iframe');
+                            iframe.src = mediaItem.src;
+                            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                            iframe.allowFullscreen = true;
+                            
+                            videoDiv.appendChild(iframe);
+                            mediaContainer.appendChild(videoDiv);
+                        }
+                        else if (mediaItem.type === "iframe") {
                             const videoDiv = document.createElement('div');
                             videoDiv.className = 'video-player';
                             
