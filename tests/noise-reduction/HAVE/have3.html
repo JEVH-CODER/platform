@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Admin Dashboard Styles */
+        .admin-dashboard {
+            max-width: 800px;
+            margin: 30px auto;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 24px;
+            display: none;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .admin-content {
+            display: none;
+        }
+
+        .admin-controls {
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .admin-controls h3 {
+            flex-basis: 100%;
+            margin-bottom: 10px;
+        }
+
+        .admin-button {
+            background-color: #16c4e3;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .admin-button:hover {
+            background-color: #14b3d1;
+        }
+
+        .admin-button.danger {
+            background-color: #ff4757;
+        }
+
+        .admin-button.danger:hover {
+            background-color: #e84118;
+        }
+
+        .results-list {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .result-item {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .result-score {
+            font-weight: bold;
+            color: #16c4e3;
+        }
+
+        .result-details {
+            display: none;
+            background-color: #f5f5f5;
+            padding: 8px;
+            border-radius: 8px;
+            margin-top: 8px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .show-details {
+            background-color: transparent;
+            border: 1px solid #16c4e3;
+            color: #16c4e3;
+            border-radius: 6px;
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        .show-details:hover {
+            background-color: rgba(22, 196, 227, 0.1);
+        }
+
+        /* Secret admin access button */
+        .admin-access {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .admin-access:hover {
+            opacity: 1;
+        }
+
+        /* Admin password modal */
+        .admin-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 24px;
+            border-radius: 16px;
+            width: 300px;
+            max-width: 90%;
+        }
+
+        .modal-title {
+            margin-bottom: 16px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+           /* align-items: center;*/
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .quiz-container {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 24px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background-color: #e0e0e0;
+            border-radius: 3px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: #16c4e3;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .media-container {
+            width: 100%;
+            margin: 16px 0 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .audio-player {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        audio {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .video-player {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 Aspect Ratio */
+            height: 0;
+        }
+
+        .video-player video,
+        .video-player iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            border: none;
+        }
+
+        .image-container {
+            width: 100%;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .quiz-image {
+            max-width: 100%;
+            border-radius: 8px;
+            max-height: 300px;
+            object-fit: contain;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .question-number {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .option {
+            position: relative;
+        }
+
+        .option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .option label {
+            display: block;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option input[type="radio"]:checked+label {
+            border-color: #16c4e3;
+            background-color: rgba(22, 196, 227, 0.1);
+        }
+
+        .option label:hover {
+            border-color: #16c4e3;
+        }
+
+        /* New styles for the two-line option format */
+        .english-text {
+            display: block;
+            font-weight: 500;
+        }
+
+        .spanish-text {
+            display: block;
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 3px;
+            font-style: italic;
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 12px;
+        }
+
+        .button {
+            background-color: #16c4e3;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: block;
+            flex: 1;
+        }
+
+        .button:hover {
+            background-color: #14b3d1;
+        }
+
+        .button:active {
+            transform: scale(0.98);
+        }
+
+        .button.prev-btn {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .button.prev-btn:hover {
+            background-color: #e0e0e0;
+        }
+
+        .results {
+            text-align: center;
+            display: none;
+        }
+
+        .results h2 {
+            margin-bottom: 16px;
+            color: #333;
+        }
+
+        .score {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #16c4e3;
+            margin: 20px 0;
+        }
+
+        .result-message {
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+
+        .quiz-section {
+            display: block;
+        }
+
+        .fade {
+            animation: fadeEffect 0.5s;
+        }
+
+        @keyframes fadeEffect {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Confetti for perfect score */
+        .confetti-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+            overflow: hidden;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .quiz-container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.3rem;
+            }
+
+            .score {
+                font-size: 2.5rem;
+            }
+
+            .buttons-container {
+                flex-direction: column;
+            }
+        }
+
+        /* Added for error messages and audio fallback */
+        .error-message {
+            background-color: #ffebee;
+            border: 1px solid #f44336;
+            color: #d32f2f;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+        }
+
+        .audio-fallback {
+            background-color: #e3f2fd;
+            border: 1px solid #2196f3;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 8px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="quiz-container">
+        <h1>TO HAVE - PARTE 3</h1>
+
+        <div class="progress-bar">
+            <div class="progress" id="progress-bar"></div>
+        </div>
+
+        <div id="quiz-section" class="quiz-section">
+            <div class="question-number" id="question-number">Question 1/3</div>
+
+            <div class="media-container" id="media-container">
+                <!-- Media elements will be dynamically added here -->
+            </div>
+
+            <p id="question" class="question"></p>
+
+            <div id="options" class="options">
+                <!-- Options will be dynamically added here -->
+            </div>
+
+            <div class="buttons-container">
+                <button id="prev-btn" class="button prev-btn">Previous Question</button>
+                <button id="next-btn" class="button">Next Question</button>
+            </div>
+        </div>
+
+        <div id="results-section" class="results">
+            <h2>Quiz Complete!</h2>
+            <div class="score" id="score">0/0</div>
+            <p id="result-message" class="result-message">Thanks for taking the quiz!</p>
+            <button id="restart-btn" class="button">Take Quiz Again</button>
+        </div>
+    </div>
+
+    <div class="confetti-container" id="confetti-container"></div>
+
+    <script>
+        // Function to save quiz results to localStorage
+        function saveQuizResults(quizId, results) {
+            // Create a unique ID for the attempt
+            const attemptId = `quiz_${quizId}_${Date.now()}`;
+
+            // Get existing quiz history or create new one
+            let quizHistory = JSON.parse(localStorage.getItem('quizHistory')) || {};
+
+            // Add this attempt
+            quizHistory[attemptId] = {
+                quizId: quizId,
+                date: new Date().toISOString(),
+                score: results.score,
+                totalQuestions: results.totalQuestions,
+                answers: results.answers,
+                // Store the original question indices for reference
+                questionOrder: results.questionOrder
+            };
+
+            // Save back to localStorage
+            localStorage.setItem('quizHistory', JSON.stringify(quizHistory));
+
+            return attemptId;
+        }
+
+        // Function to get quiz history for a specific quiz
+        function getQuizHistory(quizId) {
+            const quizHistory = JSON.parse(localStorage.getItem('quizHistory')) || {};
+
+            // Filter only attempts for this quiz
+            return Object.values(quizHistory).filter(attempt => attempt.quizId === quizId);
+        }
+
+        // Function to shuffle an array (Fisher-Yates algorithm)
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Quiz data - with support for multiple media types
+            const quizData = [
+                        {
+            "question": "¿Qué dice el audio?",
+            "media": [
+                {
+                    "type": "audio",
+                    "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/It%20hasn%27t%20had%20the%20desired%20effect.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=I86lCdxy%2F68oAoaO3A7S%2B%2F%2F9HncUwdeN1XmRb%2BleguSUQAUJl%2FivWTeImiwLbMWQSbuWt8Y7Yx%2BDOcsUtUrfcfeQF980hW6Y8LV8JJ0NNj6IuXj%2FLV9Xw0lwQ5OutU0dU5rS4ox1f%2BC%2FvqJeVhLlWvu2gENTrhS12Mm8PX5oZE0vF0XLkdi1WaujAmoXwHu%2BvasqEJ3STkdfyuOYcD814PAoaEUexb4IkBSkqzDt2fXVDVhWtgYpRcu6J1OAcofc7lHQ9BKG2Zami%2Bt%2FA5Hz%2FVx3uzmhaN3RxOg%2BQoSdtdUEJ4FbhhVLOxx4IvRFVQbxaj7105T06nE3eSu4jRSqFw%3D%3D"
+                }
+            ],
+            "options": [
+                {
+                    "text": "It hasn't had the desired effect.",
+                    "translation": "No ha tenido el efecto deseado.",
+                    "correct": true
+                },
+                {
+                    "text": "It didn’t work as planned.",
+                    "translation": "No funcionó como se planeó.",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "¿Qué dice el audio?",
+            "media": [
+                {
+                    "type": "audio",
+                    "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/It%20hasn%27t%20started.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=SDB6PtJd7N5lJyVFG921T5fZiT3VUTWG3APQRh6dFY4%2FrPgS49yxvXHp5Ey6i3G6kQmzw696kNwGMgpw9lTBuFx7Ug8dSiZhKkEYbecsCbjkAcQGDEorg%2FzU3dhPurXVSbtV1nZrgHt4cR0X%2BZUAQuNfGKgxJGqgCajsH2TqKPC92EKPbhBjTn4zj1M6GEpO%2Ftudw0Y1cBuHNtyaB58LebQy%2FoB3t7LWxRh1t%2BjsePsVEmWqpbum88FPsCWSRfHbCMh8%2FLoRRrEe4Lw4TFMBxsNm7KLdiZ0bbWidxunVTquHpBa%2BEogHdwwfHqjcot9t2CJwJ71sTbPcZJbsUJEuww%3D%3D"
+                }
+            ],
+            "options": [
+                {
+                    "text": "It hasn't started.",
+                    "translation": "No ha comenzado.",
+                    "correct": true
+                },
+                {
+                    "text": "It’s still not working.",
+                    "translation": "Todavía no funciona.",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "¿Qué dice el audio?",
+            "media": [
+                {
+                    "type": "audio",
+                    "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/It%20will%20have%20been%20fixed%20by%20then.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=shE9wdKzbNMd7xD9d3Pq%2BIdvN7ocLkzjWeJ4urssONHV10J2E8%2B3jtycE1m1u1%2FmA0CRnzWxlJoqCZnWxQ0SlgRDfA0TgQjBL7dB5oGUUm%2BivwVESrX059Fe1CVyNM6%2FeenuhLaxd9IJZLZ%2FtcpKAU7R5PObACfN0O%2FuIhXHB%2FxWuWJzmZTIi07pC6SjLtfXhKnNU6Ziby6w%2BY75mmefAT2k%2Bb0ltirtsaKegM1nu1fexTqv0h7VT925lbK%2BpnNZNo0aaW5Ek5MYVLqJIk1HAGUdCB2p6CNF6buO73bskiAw0%2BlOIak%2FnvmGVJbmJvIpVTd7tie%2FiyTjHHWYdA1vaQ%3D%3D"
+                }
+            ],
+            "options": [
+                {
+                    "text": "It will have been fixed by then.",
+                    "translation": "Habrá sido arreglado para entonces.",
+                    "correct": true
+                },
+                {
+                    "text": "They will fix it soon.",
+                    "translation": "Lo arreglarán pronto.",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "¿Qué dice el audio?",
+            "media": [
+                {
+                    "type": "audio",
+                    "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Maria%20has%20finished%20reading%20her%20favorite%20book.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=sQJAUGyOurR6fdiDvvDcg236UtAXX3eHW6Wk7j17sD7Z8Edy6Fyaf7WMsWjWFguQZjd47u1O39womliaHaqTApQcOMFZ2gKjOJ3sRVAtw1w9cYjh8VWZfAvOyBt1JlxTmgWE5x%2BQNsNGi8O0KEFyOogMZndDUE3TomtQ3FAekcldV5wM4B0jYjp%2FSn9hIT%2F0T2Vu%2FVykR2kKaHAXG07h0PHJ69Msb9x3anQyguE3ozSREwmwse61dwe1t5GSAR0kQY%2BH%2B7JohD0TpjXdSlVaM%2BeiD7iLAaRBRUntXapumdPWQGWZtGUQ1U2pFemGo%2FZkDdHhcDUdqwg3SaS7qAQuQA%3D%3D"
+                }
+            ],
+            "options": [
+                {
+                    "text": "Maria has finished reading her favorite book.",
+                    "translation": "María ha terminado de leer su libro favorito.",
+                    "correct": true
+                },
+                {
+                    "text": "Maria has borrowed a new book.",
+                    "translation": "María ha prestado un nuevo libro.",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "¿Qué dice el audio?",
+            "media": [
+                {
+                    "type": "audio",
+                    "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/We%20haven%27t%20had%20this%20conversation%20before.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=XZkDU%2BwgzQBo4waisajJBFmvEkiWSWbTCA2zD8s%2FMO%2Fcp0hnMHK3pMu8Qy8PNIz16d9xPdTtJxxbiM5QIH1sQd6H4wDIGAKmB1tUSNVLT0BGnMoZXqkUmRf3IxMB0AfK7isfDWK%2BVWO74hsmLcFlmk0RvX8tKIFOfFMgWUda7LryoIjpyj3dunXPNBSIYYjla8g4EdRKVP6D51RNpQQc5vA%2FSDVOjfYCs99oWsYl%2FhMsmbxJusMRuN%2B6qpsIUL8s0KoyY4iybIZEhl0m62eE4FIje0w16LKNsOjD99X4WpC0RtMHIt%2FSD9o%2BbAAEFcDBaCOdjeLQsNcxzZ6r7d8G%2BA%3D%3D"
+                }
+            ],
+            "options": [
+                {
+                    "text": "We haven't had this conversation before.",
+                    "translation": "No hemos tenido esta conversación antes.",
+                    "correct": true
+                },
+                {
+                    "text": "We’ve never talked about this.",
+                    "translation": "Nunca hemos hablado de esto.",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "¿Qué dice el audio?",
+            "media": [
+                {
+                    "type": "audio",
+                    "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/We%20will%20have%20the%20results%20by%20the%20end%20of%20the%20day.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=QCsyArT8Hq6nUKOSySumUDPyLzAfNOLS0hK1ulBGnYvLTvyRLIpthbwO288PJkyLXmK0iZOVcO6SzGKcRebQFtXyWhhOaGXNNn8u1dUhIIvnUgd1n1txJ9L5MU75eucoQn%2B6U8Bi2xJBtvXN3cnsGLwcUGRXugY%2Fip5KCgml8I3iof%2BzJ9xN%2BICP%2FcU4w5xPcqgQ821CP3R8SHYAvhkynDO0%2Bb7joGcNbjxp0iLGV%2Fp3DHPoZV9JME7eZQCrrl06wt1j%2BVJQ0gVBJKDNnXW7DkBmhwKzJBE71Qe31TGiT4Ovjgo9llvpd15DRjc0nGfOGGhS6LbwNcTJrrLaU9ZsYg%3D%3D"
+                }
+            ],
+            "options": [
+                {
+                    "text": "We will have the results by the end of the day.",
+                    "translation": "Tendremos los resultados para el final del día.",
+                    "correct": true
+                },
+                {
+                    "text": "We’ll know by tonight.",
+                    "translation": "Lo sabremos esta noche.",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "¿Qué dice el audio?",
+            "media": [
+                {
+                    "type": "audio",
+                    "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/We%20won%27t%20have%20the%20meeting%20next%20month.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=JQS%2BCzd8jM6tt%2B%2BXlyLKWUZmQOs28w%2Fs6poma5JdmZ1RocZF%2BxRy21GOp%2FbfsJmcu9TxlM9cc1IPMMwiYTtlI7hN3D5RMV7glaMU1Uhg4vBR2U5THWFCZhxqHvg%2FPQodGJipoXKD3Eb0NDbo5NTS3SOg49a8e4vVq%2FShAFve9od4ZU6adXlnWn8RwJHbrJHCguyRYNekwPKwtDQy9j1fnNjkyTXvy1VN7%2FzTgyVlevAYFCJfOPzN9W7zwjHjPKso8%2BFWJN9hcf%2Baz8oAh21lrCl6uBgubYGyanFc7rEtOsgJAhjaUjyl63HHbZci%2BOvC44S7IsRJo968FJ%2FMhep5%2Bw%3D%3D"
+                }
+            ],
+            "options": [
+                {
+                    "text": "We won't have the meeting next month.",
+                    "translation": "No tendremos la reunión el próximo mes.",
+                    "correct": true
+                },
+                {
+                    "text": "We’re canceling the event.",
+                    "translation": "Estamos cancelando el evento.",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "¿Qué dice el audio?",
+            "media": [
+                {
+                    "type": "audio",
+                    "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Why%20have%20you%20not%20told%20me%20about%20the%20problem.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=BfBeJXHwT%2B2GG7UQ34vmRU2ujO%2Fhsqu21ynvKATIVtt2nZKIFt5%2BkMmKpcs6vN2h1k7ZGmHGFPO4f8ArHqOEpIHtUUndVtzp%2BbWeUpoSZdcV6tsGjXZWYb9Xvu7DJiT0oaFWokQwFBlYqBCnkePSkUgQzzY2hINQEowP%2F9rEngs%2FiYph1yX6HxC8dBnf0pjQdrJkDNxXUyutwe6yTCQJf51sthUREgPrDBbrs%2BoRNDjlFFAVz4z5J%2BRgGYBKflysWI4i3jsYnSKSogGseicn8fTI9IWmZlWaX8mjIzJ64%2BdGHd%2F9ecfAjuQpNEhP1z%2BSz9Kdd4GOpIA33D%2FVcqCdcA%3D%3D"
+                }
+            ],
+            "options": [
+                {
+                    "text": "Why had you not told me about the problem?",
+                    "translation": "¿Por qué no me habías contado sobre el problema?",
+                    "correct": true
+                },
+                {
+                    "text": "Why didn’t you mention the issue?",
+                    "translation": "¿Por qué no mencionaste el problema?",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "¿Qué dice el audio?",
+            "media": [
+                {
+                    "type": "audio",
+                    "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Will%20he%20have%20completed%20the%20task%20by%20Friday.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=phnypUiG%2B%2BcIeGxEsm3JAcmrrSjZmmOn8cuJH0NuwfoYQFC1co9mjnwcLd%2FFEL4op%2FmFy6I5HP%2F1ZygHueN3si9NNHiU3QicoTLr8FhK5tiFPOjj9jwxy9shtVHowCa9EuoO9LDHj1RxjA89a1nyG%2BJV8ps4wDKlCCu3VCNeBcAfNcC80hkhhp2y650fim7wNEZz7WkNod%2BC1C%2BKJbqFUSNfRV%2BH0PjcO43XISUENXvtMWjV%2BhcvMR5NXv2H9cl2NfIAK7Cz9z%2FcKFKeP9ROyYyKFQCJalXw7FJz0d61e1quNMm439j2Bt%2Fyq3Oi34RDVj00ciqu3WfI1kX7R6wwzA%3D%3D"
+                }
+            ],
+            "options": [
+                {
+                    "text": "Will he have completed the task by Friday?",
+                    "translation": "¿Habrá él completado la tarea para el viernes?",
+                    "correct": true
+                },
+                {
+                    "text": "Will he submit it by Friday?",
+                    "translation": "¿Lo entregará él para el viernes?",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "¿Qué dice el audio?",
+            "media": [
+                {
+                    "type": "audio",
+                    "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Will%20it%20have%20been%20fixed%20by%20then.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=sRtaAKW8eEgU89nNDHJmSQCEX7h205MRb4FepYtDTEyqRQ2IEDfNAEv%2BOIdW%2B%2BlB4MM3z7tI2dY1bOTk%2Fbp9KUxn0LjbC6XBs89mJLGzjb791kxtV1ACQS852eEGKxMAvAFWaswS2ZFGGh%2FOI4TeuSMGJ0kK19TFdUO197dR2X0gMqo68d8UhwSVysYdTCkONkje9k3G2L2Pj58kkTkvd9esLpZvy%2BWMGB0e4B2oXmzHtE18SVFHQxC8Gz2hia9qhQeNSv84AM7uqotgyS9CxQxzWmQVCpZphA%2Bghwxl4k94BLPmyOZHIqfs8iLjRzVltp%2BmVOfx1f8PGEOctMJOMQ%3D%3D"
+                }
+            ],
+            "options": [
+                {
+                    "text": "Will it have been fixed by then?",
+                    "translation": "¿Habrá sido arreglado para entonces?",
+                    "correct": true
+                },
+                {
+                    "text": "Will they fix it by then?",
+                    "translation": "¿Lo arreglarán para entonces?",
+                    "correct": false
+                }
+            ]
+        },                
+
+            ];
+
+            // DOM Elements
+            const quizSection = document.getElementById('quiz-section');
+            const resultsSection = document.getElementById('results-section');
+            const progressBar = document.getElementById('progress-bar');
+            const questionNumberElement = document.getElementById('question-number');
+            const questionElement = document.getElementById('question');
+            const optionsContainer = document.getElementById('options');
+            const mediaContainer = document.getElementById('media-container');
+            const nextBtn = document.getElementById('next-btn');
+            const prevBtn = document.getElementById('prev-btn');
+            const scoreElement = document.getElementById('score');
+            const resultMessage = document.getElementById('result-message');
+            const restartBtn = document.getElementById('restart-btn');
+            const confettiContainer = document.getElementById('confetti-container');
+
+            // Quiz state
+            let currentQuestionIndex = 0;
+            let score = 0;
+            let userAnswers = [];
+            let originalQuizData; // Store the original quiz data
+            let randomizedQuizData; // Store the randomized quiz data
+            let questionOrder; // Keep track of the original question indices
+
+            // Initialize quiz
+            function initQuiz() {
+                currentQuestionIndex = 0;
+                score = 0;
+
+                // Store the original quiz data
+                originalQuizData = [...quizData];
+
+                // Randomize question order
+                questionOrder = Array.from({
+                    length: originalQuizData.length
+                }, (_, i) => i);
+                questionOrder = shuffleArray(questionOrder);
+
+                // Create randomized quiz data
+                randomizedQuizData = questionOrder.map(index => {
+                    const question = {
+                        ...originalQuizData[index]
+                    };
+
+                    // Randomize answer options
+                    question.options = shuffleArray(question.options);
+
+                    return question;
+                });
+
+                // Initialize user answers array with the new randomized length
+                userAnswers = Array(randomizedQuizData.length).fill(null);
+
+                showQuestion(currentQuestionIndex);
+                updateProgressBar();
+                updateNavigationButtons();
+
+                quizSection.style.display = 'block';
+                resultsSection.style.display = 'none';
+
+                // Add quiz ID to store results
+                quizSection.dataset.quizId = 'multimedia-quiz-' + Date.now();
+            }
+
+            // Show current question
+            function showQuestion(index) {
+                resetState();
+
+                const currentQuestion = randomizedQuizData[index];
+                questionElement.textContent = currentQuestion.question;
+                questionNumberElement.textContent = `Question ${index + 1}/${randomizedQuizData.length}`;
+
+                // Add media elements
+                if (currentQuestion.media && currentQuestion.media.length > 0) {
+                    let mediaLoadError = false;
+
+                    currentQuestion.media.forEach(mediaItem => {
+                        if (mediaItem.type === "audio") {
+                            const audioDiv = document.createElement('div');
+                            audioDiv.className = 'audio-player';
+
+                            const audio = document.createElement('audio');
+                            audio.controls = true;
+
+                            const source = document.createElement('source');
+                            source.src = mediaItem.src;
+                            source.type = "audio/mpeg";
+
+                            // Handle audio loading errors
+                            audio.onerror = function() {
+                                mediaLoadError = true;
+                                audioDiv.innerHTML = `<div class="error-message">
+                                    Unable to load audio. Please check your internet connection or try again later.
+                                </div>`;
+
+                                // Add transcription if available
+                                if (currentQuestion.transcription) {
+                                    const fallback = document.createElement('div');
+                                    fallback.className = 'audio-fallback';
+                                    fallback.textContent = `Audio Transcription: "${currentQuestion.transcription}"`;
+                                    audioDiv.appendChild(fallback);
+                                }
+                            };
+
+                            audio.appendChild(source);
+                            audioDiv.appendChild(audio);
+                            mediaContainer.appendChild(audioDiv);
+                        } else if (mediaItem.type === "image") {
+                            const imageDiv = document.createElement('div');
+                            imageDiv.className = 'image-container';
+
+                            const image = document.createElement('img');
+                            image.src = mediaItem.src;
+                            image.alt = mediaItem.alt || "Quiz image";
+                            image.className = 'quiz-image';
+
+                            // Handle image loading errors
+                            image.onerror = function() {
+                                mediaLoadError = true;
+                                imageDiv.innerHTML = `<div class="error-message">Unable to load image.</div>`;
+                            };
+
+                            imageDiv.appendChild(image);
+                            mediaContainer.appendChild(imageDiv);
+                        } else if (mediaItem.type === "video") {
+                            const videoDiv = document.createElement('div');
+                            videoDiv.className = 'video-player';
+
+                            const video = document.createElement('video');
+                            video.controls = true;
+                            video.poster = mediaItem.poster || "";
+                            video.preload = "metadata";
+
+                            const source = document.createElement('source');
+                            source.src = mediaItem.src;
+                            source.type = "video/mp4";
+
+                            // Handle video loading errors
+                            video.onerror = function() {
+                                mediaLoadError = true;
+                                videoDiv.innerHTML = `<div class="error-message">Unable to load video.</div>`;
+                            };
+
+                            video.appendChild(source);
+                            videoDiv.appendChild(video);
+                            mediaContainer.appendChild(videoDiv);
+                        } else if (mediaItem.type === "youtube" || mediaItem.type === "iframe") {
+                            const videoDiv = document.createElement('div');
+                            videoDiv.className = 'video-player';
+
+                            const iframe = document.createElement('iframe');
+                            iframe.src = mediaItem.src;
+                            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                            iframe.allowFullscreen = true;
+
+                            // Handle iframe loading errors
+                            iframe.onerror = function() {
+                                mediaLoadError = true;
+                                videoDiv.innerHTML = `<div class="error-message">Unable to load embedded content.</div>`;
+                            };
+
+                            videoDiv.appendChild(iframe);
+                            mediaContainer.appendChild(videoDiv);
+                        }
+                    });
+
+                    // Add transcription as fallback if no media
+                    if (mediaLoadError && currentQuestion.transcription) {
+                        const transcription = document.createElement('div');
+                        transcription.className = 'audio-fallback';
+                        transcription.textContent = `Transcription: "${currentQuestion.transcription}"`;
+                        mediaContainer.appendChild(transcription);
+                    }
+                } else if (currentQuestion.transcription) {
+                    // If question has a transcription but no media
+                    const transcription = document.createElement('div');
+                    transcription.className = 'audio-fallback';
+                    transcription.textContent = `Question: "${currentQuestion.transcription}"`;
+                    mediaContainer.appendChild(transcription);
+                }
+
+                // Create options with English and Spanish text and restore previous answer if any
+                currentQuestion.options.forEach((option, i) => {
+                    const optionDiv = document.createElement('div');
+                    optionDiv.className = 'option';
+
+                    const input = document.createElement('input');
+                    input.type = 'radio';
+                    input.id = `option${i}`;
+                    input.name = 'answer';
+                    input.value = i;
+
+                    // Check if user previously selected this option
+                    if (userAnswers[currentQuestionIndex] === i) {
+                        input.checked = true;
+                    }
+
+                    const label = document.createElement('label');
+                    label.htmlFor = `option${i}`;
+
+                    // Create spans for English and Spanish text
+                    const englishSpan = document.createElement('span');
+                    englishSpan.className = 'english-text';
+                    englishSpan.textContent = option.text;
+
+                    const spanishSpan = document.createElement('span');
+                    spanishSpan.className = 'spanish-text';
+                    spanishSpan.textContent = option.translation;
+
+                    label.appendChild(englishSpan);
+                    label.appendChild(spanishSpan);
+
+                    optionDiv.appendChild(input);
+                    optionDiv.appendChild(label);
+                    optionsContainer.appendChild(optionDiv);
+
+                    input.addEventListener('change', () => {
+                        userAnswers[currentQuestionIndex] = i;
+                    });
+                });
+
+                // Update navigation buttons
+                updateNavigationButtons();
+
+                // Fade in the new question
+                quizSection.classList.add('fade');
+                setTimeout(() => {
+                    quizSection.classList.remove('fade');
+                }, 500);
+            }
+
+            // Reset UI state between questions
+            function resetState() {
+                // Clear options
+                while (optionsContainer.firstChild) {
+                    optionsContainer.removeChild(optionsContainer.firstChild);
+                }
+
+                // Clear media container
+                while (mediaContainer.firstChild) {
+                    mediaContainer.removeChild(mediaContainer.firstChild);
+                }
+            }
+
+            // Update navigation button states and text
+            function updateNavigationButtons() {
+                // Handle previous button visibility
+                if (currentQuestionIndex === 0) {
+                    prevBtn.style.visibility = 'hidden';
+                } else {
+                    prevBtn.style.visibility = 'visible';
+                }
+
+                // Update next button text for last question
+                if (currentQuestionIndex === randomizedQuizData.length - 1) {
+                    nextBtn.textContent = 'Finish Quiz';
+                } else {
+                    nextBtn.textContent = 'Next Question';
+                }
+            }
+
+            // Handle next question button click
+            function handleNextQuestion() {
+                // Check if user has selected an answer
+                if (userAnswers[currentQuestionIndex] === null) {
+                    alert('Please select an answer before proceeding');
+                    return;
+                }
+
+                // Move to next question or show results
+                currentQuestionIndex++;
+                updateProgressBar();
+
+                if (currentQuestionIndex < randomizedQuizData.length) {
+                    showQuestion(currentQuestionIndex);
+                } else {
+                    calculateScore();
+                    showResults();
+                }
+            }
+
+            // Handle previous question button click
+            function handlePreviousQuestion() {
+                if (currentQuestionIndex > 0) {
+                    currentQuestionIndex--;
+                    updateProgressBar();
+                    showQuestion(currentQuestionIndex);
+                }
+            }
+
+            // Calculate final score
+            function calculateScore() {
+                score = 0;
+                const detailedAnswers = [];
+
+                for (let i = 0; i < randomizedQuizData.length; i++) {
+                    const selectedOptionIndex = userAnswers[i];
+                    const isCorrect = selectedOptionIndex !== null &&
+                        randomizedQuizData[i].options[selectedOptionIndex].correct;
+
+                    if (isCorrect) {
+                        score++;
+                    }
+
+                    // Store detailed answer data
+                    detailedAnswers.push({
+                        questionIndex: questionOrder[i], // Original question index
+                        selectedOption: selectedOptionIndex,
+                        isCorrect: isCorrect,
+                        selectedText: selectedOptionIndex !== null ?
+                            randomizedQuizData[i].options[selectedOptionIndex].text : null
+                    });
+                }
+
+                // Save results to localStorage
+                const quizId = quizSection.dataset.quizId;
+                saveQuizResults(quizId, {
+                    score: score,
+                    totalQuestions: randomizedQuizData.length,
+                    answers: detailedAnswers,
+                    questionOrder: questionOrder
+                });
+
+                return score;
+            }
+
+            // Show final results
+            function showResults() {
+                quizSection.style.display = 'none';
+                resultsSection.style.display = 'block';
+
+                scoreElement.textContent = `${score}/${randomizedQuizData.length}`;
+
+                const percentage = (score / randomizedQuizData.length) * 100;
+
+                if (percentage === 100) {
+                    resultMessage.textContent = 'Perfect score! Amazing job!';
+                    createConfetti();
+                } else if (percentage >= 75) {
+                    resultMessage.textContent = 'Great job! Very impressive!';
+                } else if (percentage >= 50) {
+                    resultMessage.textContent = 'Good effort!';
+                } else {
+                    resultMessage.textContent = 'Thanks for taking the quiz!';
+                }
+
+                // Clear any existing history section
+                const existingHistory = document.querySelector('.history-section');
+                if (existingHistory) {
+                    existingHistory.remove();
+                }
+
+                showQuizHistory();
+            }
+
+            // Update progress bar
+            function updateProgressBar() {
+                const progress = ((currentQuestionIndex) / randomizedQuizData.length) * 100;
+                progressBar.style.width = `${progress}%`;
+            }
+
+            // Create confetti effect for perfect score
+            function createConfetti() {
+                const colors = ['#16c4e3', '#fe4980', '#4BB543', '#FFD700', '#9370DB'];
+                const confettiCount = 150;
+
+                for (let i = 0; i < confettiCount; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.top = -10 + 'px';
+                    confetti.style.width = Math.random() * 10 + 5 + 'px';
+                    confetti.style.height = Math.random() * 10 + 5 + 'px';
+                    confetti.style.opacity = Math.random();
+                    confetti.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+
+                    confettiContainer.appendChild(confetti);
+
+                    const animation = confetti.animate([{
+                            transform: 'translate3d(0,0,0) rotate(0deg)',
+                            opacity: 1
+                        },
+                        {
+                            transform: 'translate3d(' + (Math.random() * 100 - 50) + 'px,' +
+                                (Math.random() * 700 + 500) + 'px,0) rotate(' + Math.random() * 360 + 'deg)',
+                            opacity: 0
+                        }
+                    ], {
+                        duration: Math.random() * 2000 + 3000,
+                        easing: 'cubic-bezier(' + Math.random() + ',' + Math.random() + ',' + Math.random() + ',' + Math.random() + ')',
+                        fill: 'forwards'
+                    });
+
+                    animation.onfinish = function() {
+                        confetti.remove();
+                    };
+                }
+            }
+
+            // Show quiz history
+            function showQuizHistory() {
+                const quizId = quizSection.dataset.quizId;
+                const history = getQuizHistory(quizId);
+
+                if (history.length === 0) {
+                    return; // No history yet
+                }
+
+                // Create a history section in results
+                const historySection = document.createElement('div');
+                historySection.className = 'history-section';
+                historySection.innerHTML = `
+                    <h3>Previous Attempts</h3>
+                    <div class="history-list"></div>
+                `;
+
+                const historyList = historySection.querySelector('.history-list');
+
+                // Display last 5 attempts
+                history.slice(-5).forEach((attempt, i) => {
+                    const date = new Date(attempt.date);
+                    const formattedDate = date.toLocaleString();
+
+                    const attemptElement = document.createElement('div');
+                    attemptElement.className = 'history-item';
+                    attemptElement.innerHTML = `
+                        <p>Attempt ${history.length - i}: ${attempt.score}/${attempt.totalQuestions} 
+                        (${Math.round((attempt.score / attempt.totalQuestions) * 100)}%) - ${formattedDate}</p>
+                    `;
+
+                    historyList.appendChild(attemptElement);
+                });
+
+                // Add history section to results
+                resultsSection.appendChild(historySection);
+            }
+
+            // Restart quiz
+            function restartQuiz() {
+                // Clear existing confetti if any
+                while (confettiContainer.firstChild) {
+                    confettiContainer.removeChild(confettiContainer.firstChild);
+                }
+
+                // Clear history section if it exists
+                const existingHistory = document.querySelector('.history-section');
+                if (existingHistory) {
+                    existingHistory.remove();
+                }
+
+                initQuiz();
+            }
+
+            // Add event listeners
+            nextBtn.addEventListener('click', handleNextQuestion);
+            prevBtn.addEventListener('click', handlePreviousQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+
+            // Start the quiz
+            initQuiz();
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create the name input modal
+            const nameModal = document.createElement('div');
+            nameModal.className = 'admin-modal';
+            nameModal.id = 'name-modal';
+            nameModal.innerHTML = `
+        <div class="modal-content">
+            <h3 class="modal-title">Enter Your Name</h3>
+            <input type="text" id="student-name-input" class="password-input" placeholder="Your name">
+            <div class="modal-buttons">
+                <button id="save-name-btn" class="admin-button">Save</button>
+            </div>
+        </div>
+    `;
+            document.body.appendChild(nameModal);
+
+            // Create the change name button that will appear in the quiz container
+            const quizContainer = document.querySelector('.quiz-container');
+            const nameDisplay = document.createElement('div');
+            nameDisplay.className = 'name-display';
+            nameDisplay.innerHTML = `
+        <div class="student-name-container">
+            <span id="displayed-name"></span>
+            <button id="change-name-btn" class="name-change-btn">Change Name</button>
+        </div>
+    `;
+
+            // Insert the name display right after the h1 element
+            const quizTitle = quizContainer.querySelector('h1');
+            quizTitle.after(nameDisplay);
+
+            // Add needed styling to the head
+            const styleElement = document.createElement('style');
+            styleElement.textContent = `
+        .student-name-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        #displayed-name {
+            font-weight: 500;
+            color: #16c4e3;
+        }
+        
+        .name-change-btn {
+            background-color: transparent;
+            border: 1px solid #16c4e3;
+            color: #16c4e3;
+            border-radius: 8px;
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .name-change-btn:hover {
+            background-color: rgba(22, 196, 227, 0.1);
+        }
+    `;
+            document.head.appendChild(styleElement);
+
+            // Get DOM elements
+            const nameInput = document.getElementById('student-name-input');
+            const saveNameBtn = document.getElementById('save-name-btn');
+            const changeNameBtn = document.getElementById('change-name-btn');
+            const displayedName = document.getElementById('displayed-name');
+
+            // Function to save the student name
+            function saveStudentName(name) {
+                if (name && name.trim() !== '') {
+                    localStorage.setItem('studentName', name.trim());
+                    displayedName.textContent = name.trim();
+                    nameModal.style.display = 'none';
+                } else {
+                    alert('Please enter a valid name');
+                }
+            }
+
+            // Check if student name already exists
+            function checkStudentName() {
+                const storedName = localStorage.getItem('studentName');
+                if (storedName) {
+                    displayedName.textContent = storedName;
+                    return true;
+                }
+                return false;
+            }
+
+            // Event listener for save name button
+            saveNameBtn.addEventListener('click', function() {
+                saveStudentName(nameInput.value);
+            });
+
+            // Enter key handler for name input
+            nameInput.addEventListener('keyup', function(event) {
+                if (event.key === 'Enter') {
+                    saveNameBtn.click();
+                }
+            });
+
+            // Event listener for change name button
+            changeNameBtn.addEventListener('click', function() {
+                nameInput.value = localStorage.getItem('studentName') || '';
+                nameModal.style.display = 'flex';
+                nameInput.focus();
+            });
+
+            // Show the name modal if no name is set yet
+            if (!checkStudentName()) {
+                nameModal.style.display = 'flex';
+                nameInput.focus();
+            }
+
+            // Modify the saveQuizResults function to include student name
+            const originalSaveQuizResults = window.saveQuizResults;
+            window.saveQuizResults = function(quizId, results) {
+                // Get student name from localStorage
+                const studentName = localStorage.getItem('studentName') || 'Anonymous';
+
+                // Add student name to results
+                results.studentName = studentName;
+
+                // Call the original function
+                return originalSaveQuizResults(quizId, results);
+            };
+
+            // Modify the admin dashboard results display to show student names
+            const originalLoadAdminResults = window.loadAdminResults;
+            if (typeof originalLoadAdminResults === 'function') {
+                window.loadAdminResults = function() {
+                    const quizHistory = JSON.parse(localStorage.getItem('quizHistory')) || {};
+                    const results = Object.values(quizHistory);
+
+                    if (results.length === 0) {
+                        document.getElementById('results-list').innerHTML = '<p>No results yet.</p>';
+                        return;
+                    }
+
+                    const resultsList = document.getElementById('results-list');
+                    resultsList.innerHTML = '';
+
+                    // Sort results by date (newest first)
+                    results.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                    results.forEach((result, index) => {
+                        const date = new Date(result.date);
+                        const formattedDate = date.toLocaleString();
+                        const percentage = Math.round((result.score / result.totalQuestions) * 100);
+                        const studentName = result.studentName || `Student ${index + 1}`;
+
+                        const resultItem = document.createElement('div');
+                        resultItem.className = 'result-item';
+
+                        // Create header with basic info and student name
+                        const resultHeader = document.createElement('div');
+                        resultHeader.className = 'result-header';
+                        resultHeader.innerHTML = `
+                    <div>
+                        <strong>${studentName}</strong> - ${formattedDate}
+                    </div>
+                    <div class="result-score">${result.score}/${result.totalQuestions} (${percentage}%)</div>
+                `;
+
+                        // The rest of the original function remains the same
+                        // Create details toggle button
+                        const detailsBtn = document.createElement('button');
+                        detailsBtn.className = 'show-details';
+                        detailsBtn.textContent = 'Show Details';
+
+                        // Create details section
+                        const detailsSection = document.createElement('div');
+                        detailsSection.className = 'result-details';
+
+                        // Add details for each question
+                        result.answers.forEach((answer, i) => {
+                            // This part would remain the same as your original function
+                            // ...
+                        });
+
+                        // Toggle details visibility
+                        detailsBtn.addEventListener('click', function() {
+                            if (detailsSection.style.display === 'none' || detailsSection.style.display === '') {
+                                detailsSection.style.display = 'block';
+                                detailsBtn.textContent = 'Hide Details';
+                            } else {
+                                detailsSection.style.display = 'none';
+                                detailsBtn.textContent = 'Show Details';
+                            }
+                        });
+
+                        // Add all elements to the result item
+                        resultItem.appendChild(resultHeader);
+                        resultItem.appendChild(detailsBtn);
+                        resultItem.appendChild(detailsSection);
+                        resultsList.appendChild(resultItem);
+                    });
+                };
+            }
+
+            // Modify the CSV export function to include student names
+            const originalExportResultsAsCSV = window.exportResultsAsCSV;
+            if (typeof originalExportResultsAsCSV === 'function') {
+                window.exportResultsAsCSV = function() {
+                    const quizHistory = JSON.parse(localStorage.getItem('quizHistory')) || {};
+                    const results = Object.values(quizHistory);
+
+                    if (results.length === 0) {
+                        alert('No results to export');
+                        return;
+                    }
+
+                    let csvContent = 'data:text/csv;charset=utf-8,';
+
+                    // Add CSV header row with student name
+                    csvContent += 'Student Name,Date,Score,Total Questions,Percentage\n';
+
+                    // Add a row for each result
+                    results.forEach((result) => {
+                        const date = new Date(result.date).toLocaleString();
+                        const percentage = Math.round((result.score / result.totalQuestions) * 100);
+                        const studentName = result.studentName || 'Anonymous';
+
+                        const row = [
+                            studentName,
+                            date,
+                            result.score,
+                            result.totalQuestions,
+                            `${percentage}%`
+                        ];
+
+                        csvContent += row.join(',') + '\n';
+                    });
+
+                    // Create download link
+                    const encodedUri = encodeURI(csvContent);
+                    const link = document.createElement('a');
+                    link.setAttribute('href', encodedUri);
+                    link.setAttribute('download', 'quiz_results.csv');
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                };
+            }
+        });
+        // Admin functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add admin access button to the body
+            const adminAccessBtn = document.createElement('div');
+            adminAccessBtn.className = 'admin-access';
+            adminAccessBtn.innerHTML = '⚙️';
+            document.body.appendChild(adminAccessBtn);
+
+            // Create admin password modal
+            const adminModal = document.createElement('div');
+            adminModal.className = 'admin-modal';
+            adminModal.innerHTML = `
+        <div class="modal-content">
+            <h3 class="modal-title">Admin Access</h3>
+            <input type="password" id="admin-password" class="password-input" placeholder="Enter admin password">
+            <div class="modal-buttons">
+                <button id="cancel-admin" class="admin-button danger">Cancel</button>
+                <button id="access-admin" class="admin-button">Access</button>
+            </div>
+        </div>
+    `;
+            document.body.appendChild(adminModal);
+
+            // Admin dashboard elements
+            const adminDashboard = document.getElementById('admin-dashboard');
+            const adminContent = document.getElementById('admin-content');
+            const toggleAdminBtn = document.getElementById('toggle-admin');
+            const exportResultsBtn = document.getElementById('export-results');
+            const clearResultsBtn = document.getElementById('clear-results');
+            const resultsList = document.getElementById('results-list');
+
+            // Admin password modal elements
+            const adminPasswordInput = document.getElementById('admin-password');
+            const accessAdminBtn = document.getElementById('access-admin');
+            const cancelAdminBtn = document.getElementById('cancel-admin');
+
+            // Admin password - change this to your desired password
+            const ADMIN_PASSWORD = 'admin123';
+
+            // Click handler for admin access button
+            adminAccessBtn.addEventListener('click', function() {
+                adminModal.style.display = 'flex';
+                adminPasswordInput.focus();
+            });
+
+            // Enter key handler for password input
+            adminPasswordInput.addEventListener('keyup', function(event) {
+                if (event.key === 'Enter') {
+                    accessAdminBtn.click();
+                }
+            });
+
+            // Access button handler
+            accessAdminBtn.addEventListener('click', function() {
+                if (adminPasswordInput.value === ADMIN_PASSWORD) {
+                    adminModal.style.display = 'none';
+                    adminPasswordInput.value = '';
+                    adminDashboard.style.display = 'block';
+                    loadAdminResults();
+                } else {
+                    alert('Incorrect password');
+                }
+            });
+
+            // Cancel button handler
+            cancelAdminBtn.addEventListener('click', function() {
+                adminModal.style.display = 'none';
+                adminPasswordInput.value = '';
+            });
+
+            // Toggle admin content
+            toggleAdminBtn.addEventListener('click', function() {
+                if (adminContent.style.display === 'none' || adminContent.style.display === '') {
+                    adminContent.style.display = 'block';
+                    loadAdminResults();
+                } else {
+                    adminContent.style.display = 'none';
+                }
+            });
+
+            // Export results as CSV
+            exportResultsBtn.addEventListener('click', function() {
+                exportResultsAsCSV();
+            });
+
+            // Clear all results
+            clearResultsBtn.addEventListener('click', function() {
+                if (confirm('Are you sure you want to delete ALL quiz results? This cannot be undone.')) {
+                    localStorage.removeItem('quizHistory');
+                    loadAdminResults();
+                }
+            });
+
+            // Load and display quiz results
+            function loadAdminResults() {
+                const quizHistory = JSON.parse(localStorage.getItem('quizHistory')) || {};
+                const results = Object.values(quizHistory);
+
+                if (results.length === 0) {
+                    resultsList.innerHTML = '<p>No results yet.</p>';
+                    return;
+                }
+
+                resultsList.innerHTML = '';
+
+                // Sort results by date (newest first)
+                results.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                results.forEach((result, index) => {
+                    const date = new Date(result.date);
+                    const formattedDate = date.toLocaleString();
+                    const percentage = Math.round((result.score / result.totalQuestions) * 100);
+
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'result-item';
+
+                    // Create header with basic info
+                    const resultHeader = document.createElement('div');
+                    resultHeader.className = 'result-header';
+                    resultHeader.innerHTML = `
+                <div>
+                    <strong>Student ${index + 1}</strong> - ${formattedDate}
+                </div>
+                <div class="result-score">${result.score}/${result.totalQuestions} (${percentage}%)</div>
+            `;
+
+                    // Create details toggle button
+                    const detailsBtn = document.createElement('button');
+                    detailsBtn.className = 'show-details';
+                    detailsBtn.textContent = 'Show Details';
+
+                    // Create details section
+                    const detailsSection = document.createElement('div');
+                    detailsSection.className = 'result-details';
+
+                    // Add details for each question
+                    result.answers.forEach((answer, i) => {
+                        const detailRow = document.createElement('div');
+                        detailRow.className = 'detail-row';
+
+                        // Get original question data
+                        const originalQuestionIndex = result.questionOrder[i];
+                        const originalQuestion = quizData[originalQuestionIndex];
+
+                        // Get selected answer text or "No answer"
+                        const selectedText = answer.selectedText || "No answer";
+
+                        // Create details content
+                        detailRow.innerHTML = `
+                    <div>Question ${i + 1}</div>
+                    <div>${answer.isCorrect ? '✅ Correct' : '❌ Incorrect'}</div>
+                    <div>Answer: ${selectedText}</div>
+                `;
+
+                        detailsSection.appendChild(detailRow);
+                    });
+
+                    // Toggle details visibility
+                    detailsBtn.addEventListener('click', function() {
+                        if (detailsSection.style.display === 'none' || detailsSection.style.display === '') {
+                            detailsSection.style.display = 'block';
+                            detailsBtn.textContent = 'Hide Details';
+                        } else {
+                            detailsSection.style.display = 'none';
+                            detailsBtn.textContent = 'Show Details';
+                        }
+                    });
+
+                    // Add all elements to the result item
+                    resultItem.appendChild(resultHeader);
+                    resultItem.appendChild(detailsBtn);
+                    resultItem.appendChild(detailsSection);
+                    resultsList.appendChild(resultItem);
+                });
+            }
+
+            // Export quiz results as CSV
+            function exportResultsAsCSV() {
+                const quizHistory = JSON.parse(localStorage.getItem('quizHistory')) || {};
+                const results = Object.values(quizHistory);
+
+                if (results.length === 0) {
+                    alert('No results to export');
+                    return;
+                }
+
+                let csvContent = 'data:text/csv;charset=utf-8,';
+
+                // Add CSV header row
+                csvContent += 'Student ID,Date,Score,Total Questions,Percentage\n';
+
+                // Add a row for each result
+                results.forEach((result, index) => {
+                    const date = new Date(result.date).toLocaleString();
+                    const percentage = Math.round((result.score / result.totalQuestions) * 100);
+
+                    const row = [
+                        `Student ${index + 1}`,
+                        date,
+                        result.score,
+                        result.totalQuestions,
+                        `${percentage}%`
+                    ];
+
+                    csvContent += row.join(',') + '\n';
+                });
+
+                // Create download link
+                const encodedUri = encodeURI(csvContent);
+                const link = document.createElement('a');
+                link.setAttribute('href', encodedUri);
+                link.setAttribute('download', 'quiz_results.csv');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        });
+    </script>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" class="admin-dashboard">
+        <div class="admin-header">
+            <h2>Admin Dashboard</h2>
+            <button id="toggle-admin" class="admin-button">Toggle Admin Panel</button>
+        </div>
+        <div id="admin-content" class="admin-content">
+            <div class="admin-controls">
+                <h3>Student Results</h3>
+                <button id="export-results" class="admin-button">Export All Results (CSV)</button>
+                <button id="clear-results" class="admin-button danger">Clear All Results</button>
+            </div>
+            <div id="results-list" class="results-list">
+                <p>No results yet.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
