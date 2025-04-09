@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .quiz-container {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 24px;
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background-color: #e0e0e0;
+            border-radius: 3px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: #16c4e3;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .media-container {
+            width: 100%;
+            margin: 16px 0 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .audio-player {
+            width: 100%;
+            border-radius: 8px;
+        }
+        
+        audio {
+            width: 100%;
+            border-radius: 8px;
+        }
+        
+        .video-player {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+        }
+        
+        .video-player video,
+        .video-player iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            border: none;
+        }
+        
+        .image-container {
+            width: 100%;
+            text-align: center;
+            margin: 10px 0;
+        }
+        
+        .quiz-image {
+            max-width: 100%;
+            border-radius: 8px;
+            max-height: 300px;
+            object-fit: contain;
+        }
+        
+        .question {
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .question-number {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .option {
+            position: relative;
+        }
+        
+        .option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .option label {
+            display: block;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .option input[type="radio"]:checked + label {
+            border-color: #16c4e3;
+            background-color: rgba(22, 196, 227, 0.1);
+        }
+        
+        .option label:hover {
+            border-color: #16c4e3;
+        }
+        
+        .buttons-container {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .button {
+            background-color: #16c4e3;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: block;
+            flex: 1;
+        }
+        
+        .button:hover {
+            background-color: #14b3d1;
+        }
+        
+        .button:active {
+            transform: scale(0.98);
+        }
+        
+        .button.prev-btn {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        
+        .button.prev-btn:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .results {
+            text-align: center;
+            display: none;
+        }
+        
+        .results h2 {
+            margin-bottom: 16px;
+            color: #333;
+        }
+        
+        .score {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #16c4e3;
+            margin: 20px 0;
+        }
+        
+        .result-message {
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+        
+        .quiz-section {
+            display: block;
+        }
+        
+        .fade {
+            animation: fadeEffect 0.5s;
+        }
+        
+        @keyframes fadeEffect {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        
+        /* Confetti for perfect score */
+        .confetti-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+            overflow: hidden;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .quiz-container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.3rem;
+            }
+            
+            .score {
+                font-size: 2.5rem;
+            }
+            
+            .buttons-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Multimedia Quiz</h1>
+        
+        <div class="progress-bar">
+            <div class="progress" id="progress-bar"></div>
+        </div>
+        
+        <div id="quiz-section" class="quiz-section">
+            <div class="question-number" id="question-number">Question 1/3</div>
+            
+            <div class="media-container" id="media-container">
+                <!-- Media elements will be dynamically added here -->
+            </div>
+            
+            <p id="question" class="question"></p>
+            
+            <div id="options" class="options">
+                <!-- Options will be dynamically added here -->
+            </div>
+            
+            <div class="buttons-container">
+                <button id="prev-btn" class="button prev-btn">Previous Question</button>
+                <button id="next-btn" class="button">Next Question</button>
+            </div>
+        </div>
+        
+        <div id="results-section" class="results">
+            <h2>Quiz Complete!</h2>
+            <div class="score" id="score">0/0</div>
+            <p id="result-message" class="result-message">Thanks for taking the quiz!</p>
+            <button id="restart-btn" class="button">Take Quiz Again</button>
+        </div>
+    </div>
+    
+    <div class="confetti-container" id="confetti-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Quiz data - with support for multiple media types
+            const quizData = [
+{"question":"¿Qué dice el audio?","media":[{"type":"audio","src":"https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Are%20you%20OK.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=OpyQUl0iZZztysvutS0mGYEI9cxRmHK6sh3uMR25pcS2KuHs9Z9z%2FQAu5ee63fPNNiohf9Ri0P3ReKSETTyjAlUr5r1FJoV23qIEYY002FkdZYk8k7JK6iHB00HEMvcPAC5b8lxFWAW5YPkEOisyLn7lXN7DcDnn5FCoczOKJfyiSqCrJntcAWjiQYeNlCCqiDTPxd88YaL%2BQQ3zc4KpDFAvzZLHojCI%2FUgDdFDutKsznmJ9a4%2Flghta3AsL4xvJnECxQMvObeorySfecXWFAmJQn%2FBz74Wo6DfIEoc6SktEprlhgOfR4uI4lXNM8m%2BOjXQGfp0TW8wD%2BDAstPy%2FMw%3D%3D"}],"options":[{"text":"Are you okay?","correct":true},{"text":"Are you alright?","correct":false}]},{"question":"¿Qué dice el audio?","media":[{"type":"audio","src":"https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Aren%27t%20they%20here%20Aren%27t%20they%20here.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=BGGyAa9eN4O0bWWY0HzHO1RNaZGLmRY%2B8aYcZYBrSHj%2FAMq%2F26fAzDoBVAu1IcrStVfdEg2An00DS4XjZQ6vny0coKLoiZuTc3lbKLd%2FM%2FnbujWCd80Y33fW5z6AzXLP4punrPC6EqtlZpcpkNl8%2BhLaAMy%2BrDL%2BBod8ssQTZ9ueFw5gfe4wszJpRKXOGGTMOm3YcIUekdq5hJlEVPnuRl1fXCDqJ65%2FH1PatOaeZ2VsRb6Sqbmf36AXiVhoo7lgig7HwUqNOj7ZrUyGIq2g16tRxn7KIVAuiD9tigrYMHqWkvOyEuGVVMIRYKGDAEm4HwvfNv7NbOeg4qZEkiJ1xA%3D%3D"}],"options":[{"text":"Aren't they here?","correct":true},{"text":"Aren’t they near?","correct":false}]},{"question":"¿Qué dice el audio?","media":[{"type":"audio","src":"https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Has%20it%20been%20fixed%20yet.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=c0Sr4t3SZSfWbmWWZqPoGCG%2FBUJ6vMYoOlYehppxVavPgCaRa%2FmM3AJOyXR5ve04bVwEujEoDs17R%2F0ZK4S5kTQEL0cl9dEoXQvK9Jglvcu5SGDCS5G%2BHE5gMLeieTGKSy3wOD6T1x%2FQvNWL2Or01m8WrUIsduuEiD4xUNxfF54ukNXsE3oHnD1BDxyd0tyvKYq7YreBhke8abplU5mUlZ5wTD1f7LNvSNWVpR8e4%2B1MO5N3zW2oQv3Y849B%2Fx43djHopC%2Bwd7x7Z2wkdbRK7m3nYN74hO8WZPU8ydBhI4tMlLU7pZflpvX7nnVKiNbF9CV4KV5vl5nO3xhKWoFvrg%3D%3D"}],"options":[{"text":"Has it been fixed yet?","correct":true},{"text":"Has it been replaced yet?","correct":false}]},{"question":"¿Qué dice el audio?","media":[{"type":"audio","src":"https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Has%20she%20been%20feeling%20better.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=NyY6m232LoJk%2FjzFGfgSzapD3fBCGfcQ%2BThkyjFC%2Bzr763OTaIqvzjVKt9fhDRqxRCA%2Fut2%2FMDUZGHocAznWx49xwGeQvnjfXeKdb%2B7SGzd3%2FUkcI16qbyJlw9NYf2wBx0lHHQvaCX7r%2F%2FP7c4MAoVRHbIOyB0M2eXeOGBkC1gRbsr4qCdl1v7ChJEIa4sQoTHiHheSjivxrR%2BMSgTBkuBdekE8Sj7uTR52L5VvcB13%2FX%2BYxfKJjKxYTbvzFZ3cfFhJVtnW%2BZ8fvsBNJOdvcK6HwFkJTXkv2XJP6BmJnyOeHLY0OETi2tdoYlZ0FzZaD5YXE0LX2POQ90yGbyK25rQ%3D%3D"}],"options":[{"text":"Has she been feeling better?","correct":true},{"text":"Has she been feeling sick?","correct":false}]},{"question":"¿Qué dice el audio?","media":[{"type":"audio","src":"https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Hasn%27t%20he%20been%20working%20all%20day%20Hasn%27t%20he%20been%20working%20all%20day.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=FnHkQhpBTbLL2LKkRgW9tshLzBKINMRbgdR3jLvn0506O7HOgtQlHOlymNDXQmY4JQjOpu4m3jwST%2BgfauqTfnZu6QoRVOLYDQdJnqkpnijy72NThtgvIo6Ie7iPDMIlDbu%2BJ5kKDNB%2FZRlhgss6bS9NkCV4yPZEAKGKI39QT7qUrwdcccYo7EK5tpfET1q77Md0uKxHiHbklI98MN2kloTqMp6HeNWcEo4h5iKsqV4bBu7Z822zdu6TUxYml6bowtHfcI6bE7SUwqy2cAE35ylcB6pYiYX%2B%2B6WK%2ByJl3aXTEK0gT8NZcD4tPftAJsXEA5S6vp5HL3sh0NUrl8POVQ%3D%3D"}],"options":[{"text":"Hasn't he been working all day?","correct":true},{"text":"Hasn’t he been studying all day?","correct":false}]},{"question":"¿Qué dice el audio?","media":[{"type":"audio","src":"https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Hasn%27t%20it%20been%20fixed%20yet%20Hasn%27t%20it%20been%20fixed%20yet.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=Jt71sUoYGJSmTg8RTSob7mPKh3cY08%2FB1YPBLRizjXw5RtHahdLLBPKemjXFq12f8%2BWkAfKXdcEXx4j6V9NiCY4cObFfo1BASil7cvMSyV%2F3nAT8IeE2GVwgW%2FiocA%2Bo7%2FdRsgMnVNzmu%2FZTqiDQqAkaDLh0QySbMnRAVTqS30yhQdvXUdqcJ%2FE6XEZv2DQYnQmppDpC5khJfDF0rwNRC50PxKBrH%2Bc5Z%2BaUKs5inzlUSLSv2M5RIO7ByZzME%2Fy93BwBmDjymOVqngyFGityzI1LXJ5RppfIRxxrp4TIpYAoKft2teNs3%2BBQCHaz8UWVOr41lvC8hmpy0QaHuWj3AQ%3D%3D"}],"options":[{"text":"Hasn't it been fixed yet?","correct":true},{"text":"Hasn’t it been checked yet?","correct":false}]},{"question":"¿Qué dice el audio?","media":[{"type":"audio","src":"https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Have%20they%20been%20to%20the%20museum.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=fRf0ww5Bj6Otb2ofzkFBPS%2FfXFxcibyz6LORG9OcSCVHYH%2FTPMQEYX6UZoOHj3ixMKuUDxBIzVaLL70XWfHjXO5zpmh4DM13Llum2nQt60o1vP3XfZKY8WTGBWEszYs8AX3dDe%2BUhQAdh14z%2BXw4jswxzsPC9EF8DS%2FAn9WEwveE76dgFWJz5%2F4HSYifOKu2MYuXhsENG%2FXj2uaDjDtlRkvuKhSIw%2B3YPtgyMgLiWeHItDnzKG6f6kLC%2BpIPcIcMn07vaF9wjlZZl3UpA1yK%2F%2FNBTVVOSYrE1ESZ2yfpwiRdSNF1fArlUXfpFf4iUBdmrMsu%2FlZnnN0c%2BwxNGYOjiA%3D%3D"}],"options":[{"text":"Have they been to the museum?","correct":true},{"text":"Have they gone to the museum?","correct":false}]},{"question":"¿Qué dice el audio?","media":[{"type":"audio","src":"https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/He%20was%20not%20going%20to%20finish%20the%20project.%20He%20was%20not%20going%20to%20finish%20the%20project.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=s9rBkSrnKocBu4sJHTvKeG1TbgtPz%2FrrDKSAeTKysmbXuBQJR1xUIKXnruwF6ZwH2%2F0sCi%2BZFspZlHufO7aP4kuqE1yHbAgt4Tm1lEmA%2B2YhK3bLgu6hiCE%2FP%2FhWXNbO52lMMei7bfktoQ5yew3aUONCsO0mzykhYqtT7hc9%2FNkZanbn%2B0%2BW8%2B2Z7l2OcJ6p4tnhb476anwzbY06x2bC24uE9bF8SElygnWmuWOoS3glCsP73oIHZn6nS7tP2ezE2p7gPIPLd2RZcIJiUliYItuTLqaw3oV3TllXBZ%2ByGIgXZmmELdxjuAA7P87Em73Nqz5N1NbEWjiUsP8hAIu0vA%3D%3D"}],"options":[{"text":"He was not going to finish the project.","correct":true},{"text":"He wasn’t planning to finish the project.","correct":false}]},{"question":"¿Qué dice el audio?","media":[{"type":"audio","src":"https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/He%20will%20be%20arriving%20at%20the%20airport.%20He%27ll%20be%20arriving%20at%20the%20airport.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=an%2FLMBLxAQDxFokulsbSh7sOc5Oer2U3pcX9wVTSZbNdZIbn7MKacjBBcaVytwv073xIX7TzjyCwI2LNcK4VmvY%2FLp96nrvZ8UDTCkzpBx3m8skt%2BpSfAQMb8BRYFdjNQJWEr2uJRBLoUtNBrYxjnrIgbDNwl9A7NoApQVeBje7M53EsdVIb4ZO7o6bocjG3TMDgPs0BmgK0NkM6LWcvSk3waOiQg8GH9w%2F%2BEuEXSQ5wuBSOwUMu39x6A3Fm442jTslX9Rf7inWfSNF53qFogofxhqp2OGrXz7HARQkb%2FVFsIVH%2BEWSl1WlMWwoUGSlgP3MGVSGlNSHNoTpWaDtd6g%3D%3D"}],"options":[{"text":"He will be arriving at the airport.","correct":true},{"text":"He will be landing at the airport.","correct":false}]},{"question":"¿Qué dice el audio?","media":[{"type":"audio","src":"https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/He%20will%20not%20be%20ready%20for%20the%20meeting.%20He%20will%20not%20be%20ready%20for%20the%20meeting.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=qxCKnjjhIZDlbwKQa0xUCcbYYklH8hv8cQ14x1ZQJAjGjysqBKBpxr06V66n8jKoyEqtz%2FBNBKHGiZgtPYBqn6rKY0ZY0YApD84dHiYbNfTnyIanDSrg9rChvaOLIL6OrLUxraZ6HABpCfHZpUdzd1p95P5PgcW9lP%2FCsEsytuqC%2BMmvSI4m%2B4Mk9a78iMhTHxg1cXdprNPg3Kd6geA95S0OeuINei%2Fq9%2BnU2lPtbpCfqhs5JRSgL00rIBgJJNwKOCCGktudFiiV1BXd%2Bjd1zhGlmGuClfANykh6c3u6PW%2BLhxrqN8tq4TR94R%2BxCs4uTQ7mYy6AOXwkaGFsdAXM8A%3D%3D"}],"options":[{"text":"He will not be ready for the meeting.","correct":true},{"text":"He won’t be ready for the event.","correct":false}]}
+            ];
+            
+            // DOM Elements
+            const quizSection = document.getElementById('quiz-section');
+            const resultsSection = document.getElementById('results-section');
+            const progressBar = document.getElementById('progress-bar');
+            const questionNumberElement = document.getElementById('question-number');
+            const questionElement = document.getElementById('question');
+            const optionsContainer = document.getElementById('options');
+            const mediaContainer = document.getElementById('media-container');
+            const nextBtn = document.getElementById('next-btn');
+            const prevBtn = document.getElementById('prev-btn');
+            const scoreElement = document.getElementById('score');
+            const resultMessage = document.getElementById('result-message');
+            const restartBtn = document.getElementById('restart-btn');
+            const confettiContainer = document.getElementById('confetti-container');
+            
+            // Quiz state
+            let currentQuestionIndex = 0;
+            let score = 0;
+            let userAnswers = [];
+            
+            // Initialize quiz
+            function initQuiz() {
+                currentQuestionIndex = 0;
+                score = 0;
+                userAnswers = Array(quizData.length).fill(null);
+                
+                showQuestion(currentQuestionIndex);
+                updateProgressBar();
+                updateNavigationButtons();
+                
+                quizSection.style.display = 'block';
+                resultsSection.style.display = 'none';
+                
+                nextBtn.addEventListener('click', handleNextQuestion);
+                prevBtn.addEventListener('click', handlePreviousQuestion);
+                restartBtn.addEventListener('click', restartQuiz);
+                
+                // Hide confetti if any
+                confettiContainer.innerHTML = '';
+            }
+            
+            // Show current question
+            function showQuestion(index) {
+                resetState();
+                
+                const currentQuestion = quizData[index];
+                questionElement.textContent = currentQuestion.question;
+                questionNumberElement.textContent = `Question ${index + 1}/${quizData.length}`;
+                
+                // Add media elements
+                if (currentQuestion.media && currentQuestion.media.length > 0) {
+                    currentQuestion.media.forEach(mediaItem => {
+                        if (mediaItem.type === "audio") {
+                            const audioDiv = document.createElement('div');
+                            audioDiv.className = 'audio-player';
+                            
+                            const audio = document.createElement('audio');
+                            audio.controls = true;
+                            
+                            const source = document.createElement('source');
+                            source.src = mediaItem.src;
+                            source.type = "audio/mpeg";
+                            
+                            audio.appendChild(source);
+                            audioDiv.appendChild(audio);
+                            mediaContainer.appendChild(audioDiv);
+                        } 
+                        else if (mediaItem.type === "image") {
+                            const imageDiv = document.createElement('div');
+                            imageDiv.className = 'image-container';
+                            
+                            const image = document.createElement('img');
+                            image.src = mediaItem.src;
+                            image.alt = mediaItem.alt || "Quiz image";
+                            image.className = 'quiz-image';
+                            
+                            imageDiv.appendChild(image);
+                            mediaContainer.appendChild(imageDiv);
+                        }
+                        else if (mediaItem.type === "video") {
+                            const videoDiv = document.createElement('div');
+                            videoDiv.className = 'video-player';
+                            
+                            const video = document.createElement('video');
+                            video.controls = true;
+                            video.poster = mediaItem.poster || "";
+                            video.preload = "metadata";
+                            
+                            const source = document.createElement('source');
+                            source.src = mediaItem.src;
+                            source.type = "video/mp4";
+                            
+                            video.appendChild(source);
+                            videoDiv.appendChild(video);
+                            mediaContainer.appendChild(videoDiv);
+                        }
+                        else if (mediaItem.type === "youtube") {
+                            const videoDiv = document.createElement('div');
+                            videoDiv.className = 'video-player';
+                            
+                            const iframe = document.createElement('iframe');
+                            iframe.src = mediaItem.src;
+                            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                            iframe.allowFullscreen = true;
+                            
+                            videoDiv.appendChild(iframe);
+                            mediaContainer.appendChild(videoDiv);
+                        }
+                        else if (mediaItem.type === "iframe") {
+                            const videoDiv = document.createElement('div');
+                            videoDiv.className = 'video-player';
+                            
+                            const iframe = document.createElement('iframe');
+                            iframe.src = mediaItem.src;
+                            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                            iframe.allowFullscreen = true;
+                            
+                            videoDiv.appendChild(iframe);
+                            mediaContainer.appendChild(videoDiv);
+                        }
+                    });
+                }
+                
+                // Create options and restore previous answer if any
+                currentQuestion.options.forEach((option, i) => {
+                    const optionDiv = document.createElement('div');
+                    optionDiv.className = 'option';
+                    
+                    const input = document.createElement('input');
+                    input.type = 'radio';
+                    input.id = `option${i}`;
+                    input.name = 'answer';
+                    input.value = i;
+                    
+                    // Check if user previously selected this option
+                    if (userAnswers[currentQuestionIndex] === i) {
+                        input.checked = true;
+                    }
+                    
+                    const label = document.createElement('label');
+                    label.htmlFor = `option${i}`;
+                    label.textContent = option.text;
+                    
+                    optionDiv.appendChild(input);
+                    optionDiv.appendChild(label);
+                    optionsContainer.appendChild(optionDiv);
+                    
+                    input.addEventListener('change', () => {
+                        userAnswers[currentQuestionIndex] = i;
+                    });
+                });
+                
+                // Update navigation buttons
+                updateNavigationButtons();
+                
+                // Fade in the new question
+                quizSection.classList.add('fade');
+                setTimeout(() => {
+                    quizSection.classList.remove('fade');
+                }, 500);
+            }
+            
+            // Reset UI state between questions
+            function resetState() {
+                // Clear options
+                while (optionsContainer.firstChild) {
+                    optionsContainer.removeChild(optionsContainer.firstChild);
+                }
+                
+                // Clear media container
+                while (mediaContainer.firstChild) {
+                    mediaContainer.removeChild(mediaContainer.firstChild);
+                }
+            }
+            
+            // Update navigation button states and text
+            function updateNavigationButtons() {
+                // Handle previous button visibility
+                if (currentQuestionIndex === 0) {
+                    prevBtn.style.visibility = 'hidden';
+                } else {
+                    prevBtn.style.visibility = 'visible';
+                }
+                
+                // Update next button text for last question
+                if (currentQuestionIndex === quizData.length - 1) {
+                    nextBtn.textContent = 'Finish Quiz';
+                } else {
+                    nextBtn.textContent = 'Next Question';
+                }
+            }
+            
+            // Handle next question button click
+            function handleNextQuestion() {
+                // Check if user has selected an answer
+                if (userAnswers[currentQuestionIndex] === null) {
+                    alert('Please select an answer before proceeding');
+                    return;
+                }
+                
+                // Move to next question or show results
+                currentQuestionIndex++;
+                updateProgressBar();
+                
+                if (currentQuestionIndex < quizData.length) {
+                    showQuestion(currentQuestionIndex);
+                } else {
+                    calculateScore();
+                    showResults();
+                }
+            }
+            
+            // Handle previous question button click
+            function handlePreviousQuestion() {
+                if (currentQuestionIndex > 0) {
+                    currentQuestionIndex--;
+                    updateProgressBar();
+                    showQuestion(currentQuestionIndex);
+                }
+            }
+            
+            // Calculate final score
+            function calculateScore() {
+                score = 0;
+                for (let i = 0; i < quizData.length; i++) {
+                    const selectedOptionIndex = userAnswers[i];
+                    if (selectedOptionIndex !== null && quizData[i].options[selectedOptionIndex].correct) {
+                        score++;
+                    }
+                }
+            }
+            
+            // Show final results
+            function showResults() {
+                quizSection.style.display = 'none';
+                resultsSection.style.display = 'block';
+                
+                scoreElement.textContent = `${score}/${quizData.length}`;
+                
+                const percentage = (score / quizData.length) * 100;
+                
+                if (percentage === 100) {
+                    resultMessage.textContent = 'Perfect score! Amazing job!';
+                    createConfetti();
+                } else if (percentage >= 75) {
+                    resultMessage.textContent = 'Great job! Very impressive!';
+                } else if (percentage >= 50) {
+                    resultMessage.textContent = 'Good effort!';
+                } else {
+                    resultMessage.textContent = 'Thanks for taking the quiz!';
+                }
+            }
+            
+            // Update progress bar
+            function updateProgressBar() {
+                const progress = ((currentQuestionIndex) / quizData.length) * 100;
+                progressBar.style.width = `${progress}%`;
+            }
+            
+            // Restart quiz
+            function restartQuiz() {
+                initQuiz();
+            }
+            
+            // Create confetti effect for perfect score
+            function createConfetti() {
+                const colors = ['#16c4e3', '#fe4980', '#4BB543', '#FFD700', '#9370DB'];
+                const confettiCount = 150;
+                
+                for (let i = 0; i < confettiCount; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.top = -10 + 'px';
+                    confetti.style.width = Math.random() * 10 + 5 + 'px';
+                    confetti.style.height = Math.random() * 10 + 5 + 'px';
+                    confetti.style.opacity = Math.random();
+                    confetti.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+                    
+                    confettiContainer.appendChild(confetti);
+                    
+                    const animation = confetti.animate([
+                        { transform: 'translate3d(0,0,0) rotate(0deg)', opacity: 1 },
+                        { transform: 'translate3d(' + (Math.random() * 100 - 50) + 'px,' + 
+                          (Math.random() * 700 + 500) + 'px,0) rotate(' + Math.random() * 360 + 'deg)', opacity: 0 }
+                    ], {
+                        duration: Math.random() * 2000 + 3000,
+                        easing: 'cubic-bezier(' + Math.random() + ',' + Math.random() + ',' + Math.random() + ',' + Math.random() + ')',
+                        fill: 'forwards'
+                    });
+                    
+                    animation.onfinish = function() {
+                        confetti.remove();
+                    };
+                }
+            }
+            
+            // Start the quiz
+            initQuiz();
+        });
+    </script>
+</body>
+</html>
