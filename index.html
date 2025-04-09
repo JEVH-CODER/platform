@@ -282,81 +282,805 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Quiz data - with support for multiple media types
             const quizData = [
-                // Your new videos added here first
-	                {
-                    question: "What did you hear?",
-                    media: [
-                        { type: "audio", src: "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/1.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=twRKCX9U%2FhSxZ0ahFTnOjesjGrtLR4rfQ3l4inyRTW7K5sysXdI6Io2RDLYcZsojuspOJx9PijgSUhgg4YGyIjgqtoidjxYQl4Nx%2FCHnFDWDUWJf%2BO3lJE9kq2SQWiH%2BAq%2FoVFj5TMCZoM%2FnPnV6aX7Q7TdoT0R5r6cMwwkzXw%2FpDo7li6ptvD%2B3UxQnGgd5FXs9VKVrfEphwiJmFtlfbJl2UivbRaj%2BSWHoXTukW9MicLY9XdmXrnqOqpOM7HsS5w45qeFgrwcGiI50OrRSvoL9yJm%2B9WwJq3cRqvjk9GQ7BNqJxDa2HCf6M6KaQnta2HSet3HN5xll08rhDxqoAg%3D%3D" },
-                        { type: "image", src: "https://media.istockphoto.com/id/1253077410/vector/deafness-concept-deaf-people-with-hear-problems-visiting-doctor-audiologist-for-ears.jpg?s=612x612&w=0&k=20&c=RTbJQXGzdnoFfnakTMISCFKd5ySZ_DheEYJ8agsqPUA=" }
-                    ],
-                    options: [
-                        { text: "Want to", correct: true },
-                        { text: "I want cake", correct: false },
-                        { text: "I was", correct: false },
-                        { text: "I went", correct: false }
-                    ]
-                },
-                {
-                    question: "What is shown in this image?",
-                    media: [
-                        { type: "image", src: "https://media.istockphoto.com/id/1253077410/vector/deafness-concept-deaf-people-with-hear-problems-visiting-doctor-audiologist-for-ears.jpg?s=612x612&w=0&k=20&c=RTbJQXGzdnoFfnakTMISCFKd5ySZ_DheEYJ8agsqPUA=" }
-                    ],
-                    options: [
-                        { text: "A mountain", correct: true },
-                        { text: "A beach", correct: false },
-                        { text: "A city", correct: false },
-                        { text: "A forest", correct: false }
-                    ]
-                },
-                {
-                    question: "What was demonstrated in the video?",
-                    media: [
-                        { type: "iframe", src: "https://yarn.co/yarn-clip/d42da0c0-bcb2-4192-b899-795941e0f028/embed?autoplay=false&responsive=true", poster: "/api/placeholder/400/300" }
-                    ],
-                    options: [
-                        { text: "A cooking technique", correct: false },
-                        { text: "A dance move", correct: true },
-                        { text: "A science experiment", correct: false },
-                        { text: "A magic trick", correct: false }
-                    ]
-                },
-                {
-                    question: "Choose the right option",
-                    media: [
-                        { type: "audio", src: "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/2.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=HKpGwyB8OiJE0hjJQ%2BsEX4Z1JHsl5C7MhgGBssuyPCq%2BnVm44pTPkSA61x8bESx7GUjLSlRj7sN6%2F%2FIGE926EoPrqZmESRFzRfPX2G6iuGoiZsNsyP7UnX3uj9NmQsLkge%2FRjmvVOnuU74rEyohWYzda3bmfWrVtwn5Trp2GRBkL1X5d2%2BAn04wEpZDdQv1OaG0utHyP40oS%2BrWdH5XqDxM2UK321XDMdYTbGwK3irrRD05H15UyRbsiqb7I6VtTzemKu2K5BxWNCar4EGZgwod1wdyNq6o4ITQ3nfwXzhPO7qnFNFxPW7PDeQBqYPMcGW3su6iOC%2FuG9sbs6vAtIA%3D%3D" },
-                        { type: "image", src: "https://media.istockphoto.com/id/1253077410/vector/deafness-concept-deaf-people-with-hear-problems-visiting-doctor-audiologist-for-ears.jpg?s=612x612&w=0&k=20&c=RTbJQXGzdnoFfnakTMISCFKd5ySZ_DheEYJ8agsqPUA=" }
-                    ],
-                    options: [
-                        { text: "I went", correct: false },
-                        { text: "Going to", correct: true },
-                        { text: "I got there", correct: false },
-                        { text: "I get", correct: false }
-                    ]
-                },
-                {
-                    question: "What instrument is being played in this video?",
-                    media: [
-                        { type: "iframe", src: "https://drive.google.com/file/d/1sztR8eXa__--4lqHWpE_IK49Zkyb9eVR/preview", poster: "/api/placeholder/400/300" }
-                    ],
-                    options: [
-                        { text: "Piano", correct: false },
-                        { text: "Guitar", correct: true },
-                        { text: "Violin", correct: false },
-                        { text: "Drums", correct: false }
-                    ]
-                },
-                {
-                    question: "What instrument is being played in this video?",
-                    media: [
-                        { type: "iframe", src: "https://www.youtube.com/embed/3PxAw535HYs?si=9qnsWIGv035k4pDg", poster: "/api/placeholder/400/300" }
-                    ],
-                    options: [
-                        { text: "I went", correct: false },
-                        { text: "Going to", correct: true },
-                        { text: "I got there", correct: false },
-                        { text: "I get", correct: false }
-                    ]
-                },
+	    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Are%20you%20OK.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=OpyQUl0iZZztysvutS0mGYEI9cxRmHK6sh3uMR25pcS2KuHs9Z9z%2FQAu5ee63fPNNiohf9Ri0P3ReKSETTyjAlUr5r1FJoV23qIEYY002FkdZYk8k7JK6iHB00HEMvcPAC5b8lxFWAW5YPkEOisyLn7lXN7DcDnn5FCoczOKJfyiSqCrJntcAWjiQYeNlCCqiDTPxd88YaL%2BQQ3zc4KpDFAvzZLHojCI%2FUgDdFDutKsznmJ9a4%2Flghta3AsL4xvJnECxQMvObeorySfecXWFAmJQn%2FBz74Wo6DfIEoc6SktEprlhgOfR4uI4lXNM8m%2BOjXQGfp0TW8wD%2BDAstPy%2FMw%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿Estás bien?",
+          "correct": true
+        },
+        {
+          "text": "¿Estuviste bien?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Aren%27t%20they%20here%20Aren%27t%20they%20here.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=BGGyAa9eN4O0bWWY0HzHO1RNaZGLmRY%2B8aYcZYBrSHj%2FAMq%2F26fAzDoBVAu1IcrStVfdEg2An00DS4XjZQ6vny0coKLoiZuTc3lbKLd%2FM%2FnbujWCd80Y33fW5z6AzXLP4punrPC6EqtlZpcpkNl8%2BhLaAMy%2BrDL%2BBod8ssQTZ9ueFw5gfe4wszJpRKXOGGTMOm3YcIUekdq5hJlEVPnuRl1fXCDqJ65%2FH1PatOaeZ2VsRb6Sqbmf36AXiVhoo7lgig7HwUqNOj7ZrUyGIq2g16tRxn7KIVAuiD9tigrYMHqWkvOyEuGVVMIRYKGDAEm4HwvfNv7NbOeg4qZEkiJ1xA%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿No están ellos aquí?",
+          "correct": true
+        },
+        {
+          "text": "¿Ellos no eran aquí?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Has%20it%20been%20fixed%20yet.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=c0Sr4t3SZSfWbmWWZqPoGCG%2FBUJ6vMYoOlYehppxVavPgCaRa%2FmM3AJOyXR5ve04bVwEujEoDs17R%2F0ZK4S5kTQEL0cl9dEoXQvK9Jglvcu5SGDCS5G%2BHE5gMLeieTGKSy3wOD6T1x%2FQvNWL2Or01m8WrUIsduuEiD4xUNxfF54ukNXsE3oHnD1BDxyd0tyvKYq7YreBhke8abplU5mUlZ5wTD1f7LNvSNWVpR8e4%2B1MO5N3zW2oQv3Y849B%2Fx43djHopC%2Bwd7x7Z2wkdbRK7m3nYN74hO8WZPU8ydBhI4tMlLU7pZflpvX7nnVKiNbF9CV4KV5vl5nO3xhKWoFvrg%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿Se ha arreglado ya?",
+          "correct": true
+        },
+        {
+          "text": "¿Será arreglado ya?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Has%20she%20been%20feeling%20better.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=NyY6m232LoJk%2FjzFGfgSzapD3fBCGfcQ%2BThkyjFC%2Bzr763OTaIqvzjVKt9fhDRqxRCA%2Fut2%2FMDUZGHocAznWx49xwGeQvnjfXeKdb%2B7SGzd3%2FUkcI16qbyJlw9NYf2wBx0lHHQvaCX7r%2F%2FP7c4MAoVRHbIOyB0M2eXeOGBkC1gRbsr4qCdl1v7ChJEIa4sQoTHiHheSjivxrR%2BMSgTBkuBdekE8Sj7uTR52L5VvcB13%2FX%2BYxfKJjKxYTbvzFZ3cfFhJVtnW%2BZ8fvsBNJOdvcK6HwFkJTXkv2XJP6BmJnyOeHLY0OETi2tdoYlZ0FzZaD5YXE0LX2POQ90yGbyK25rQ%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿Se ha estado sintiendo mejor ella?",
+          "correct": true
+        },
+        {
+          "text": "¿Ha estado sintiéndose bien ella?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Hasn%27t%20he%20been%20working%20all%20day%20Hasn%27t%20he%20been%20working%20all%20day.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=FnHkQhpBTbLL2LKkRgW9tshLzBKINMRbgdR3jLvn0506O7HOgtQlHOlymNDXQmY4JQjOpu4m3jwST%2BgfauqTfnZu6QoRVOLYDQdJnqkpnijy72NThtgvIo6Ie7iPDMIlDbu%2BJ5kKDNB%2FZRlhgss6bS9NkCV4yPZEAKGKI39QT7qUrwdcccYo7EK5tpfET1q77Md0uKxHiHbklI98MN2kloTqMp6HeNWcEo4h5iKsqV4bBu7Z822zdu6TUxYml6bowtHfcI6bE7SUwqy2cAE35ylcB6pYiYX%2B%2B6WK%2ByJl3aXTEK0gT8NZcD4tPftAJsXEA5S6vp5HL3sh0NUrl8POVQ%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿No ha estado él trabajando todo el día?",
+          "correct": true
+        },
+        {
+          "text": "¿No trabajó todo el día?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Hasn%27t%20it%20been%20fixed%20yet%20Hasn%27t%20it%20been%20fixed%20yet.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=Jt71sUoYGJSmTg8RTSob7mPKh3cY08%2FB1YPBLRizjXw5RtHahdLLBPKemjXFq12f8%2BWkAfKXdcEXx4j6V9NiCY4cObFfo1BASil7cvMSyV%2F3nAT8IeE2GVwgW%2FiocA%2Bo7%2FdRsgMnVNzmu%2FZTqiDQqAkaDLh0QySbMnRAVTqS30yhQdvXUdqcJ%2FE6XEZv2DQYnQmppDpC5khJfDF0rwNRC50PxKBrH%2Bc5Z%2BaUKs5inzlUSLSv2M5RIO7ByZzME%2Fy93BwBmDjymOVqngyFGityzI1LXJ5RppfIRxxrp4TIpYAoKft2teNs3%2BBQCHaz8UWVOr41lvC8hmpy0QaHuWj3AQ%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿No se ha arreglado ya?",
+          "correct": true
+        },
+        {
+          "text": "¿No fue arreglado ya?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Have%20they%20been%20to%20the%20museum.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=fRf0ww5Bj6Otb2ofzkFBPS%2FfXFxcibyz6LORG9OcSCVHYH%2FTPMQEYX6UZoOHj3ixMKuUDxBIzVaLL70XWfHjXO5zpmh4DM13Llum2nQt60o1vP3XfZKY8WTGBWEszYs8AX3dDe%2BUhQAdh14z%2BXw4jswxzsPC9EF8DS%2FAn9WEwveE76dgFWJz5%2F4HSYifOKu2MYuXhsENG%2FXj2uaDjDtlRkvuKhSIw%2B3YPtgyMgLiWeHItDnzKG6f6kLC%2BpIPcIcMn07vaF9wjlZZl3UpA1yK%2F%2FNBTVVOSYrE1ESZ2yfpwiRdSNF1fArlUXfpFf4iUBdmrMsu%2FlZnnN0c%2BwxNGYOjiA%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿Han ido ellos al museo?",
+          "correct": true
+        },
+        {
+          "text": "¿Estuvieron en el museo?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/He%20was%20not%20going%20to%20finish%20the%20project.%20He%20was%20not%20going%20to%20finish%20the%20project.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=s9rBkSrnKocBu4sJHTvKeG1TbgtPz%2FrrDKSAeTKysmbXuBQJR1xUIKXnruwF6ZwH2%2F0sCi%2BZFspZlHufO7aP4kuqE1yHbAgt4Tm1lEmA%2B2YhK3bLgu6hiCE%2FP%2FhWXNbO52lMMei7bfktoQ5yew3aUONCsO0mzykhYqtT7hc9%2FNkZanbn%2B0%2BW8%2B2Z7l2OcJ6p4tnhb476anwzbY06x2bC24uE9bF8SElygnWmuWOoS3glCsP73oIHZn6nS7tP2ezE2p7gPIPLd2RZcIJiUliYItuTLqaw3oV3TllXBZ%2ByGIgXZmmELdxjuAA7P87Em73Nqz5N1NbEWjiUsP8hAIu0vA%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "Él no iba a terminar el proyecto.",
+          "correct": true
+        },
+        {
+          "text": "Él no terminó el proyecto.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/He%20will%20be%20arriving%20at%20the%20airport.%20He%27ll%20be%20arriving%20at%20the%20airport.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=an%2FLMBLxAQDxFokulsbSh7sOc5Oer2U3pcX9wVTSZbNdZIbn7MKacjBBcaVytwv073xIX7TzjyCwI2LNcK4VmvY%2FLp96nrvZ8UDTCkzpBx3m8skt%2BpSfAQMb8BRYFdjNQJWEr2uJRBLoUtNBrYxjnrIgbDNwl9A7NoApQVeBje7M53EsdVIb4ZO7o6bocjG3TMDgPs0BmgK0NkM6LWcvSk3waOiQg8GH9w%2F%2BEuEXSQ5wuBSOwUMu39x6A3Fm442jTslX9Rf7inWfSNF53qFogofxhqp2OGrXz7HARQkb%2FVFsIVH%2BEWSl1WlMWwoUGSlgP3MGVSGlNSHNoTpWaDtd6g%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "Él llegará al aeropuerto.",
+          "correct": true
+        },
+        {
+          "text": "Él llega al aeropuerto.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/He%20will%20not%20be%20ready%20for%20the%20meeting.%20He%20will%20not%20be%20ready%20for%20the%20meeting.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=qxCKnjjhIZDlbwKQa0xUCcbYYklH8hv8cQ14x1ZQJAjGjysqBKBpxr06V66n8jKoyEqtz%2FBNBKHGiZgtPYBqn6rKY0ZY0YApD84dHiYbNfTnyIanDSrg9rChvaOLIL6OrLUxraZ6HABpCfHZpUdzd1p95P5PgcW9lP%2FCsEsytuqC%2BMmvSI4m%2B4Mk9a78iMhTHxg1cXdprNPg3Kd6geA95S0OeuINei%2Fq9%2BnU2lPtbpCfqhs5JRSgL00rIBgJJNwKOCCGktudFiiV1BXd%2Bjd1zhGlmGuClfANykh6c3u6PW%2BLhxrqN8tq4TR94R%2BxCs4uTQ7mYy6AOXwkaGFsdAXM8A%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "Él no estará listo para la reunión.",
+          "correct": true
+        },
+        {
+          "text": "Él no está listo para la reunión.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/I%20was%20not%20supposed%20to%20do%20anything%20yesterday.%20I%20was%20not%20supposed%20to%20do%20anything%20yesterday.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=jLk7%2Br%2Bxhr%2BQyjZ5YnNXm4jwCE9QZNGEy2m0ghXdpDaUQBp27EYsaPAgSqCj%2B4s3iFnEK87EBf%2BLK6JZS9PECbxpFgNBsn9TR1x0YeuIBeo9QFCPr9zW6ZNPMOP7Gu0IrCKbWDxl2%2F1l2p%2FN5hHjiOhlKaaaQJwrO3yTDwfbR%2FMdJkAHQyzSahEYcecbt1Tz%2FnzqULGdKWDX6H6B6eQQHCdcgUVr2UJzX8iMfN5Tqfx0KQtnebmy7dS1miOm7saGmsyiOIBn3vmHtMShRJfYgjgvQjMAmexFZ8BDvcghS34He59nBmNVVB2UBJjm2K4UgfjoyD0b5SLn09FyrqkuaA%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "No se suponía que debía hacer nada ayer.",
+          "correct": true
+        },
+        {
+          "text": "No debía haber hecho nada ayer.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Is%20he%20busy.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=loZGg1y2tEmcgl4iSqc7OoW9AbhCvl0Gc17lnIGyxyK6RxK27E0tVUqdWzVTUIQf%2BRV%2BRNq4wCPg3ltBdoN%2B0X6YoZIrV%2FIXuQTCOu%2FjQPgmCuLepDIvHn%2BUMEAnNJdkUPBRS%2BBV1Dej4ieYU%2FtK9IGxwTfOf3jTXzZEkTWJSk1jWIq5CTv8nEQvAjJ%2FPx%2BPXJwaBsEXlLtXh6ZAB2UFYjAN1wPUdTJQxd86X2qchkvxfrCCrrc8IW%2F8KfiWlq5bDc5xkCQYS1qwvTOvi0QXZuKHr2FhVXZezY3SgQMBKTaZt3aPhUNbjDCOuBsH%2BJV95s%2BLtRDzCkwq3RUBI8YYOw%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿Está él ocupado?",
+          "correct": true
+        },
+        {
+          "text": "¿Fue ocupado?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Is%20it%20working.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=MSpiimEnrzZ0lvF%2FnlSx2zn2NMvRmr31PbPcmSdyDJGeMmVZ2TOOCgo4a89v9bXE4cS3XflQZqiSjmJt%2BxaU1HGvq%2BTqtvfc%2BPYabr3aP4cfBmLDZpnHOzX25DTO2K3E86r4%2FCe%2FAYMK6v2qa65BW7r7qTgfZAm6vb1e5ZS3dkMAdEPgVntWeOdNH28SS2DQXIEZlo0CtFu5JfnCZ0lu1vf44GjcZJlvjYEGxF2xA6AfFHWVDxULWJJXe%2BU3nLqbJOmSGTKO8RFoGnkix4QLJo3NaVohjYJkviqQgXb7u6hv14nKGCiBmQqW0%2F1%2FUWxoVuGjDuThf0Mtmach%2BYLbWw%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿Está funcionando?",
+          "correct": true
+        },
+        {
+          "text": "¿Funcionó?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Is%20the%20car%20ready%20for%20the%20road%20trip.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=tSwNoD9bWSu6D3MUSk2rLGTOzZyDh886dMHS5nf8r8gO0tPuShCGImoC%2B7NJhP509boBMQcKwOcj47NMPX9nA7SjMNzwn0zx3XR85lZvfQ4T%2FPV0Q3MlLTX9CWnQ3AoSsZCbfjtxoBkKbhbXpYCKisOWYf1kPrOROowpEKGADPOopxQFAZS9vf%2BjL7mlO295N787WGAcTVkOO2dz3BvBxJw2pqdlVJhfVwnwmfeb3cdIb%2BdVeIRswrM58D%2BfwUFevqjaL920qvWH%2BJNTjpAX5i%2BNyvL03YhTW7LOWG4u%2Bflpe3YNoFGSBqk%2B4Sj1qPSZ%2B9XgggkuqlA9XXt95OnbtA%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿Está listo el coche para el viaje por carretera?",
+          "correct": true
+        },
+        {
+          "text": "¿Estuvo listo el coche para el viaje?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Isn%27t%20it%20working%20Isn%27t%20it%20working.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=ab8PMReD1hUlM6muz3ec3B%2BLFzP%2FvVXPNZPnAkyhOhspaaVNrLxWAPt7SVA%2B0KvdnpVmqaS%2Bc6JAkgiKMcQXsioGbNIobHBJ3atSe%2Fwl01VP6w5D1Gj3TzUEnroR061bXJgXIbNU%2BRj%2BroBQ2OwpRYD9Uu68IUjiB%2FayQL0G6%2FPPqYbBhYI5cX2nblcfhzh5binpMTOndvq%2Bk34BF3jgvuF95I8i3RxRdcqnbdMDL5ODCsErXrOp5IRMfyn5s9Dq%2Bmx%2B%2B1xoMKC6BlAhB7yALiGU41VokZW%2Fc9d8Y0MjI5pRs%2B3tR1xxLxCGg%2Bl%2BnUL8zX6ufgCO%2FBtPkeKbChYMCg%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿No está funcionando?",
+          "correct": true
+        },
+        {
+          "text": "¿No funcionaba?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Isn%27t%20she%20happy%20Isn%27t%20she%20happy.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=Yc5wa8Oe7UFvPpUGp5%2ByNAqhAmvjuptQYg6nHfJXoDBVQs9WWmyQXPMY3HwvG6bZfMtd6RdPuiPQ6OTooVJHm3G43dBOtRke9Y%2BYXDgdwCDzNJlSrAGRRmIiQawDNerCkGksbZibpgYClj%2BCmfITtk77NLrF2Em%2Fpau2pyzi82O7OragEChZxqVDwgr8dgH6yi3A3B4cU%2Bpgx48eNu79TFD%2FKeVfMTjXXvrUIqfK%2FViLlRZ%2FndJ07d4HANqW82pAphBgFY6664rQULH6cMYqFGZbeke6VEtX4Y%2FXW3YojeXOGamh0pamFmffWEjkFfHixAn0yVor1VqKBUOq7zyq%2Bg%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿No está ella feliz?",
+          "correct": true
+        },
+        {
+          "text": "¿Ella no estaba feliz?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/It%20has%20been%20fixed.%20It%20has%20been%20fixed.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=ikPgvoFqMqM6RqzKoQWoCuOczYlDxK0yd%2BVEGJM6A7njAiu0ArrfssTzMbT2ONbLOtTfrhRF38SKrS%2FeGatuZnOju6e38bUX60WjGGbSWu%2FWGLRG%2BnVZKtmGjAlvEZezQLxAzEvKlP2yTpXfaS9%2FIHbGkmTesr9CB0bqKn9oS4Uc%2FhEtchafS2yQviAzY9RaY%2BUUMXPIzj7DFsJq7B3XikD31TGZTXfoG8B614jZyLo3TlFeQgS9k%2BCPCSP8%2FRnNXhoVLXSl46OvkWkmbVmhG05UP0XzQM8an%2Fn8pOv52oevzHW1pHf8Q07APNG69u6MPli8S6bVuZexMrfGghRJNQ%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "Se ha arreglado.",
+          "correct": true
+        },
+        {
+          "text": "Fue arreglado.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/It%20has%20not%20been%20fixed.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=eY0dpttwK%2FYxj1l7Si8LbBvigdj5HTXFhr1%2BgVVaR%2B10g%2FEjFfzhe5RxXhJAuPXXi%2Fua28GBvMvXRDAlBe6Z5cYAoKh1zIXHckp5JAr%2BDexgRY2d1Ys5XFWOuG6Sx%2BA0g0wUlIGQ2Uhs5qS%2FMeU3kzHtrEhxmI3i88ApUe3dNWAOlaVSnLcJuFlfs%2F8atjH%2FW73iRz5nplF3vZBL8LWQU%2F37K0Bgm1v%2BOx79dTSeM0nCEc66acqVys8UzbLseCV6t6%2BnIgbiC%2Ftx%2FBuSIfhGk1G83rZkQDxn7mqyc15Irr%2BJQhq%2F9lBmz2K5hNeC%2FVT8QohSrdrmRETAYjVGJILOmQ%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "No se ha arreglado.",
+          "correct": true
+        },
+        {
+          "text": "No fue arreglado.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/It%20is%20not%20working.%20It%27s%20not%20working.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=eZlpuaJ%2FFtYrW8fbxmbQ3jkfL1MkrBMXY6oAntE01Zvf%2B3xkhfI%2BBylT0G1CTkf5NIhlSCJu0%2Fu%2FVeSn18KGvpjDYrktAl8eEKHx%2BZm%2BOjLzxssFsRkFjLTDhnmTHBIlxfFQjfyQWvAOx7TGzF3Oz5xMth00ORHJs1AyTvc0OgCZ%2B31K1O0iwE%2FhW5yq%2FkggB1R59o3gUFjrpSfmiVoolqWXl0dOiUjW5TqEcmfkpoi0xi%2FxZ5jGJjnuMNJ3w4pt7s8Rw4Xul%2B0l2foLaQsloqzyyehquyRZeIEnltpqRr3YIdQvn5XMcZx%2BZN8PPm10FL%2F%2FkBInOClFsjZFuE8DNA%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "No está funcionando.",
+          "correct": true
+        },
+        {
+          "text": "No funcionó.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/It%20is%20working.%20It%27s%20working.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=hUxW3pOPZIW27RXQZLH5D5EGA1pY%2Bv69xWzLyECI3fg63oh58OjaJyh8cdSRNa8SFyRq9ME5262vcoI%2FXrQyEq%2FFPbyjUAXmybnsw49sX9uCtSz1aPDcMEA3UC1plnsIVKhsgiTjZzvCKpXPC25yVf3JUA9SXXH1z%2Fb3G4FrNhR8Y6%2BCf7EWUeJRL1mvU5btyitYZ3EWm6AOan7RszDJlYTd24I69Ora3MmDuIqyJhNNzs4DRWcpQolC8HvDrn7RdGPJvFCeeZvOZZovjqhvqjJXCU%2Bf4wl6ieuEhTWmbssu2e6qaleYeIsswpJo3JxbLligVT6l1%2FCD2d6QO2RNYA%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "Está funcionando.",
+          "correct": true
+        },
+        {
+          "text": "Funcionó.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/It%20was%20broken.%20It%20was%20broken.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=ZYX3xHDyev%2BImaBjpuuUgmga4mjBBdsBlcZ4ByJ0BE03x5p%2F9KopZ9GWl9h6Ljv7BA%2BAeqVKFiqt93UMZgc7qha7ygnvGBe8atror8EUFMM4FfoAh8guS7o4oMYktPCX6CwQ1xeIyqHo8zInJFM8H1J1UKWJD8liNPMxa7UZQiYLTCjq5ZTJbwzQmBUcgFJK0OAQNMn%2F3w9VAQ59lIVZMIvIa9PtrbvZ6gCITKZjGNqe6TQejcTsqPptc8rg68d0bJFLmEWxCdMfIQ8SUbk8ZC8oec47L08NDGpCU1tRh7E4wmPILaGR%2BTEbu1oMF7LvzPv6lsYqaA8VOgKP1g%2F%2BKw%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "Estaba roto.",
+          "correct": true
+        },
+        {
+          "text": "Fue roto.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/It%20was%20not%20broken.%20It%20was%20not%20broken.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=Cw7HLia6p51dIDtEpkgpO8oBx6%2BZe9nZKcWkzfdE97NgTyTLcSJIX8tDhZA2KQ%2BWSmOXeGg4exTXYGI5aOW8zIStihdnhBuOnkWyANiTMPeT21TqmT9pRLtF%2BNn8aAwwMicsh%2BhrznlI9ERIfYdacsApKV4%2F%2BPde8FeO%2B4s6XwRYIaen6CWRfWesRuLkAnDkwdvQyr8IieSSAb619nITAt7Im%2FrD%2BlefqdnZQQBQ31bVhG2Gi9%2B257yCwl%2BtcX%2FKSG%2FMqTaXx69Bkf55hfLyKwVLjOJZnCkz%2FP0OFB0vIIZXYSVb0cVrRpXe15xvw%2FREsrPnibQSFAk0sKRe0vjo6g%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "No estaba roto.",
+          "correct": true
+        },
+        {
+          "text": "No estaba roto.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/It%20will%20be%20done%20soon.%20It%27ll%20be%20done%20soon.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=bJHNq2QEGi%2BpsGNkE0%2BsuAyMSuT3TRIBWfRp682tpt0PRfW%2FpSQz2NC5ow3pHNmWk4ho%2BlUulbSXUixR486YPA2Xgdpbl56VyXvOJjDuCZHWl2UMrpUmrFfELKqnu%2B%2BWZNP6wUyQbWY4MOruI76rX0sRnYxCD1N4vsmObDre6uIPit5oeQZc27%2BP%2F0rHymL6whi2lZCNmGnJ7fbWizLN9OKlukiyUCkU4ARZ6UjC6VRpOCOO%2Bc%2FrwvJM97hBJYmvibfwOlAfxMEc1XihMImFxQz2F4rq0Sar2NJLBSMxBKJAgbtzBApvu6wKZS4M0FZ6Lbez2I6JhHw1fik0cUGX2A%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "Estará listo pronto.",
+          "correct": true
+        },
+        {
+          "text": "Será hecho.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/It%20will%20not%20be%20done%20soon.%20It%20will%20not%20be%20done%20soon.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=iZWQiBoXQ0m%2BLd%2FS3l54KDcEJYLwO%2FqbwazJHae1muzR3oj7B4R%2FPGhXu4lYgg7x3WHvt0PGC1xhdIcruuyw4u0R4VTUCmJS9z3V9bv3jhpaMPv5ds8gVHJd72AJuVzBnjzTuZeXrk%2Bf1%2FyIrP9AvHJ5v4JiQ7YiICNZ%2Bq5zwEaLIF6PG8eOk%2FS50wUnlqFc9SRSMfd23lb%2BolB50BV3%2BXsFkk%2BpcGqhsK%2BRA5V2%2F7Je2Ks23REKCIGxv15%2FDbHQnh37Xi8MRJglSGCr1YYEpYE1vp2Sn%2F2fvHZE9FAFY%2FBXq9DY4ufxf5ZsHKzVcXC2FxJRQRCJLrdhGNFgrtrtBg%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "No estará listo pronto.",
+          "correct": true
+        },
+        {
+          "text": "No estará haciendo pronto.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Maria%20is%20not%20attending%20the%20English%20class%20this%20afternoon.%20Maria%20is%20not%20attending%20the%20English%20classes%20afternoon.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=r5SlFiSp4M%2Bl%2BAMtRH1jRo0jEycOVXS0K2bXi6oMbmkozGra4fwT9CYzx8f5buthjTDqiiFvKshy2dc40m%2BtyuIALkUrMsnmoMjK3CWjBOE5Lcn%2Fnla9Xo%2FMmF0%2Fupa9zmRozGFp8f5hHnRKfxxUTO%2B9VcjivHUKugU%2BlZb4YBIulWrhbHru0XlOgOG0iFYorW7xcsZh1r9Tj1ouQpU4u9eUxIDKtLV9jt9A5rVSIQdbInRTT%2F66T0gRG8PTpl1Ew0EJo9UGndp8xZJRlHRPmaaRXH%2BvdvGC4URRxk3SDukEEVIRokypvhEJ8VcrS5J0c1had0iV8r6gn658m6zODA%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "María no asistirá a la clase de inglés esta tarde.",
+          "correct": true
+        },
+        {
+          "text": "María no asistirá a la clase.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/She%20has%20been%20feeling%20better%2C%20she%27s%20been%20feeling%20better.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=I7lUe13G2Qhj9qdXd%2BekXYotrdcnO4D5tLkdUrS7un4dhok%2BjlG2SEFlc%2BVdNN066FGGIDvc5IVUZpb8t7mshtExw44WndIq2OQEMGu205K1jgjgOPSIHPgRjtkj6C6NGQXCCqlIalI%2FaTJXTfxGqQZQ%2FcNp%2B9%2BWUerkRMqBp1lEmCMC1Pm1cCDsBMba0tMziedmsDleFnPoXQGNdAJij33RSKtBPoHPVMohwprDLGL%2BprqMZ4SSkZAMKJCRgMS4t7N7749J%2BGe2B48tPfV6SXe2pUF8NZKg9uBfl8t5%2Fcuc29yQBo8KqAIA6yK5styHG3ArbxfMLYlBwDV79TFTDg%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "Ella se ha estado sintiendo mejor.",
+          "correct": true
+        },
+        {
+          "text": "Ella se sintió mejor.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/She%20was%20tired%2C%20she%20was%20tired.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=jF6vmypfP3prTl%2BoaBW%2FKsRo74yM32Z%2BSPvQlUh5Pi4ua%2FAKSuCuyv6U%2BvZE7IgIr6z6H1saph4pLYjcejtXY4ZtGXOy8L%2FfXtAITe6hvQl5WCy5tKdHNp3WvUIh%2Bsudlv5ifXX0ansj8lwtBL8pBIrzhXTDHgL%2FeXZAzS%2BKVNBzNndGEXeU2K0g4IJDCumv7Jbn5dsVwWzuwOpVcBUjqg0so3QwI5otJXTpv%2BNqm7tx%2B0P4PVqoF8SzLgCa9VZk63%2Fc2J1TbXgTCt0UGQeszRXhgRPVW%2FTYTK2opSW6gB0BJNFFUE9ACw3zdOLRG%2B0O93fd4B2WOVhv41wK5QD%2BYw%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "Ella estaba cansada.",
+          "correct": true
+        },
+        {
+          "text": "Ella estuvo cansada.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Someone%20has%20been%20in%20charge%20of%20the%20team%20since%20last%20month.%20Someone%20has%20been%20in%20charge%20of%20the%20team%20since%20last%20month.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=SkOzFycCE%2F5bChpIW%2BqyMIROVuUv6iHM5w8clfve0HQXz6MWCkpUSheLr4UBdqh9Jz9C013RIjbKzsbL1mqZfHSt9qMZWpfSM8X9B%2F%2Fk5E5JGi6R9aQDR%2FX3qc0Qcc9UPrqBK7EXG55mtXbqSDlAZUtf5%2B%2BGEifcU0klwrNqlZwGwJ5W332Wdmh6PVDMh71ud4NEoanQtS28oykcBMwvztAxDno18q1wCHj9EvPfqzOfkQytEHRu5U%2Fqr9iTSHhGeY3loUBoNyFarfB5E18x8nk4d5ju5oicNj7DJY8uU0YW0wYt%2Bs994BHriGOzmG%2BKKBGN4U0wWwXJ7L%2FHF1xNAA%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "Alguien ha estado a cargo del equipo desde el mes pasado.",
+          "correct": true
+        },
+        {
+          "text": "Alguien estaba a cargo desde el mes pasado.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/The%20car%20is%20ready%20for%20the%20road%20trip.%20The%20car%20is%20ready%20for%20the%20road%20trip.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=dhmp1%2Fi9xJu1YzoDCGgUGbg1%2FqsZGfa1CF0ojmWFXxyuhzR%2BdcXYIVUi9sb%2BPJv2nj11T0KeU4eLGuI0WMSOTDWWpdcYzjSFWVQNtVSl4JkmqoQia%2FjSknykB84ugn%2BFFynjOROVZ0mbiM7fyjpdQB85tvrc8F41die753dyINODWrlFunKNw2yKFrQ3aUDJIa5J8j%2Bkf%2FnVxYqC34stGnXbUaXGX0EvpoppAU7ttV8Tzu66BL%2FEznmPjFATZ5xcYSJ6qD16Ct2GO1fbZ7%2FDjgsFryh8EiXHFeHXrLql6cESLifmCv2p4eTEmZJxsg1yBx26Pjm4hFafrxheRYfc9g%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "El coche está listo para el viaje por carretera.",
+          "correct": true
+        },
+        {
+          "text": "El coche estuvo listo para el viaje.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/They%20will%20not%20be%20able%20to%20help%20us.%20They%20will%20not%20be%20able%20to%20help%20us.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=iREb5Tm%2BV9XpbfnXmlTkP7jrmuUK7ZvATHuVcvmV19NbIbSfnHmToNbZlG3fptOmwaM6bGfhRTyJfiKhkoDT0%2FHZpMhGyBpgUskPeB%2FN2i8nvZQQ%2FOQ6xA%2FJ7wZeCHBYngdZXmKSoz%2Bu994lo381i%2FUGuJrvWskGPec6Iguox1e4DsRy8GjD7rv%2BKd846%2FrOL4wx2CN0XgmfVd6gGi34QiUYbppZQEFw98sIZeuxho60qQ06w2C2Zwi5qU%2Bq1wjV9Czjgo5Ks1YFdjAhNUdibxk79uo7QlUvhLjQzl%2B2lnwNvmAMJYR2hm3Kg3fTzaDklhATc8Eyn1UvQZLaXhnhfg%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "Ellos no podrán ayudarnos.",
+          "correct": true
+        },
+        {
+          "text": "Ellos no ayudaron.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Was%20it%20broken.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=OijxSaLjSkqxCGz6x5hwDesxhsC%2Bs2mZPSy67B%2FwTYcg1DAyTEb%2Faz7U5sQR9uVPQsg93e3GtBhSJ7UkDHrpTyPoc%2FTwG0NJTSJ%2BfqPJ8EcOmZhF3Cv8o%2Fb6lfG0Jx5bXMrPRZSxKaq1ATC%2F1AAKbYreYlhBVr6U0gHxYcrlhfKpZY6fWavIjA1PONOcpjpLa5D0aF%2Fs7rD2CgTzchNEIPBP6hEOpfHIbofPEwISEAurW3vuy%2FuE0zfMKEZ9tmli5bdqu0vNbJjxBPbvqZIfEbVCuja5YtmDnn2CqFXemr9grxTEfM2a9cSoOZRtPPkK1Yu7rb6Vcvy2yJmRUiH7Aw%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿Estaba roto?",
+          "correct": true
+        },
+        {
+          "text": "¿Está roto?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/We%20are%20ready%2C%20we%27re%20ready.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=tYOhdheSeb71eMe87dMc4CFLdtUZO7MrcI25771PhWMndIaT1cmd1hlwNkU%2F62ts7g%2F05zerJFMvoL17L%2BcKXaC9yxJwuoMmNKjcBg94cMHzf950IW5eWv6fiiq3iBdk7l%2Fd%2FS0vZUNUIyPgMoSPQ8aw0p%2B%2B4HzcVagVVXJzgmwScC6Qe92kK0Rbx7qnDJHtHhiqxM6hm2t1yujeVzeoX2qQUPXCp7ROIfva0SqV4xvbLwAuRa7H%2BJfGtEbCrk%2BZvhctEiQJhyyZVMrtIjNEs5gwopIdIXR0Gn4Iy5fA5x2V%2BCM48wm9wUUXAGKdRHumj6rqhBysD%2BdvXP9poRsMPA%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "Estamos listos.",
+          "correct": true
+        },
+        {
+          "text": "Fuimos listos.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/We%20were%20there%20when%20the%20accident%20happened.%20We%20were%20there%20when%20the%20accident%20happened.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=X9v7VeV1pNPdH%2FYjcAI%2Bsn8DhfCn76PpbkPKsyC8s%2BJ8mikhXz47%2BYhKSngojDLPosox%2FRTNwHmROWXDI1nkAAO8CFJXmDSHucjLa5QjUUAqHqHW0FiQbegr37GkynqKtC4O%2Bo7mJrbBRdu4BHyL4PgOTBglmcLPqUdoogj63i%2B2ZT8%2B%2B8HLAII2uEWd9ylUki%2Bu73bbm70uo2YGKbrXR%2F8EPDaO3FkAhIO9He%2FC91T3ubwKpqMP5ss0o6sqbXVfReJfVJ7AX78n%2Fng4Qur7WK69AE4fa%2FShSR9WR%2BMGCA8YMpS9d98s7rbBea48zI6nVZTi0%2B2TOo3Udu8Vrglc7w%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "Estábamos allí cuando ocurrió el accidente.",
+          "correct": true
+        },
+        {
+          "text": "Estábamos cuando pasó el accidente.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Were%20you%20there.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=bvPahvmLL8fUJsU46IgKkpkXI7f3t4f293MIA6gNkBuIQKVC7nlumFipcKjRoEtd80zStawiPM222wCkBcxEvok6wC1%2Be7eeLRHGKMVU4Sz7pOZGQDGwLOFB0OVMPwosWP9IEQOMpMNssscNu%2BmO3ZlmsBpgWu6L91jyNo%2FsbIsETFxPmxbk86up2bF%2FzKbk%2BphxbYF%2B5vfqewYgk%2BYeQ17GittxjYK0j6iuvERgrMxEkbZAIwEhnFSaYioEdzRpDPuq4n0DyzDsiRYDwcrKfQXfkubWmCkFxe9x0CwTbxKLSSbyY%2FTQU9M3IiGs4%2BNGsuJveiCmFDoHjMNMWxqbPg%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿Estuviste allí?",
+          "correct": true
+        },
+        {
+          "text": "¿Estás allí?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Weren%27t%20you%20there%20Weren%27t%20you%20there.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=jfmBpD0py%2FRGk5bQBYO9XEoObTzVdvMK3%2B%2BxSm3a2sHgZYJ9qcswbn%2BJUkg3bT4UVROccEJsrCYECGuySha0Q7fjybfQcGVEsf65O%2B9n8DNRxr7g0ZxyGPY7vWDSL%2BYXC5ebF4yXIbE8wJix3qlWvyK3CbQEUerkQvSaWLEplqrCuwJa%2FovxgTM3tjeVTapFFdXNI6x5Eh%2BL89M6aiheDAUtIUC7qvEHlseiB%2Bh5MdamY%2FAYdqcu%2B8WU46Q1gHG4%2F2fMbd%2BZy7wD2K5Ke4NBY6QTeOawnG0%2FJSwBxvg10NhvEhukXFqade4f7WUi6HqcyIJ1558LKmNDvGhUhSY1aQ%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿No estuviste allí?",
+          "correct": true
+        },
+        {
+          "text": "¿No estás allí?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/When%20was%20he%20going%20to%20finish%20the%20project.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=S3Migv5ldJUySQN5vPNuSvFJ5bsCdPbfNEkBa8NJP1mCxooS1%2BLGBiMMy%2F7b0rdKclQ9WeB0ZIUdO2RI2xlgOQrX1G3BnbY7yqyrp0xXdgDUQuP5X3Fa5NaW70520KxJUCUP0Uaewb1XLQTa5M5R5jzDBuxvtHU3Cr8IO4NFYHS9HxcitS8ELRUDATsyuDol58PqhkOSZ%2BYtTPrO0rnw8vigtAUVpo7%2BCXJjzp1gjLfOh70GTsqF0ykQYIhqcrKMSLdWJ27s7AzV%2Ff81zdjCRPWL%2FzqZSi15EwceAhpTVv9gllcC9v78gVUh8vX2tBvfnsjsjgiva5Vt1uZ7lyTcYA%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿Cuándo iba a terminar él el proyecto?",
+          "correct": true
+        },
+        {
+          "text": "¿Cuándo terminó él el proyecto?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Will%20it%20be%20done%20soon.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=eU48vph4xN5talV0JN8oFIMKX%2BOB%2FZUy0nE9DerifGETfAOi4Ffnz8leFIKmbotletTsLgMiUNJsEklZvKR%2F5Aq5i0mu%2BauJynD%2BrUnkF3brkYXJp6Xidsq6WvK9T1RVDPsNaHiM6M3UDmk2CnqVeE6OLr4wVW%2F3la2Qu%2BLg5Lta9%2BvDjGPg0AkMw5Te%2BDUssqKSayTTTq1b%2BCyvrsIV1kyP1uzGCAPcm7tiB72fQVQOomsVKe9h6xmW6LBVDfrXyMnRuedggZU9f06a3bDbjoLMYYdGXU1xP2cAW7QChOr6RPZJ%2BsjUQbOgLfVf9vcdf13n7yR%2BN8iAbdW7kYH5fQ%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿Estará listo pronto?",
+          "correct": true
+        },
+        {
+          "text": "¿Fue hecho pronto?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Will%20she%20be%20happy%20with%20the%20results.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=nhaAvvppiiv0ugPsYmR0xcFkYa50ROtLzEp8dLMI%2Fv6Yf9n6CO65Mt03j3b3Wy%2Fvy3Xe8fhR6u%2FO%2F1hEJVRhJBVnEnE7Bq7ikUYnaOj78Dwm8jDlJUeBtPaqd3G2OX0Lq2u4f%2FBkmqbCFkAgNcf71DxHUKuHEnij0GEA52Rt9X%2BYW7CC4K6J1biK24ofiV06L6Msc3f9xK6ikRo5b7NdVLmryIl6OA27De8940hmP9kK7p%2FtVFpwcB4GhKd4yDNcqoTLUXa0QmmtKLHaI%2BxmwdCHHPPqfJLTTRSMXMChN7Sp6Q4urIba0b5HgZ3uzjHRsj%2F0xJglEjncdF%2F9rJkHGQ%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿Estará ella feliz con los resultados?",
+          "correct": true
+        },
+        {
+          "text": "¿Fue feliz con los resultados?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Won%27t%20you%20be%20at%20the%20party%20tomorrow%20Won%27t%20you%20be%20at%20the%20party%20tomorrow.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=N%2Fy2rWQqsTHVznSUeu2m%2F%2FI244lCcZ8Aa4S6rOnduWGSZq0M9rMgEClTGEGn9JGu8zf4wT39YverCcbWWtQXoQMEnEcDXKY9tG2uEpKOgFtD9bnlCc256gxMbQ8DbBh%2FQqQKJ6Klj%2FRN5Vq2HTCjc0xUovfihAOd4JlhJxPol41qbUG6x6A0PHJBR2Bso5CF70wDGhiwBnBlieDD7tYguuaRKt3eOcHkpVRm5iyPGVEYrmJiV%2FJhqempwohPWMeJ%2BU6XXEkjl8U%2FWbrow5p4qdUc2KfJ6JwsaiNgCHfpCDI4ZY5JrXnXz%2BVN4hsYOBw5Ac0dtKJFQy6QkRLKgn5uMA%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿No estará él listo para la reunión?",
+          "correct": true
+        },
+        {
+          "text": "¿No estuvo listo para la reunión?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Will%20it%20be%20done%20soon.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=eU48vph4xN5talV0JN8oFIMKX%2BOB%2FZUy0nE9DerifGETfAOi4Ffnz8leFIKmbotletTsLgMiUNJsEklZvKR%2F5Aq5i0mu%2BauJynD%2BrUnkF3brkYXJp6Xidsq6WvK9T1RVDPsNaHiM6M3UDmk2CnqVeE6OLr4wVW%2F3la2Qu%2BLg5Lta9%2BvDjGPg0AkMw5Te%2BDUssqKSayTTTq1b%2BCyvrsIV1kyP1uzGCAPcm7tiB72fQVQOomsVKe9h6xmW6LBVDfrXyMnRuedggZU9f06a3bDbjoLMYYdGXU1xP2cAW7QChOr6RPZJ%2BsjUQbOgLfVf9vcdf13n7yR%2BN8iAbdW7kYH5fQ%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿No estará listo pronto?",
+          "correct": true
+        },
+        {
+          "text": "¿No fue hecho pronto?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Won%27t%20you%20be%20at%20the%20party%20tomorrow%20Won%27t%20you%20be%20at%20the%20party%20tomorrow.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=N%2Fy2rWQqsTHVznSUeu2m%2F%2FI244lCcZ8Aa4S6rOnduWGSZq0M9rMgEClTGEGn9JGu8zf4wT39YverCcbWWtQXoQMEnEcDXKY9tG2uEpKOgFtD9bnlCc256gxMbQ8DbBh%2FQqQKJ6Klj%2FRN5Vq2HTCjc0xUovfihAOd4JlhJxPol41qbUG6x6A0PHJBR2Bso5CF70wDGhiwBnBlieDD7tYguuaRKt3eOcHkpVRm5iyPGVEYrmJiV%2FJhqempwohPWMeJ%2BU6XXEkjl8U%2FWbrow5p4qdUc2KfJ6JwsaiNgCHfpCDI4ZY5JrXnXz%2BVN4hsYOBw5Ac0dtKJFQy6QkRLKgn5uMA%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "¿No estarás en la fiesta mañana?",
+          "correct": true
+        },
+        {
+          "text": "¿No estarás en la fiesta?",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "¿Qué traduce lo que escuchaste?",
+      "media": [
+        {
+          "type": "audio",
+          "src": "https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Your%20friends%20are%20not%20planning%20to%20visit%20you%20next%20week.%20Your%20friends%20are%20not%20planning%20to%20visit%20you%20next%20week.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=tr0xKhHJMC9BHX7alkkUb4b1bbjsVWbXeFtEShMJvVUqmE9kNacC4wdfxJNDCCS8STB1GKhlvaIDyw6oN9n%2BajltuutP75UnkE5oL4jmlUriEUBBXUmtZJOtTzZ0g2G3y2zLM3yqkD8gg0TYvlGGfGu34zgDVphw0bKWhH%2BRQJYEtbGyK2ghxsDzB6PGO6Cs%2FTwLcYpUwS4R82XR%2FsL43gyMeGaKdIyrIJ9Bc%2BqfjGTjmARap1fdatF5%2FqVIUf4cR%2F4WtZppNw3FHou91tG42CBh3WqpOKkzyk8BDHLh%2FPWYrpYL8syZHZZuRAXB4rWHW3kuJOVFKjhGJ85NrAxYYw%3D%3D"
+        }
+      ],
+      "options": [
+        {
+          "text": "Tus amigos no planean visitarte la próxima semana.",
+          "correct": true
+        },
+        {
+          "text": "Tus amigos no visitarán la próxima semana.",
+          "correct": false
+        }
+      ]
+    }
+
             ];
             
             // DOM Elements
