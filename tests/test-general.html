@@ -1710,6 +1710,104 @@
                 document.body.removeChild(link);
             }
         });
+
+<!-- Add this right before your closing </script> tag -->
+
+// Modified saveQuizResults function to send data to Google Sheets
+function saveQuizResults(quizId, results) {
+    // Get student name from localStorage
+    const studentName = localStorage.getItem('studentName') || 'Anonymous';
+    
+    // Add student name to results
+    results.studentName = studentName;
+    
+    // Create a unique ID for the attempt
+    const attemptId = `quiz_${quizId}_${Date.now()}`;
+    
+    // Get existing quiz history or create new one
+    let quizHistory = JSON.parse(localStorage.getItem('quizHistory')) || {};
+    
+    // Add this attempt to local storage
+    quizHistory[attemptId] = {
+        quizId: quizId,
+        date: new Date().toISOString(),
+        score: results.score,
+        totalQuestions: results.totalQuestions,
+        studentName: studentName,
+        answers: results.answers,
+        questionOrder: results.questionOrder
+    };
+    
+    // Save back to localStorage
+    localStorage.setItem('quizHistory', JSON.stringify(quizHistory));
+    
+    // Send to Google Sheets
+    sendResultsToGoogleSheets({
+        quizId: quizId,
+        studentName: studentName,
+        score: results.score,
+        totalQuestions: results.totalQuestions,
+        answers: results.answers
+    });
+    
+    return attemptId;
+}
+
+// Function to send results to Google Sheets
+function sendResultsToGoogleSheets(data) {
+    // Replace with your Google Apps Script Web App URL 
+    const googleScriptUrl = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+    
+    // Create status message element if it doesn't exist
+    let statusMessageElement = document.getElementById('sheets-status-message');
+    if (!statusMessageElement) {
+        statusMessageElement = document.createElement('div');
+        statusMessageElement.id = 'sheets-status-message';
+        statusMessageElement.style.padding = '10px';
+        statusMessageElement.style.marginTop = '10px';
+        statusMessageElement.style.borderRadius = '8px';
+        statusMessageElement.style.textAlign = 'center';
+        statusMessageElement.style.fontWeight = '500';
+        const resultsSection = document.getElementById('results-section');
+        resultsSection.appendChild(statusMessageElement);
+    }
+    
+    // Show "Saving..." message
+    statusMessageElement.textContent = 'Saving results to Google Sheets...';
+    statusMessageElement.style.backgroundColor = '#e3f2fd';
+    statusMessageElement.style.color = '#0277bd';
+    statusMessageElement.style.border = '1px solid #0277bd';
+    
+    // Send data to Google Sheets
+    fetch(googleScriptUrl, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        mode: 'no-cors' // Required for Google Apps Script
+    })
+    .then(() => {
+        // We can't get the actual response due to CORS, so just assume success
+        statusMessageElement.textContent = 'Results saved successfully!';
+        statusMessageElement.style.backgroundColor = '#e8f5e9';
+        statusMessageElement.style.color = '#2e7d32';
+        statusMessageElement.style.border = '1px solid #2e7d32';
+        
+        // Hide the message after 5 seconds
+        setTimeout(() => {
+            statusMessageElement.style.display = 'none';
+        }, 5000);
+    })
+    .catch(error => {
+        console.error('Error saving to Google Sheets:', error);
+        statusMessageElement.textContent = 'Error saving results. Please try again later.';
+        statusMessageElement.style.backgroundColor = '#ffebee';
+        statusMessageElement.style.color = '#c62828';
+        statusMessageElement.style.border = '1px solid #c62828';
+    });
+}
+        
     </script>
 
     <!-- Admin Dashboard -->
