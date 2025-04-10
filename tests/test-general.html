@@ -1711,8 +1711,6 @@
             }
         });
 
-<!-- Add this right before your closing </script> tag -->
-
 // Modified saveQuizResults function to send data to Google Sheets
 function saveQuizResults(quizId, results) {
     // Get student name from localStorage
@@ -1756,7 +1754,7 @@ function saveQuizResults(quizId, results) {
 // Function to send results to Google Sheets
 function sendResultsToGoogleSheets(data) {
     // Replace with your Google Apps Script Web App URL 
-    const googleScriptUrl = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+    const googleScriptUrl = 'https://script.google.com/macros/s/AKfycbzkjpXhL-cL0yln8epsUAH_bl__3ag7O3O1-i51ITUHp2JLB9IyHjQ8aMPfwQi4JnrBTA/exec';
     
     // Create status message element if it doesn't exist
     let statusMessageElement = document.getElementById('sheets-status-message');
