@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase Teacher - Módulo Turbo - Semana 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .titulo-audio {
+            font-weight: bold;
+            color: #FE4980;
+            margin-bottom: 10px;
+        }
+
+        .audio-container audio {
+            width: 100%;
+        }
+
+        .texto {
+            margin-top: 10px;
+            display: none;
+        }
+
+        .boton {
+            background-color: #16c4e3;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .boton:hover {
+            background-color: #12b1ce;
+        }
+
+        .titulo-audio {
+            font-weight: bold;
+            color: #FE4980;
+            margin-bottom: 10px;
+        }
+
+        .audio-container audio {
+            width: 100%;
+        }
+
+        .texto {
+            margin-top: 10px;
+            display: none;
+        }
+
+        .boton {
+            background-color: #16c4e3;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .boton:hover {
+            background-color: #12b1ce;
+        }
+
+        .titulo-dia {
+            font-weight: bold;
+            color: #FE4980;
+            margin-bottom: 10px;
+        }
+
+        .audio-container audio {
+            width: 100%;
+        }
+
+        .texto {
+            margin-top: 10px;
+            display: none;
+        }
+
+        .boton {
+            background-color: #16c4e3;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .boton:hover {
+            background-color: #12b1ce;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar {
+            width: 350px;
+            transition: all 0.3s ease;
+            background: #ffffff;
+            backdrop-filter: blur(10px);
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .container.sidebar-hidden .sidebar {
+            width: 0;
+            overflow: hidden;
+            padding: 0;
+            border: none;
+        }
+
+        .content {
+            flex: 1;
+            padding: 40px;
+            background: #ffffff;
+            backdrop-filter: blur(10px);
+            overflow-y: auto;
+            transition: all 0.3s ease;
+            width: calc(100% - 350px);
+        }
+
+        .container.sidebar-hidden .content {
+            width: 100%;
+        }
+
+        .menu-header {
+            background: linear-gradient(135deg, #16c4e3 0%, #16c4e3 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .menu-item {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-button {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            background: transparent;
+            text-align: left;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .menu-button:hover {
+            background: linear-gradient(90deg, #16c4e3, #FE4980);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .menu-button.active {
+            background: linear-gradient(90deg, #16c4e3, #FE4980);
+            color: white;
+        }
+
+        .submenu-button {
+            width: 100%;
+            padding: 12px 40px;
+            border: none;
+            background: transparent;
+            text-align: left;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            color: #555;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .submenu-button:hover {
+            background: rgba(22, 196, 227, 0.1);
+            border-left: 3px solid #16c4e3;
+            transform: translateX(3px);
+        }
+
+        .submenu-button.active {
+            background: rgba(22, 196, 227, 0.15);
+            border-left: 3px solid #16c4e3;
+            color: #16c4e3;
+        }
+
+        .subsubmenu-button {
+            width: 100%;
+            padding: 10px 60px;
+            border: none;
+            background: transparent;
+            text-align: left;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s ease;
+            border-left: 2px solid transparent;
+        }
+
+        .subsubmenu-button:hover {
+            background: rgba(254, 73, 128, 0.1);
+            border-left: 2px solid #FE4980;
+            color: #FE4980;
+            transform: translateX(2px);
+        }
+
+        .subsubmenu-button.active {
+            background: rgba(254, 73, 128, 0.15);
+            border-left: 2px solid #FE4980;
+            color: #FE4980;
+            font-weight: 600;
+        }
+
+        .submenu,
+        .subsubmenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .submenu.open {
+            max-height: 1000px;
+        }
+
+        .subsubmenu.open {
+            max-height: 500px;
+        }
+
+        .arrow {
+            transition: transform 0.3s ease;
+            font-size: 12px;
+        }
+
+        .arrow.rotate {
+            transform: rotate(180deg);
+        }
+
+        .content-area {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content-area.active {
+            display: block;
+        }
+
+        .content-area h1 {
+            margin: 0em 1em;
+            font-family: 'Poppins', sans-serif;
+            color: #16c4e3;
+            line-height: 1.2;
+            font-size: 2.5em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #16c4e3;
+            padding-bottom: 10px;
+        }
+
+        .content-area h2 {
+            margin: 0em 1em;
+            font-family: 'Poppins', sans-serif;
+            color: #FE4980;
+            line-height: 1.2;
+            font-size: 1.8em;
+            margin-top: 1.5em;
+            margin-bottom: 1em;
+        }
+
+        .content-area h3 {
+            margin: 0em 1em;
+            font-family: 'Poppins', sans-serif;
+            color: #000;
+            font-weight: 900;
+            line-height: 1.6;
+            margin-bottom: 1.2em;
+            font-size: 1.2em;
+            background: rgba(22, 196, 227, 0.05);
+            padding: 10px;
+            border-left: 4px solid #16c4e3;
+        }
+
+        .content-area p {
+            margin: 0em 1em;
+            font-family: 'Poppins', sans-serif;
+            color: #000;
+            line-height: 1.6;
+            margin-bottom: 1.2em;
+            font-size: 1.2em;
+        }
+
+        .content-area ul {
+            margin: 0em 1em;
+            font-family: 'Poppins', sans-serif;
+            color: #000;
+            line-height: 1.6;
+            margin-bottom: 1.2em;
+            font-size: 1.2em;
+        }
+
+        .content-area ol {
+            margin: 0em 1em;
+            font-family: 'Poppins', sans-serif;
+            color: #000;
+            line-height: 1.6;
+            margin-bottom: 1.2em;
+            font-size: 1.2em;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button id="toggleSidebarBtn" onclick="toggleSidebar()" style="
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    background: #000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 18px;
+">☰</button>
+
+    <div class="container">
+        <div class="sidebar">
+
+
+            <div class="menu-header">
+                📚 Módulo Turbo - Semana 1
+            </div>
+
+            <div class="menu-item">
+                <button class="menu-button" onclick="toggleSubmenu('notas-generales')">
+                    Notas Generales
+                    <span class="arrow" id="arrow-notas-generales">▼</span>
+                </button>
+                <div class="submenu" id="submenu-notas-generales">
+                    <button class="subsubmenu-button" onclick="showContent('objetivo')">
+                        Objetivo
+                    </button>
+                    <button class="subsubmenu-button" onclick="showContent('hasta-dónde-se-estudia-en-esta-semana')">
+                        ¿Hasta dónde se estudia en esta semana?
+                    </button>
+                    <button class="subsubmenu-button" onclick="showContent('notas-profesor')">
+                        Notas profesor
+                    </button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <button class="menu-button" onclick="toggleSubmenu('materiales-a-evaluar')">
+                    Materiales a Evaluar
+                    <span class="arrow" id="arrow-materiales-a-evaluar">▼</span>
+                </button>
+                <div class="submenu" id="submenu-materiales-a-evaluar">
+                    <button class="submenu-button" onclick="toggleSubSubmenu('audios')">
+                        Audios
+                        <span class="arrow" id="arrow-audios">▼</span>
+                    </button>
+                    <div class="subsubmenu" id="subsubmenu-audios">
+                        <button class="subsubmenu-button" onclick="showContent('audios-diarios-mes-1-audios-1-7')">
+                            Audios Diarios: Mes 1 Audios 1-7
+                        </button>
+                    </div>
+                    <button class="submenu-button" onclick="toggleSubSubmenu('reductores-ruido')">
+                        Reductores Ruido
+                        <span class="arrow" id="arrow-reductores-ruido">▼</span>
+                    </button>
+                    <div class="subsubmenu" id="subsubmenu-reductores-ruido">
+                        <button class="subsubmenu-button" onclick="showContent('reductores-de-ruido-saludos-y-despedidas---choco-turbo')">
+                            Reductores de Ruido Saludos y Despedidas - Choco Turbo
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="placeholder" id="placeholder">
+                <h1><strong>Notas Generales</strong></h1>
+                <h2><strong>Objetivo</strong></h2>
+                <p><span style="font-weight: 400;">Lograr que los estudiantes practiquen con una historia o dinámica interesante y aprovechar esa experiencia para conocer fortalezas, reforzar temas, aclarar dudas, evaluar y, en extraclase, preparar documentos y estrategias para futuras interacciones.</span></p>
+                <p><strong>Nota</strong><span style="font-weight: 400;">: Ejemplos de dinámicas interesantes son role-plays, preguntas y respuestas, y debates sobre diferentes temas como política.</span></p>
+                <h2><strong>¿Hasta dónde se estudia en esta semana?</strong></h2>
+                <p><span style="font-weight: 400;">En esta semana se estudia desde la lección </span><strong><em>Cómo vas a estudiar en tu programa Choco Inglés</em></strong> <span style="font-weight: 400;">hasta la lección que dice </span><strong><em>Reductor Preguntas Choco Turbo</em></strong></p>
+                <h2><strong>Notas profesor</strong></h2>
+                <p><span style="font-weight: 400;">Este es el </span><strong>formato </strong><span style="font-weight: 400;">que el docente debe llenar </span><a href="https://docs.google.com/spreadsheets/d/1M6ymm7p4ZyLHwivDCiutwZ9XufRZbJIzYYVEzYUS3Yw/edit?gid=0#gid=0"><span style="font-weight: 400;">https://docs.google.com/spreadsheets/d/1M6ymm7p4ZyLHwivDCiutwZ9XufRZbJIzYYVEzYUS3Yw/edit?gid=0#gid=0</span></a></p>
+            </div>
+
+            <div class="content-area" id="content-objetivo">
+                <h1><strong>Notas Generales</strong></h1>
+                <h2><strong>Objetivo</strong></h2>
+                <p><span style="font-weight: 400;">Lograr que los estudiantes practiquen con una historia o dinámica interesante y aprovechar esa experiencia para conocer fortalezas, reforzar temas, aclarar dudas, evaluar y, en extraclase, preparar documentos y estrategias para futuras interacciones.</span></p>
+                <p><strong>Nota</strong><span style="font-weight: 400;">: Ejemplos de dinámicas interesantes son role-plays, preguntas y respuestas, y debates sobre diferentes temas como política.</span></p>
+            </div>
+            <div class="content-area" id="content-hasta-dónde-se-estudia-en-esta-semana">
+                <h1><strong>Notas Generales</strong></h1>
+                <h2><strong>¿Hasta dónde se estudia en esta semana?</strong></h2>
+                <p><span style="font-weight: 400;">En esta semana se estudia desde la lección </span><strong><em>Cómo vas a estudiar en tu programa Choco Inglés</em></strong> <span style="font-weight: 400;">hasta la lección que dice </span><strong><em>Reductor Preguntas Choco Turbo</em></strong></p>
+            </div>
+            <div class="content-area" id="content-notas-profesor">
+                <h1><strong>Notas Generales</strong></h1>
+                <h2><strong>Notas profesor</strong></h2>
+                <p><span style="font-weight: 400;">Este es el </span><strong>formato </strong><span style="font-weight: 400;">que el docente debe llenar </span><a href="https://docs.google.com/spreadsheets/d/1M6ymm7p4ZyLHwivDCiutwZ9XufRZbJIzYYVEzYUS3Yw/edit?gid=0#gid=0"><span style="font-weight: 400;">https://docs.google.com/spreadsheets/d/1M6ymm7p4ZyLHwivDCiutwZ9XufRZbJIzYYVEzYUS3Yw/edit?gid=0#gid=0</span></a></p>
+            </div>
+            <div class="content-area" id="content-audios-diarios-mes-1-audios-1-7">
+                <h1><strong>Materiales a Evaluar</strong></h1>
+                <h2><strong>Audios</strong></h2>
+                <h3><strong>Audios Diarios: Mes 1 Audios 1-7</strong></h3>
+                <div class="dia">
+                    <p class="titulo-dia">📅 Día 1 – Datos personales básicos</p>
+
+                    <div class="audio-container">
+                        <audio controls controlsList="nodownload">
+                            <source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%201-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=h7WCo%2Fhv06aUS7%2B5l73ry8Oe3y5QhLAhKPNkS%2FzCrbx8XyDkX%2F%2Boxb2G%2FOPNrvQmL4vdP3cJ20DOhd2rbhWyEe3aHtypN3I7qPoKJuzMkyfbSsDoABEMtIw0XFYijBtryboj7UexyrjsJSCTiFm4yLZVVWtUgMBcL%2B6SHuMkChQbWuhiXYGkwXopikMzK7O2ccZD39%2FTdwZqfbDC0SQ5kWtvLolc4iLR1s0fTH9ET4be1HDNoIBzTB%2BxwrI8uNwt9aGzMqcB42TUIJURq%2BFTxKKGlixnCSS9vtiDyO4ha1mRa%2BAqo0QTGeg%2Fm92fXUHSWOsE3Ag8y7mI5mwtka6vhw%3D%3D" type="audio/mpeg">
+                            Tu navegador no soporta audio.
+                        </audio>
+                    </div>
+
+                    <button class="boton" onclick="toggleVisibility('texto-ingles', this)">Mostrar texto en inglés</button>
+                    <div id="texto-ingles" class="texto">
+                        <p>Question: How are you?<br>Answer: I'm good, thanks.</p>
+                        <p>Question: What's your name?<br>Answer: I'm Fernando.</p>
+                        <p>Question: Where are you from?<br>Answer: I'm from Ecuador.</p>
+                        <p>Question: How old are you?<br>Answer: I'm 35.</p>
+                        <button class="boton" onclick="toggleVisibility('traduccion', this)">Mostrar traducción</button>
+                        <div id="traduccion" class="texto">
+                            <p>Question: ¿Cómo estás?<br>Answer: Estoy bien, gracias.</p>
+                            <p>Question: ¿Cómo te llamas?<br>Answer: Me llamo Answer.</p>
+                            <p>Question: ¿De dónde eres?<br>Answer: Soy de Ecuador.</p>
+                            <p>Question: ¿Cuántos años tienes?<br>Answer: Tengo 35 años.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-area" id="content-reductores-de-ruido-saludos-y-despedidas---choco-turbo">
+                <h1><strong>Materiales a Evaluar</strong></h1>
+                <h2><strong>Reductores Ruido</strong></h2>
+                <h3><strong>Reductores de Ruido Saludos y Despedidas - Choco Turbo</strong></h3>
+                <div class="dia">
+                    <p class="titulo-audio">👧🏿 Voz Humana Mujer:</p>
+                    <div class="audio-container">
+                        <audio controls controlsList="nodownload">
+                            <source src="https://firebasestorage.googleapis.com/v0/b/chocolearn-f05e5.firebasestorage.app/o/audio%2FLectura%20de%20Pronunciaci%C3%B3n%20-%20Mujer%20Voz%20Humana-esv2-90p-bg-10p.mp3?alt=media&token=531111ef-2d2a-46cb-a6a2-0f1bc7de7367" type="audio/mp3">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+
+                    <p class="titulo-audio">👱🏽‍♂️ Voz Humana Hombre:</p>
+                    <div class="audio-container">
+                        <audio controls controlsList="nodownload">
+                            <source src="https://firebasestorage.googleapis.com/v0/b/chocolearn-f05e5.firebasestorage.app/o/audio%2FLectura%20de%20Pronunciaci%C3%B3n%20-%20Hombre-esv2-90p-bg-10p.mp3?alt=media&token=6df2cef9-c40e-4dce-80d6-4b6adc4931b5" type="audio/mp3">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+
+                    <p class="titulo-audio">🤖 Agente AI:</p>
+                    <div class="audio-container">
+                        <audio controls controlsList="nodownload">
+                            <source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Lectura%20de%20Pronunciaci%C3%B3n.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=P18RMNZ%2BpuTQ7jFkK00BuFh4ToCG7akYPJDCm7RldKID3O93RkCpR80dltrCPj%2F4Urvy%2BlxryUSsj5Ub3y8OGrtXARRk9LpIM9aCGqWd7wrWWwsfuSp6CZK7dpg0XHkvqBI293vrrVEQOt4PXJMJS8fSIALiGl9GCpkiUTLNkQw%2BAC80aqCj38xMQv3NvEaSIy915dHmmjuXfJNmgDc09b7TTXUSl8wgX6i5kt0ksAuYrA1xZOw0Pnx7JA%2BRSMQUdA9smJCVA7MagH5nNcMyo65dkg4u4uwlhOD8l3uF187%2BeAzD%2ByXfNN6wvJlt0zKXPcrP49PSLhfjmzQu71zBCw%3D%3D" type="audio/mp3">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+                </div>
+
+                <hr>
+
+                <button class="boton" onclick="toggleVisibility('tabla', this)">Show Table</button>
+                <div id="tabla" class="texto">
+                    <table style="table-layout:fixed;margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
+                        <colgroup>
+                            <col>
+                            <col>
+                        </colgroup>
+                        <thead>
+                            <tr style="background-color:#16c4e3;color:white">
+                                <th style="padding:12px 8px;text-align:left;font-size:1.2em">Keyword</th>
+                                <th style="padding:12px 8px;text-align:left;font-size:1.2em">Example Phrase</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background-color:#f2f2f2">
+                                <td>
+                                    <p style="font-size:1.5em;font-weight:bold">Hi! How are you?</p>
+                                </td>
+                                <td>
+                                    <p style="font-size:1.5em">Hi! How are you?</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p style="font-size:1.5em;font-weight:bold">Hello, nice to meet you!</p>
+                                </td>
+                                <td>
+                                    <p style="font-size:1.5em">Hello, nice to meet you!</p>
+                                </td>
+                            </tr>
+                            <tr style="background-color:#f2f2f2">
+                                <td>
+                                    <p style="font-size:1.5em;font-weight:bold">Good morning, everyone!</p>
+                                </td>
+                                <td>
+                                    <p style="font-size:1.5em">Good morning, everyone!</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p style="font-size:1.5em;font-weight:bold">Good afternoon, sir.</p>
+                                </td>
+                                <td>
+                                    <p style="font-size:1.5em">Good afternoon, sir.</p>
+                                </td>
+                            </tr>
+                            <tr style="background-color:#f2f2f2">
+                                <td>
+                                    <p style="font-size:1.5em;font-weight:bold">Good evening, how was your day?</p>
+                                </td>
+                                <td>
+                                    <p style="font-size:1.5em">Good evening, how was your day?</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p style="font-size:1.5em;font-weight:bold">Hey, what’s up?</p>
+                                </td>
+                                <td>
+                                    <p style="font-size:1.5em">Hey, what’s up?</p>
+                                </td>
+                            </tr>
+                            <tr style="background-color:#f2f2f2">
+                                <td>
+                                    <p style="font-size:1.5em;font-weight:bold">What’s up, buddy?</p>
+                                </td>
+                                <td>
+                                    <p style="font-size:1.5em">What’s up, buddy?</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p style="font-size:1.5em;font-weight:bold">How are you today?</p>
+                                </td>
+                                <td>
+                                    <p style="font-size:1.5em">How are you today?</p>
+                                </td>
+                            </tr>
+                            <tr style="background-color:#f2f2f2">
+                                <td>
+                                    <p style="font-size:1.5em;font-weight:bold">How’s it going at work?</p>
+                                </td>
+                                <td>
+                                    <p style="font-size:1.5em">How’s it going at work?</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p style="font-size:1.5em;font-weight:bold">Bye! See you soon!</p>
+                                </td>
+                                <td>
+                                    <p style="font-size:1.5em">Bye! See you soon!</p>
+                                </td>
+                            </tr>
+                            <tr style="background-color:#f2f2f2">
+                                <td>
+                                    <p style="font-size:1.5em;font-weight:bold">Goodbye, take care!</p>
+                                </td>
+                                <td>
+                                    <p style="font-size:1.5em">Goodbye, take care!</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p style="font-size:1.5em;font-weight:bold">See you later, alligator!</p>
+                                </td>
+                                <td>
+                                    <p style="font-size:1.5em">See you later, alligator!</p>
+                                </td>
+                            </tr>
+                            <tr style="background-color:#f2f2f2">
+                                <td>
+                                    <p style="font-size:1.5em;font-weight:bold">See you soon, my friend!</p>
+                                </td>
+                                <td>
+                                    <p style="font-size:1.5em">See you soon, my friend!</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p style="font-size:1.5em;font-weight:bold">Take care and stay safe!</p>
+                                </td>
+                                <td>
+                                    <p style="font-size:1.5em">Take care and stay safe!</p>
+                                </td>
+                            </tr>
+                            <tr style="background-color:#f2f2f2">
+                                <td>
+                                    <p style="font-size:1.5em;font-weight:bold">See you tomorrow at school!</p>
+                                </td>
+                                <td>
+                                    <p style="font-size:1.5em">See you tomorrow at school!</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p style="font-size:1.5em;font-weight:bold">See you next time, John!</p>
+                                </td>
+                                <td>
+                                    <p style="font-size:1.5em">See you next time, John!</p>
+                                </td>
+                            </tr>
+                            <tr style="background-color:#f2f2f2">
+                                <td>
+                                    <p style="font-size:1.5em;font-weight:bold">Have a good day at work!</p>
+                                </td>
+                                <td>
+                                    <p style="font-size:1.5em">Have a good day at work!</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p style="font-size:1.5em;font-weight:bold">Have a nice day, everyone!</p>
+                                </td>
+                                <td>
+                                    <p style="font-size:1.5em">Have a nice day, everyone!</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let activeContent = null;
+
+        function toggleSubmenu(id) {
+            const submenu = document.getElementById('submenu-' + id);
+            const arrow = document.getElementById('arrow-' + id);
+            const button = arrow.parentElement;
+
+            if (submenu && submenu.classList.contains('open')) {
+                submenu.classList.remove('open');
+                arrow.classList.remove('rotate');
+                button.classList.remove('active');
+            } else if (submenu) {
+                // Cerrar otros submenús del mismo nivel
+                document.querySelectorAll('.submenu.open').forEach(sm => {
+                    sm.classList.remove('open');
+                    const arrowId = sm.id.replace('submenu-', 'arrow-');
+                    const arrowEl = document.getElementById(arrowId);
+                    if (arrowEl) {
+                        arrowEl.classList.remove('rotate');
+                        arrowEl.parentElement.classList.remove('active');
+                    }
+                });
+
+                submenu.classList.add('open');
+                arrow.classList.add('rotate');
+                button.classList.add('active');
+            }
+        }
+
+        function toggleSubSubmenu(id) {
+            const subsubmenu = document.getElementById('subsubmenu-' + id);
+            const arrow = document.getElementById('arrow-' + id);
+            const button = arrow.parentElement;
+
+            if (subsubmenu && subsubmenu.classList.contains('open')) {
+                subsubmenu.classList.remove('open');
+                arrow.classList.remove('rotate');
+                button.classList.remove('active');
+            } else if (subsubmenu) {
+                // Cerrar otros subsubmenús del mismo nivel
+                document.querySelectorAll('.subsubmenu.open').forEach(ssm => {
+                    ssm.classList.remove('open');
+                    const parentId = ssm.id.replace('subsubmenu-', '');
+                    const arrowId = 'arrow-' + parentId;
+                    const arrowEl = document.getElementById(arrowId);
+                    if (arrowEl) {
+                        arrowEl.classList.remove('rotate');
+                        arrowEl.parentElement.classList.remove('active');
+                    }
+                });
+
+                subsubmenu.classList.add('open');
+                arrow.classList.add('rotate');
+                button.classList.add('active');
+            }
+        }
+
+        function showContent(contentId) {
+            // Ocultar contenido anterior
+            if (activeContent) {
+                activeContent.classList.remove('active');
+            }
+
+            // Ocultar placeholder
+            document.getElementById('placeholder').style.display = 'none';
+
+            // Mostrar nuevo contenido
+            const content = document.getElementById('content-' + contentId);
+            if (content) {
+                content.classList.add('active');
+                activeContent = content;
+            }
+
+            // Actualizar botones activos
+            document.querySelectorAll('.subsubmenu-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+        }
+    </script>
+    <script>
+        function toggleSidebar() {
+            const container = document.querySelector('.container');
+            const btn = document.getElementById('toggleSidebarBtn');
+            container.classList.toggle('sidebar-hidden');
+
+            if (container.classList.contains('sidebar-hidden')) {
+                btn.innerText = '👀'; // Mostrar menú
+            } else {
+                btn.innerText = '❌'; // Cerrar menú
+            }
+        }
+
+        // Mostrar ❌ al cargar si el sidebar está visible
+        window.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.container');
+            const btn = document.getElementById('toggleSidebarBtn');
+            btn.innerText = container.classList.contains('sidebar-hidden') ? '☰' : '❌';
+        });
+    </script>
+    <script>
+        function toggleVisibility(id, button) {
+    const element = document.getElementById(id);
+    const isVisible = element.style.display === 'block' || (!element.style.display && window.getComputedStyle(element).display !== 'none');
+    element.style.display = isVisible ? 'none' : 'block';
+
+            // Update button text based on context
+            if (button.textContent.includes('Show Table') || button.textContent.includes('Hide Table')) {
+                button.textContent = isVisible ? 'Show Table' : 'Hide Table';
+            } else if (id === 'texto-ingles') {
+                button.textContent = isVisible ? 'Mostrar texto en inglés' : 'Ocultar texto en inglés';
+            } else if (id === 'traduccion') {
+                button.textContent = isVisible ? 'Mostrar traducción' : 'Ocultar traducción';
+            }
+        }
+    </script>
+
+</body>
+
+</html>
