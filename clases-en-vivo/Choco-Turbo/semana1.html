@@ -265,6 +265,24 @@
             </div>
 
             <div class="menu-item">
+                <button class="menu-button" onclick="toggleSubmenu('notas-generales')">
+                    Notas Generales
+                    <span class="arrow" id="arrow-notas-generales">▼</span>
+                </button>
+                <div class="submenu" id="submenu-notas-generales">
+                    <button class="subsubmenu-button" onclick="showContent('objetivo')">
+                        Objetivo
+                    </button>
+                    <button class="subsubmenu-button" onclick="showContent('hasta-dónde-se-estudia-en-esta-semana')">
+                        ¿Hasta dónde se estudia en esta semana?
+                    </button>
+                    <button class="subsubmenu-button" onclick="showContent('notas-profesor')">
+                        Notas profesor
+                    </button>
+                </div>
+            </div>
+
+            <div class="menu-item">
                 <button class="menu-button" onclick="toggleSubmenu('materiales-a-evaluar')">
                     Materiales a Evaluar
                     <span class="arrow" id="arrow-materiales-a-evaluar">▼</span>
@@ -404,86 +422,340 @@
             <div class="placeholder" id="placeholder">
                 Selecciona un elemento del menú para ver su contenido
             </div>
-
+            <div class="content-area" id="content-objetivo">
+                <h1><strong>Notas Generales</strong></h1>
+                <h2><strong>Objetivo</strong></h2>
+                <p><span style="font-weight: 400;">Lograr que los estudiantes practiquen con una historia o dinámica interesante y aprovechar esa experiencia para conocer fortalezas, reforzar temas, aclarar dudas, evaluar y, en extraclase, preparar documentos y estrategias para futuras interacciones.</span></p>
+                <p><strong>Nota</strong><span style="font-weight: 400;">: Ejemplos de dinámicas interesantes son role-plays, preguntas y respuestas, y debates sobre diferentes temas como política.</span></p>
+            </div>
+            <div class="content-area" id="content-hasta-dónde-se-estudia-en-esta-semana">
+                <h1><strong>Notas Generales</strong></h1>
+                <h2><strong>¿Hasta dónde se estudia en esta semana?</strong></h2>
+                <p><span style="font-weight: 400;">En esta semana se estudia desde la lección </span><strong><em>Cómo vas a estudiar en tu programa Choco Inglés</em></strong> <span style="font-weight: 400;">hasta la lección que dice </span><strong><em>Reductor Preguntas Choco Turbo</em></strong></p>
+            </div>
+            <div class="content-area" id="content-notas-profesor">
+                <h1><strong>Notas Generales</strong></h1>
+                <h2><strong>Notas profesor</strong></h2>
+                <p><span style="font-weight: 400;">Este es el </span><strong>formato </strong><span style="font-weight: 400;">que el docente debe llenar </span><a href="https://docs.google.com/spreadsheets/d/1M6ymm7p4ZyLHwivDCiutwZ9XufRZbJIzYYVEzYUS3Yw/edit?gid=0#gid=0"><span style="font-weight: 400;">https://docs.google.com/spreadsheets/d/1M6ymm7p4ZyLHwivDCiutwZ9XufRZbJIzYYVEzYUS3Yw/edit?gid=0#gid=0</span></a></p>
+            </div>
             <div class="content-area" id="content-audios-diarios-mes-1-audios-1-7">
                 <h1><strong>Materiales a Evaluar</strong></h1>
                 <h2><strong>Audios</strong></h2>
                 <h3><strong>Audios Diarios: Mes 1 Audios 1-7</strong></h3>
-                <p><span style="font-weight: 400;">📅 Día 1 – Datos personales básicos</span></p>
-                <p><span style="font-weight: 400;">Question: How are you?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: I'm good, thanks.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: What's your name?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: I'm Fernando.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: Where are you from?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: I'm from Ecuador.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: How old are you?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: I'm 35.</span></p>
-                <p><span style="font-weight: 400;">Traducción:</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿Cómo estás?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Estoy bien, gracias.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿Cómo te llamas?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Me llamo Answer.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿De dónde eres?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Soy de Ecuador.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿Cuántos años tienes?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Tengo 35 años.</span></p>
-                <p><span style="font-weight: 400;">📅 Día 2 – Cumpleaños y ubicación</span></p>
-                <p><span style="font-weight: 400;">Question: When’s your birthday?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: It's on May 1st.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: Where do you live?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: I live in Texas.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: What do you do?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: I'm a doctor.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: Where do you work?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: I work in a hospital.</span></p>
-                <p><span style="font-weight: 400;">Traducción:</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿Cuándo es tu cumpleaños?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Es el primero de mayo.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿Dónde vives?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Vivo en Texas.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿A qué te dedicas?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Soy médico.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿Dónde trabajas?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Trabajo en un hospital.</span></p>
-                <p><span style="font-weight: 400;">📅 Día 3 – Estudios y gustos</span></p>
-                <p><span style="font-weight: 400;">Question: Where do you study?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: I study at Choco English Academy.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: What's your favorite book?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: My favorite book is the Bible.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: What's your favorite movie?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: My favorite movie is Gifted Hands.</span></p>
-                <p><span style="font-weight: 400;">Traducción:</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿Dónde estudias?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Estudio en la Academia Choco English.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿Cuál es tu libro favorito?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Mi libro favorito es la Biblia.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿Cuál es tu película favorita?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Mi película favorita es Manos Milagrosas.</span></p>
-                <p><span style="font-weight: 400;">📅 Día 4 – Comida, hobbies y colores</span></p>
-                <p><span style="font-weight: 400;">Question: What's your favorite food?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: My favorite food is Mexican food.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: What's your favorite hobby?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: My favorite hobby is reading and listening to music.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: What's your favorite color?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: My favorite color is black.</span></p>
-                <p><span style="font-weight: 400;">Traducción:</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿Cuál es tu comida favorita?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Mi comida favorita es la comida mexicana.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿Cuál es tu pasatiempo favorito?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Mi pasatiempo favorito es leer y escuchar música.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿Cuál es tu color favorito?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Mi color favorito es el negro.</span></p>
-                <p><span style="font-weight: 400;">📅 Día 5 – ¿Qué hora es?</span></p>
-                <p><span style="font-weight: 400;">Question: What time is it?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: It's 2:30pm.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: What time is it?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: It's 8 o'clock.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: I need your help, can you help me please?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Sure, tell me what you need.</span></p>
-                <p><span style="font-weight: 400;">Traducción:</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿Qué hora es?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Son las 2:30 p.m.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿Qué hora es?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Son las 8 en punto.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: Necesito tu ayuda, ¿puedes ayudarme, por favor?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Claro, dime qué necesitas.</span></p>
-                <p><span style="font-weight: 400;">📅 Día 6 – Opiniones y planes</span></p>
-                <p><span style="font-weight: 400;">Question: What do you think about money?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: I think money is important.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: What will you do tomorrow?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: I’ll work and I’ll study.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: Do you have any plans for the weekend?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Yeah, I'm gonna travel to Mexico.</span></p>
-                <p><span style="font-weight: 400;">Traducción:</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿Qué piensas del dinero?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Creo que el dinero es importante.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿Qué harás mañana?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Trabajaré y estudiaré.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿Tienes planes para el fin de semana?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Sí, voy a viajar a México.</span></p>
-                <p><span style="font-weight: 400;">📅 Día 7 – Gustos (comer, jugar, dormir)</span></p>
-                <p><span style="font-weight: 400;">Question: Do you like to eat?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Yes, I like to eat pizza.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: Do you like to play?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Yes, I like to play soccer.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: Do you like to sleep?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Yes, I sleep a lot.</span></p>
-                <p><span style="font-weight: 400;">Traducción:</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿Te gusta comer?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Sí, me gusta comer pizza.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿Te gusta jugar?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Sí, me gusta jugar fútbol.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Question: ¿Te gusta dormir?</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> Answer: Sí, duermo mucho.</span></p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#FE4980;line-height:1.2;font-size:1.8em;margin-top:1.5em;margin-bottom:1em"><strong data-redactor-tag="strong">📅 Día 1 – Datos personales básicos</strong></p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em"><span style="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold" rel="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold" data-verified="redactor" data-redactor-tag="span" data-redactor-style="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold"> 🎧 Escucha el audio: </span><audio style="height:30px" loop="loop" controls="controls">
+                        <source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%201-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=h7WCo%2Fhv06aUS7%2B5l73ry8Oe3y5QhLAhKPNkS%2FzCrbx8XyDkX%2F%2Boxb2G%2FOPNrvQmL4vdP3cJ20DOhd2rbhWyEe3aHtypN3I7qPoKJuzMkyfbSsDoABEMtIw0XFYijBtryboj7UexyrjsJSCTiFm4yLZVVWtUgMBcL%2B6SHuMkChQbWuhiXYGkwXopikMzK7O2ccZD39%2FTdwZqfbDC0SQ5kWtvLolc4iLR1s0fTH9ET4be1HDNoIBzTB%2BxwrI8uNwt9aGzMqcB42TUIJURq%2BFTxKKGlixnCSS9vtiDyO4ha1mRa%2BAqo0QTGeg%2Fm92fXUHSWOsE3Ag8y7mI5mwtka6vhw%3D%3D" type="audio/mp3">
+                        </source>Tu navegador no soporta el audio.
+                    </audio><br />❔ How are you?<br />🗣️I'm good, thanks.<br /> ❔What's your name?<br />🗣️I'm Fernando.<br /> ❔Where are you from?<br />🗣️I'm from Ecuador.<br /> ❔How old are you?<br />🗣️I'm 35.
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em"><strong data-redactor-tag="strong">Traducción:</strong><br /> ❔¿Cómo estás?<br />🗣️Estoy bien, gracias.<br /> ❔¿Cómo te llamas?<br />🗣️Me llamo Answer.<br /> ❔¿De dónde eres?<br />🗣️Soy de Ecuador.<br /> ❔¿Cuántos años tienes?<br />🗣️Tengo 35 años.
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#FE4980;line-height:1.2;font-size:1.8em;margin-top:1.5em;margin-bottom:1em"><strong data-redactor-tag="strong">📅 Día 2 – Cumpleaños y ubicación</strong></p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em"><span style="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold" rel="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold" data-verified="redactor" data-redactor-tag="span" data-redactor-style="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold"> 🎧 Escucha el audio: </span><audio style="height:30px" loop="loop" controls="controls">
+                        <source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%202-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=s%2B76CWPW5Sr6B8yN7FfP%2Bbxm3xnjWSh4Kwzh7fptaN1kUUZfoCmNnEPv5IXdoGvFXltDYnqARhbwYTalCH%2Bc1IexqgJOvBlMwnHRZs%2Flm00GoCEBLbiRTzZogl5TEouKL8lcU9xprtnUawGA%2Fvb8mGEAEouuC6Mf36X6RPo5w%2Fuj%2FMd2w%2Bw3qtNtDoQg2%2BtpoO7NCVbkFqAf6ZS1j4KO9suDKY2jxRrvCDvV91rorUY%2BxD%2FdsofBInGMQ%2BAzOb5RdtnasIk1D59JV1RjciCgHwPtynGWJlNl1h1tyu3cs5G9rAS6jOVspbX2Ed6KT7wzg2G4ap1jqxrhD4o%2Blx10%2FQ%3D%3D" type="audio/mp3">
+                        </source>Tu navegador no soporta el audio.
+                    </audio><br />❔ When’s your birthday?<br />🗣️It's on May 1st.<br /> ❔Where do you live?<br />🗣️I live in Texas.<br /> ❔What do you do?<br />🗣️I'm a doctor.<br /> ❔Where do you work?<br />🗣️I work in a hospital.
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em"><strong data-redactor-tag="strong">Traducción:</strong><br /> ❔¿Cuándo es tu cumpleaños?<br />🗣️Es el primero de mayo.<br /> ❔¿Dónde vives?<br />🗣️Vivo en Texas.<br /> ❔¿A qué te dedicas?<br />🗣️Soy médico.<br /> ❔¿Dónde trabajas?<br />🗣️Trabajo en un hospital.
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#FE4980;line-height:1.2;font-size:1.8em;margin-top:1.5em;margin-bottom:1em"><strong data-redactor-tag="strong">📅 Día 3 – Estudios y gustos</strong></p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em"><span style="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold" rel="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold" data-verified="redactor" data-redactor-tag="span" data-redactor-style="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold"> 🎧 Escucha el audio: </span><audio style="height:30px" loop="loop" controls="controls">
+                        <source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%203-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=X1b5dO878PtBT%2BUv2Lhk%2FdY3CbPwOf9N%2F3B9ggbx4gI0Ahtdn8x5pCwFLlIdx6%2Fr3KUUJKZypHLuOMxPyreghmnCoWugFmBE2QR8Q1OBQO3dPHR1BTQkeANI8GZneFpGflZ6BnK6TSe6QTNcGaZ%2Blp6q%2FC9bkO6BqRzJxrZ3PfNYnW%2Bt6OLtnLJuu5hedeoiJYU6divK%2B3RAyb1lyo695Msr4WOtJwTKI%2BRi0OHqtPGNESfdh%2B%2BenjyGqgDN8ltemOiQ0v4Xdf0lzd45sEZMvI94GEVQWkGh18Z%2Bt9t9M35UcdmwKKyeiRCjuFTYtdWtuJbdM6hfpoL%2Fhf94rxsIA%3D%3D" type="audio/mp3">
+                        </source>Tu navegador no soporta el audio.
+                    </audio><br />❔ Where do you study?<br />🗣️I study at Choco English Academy.<br /> ❔What's your favorite book?<br />🗣️My favorite book is the Bible.<br /> ❔What's your favorite movie?<br />🗣️My favorite movie is Gifted Hands.
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em"><strong data-redactor-tag="strong">Traducción:</strong><br /> ❔¿Dónde estudias?<br />🗣️Estudio en la Academia Choco English.<br /> ❔¿Cuál es tu libro favorito?<br />🗣️Mi libro favorito es la Biblia.<br /> ❔¿Cuál es tu película favorita?<br />🗣️Mi película favorita es Manos Milagrosas.
+                </p>
+                <p><img src="https://api-club-file.cb.hotmart.com/public/v5/files/9ab8c434-1451-4ea2-b9d6-fc66dda72a3b" data-verified="redactor" />
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#FE4980;line-height:1.2;font-size:1.8em;margin-top:1.5em;margin-bottom:1em"><strong data-redactor-tag="strong">📅 Día 4 – Comida, hobbies y colores</strong></p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em"><span style="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold" rel="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold" data-verified="redactor" data-redactor-tag="span" data-redactor-style="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold"> 🎧 Escucha el audio: </span><audio style="height:30px" loop="loop" controls="controls">
+                        <source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%204-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=dOyDt4KdjcNR%2FxacSUO3M6Mv4iMdUToKYg7g%2BmHXfokX0%2B1GTXhoq2TE5zwYAqC7smBwwXuEyOm64nYKqA2sE%2BkW1nVy2fRCtWGLlgwN8v614cPg7XXNiHxcDMU0U2MAVPw1HL1iRWqJDk38I%2FpwVS2dmyq1lDLZj%2FIXatDq5pTv44HkdSszeIfG0bz2BBef%2BkejOTwa%2F%2BzZsgHrcqzPRADkIi7e5CLAhw%2Bm0uI5J8qtwdDLeS5jGToExGyffnGvnPbB%2B1we1wFh7YRN8Ph%2BdXNe0udkkmiL4v2lEMAnIur1qbpjXjK%2BkqjJx7qDatOwshTnm30zJ6Jn5pfE0LlEoQ%3D%3D" type="audio/mp3">
+                        </source>Tu navegador no soporta el audio.
+                    </audio><br />❔ What's your favorite food?<br />🗣️My favorite food is Mexican food.<br /> ❔What's your favorite hobby?<br />🗣️My favorite hobby is reading and listening to music.<br /> ❔What's your favorite color?<br />🗣️My favorite color is black.
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em"><strong data-redactor-tag="strong">Traducción:</strong><br /> ❔¿Cuál es tu comida favorita?<br />🗣️Mi comida favorita es la comida mexicana.<br /> ❔¿Cuál es tu pasatiempo favorito?<br />🗣️Mi pasatiempo favorito es leer y escuchar música.<br /> ❔¿Cuál es tu color favorito?<br />🗣️Mi color favorito es el negro.
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#FE4980;line-height:1.2;font-size:1.8em;margin-top:1.5em;margin-bottom:1em"><strong data-redactor-tag="strong">📅 Día 5 – ¿Qué hora es?</strong></p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em"><span style="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold" rel="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold" data-verified="redactor" data-redactor-tag="span" data-redactor-style="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold"> 🎧 Escucha el audio: </span><audio style="height:30px" loop="loop" controls="controls">
+                        <source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%205-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=V8jXQhWkY2TBND9Zw1U9bJS%2FBxPaxfrnoY2%2FgQoU893TPL6cpFLLsB8MRCQ6SyJfY1s8%2FuJW0lOe%2B5kcm00tf%2FWYv33Frmo1I0Gy6wi%2B7hVodjjMztRy7Op3Q3f%2BALV%2F7utSAjmoxTR%2FTvAfbOHU0LBHYLYYfpxsjT001tlAx11zAGNPIW6otNvWSI4oBFdMYa%2Fmpf79Gi%2BW4F5ibr%2FQ%2BfNhCHJM30jFxV7X9AGMgjKy9mzgPPBUMus57Syi58l6iDVRI%2BIKuw1fBl7pU%2Fk%2F3Ug0TlWs4K0reo4zWlMit9970oQNQoyuGGBaikNGXhs50aBLNnEozVKecEcEQOzXeA%3D%3D" type="audio/mp3">
+                        </source>Tu navegador no soporta el audio.
+                    </audio><br />❔ What time is it?<br />🗣️It's 2:30pm.<br /> ❔What time is it?<br />🗣️It's 8 o'clock.<br /> ❔I need your help, can you help me please?<br />🗣️Sure, tell me what you need.
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em"><strong data-redactor-tag="strong">Traducción:</strong><br /> ❔¿Qué hora es?<br />🗣️Son las 2:30 p.m.<br /> ❔¿Qué hora es?<br />🗣️Son las 8 en punto.<br /> ❔Necesito tu ayuda, ¿puedes ayudarme, por favor?<br />🗣️Claro, dime qué necesitas.
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#FE4980;line-height:1.2;font-size:1.8em;margin-top:1.5em;margin-bottom:1em"><strong data-redactor-tag="strong">📅 Día 6 – Opiniones y planes</strong></p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em"><span style="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold" rel="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold" data-verified="redactor" data-redactor-tag="span" data-redactor-style="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold"> 🎧 Escucha el audio: </span><audio style="height:30px" loop="loop" controls="controls">
+                        <source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%206-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=sConR2frP%2BB18n0cB4sfeZKMruir63Puaf89y2%2B7mqehDBmIxFyLJEFithpj%2BhaGVQO%2FXaWvnmyT%2BFKiFeMRI%2B2osppTl3R9cMXj%2BqpDRnqaEGvoB6gPiqDMdaKHdvoJpp4Hd%2BSJj%2F06HzCwwWUMYDDRb4f0fL98C1YpaA5nB8qCrGF7Ry2WHGCbNP%2FtHoL90vFtowRhfyu3W%2FVkFB98ScSFDp1yd0tRPOie8PU%2FQILK0NvfQGHd%2BHRC47kvM8FmZPYBwg3Z2eRssos73poXN57pVtU%2BzgTVMIEcwnD51u57dZeTQEsG%2F6jWddJ%2FDjgq2Fy6mBwnbjb%2FD4rEFPi79w%3D%3D" type="audio/mp3">
+                        </source>Tu navegador no soporta el audio.
+                    </audio><br />❔ What do you think about money?<br />🗣️I think money is important.<br /> ❔What will you do tomorrow?<br />🗣️I’ll work and I’ll study.<br /> ❔Do you have any plans for the weekend?<br />🗣️Yeah, I'm gonna travel to Mexico.
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em"><strong data-redactor-tag="strong">Traducción:</strong><br /> ❔¿Qué piensas del dinero?<br />🗣️Creo que el dinero es importante.<br /> ❔¿Qué harás mañana?<br />🗣️Trabajaré y estudíaré.<br /> ❔¿Tienes planes para el fin de semana?<br />🗣️Sí, voy a viajar a México.
+                </p>
+                <p><img src="https://api-club-file.cb.hotmart.com/public/v5/files/748535d5-c5cf-4085-8790-859cf8795646" data-verified="redactor" />
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#FE4980;line-height:1.2;font-size:1.8em;margin-top:1.5em;margin-bottom:1em"><strong data-redactor-tag="strong">📅 Día 7 – Gustos (comer, jugar, dormir)</strong></p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em"><span style="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold" rel="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold" data-verified="redactor" data-redactor-tag="span" data-redactor-style="text-align:center;margin:0.5em 1em;font-size:18px;color:#16c4e3;font-weight:bold"> 🎧 Escucha el audio: </span><audio style="height:30px" loop="loop" controls="controls">
+                        <source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%207-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=mi7m4PCdyAKhyswW5MT4%2FlTmTAbMIP2DNnuXNSkZif%2FVTdachZRAg1cbM4rjKAO1dHBGTzL%2BD3sF8b%2BsfCluhsTXL9SY0xsp5sHxLHurWN%2Fu3rl4lXPtPicxo3mmVtt2oWJjzoIsm%2Bzq24J1ejUjlxSYMr9nLYsm41t7kudQ5BNGJgKZd3fJQUOe3t3d1f%2FPC5qVmPkTek47OxMW3LBHHLVArMdNnJVhxobI3%2BA4s7NtXYljpYk1s6sW4wNFznndyg48taXafcfsWDChbLYSZ2xuc2FjFgl396h4bukd%2B8kvhGxirwTp7iYqx7S3Tdcy8RzwzjnGvQKg4K%2F6fjvNVA%3D%3D" type="audio/mp3">
+                        </source>Tu navegador no soporta el audio.
+                    </audio><br />❔ Do you like to eat?<br />🗣️Yes, I like to eat pizza.<br /> ❔Do you like to play?<br />🗣️Yes, I like to play soccer.<br /> ❔Do you like to sleep?<br />🗣️Yes, I sleep a lot.
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em"><strong data-redactor-tag="strong">Traducción:</strong><br /> ❔¿Te gusta comer?<br />🗣️Sí, me gusta comer pizza.<br /> ❔¿Te gusta jugar?<br />🗣️Sí, me gusta jugar fútbol.<br /> ❔¿Te gusta dormir?<br />🗣️Sí, duermo mucho.
+                </p>
             </div>
             <div class="content-area" id="content-audio-de-pronunciación">
                 <h1><strong>Materiales a Evaluar</strong></h1>
                 <h2><strong>Audios</strong></h2>
                 <h3><strong>Audio de Pronunciación</strong></h3>
-                <p><span style="font-weight: 400;">Sam woke up early to help his </span><strong>mother</strong><span style="font-weight: 400;"> with breakfast. "Are you feeling in good </span><strong>health</strong><span style="font-weight: 400;"> today?" she asked. He nodded, though he felt a bit </span><strong>hot</strong><span style="font-weight: 400;">. After breakfast, he said, "I’ll </span><strong>pack</strong><span style="font-weight: 400;"> my bag and go for a run. It’s important to stay </span><strong>fit</strong><span style="font-weight: 400;">, not </span><strong>fat</strong><span style="font-weight: 400;">!"</span></p>
-                <p><span style="font-weight: 400;">As he ran, Sam noticed the changing </span><strong>weather</strong><span style="font-weight: 400;">. There was a chance of </span><strong>rain</strong><span style="font-weight: 400;"> or even </span><strong>hail</strong><span style="font-weight: 400;">, but he thought, “I’ll keep going.” He saw a </span><strong>hen</strong><span style="font-weight: 400;"> in the </span><strong>sand</strong><span style="font-weight: 400;"> by the </span><strong>path</strong><span style="font-weight: 400;">, and a bird in the </span><strong>air</strong><span style="font-weight: 400;">, singing a song that made him </span><strong>feel</strong><span style="font-weight: 400;"> happy.</span></p>
-                <p><span style="font-weight: 400;">Sam stopped by the river, where he saw a man </span><strong>build</strong><span style="font-weight: 400;"> a small boat. "I’ve </span><strong>built</strong><span style="font-weight: 400;"> many boats like this," the man said. Sam admired his </span><strong>strength</strong><span style="font-weight: 400;"> and </span><strong>faith</strong><span style="font-weight: 400;"> in his craft.</span></p>
-                <p><span style="font-weight: 400;">Later, at school, the teacher said, “</span><strong>Think</strong><span style="font-weight: 400;"> about what makes life </span><strong>worth</strong><span style="font-weight: 400;"> living. Is it </span><strong>truth</strong><span style="font-weight: 400;">, </span><strong>wealth</strong><span style="font-weight: 400;">, or </span><strong>growth</strong><span style="font-weight: 400;">?" Sam raised his </span><strong>hand</strong><span style="font-weight: 400;"> and said, "For me, it’s my </span><strong>brother</strong><span style="font-weight: 400;">, my </span><strong>father</strong><span style="font-weight: 400;">, and my </span><strong>mother</strong><span style="font-weight: 400;">. They’re always there, no matter the </span><strong>month</strong><span style="font-weight: 400;"> or the </span><strong>weather</strong><span style="font-weight: 400;">."</span></p>
-                <p><span style="font-weight: 400;">In class, they read about the </span><strong>earth’s</strong><span style="font-weight: 400;"> history and the </span><strong>death</strong><span style="font-weight: 400;"> and </span><strong>birth</strong><span style="font-weight: 400;"> of civilizations. Sam learned how </span><strong>strength</strong><span style="font-weight: 400;"> and determination can change the world.</span></p>
-                <p><span style="font-weight: 400;">After school, he met his friends and said, "Hey, let’s play soccer!" They all agreed. "Who will be the </span><strong>goalkeeper</strong><span style="font-weight: 400;">?" someone asked. "I will!" Sam said. He </span><strong>held</strong><span style="font-weight: 400;"> his position well, showing his quick reflexes and strong </span><strong>faith</strong><span style="font-weight: 400;"> in his team.</span></p>
-                <p><span style="font-weight: 400;">That evening, at dinner, Sam’s mother asked, “What did you learn today?” He replied, “We learned about the </span><strong>truth</strong><span style="font-weight: 400;"> of the </span><strong>world</strong><span style="font-weight: 400;">, and how important it is to work </span><strong>together</strong><span style="font-weight: 400;"> to make it a better place.”</span></p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#FE4980;line-height:1.2;font-size:1.8em;margin-top:1.5em;margin-bottom:1em">INGLÉS Lectura de pronunciación (terminaciones)</p>
+
+                <p><span style="text-align:center;margin:20px 0;font-size:18px;color:#16c4e3;font-weight:bold;margin:0.5em 1em" rel="text-align:center;margin:20px 0;font-size:18px;color:#16c4e3;font-weight:bold;margin:0.5em 1em" data-verified="redactor" data-redactor-tag="span" data-redactor-style="text-align:center;margin:20px 0;font-size:18px;color:#16c4e3;font-weight:bold;margin:0.5em 1em"> 🎧👧🏿 Voz Humana Mujer: </span><audio controls loop style="height:30px">
+                        <source src="https://firebasestorage.googleapis.com/v0/b/chocolearn-f05e5.firebasestorage.app/o/audio%2FLectura%20de%20Pronunciaci%C3%B3n%20-%20Mujer%20Voz%20Humana-esv2-90p-bg-10p.mp3?alt=media&amp;token=531111ef-2d2a-46cb-a6a2-0f1bc7de7367" type="audio/mp3">
+                        </source>Tu navegador no soporta el audio.
+                    </audio>
+                </p>
+                <p><span style="text-align:center;margin:20px 0;font-size:18px;color:#16c4e3;font-weight:bold;margin:0.5em 1em" rel="text-align:center;margin:20px 0;font-size:18px;color:#16c4e3;font-weight:bold;margin:0.5em 1em" data-verified="redactor" data-redactor-tag="span" data-redactor-style="text-align:center;margin:20px 0;font-size:18px;color:#16c4e3;font-weight:bold;margin:0.5em 1em"> 🎧👱🏽‍♂️ Voz Humana Hombre: </span><audio controls loop style="height:30px">
+                        <source src="https://firebasestorage.googleapis.com/v0/b/chocolearn-f05e5.firebasestorage.app/o/audio%2FLectura%20de%20Pronunciaci%C3%B3n%20-%20Hombre-esv2-90p-bg-10p.mp3?alt=media&amp;token=6df2cef9-c40e-4dce-80d6-4b6adc4931b5" type="audio/mp3">
+                        </source>Tu navegador no soporta el audio.
+                    </audio>
+                </p>
+                <p style="margin-top:0em;margin-right:1em;font-family:Poppins, sans-serif;color:rgb(0, 0, 0);line-height:1.6;margin-bottom:1.2em;font-size:1.2em"><span style="text-align:center;margin:20px 0;font-size:18px;color:#16c4e3;font-weight:bold;margin:0.5em 1em" rel="text-align:center;margin:20px 0;font-size:18px;color:#16c4e3;font-weight:bold;margin:0.5em 1em" data-verified="redactor" data-redactor-tag="span" data-redactor-style="text-align:center;margin:20px 0;font-size:18px;color:#16c4e3;font-weight:bold;margin:0.5em 1em">🎧 Agente AI: </span><audio controls loop style="height:30px">
+                        <source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Lectura%20de%20Pronunciaci%C3%B3n.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=P18RMNZ%2BpuTQ7jFkK00BuFh4ToCG7akYPJDCm7RldKID3O93RkCpR80dltrCPj%2F4Urvy%2BlxryUSsj5Ub3y8OGrtXARRk9LpIM9aCGqWd7wrWWwsfuSp6CZK7dpg0XHkvqBI293vrrVEQOt4PXJMJS8fSIALiGl9GCpkiUTLNkQw%2BAC80aqCj38xMQv3NvEaSIy915dHmmjuXfJNmgDc09b7TTXUSl8wgX6i5kt0ksAuYrA1xZOw0Pnx7JA%2BRSMQUdA9smJCVA7MagH5nNcMyo65dkg4u4uwlhOD8l3uF187%2BeAzD%2ByXfNN6wvJlt0zKXPcrP49PSLhfjmzQu71zBCw%3D%3D" type="audio/mp3">
+                        </source>Tu navegador no soporta el audio.
+                    </audio>
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em"> Sam woke up early to help his mother with breakfast. "Are you feeling in good health today?" she asked. He nodded, though he felt a bit hot. After breakfast, he said, "I'll pack my bag and go for a run. It's important to stay fit, not fat!" As he ran, Sam noticed the changing weather. There was a chance of rain or even hail, but he thought, "I'll keep going." He saw a hen in the sand by the path, and a bird in the air, singing a song that made him feel happy. Sam stopped by the river, where he saw a man build a small boat. "I've built many boats like this," the man said. Sam admired his strength and faith in his craft. Later, at school, the teacher said, "Think about what makes life worth living. Is it truth, wealth, or growth?" Sam raised his hand and said, "For me, it's my brother, my father, and my mother. They're always there, no matter the month or the weather." In class, they read about the earth's history and the death and birth of civilizations. Sam learned how strength and determination can change the world. After school, he met his friends and said, "Hey, let's play soccer!" They all agreed. "Who will be the goalkeeper?" someone asked. "I will!" Sam said. He held his position well, showing his quick reflexes and strong faith in his team. That evening, at dinner, Sam's mother asked, "What did you learn today?" He replied, "We learned about the truth of the world, and how important it is to work together to make it a better place.""
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#FE4980;line-height:1.2;font-size:1.8em;margin-top:1.5em;margin-bottom:1em">ESPAÑOL Lectura de pronunciación (terminaciones)</p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em">Sam se despertó temprano para ayudar a su madre con el desayuno 👨‍👩‍👦.<br />"¿Te sientes bien de salud hoy?" preguntó ella.<br />Él asintió, aunque sentía un poco de calor 🤒. Después del desayuno, dijo:<br />"Empacaré mi mochila y saldré a correr. ¡Es importante mantenerse en forma, no gordo!" 🏃
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em">Mientras corría, Sam notó el cambio en el clima ☁️. Había posibilidades de lluvia o incluso granizo, pero pensó: "Seguiré adelante".<br />Vio una gallina en la arena junto al camino 🐔 y un pájaro en el aire 🦅, cantando una canción que lo hizo sentir feliz.
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em">Sam se detuvo junto al río 🌊, donde vio a un hombre construyendo un pequeño bote.<br />"He construido muchos botes como este", dijo el hombre ⛵.<br />Sam admiró su fuerza y la confianza en su oficio.
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em">Más tarde, en la escuela 🏫, el maestro dijo:<br />"Piensen en lo que hace que la vida valga la pena. ¿Es la verdad, la riqueza o el crecimiento?"<br />Sam levantó la mano ✋ y dijo:<br />"Para mí, son mi hermano, mi padre y mi madre. Ellos siempre están ahí 💝, sin importar el mes ni el clima".
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em">En clase, leyeron sobre la historia de la Tierra 🌍 y la muerte y el nacimiento de civilizaciones. Sam aprendió cómo la fuerza y la determinación 💪 pueden cambiar el mundo.
+                </p>
+                <p><img src="https://api-club-file.cb.hotmart.com/public/v5/files/08035877-bcc9-431f-80f9-08e7cbfed096" data-verified="redactor" />
+                </p>
+                <p><br />
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em">Después de la escuela, se reunió con sus amigos y dijo:<br />"¡Oigan, juguemos fútbol!" Todos estuvieron de acuerdo 👥.<br />"¿Quién será el portero?" preguntó alguien.<br />"¡Yo lo seré!" dijo Sam. Se mantuvo firme en su posición ⚽, mostrando sus rápidos reflejos y su fuerte confianza en su equipo.
+                </p>
+                <p style="margin:0em 1em;font-family:'Poppins', sans-serif;color:#000;line-height:1.6;margin-bottom:1.2em;font-size:1.2em">Esa noche, durante la cena 🍽️, la madre de Sam le preguntó:<br />"¿Qué aprendiste hoy?"<br />Él respondió:<br />"Aprendimos sobre la verdad del mundo y lo importante que es trabajar juntos 🤝 para hacerlo un lugar mejor".
+                </p>
             </div>
             <div class="content-area" id="content-reductores-de-ruido-saludos-y-despedidas---choco-turbo">
                 <h1><strong>Materiales a Evaluar</strong></h1>
                 <h2><strong>Reductores Ruido</strong></h2>
                 <h3><strong>Reductores de Ruido Saludos y Despedidas - Choco Turbo</strong></h3>
-                <p><span style="font-weight: 400;">This one</span></p>
-                <p><strong>Hi! How are you?</strong></p>
-                <p><span style="font-weight: 400;">¡Hola! ¿Cómo estás?</span></p>
-                <p><strong>Hello, nice to meet you!</strong></p>
-                <p><span style="font-weight: 400;">¡Hola, un placer conocerte!</span></p>
-                <p><strong>Good morning, everyone!</strong></p>
-                <p><span style="font-weight: 400;">¡Buenos días a todos!</span></p>
-                <p><strong>Good afternoon, sir.</strong></p>
-                <p><span style="font-weight: 400;">Buenas tardes, señor.</span></p>
-                <p><strong>Good evening, how was your day?</strong></p>
-                <p><span style="font-weight: 400;">Buenas noches, ¿cómo estuvo tu día?</span></p>
-                <p><strong>Hey, what’s up?</strong></p>
-                <p><span style="font-weight: 400;">¡Hola! ¿Qué pasa?</span></p>
-                <p><strong>What’s up, buddy?</strong></p>
-                <p><span style="font-weight: 400;">¿Qué tal, amigo?</span></p>
-                <p><strong>How are you today?</strong></p>
-                <p><span style="font-weight: 400;">¿Cómo estás hoy?</span></p>
-                <p><strong>How’s it going at work?</strong></p>
-                <p><span style="font-weight: 400;">¿Cómo va todo en el trabajo?</span></p>
-                <p><strong>Bye! See you soon!</strong></p>
-                <p><span style="font-weight: 400;">¡Adiós! ¡Nos vemos pronto!</span></p>
-                <p><strong>Goodbye, take care!</strong></p>
-                <p><span style="font-weight: 400;">Adiós, ¡cuídate!</span></p>
-                <p><strong>See you later, alligator!</strong></p>
-                <p><span style="font-weight: 400;">¡Nos vemos luego, cocodrilo!</span></p>
-                <p><strong>See you soon, my friend!</strong></p>
-                <p><span style="font-weight: 400;">¡Nos vemos pronto, amigo!</span></p>
-                <p><strong>Take care and stay safe!</strong></p>
-                <p><span style="font-weight: 400;">¡Cuídate y mantente a salvo!</span></p>
-                <p><strong>See you tomorrow at school!</strong></p>
-                <p><span style="font-weight: 400;">¡Nos vemos mañana en la escuela!</span></p>
-                <p><strong>See you next time, John!</strong></p>
-                <p><span style="font-weight: 400;">¡Nos vemos la próxima, John!</span></p>
-                <p><strong>Have a good day at work!</strong></p>
-                <p><span style="font-weight: 400;">¡Que tengas un buen día en el trabajo!</span></p>
-                <p><strong>Have a nice day, everyone!</strong></p>
-                <p><span style="font-weight: 400;">¡Que tengan un lindo día, todos!</span></p>
+                <p><span style="text-align:center;margin:20px 0;font-size:18px;color:#16c4e3;font-weight:bold;margin:0.5em 1em" rel="text-align:center;margin:20px 0;font-size:18px;color:#16c4e3;font-weight:bold;margin:0.5em 1em" data-verified="redactor" data-redactor-tag="span" data-redactor-style="text-align:center;margin:20px 0;font-size:18px;color:#16c4e3;font-weight:bold;margin:0.5em 1em"> 🎧 Audio Bilingüe<span class="redactor-invisible-space">​</span>: </span><audio controls="" loop="" style="height:30px">
+                        <source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Reductor%20saludos%20despedidas%20biling%C3%BCe-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=mplA%2BI%2FBEM0tFaJF8iOIGZPN8tbajUiIJ2N%2FbimncqEyqsjteHVNTpCQZbNBX829mKFM7yu4h%2F3iIDimFLr6hEaL8bRHYXAyN9VFT28aIpYf35RXdSWS8ahZwDntetEH78N376RHZeWVz9HtFBM6OcJ%2FcM96qu6lXnIxRhJfqJAOd%2F%2BPc1x4HRMubWb849BELK6pXNO2QXFK595ThL7BCgszVAL9plkGDaARU%2FxGQa39OYYSwgVvu9cgV%2FAAR0wIpJh6phiHdCYOgHm38RLxeFLMcAHfWug5vuXEaL%2Bl6IoW4P1AWLCCj5i407GWNL%2FhOANwyD%2FgyFUVUylNBnku%2Bw%3D%3D" type="audio/mp3">Tu navegador no soporta el audio.
+                    </audio>
+                </p>
+                <p><span style="text-align:center;margin:20px 0;font-size:18px;color:#16c4e3;font-weight:bold;margin:0.5em 1em" rel="text-align:center;margin:20px 0;font-size:18px;color:#16c4e3;font-weight:bold;margin:0.5em 1em" data-verified="redactor" data-redactor-tag="span" data-redactor-style="text-align:center;margin:20px 0;font-size:18px;color:#16c4e3;font-weight:bold;margin:0.5em 1em"> 🎧 Audio Inglés: </span><audio controls="" loop="" style="height:30px">
+                        <source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/English%20Reductor%20saludos%20despedidas%20-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=pvl3xw0rwiWWLKAv47MuGaw1yu3VOlRxsG6JTznz1u9betieILkqKQzJQMCyPpUVhMmkLeGZ2zaggR2KxwB%2Bn2D6UvU4stxMeG5FncNL%2B1thp0HdkSrXU5BrszuiHew9jxiVxn%2BvLNOJAO0s22gHMHhF2X1JW9OV3qdbbMchDb6fGqi%2B2bpNILrc8ViUJz9F8Ox1hP3wFTWrh8z2C%2FoFiiUqN7pSYgJkCzu732HVPxeXe4JD5iNW9aHzVQQTW0jBadDH005NemmWjve5H1M7Ojj8gMqMwl0MF8J%2FEFpshoQ%2F4HA4VXZaMZCUtL0PJOiNFe6u2N2Niu2xsVP3npHydA%3D%3D" type="audio/mp3">Tu navegador no soporta el audio.
+                    </audio>
+                </p>
+                <table style="table-layout:fixed;margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
+                    <colgroup>
+                        <col>
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr style="margin:0em 0.5em;border:1px solid #ddd;padding:12px 8px;text-align:left;background-color:#16c4e3;color:white">
+                            <td>
+                                <p style="margin:0em 0.5em;font-family:'Poppins', sans-serif;line-height:1.6;margin-bottom:1.2em;font-size:1.2em">Palabra Clave
+                                </p>
+                            </td>
+                            <td>
+                                <p style="margin:0em 0.5em;font-family:'Poppins', sans-serif;line-height:1.6;margin-bottom:1.2em;font-size:1.2em">Frase de ejemplo
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="margin:0em 0.5em;background-color:#f2f2f2">
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left;font-weight:bold">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">Hi! How are you?
+                                </p>
+                            </td>
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">¡Hola! ¿Cómo estás?
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="margin:0em 0.5em;background-color:#ffffff">
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left;font-weight:bold">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">Hello, nice to meet you!
+                                </p>
+                            </td>
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">¡Hola, un placer conocerte!
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="margin:0em 0.5em;background-color:#f2f2f2">
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left;font-weight:bold">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">Good morning, everyone!
+                                </p>
+                            </td>
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">¡Buenos días a todos!
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="margin:0em 0.5em;background-color:#ffffff">
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left;font-weight:bold">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">Good afternoon, sir.
+                                </p>
+                            </td>
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">Buenas tardes, señor.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="margin:0em 0.5em;background-color:#f2f2f2">
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left;font-weight:bold">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">Good evening, how was your day?
+                                </p>
+                            </td>
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">Buenas noches, ¿cómo estuvo tu día?
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="margin:0em 0.5em;background-color:#ffffff">
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left;font-weight:bold">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">Hey, what’s up?
+                                </p>
+                            </td>
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">¡Hola! ¿Qué pasa?
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="margin:0em 0.5em;background-color:#f2f2f2">
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left;font-weight:bold">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">What’s up, buddy?
+                                </p>
+                            </td>
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">¿Qué tal, amigo?
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="margin:0em 0.5em;background-color:#ffffff">
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left;font-weight:bold">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">How are you today?
+                                </p>
+                            </td>
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">¿Cómo estás hoy?
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="margin:0em 0.5em;background-color:#f2f2f2">
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left;font-weight:bold">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">How’s it going at work?
+                                </p>
+                            </td>
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">¿Cómo va todo en el trabajo?
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="margin:0em 0.5em;background-color:#ffffff">
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left;font-weight:bold">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">Bye! See you soon!
+                                </p>
+                            </td>
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">¡Adiós! ¡Nos vemos pronto!
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="margin:0em 0.5em;background-color:#f2f2f2">
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left;font-weight:bold">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">Goodbye, take care!
+                                </p>
+                            </td>
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">Adiós, ¡cuídate!
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="margin:0em 0.5em;background-color:#ffffff">
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left;font-weight:bold">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">See you later, alligator!
+                                </p>
+                            </td>
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">¡Nos vemos luego, cocodrilo!
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="margin:0em 0.5em;background-color:#f2f2f2">
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left;font-weight:bold">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">See you soon, my friend!
+                                </p>
+                            </td>
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">¡Nos vemos pronto, amigo!
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="margin:0em 0.5em;background-color:#ffffff">
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left;font-weight:bold">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">Take care and stay safe!
+                                </p>
+                            </td>
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">¡Cuídate y mantente a salvo!
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="margin:0em 0.5em;background-color:#f2f2f2">
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left;font-weight:bold">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">See you tomorrow at school!
+                                </p>
+                            </td>
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">¡Nos vemos mañana en la escuela!
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="margin:0em 0.5em;background-color:#ffffff">
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left;font-weight:bold">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">See you next time, John!
+                                </p>
+                            </td>
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">¡Nos vemos la próxima, John!
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="margin:0em 0.5em;background-color:#f2f2f2">
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left;font-weight:bold">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">Have a good day at work!
+                                </p>
+                            </td>
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">¡Que tengas un buen día en el trabajo!
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="margin:0em 0.5em;background-color:#ffffff">
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left;font-weight:bold">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">Have a nice day, everyone!
+                                </p>
+                            </td>
+                            <td style="margin:0em 0.5em;border:1px solid #ddd;padding:8px;text-align:left">
+                                <p style="margin:0em 0.5em;font-family:Poppins, sans-serif;font-size:1.5em">¡Que tengan un lindo día, todos!
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="content-area" id="content-reductor-pronombres">
                 <h1><strong>Materiales a Evaluar</strong></h1>
@@ -1191,26 +1463,26 @@
             }
         }
     </script>
-<script>
-    function toggleSidebar() {
-        const container = document.querySelector('.container');
-        const btn = document.getElementById('toggleSidebarBtn');
-        container.classList.toggle('sidebar-hidden');
+    <script>
+        function toggleSidebar() {
+            const container = document.querySelector('.container');
+            const btn = document.getElementById('toggleSidebarBtn');
+            container.classList.toggle('sidebar-hidden');
 
-        if (container.classList.contains('sidebar-hidden')) {
-            btn.innerText = '☰'; // Mostrar menú
-        } else {
-            btn.innerText = '❌'; // Cerrar menú
+            if (container.classList.contains('sidebar-hidden')) {
+                btn.innerText = '☰'; // Mostrar menú
+            } else {
+                btn.innerText = '❌'; // Cerrar menú
+            }
         }
-    }
 
-    // Mostrar ❌ al cargar si el sidebar está visible
-    window.addEventListener('DOMContentLoaded', () => {
-        const container = document.querySelector('.container');
-        const btn = document.getElementById('toggleSidebarBtn');
-        btn.innerText = container.classList.contains('sidebar-hidden') ? '☰' : '❌';
-    });
-</script>
+        // Mostrar ❌ al cargar si el sidebar está visible
+        window.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.container');
+            const btn = document.getElementById('toggleSidebarBtn');
+            btn.innerText = container.classList.contains('sidebar-hidden') ? '☰' : '❌';
+        });
+    </script>
 
 
 
