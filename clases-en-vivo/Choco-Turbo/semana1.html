@@ -13,8 +13,8 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Poppins', sans-serif;
+            background: #ffffff;
             min-height: 100vh;
             display: flex;
         }
@@ -29,11 +29,11 @@
         .sidebar {
             width: 350px;
             transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.95);
+            background: #ffffff;
             backdrop-filter: blur(10px);
             box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
             overflow-y: auto;
-            border-right: 1px solid rgba(255, 255, 255, 0.3);
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .container.sidebar-hidden .sidebar {
@@ -46,7 +46,7 @@
         .content {
             flex: 1;
             padding: 40px;
-            background: rgba(255, 255, 255, 0.9);
+            background: #ffffff;
             backdrop-filter: blur(10px);
             overflow-y: auto;
             transition: all 0.3s ease;
@@ -57,10 +57,8 @@
             width: 100%;
         }
 
-
-
         .menu-header {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            background: linear-gradient(135deg, #16c4e3 0%, #16c4e3 100%);
             color: white;
             padding: 20px;
             text-align: center;
@@ -90,13 +88,13 @@
         }
 
         .menu-button:hover {
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: linear-gradient(90deg, #16c4e3, #FE4980);
             color: white;
             transform: translateX(5px);
         }
 
         .menu-button.active {
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: linear-gradient(90deg, #16c4e3, #FE4980);
             color: white;
         }
 
@@ -118,15 +116,15 @@
         }
 
         .submenu-button:hover {
-            background: rgba(102, 126, 234, 0.1);
-            border-left: 3px solid #667eea;
+            background: rgba(22, 196, 227, 0.1);
+            border-left: 3px solid #16c4e3;
             transform: translateX(3px);
         }
 
         .submenu-button.active {
-            background: rgba(102, 126, 234, 0.15);
-            border-left: 3px solid #667eea;
-            color: #667eea;
+            background: rgba(22, 196, 227, 0.15);
+            border-left: 3px solid #16c4e3;
+            color: #16c4e3;
         }
 
         .subsubmenu-button {
@@ -144,16 +142,16 @@
         }
 
         .subsubmenu-button:hover {
-            background: rgba(118, 75, 162, 0.1);
-            border-left: 2px solid #764ba2;
-            color: #764ba2;
+            background: rgba(254, 73, 128, 0.1);
+            border-left: 2px solid #FE4980;
+            color: #FE4980;
             transform: translateX(2px);
         }
 
         .subsubmenu-button.active {
-            background: rgba(118, 75, 162, 0.15);
-            border-left: 2px solid #764ba2;
-            color: #764ba2;
+            background: rgba(254, 73, 128, 0.15);
+            border-left: 2px solid #FE4980;
+            color: #FE4980;
             font-weight: 600;
         }
 
@@ -191,32 +189,65 @@
         }
 
         .content-area h1 {
-            color: #667eea;
+            margin: 0em 1em;
+            font-family: 'Poppins', sans-serif;
+            color: #16c4e3;
+            line-height: 1.2;
+            font-size: 2.5em;
+            font-weight: 900;
             margin-bottom: 20px;
-            font-size: 28px;
-            border-bottom: 3px solid #667eea;
+            border-bottom: 3px solid #16c4e3;
             padding-bottom: 10px;
         }
 
         .content-area h2 {
-            color: #764ba2;
-            margin: 20px 0 15px 0;
-            font-size: 22px;
+            margin: 0em 1em;
+            font-family: 'Poppins', sans-serif;
+            color: #FE4980;
+            line-height: 1.2;
+            font-size: 1.8em;
+            margin-top: 1.5em;
+            margin-bottom: 1em;
         }
 
         .content-area h3 {
-            color: #555;
-            margin: 15px 0 10px 0;
-            font-size: 18px;
-            background: linear-gradient(90deg, #f8f9ff, #e8f0ff);
+            margin: 0em 1em;
+            font-family: 'Poppins', sans-serif;
+            color: #000;
+            font-weight: 900;
+            line-height: 1.6;
+            margin-bottom: 1.2em;
+            font-size: 1.2em;
+            background: rgba(22, 196, 227, 0.05);
             padding: 10px;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid #16c4e3;
         }
 
         .content-area p {
-            margin: 10px 0;
+            margin: 0em 1em;
+            font-family: 'Poppins', sans-serif;
+            color: #000;
             line-height: 1.6;
-            color: #444;
+            margin-bottom: 1.2em;
+            font-size: 1.2em;
+        }
+
+        .content-area ul {
+            margin: 0em 1em;
+            font-family: 'Poppins', sans-serif;
+            color: #000;
+            line-height: 1.6;
+            margin-bottom: 1.2em;
+            font-size: 1.2em;
+        }
+
+        .content-area ol {
+            margin: 0em 1em;
+            font-family: 'Poppins', sans-serif;
+            color: #000;
+            line-height: 1.6;
+            margin-bottom: 1.2em;
+            font-size: 1.2em;
         }
 
         @keyframes fadeIn {
@@ -230,14 +261,6 @@
                 transform: translateY(0);
             }
         }
-
-        /*.placeholder {
-            text-align: center;
-            color: #888;
-            font-style: italic;
-            margin-top: 100px;
-            font-size: 18px;
-        }*/
     </style>
 </head>
 
