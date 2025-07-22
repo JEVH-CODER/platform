@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Evaluación - turbo1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 350px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            border-right: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .content {
+            flex: 1;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            overflow-y: auto;
+        }
+
+        .menu-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .menu-item {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-button {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            background: transparent;
+            text-align: left;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .menu-button:hover {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .menu-button.active {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .submenu-button {
+            width: 100%;
+            padding: 12px 40px;
+            border: none;
+            background: transparent;
+            text-align: left;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            color: #555;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .submenu-button:hover {
+            background: rgba(102, 126, 234, 0.1);
+            border-left: 3px solid #667eea;
+            transform: translateX(3px);
+        }
+
+        .submenu-button.active {
+            background: rgba(102, 126, 234, 0.15);
+            border-left: 3px solid #667eea;
+            color: #667eea;
+        }
+
+        .subsubmenu-button {
+            width: 100%;
+            padding: 10px 60px;
+            border: none;
+            background: transparent;
+            text-align: left;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s ease;
+            border-left: 2px solid transparent;
+        }
+
+        .subsubmenu-button:hover {
+            background: rgba(118, 75, 162, 0.1);
+            border-left: 2px solid #764ba2;
+            color: #764ba2;
+            transform: translateX(2px);
+        }
+
+        .subsubmenu-button.active {
+            background: rgba(118, 75, 162, 0.15);
+            border-left: 2px solid #764ba2;
+            color: #764ba2;
+            font-weight: 600;
+        }
+
+        .submenu, .subsubmenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .submenu.open {
+            max-height: 1000px;
+        }
+
+        .subsubmenu.open {
+            max-height: 500px;
+        }
+
+        .arrow {
+            transition: transform 0.3s ease;
+            font-size: 12px;
+        }
+
+        .arrow.rotate {
+            transform: rotate(180deg);
+        }
+
+        .content-area {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content-area.active {
+            display: block;
+        }
+
+        .content-area h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 28px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .content-area h2 {
+            color: #764ba2;
+            margin: 20px 0 15px 0;
+            font-size: 22px;
+        }
+
+        .content-area h3 {
+            color: #555;
+            margin: 15px 0 10px 0;
+            font-size: 18px;
+            background: linear-gradient(90deg, #f8f9ff, #e8f0ff);
+            padding: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .content-area p {
+            margin: 10px 0;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .placeholder {
+            text-align: center;
+            color: #888;
+            font-style: italic;
+            margin-top: 100px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="menu-header">
+                📚 turbo1
+            </div>
+            
+            <div class="menu-item">
+                <button class="menu-button" onclick="toggleSubmenu('materiales-a-evaluar')">
+                    Materiales a Evaluar
+                    <span class="arrow" id="arrow-materiales-a-evaluar">▼</span>
+                </button>
+                <div class="submenu" id="submenu-materiales-a-evaluar">
+                    <button class="submenu-button" onclick="toggleSubSubmenu('audios')">
+                        Audios
+                        <span class="arrow" id="arrow-audios">▼</span>
+                    </button>
+                    <div class="subsubmenu" id="subsubmenu-audios">
+                        <button class="subsubmenu-button" onclick="showContent('audios-diarios-mes-1-audios-1-7')">
+                            Audios Diarios: Mes 1 Audios 1-7
+                        </button>
+                        <button class="subsubmenu-button" onclick="showContent('audio-de-pronunciación')">
+                            Audio de Pronunciación
+                        </button>
+                    </div>
+                    <button class="submenu-button" onclick="toggleSubSubmenu('reductores-ruido')">
+                        Reductores Ruido
+                        <span class="arrow" id="arrow-reductores-ruido">▼</span>
+                    </button>
+                    <div class="subsubmenu" id="subsubmenu-reductores-ruido">
+                        <button class="subsubmenu-button" onclick="showContent('reductores-de-ruido-saludos-y-despedidas---choco-turbo')">
+                            Reductores de Ruido Saludos y Despedidas - Choco Turbo
+                        </button>
+                        <button class="subsubmenu-button" onclick="showContent('reductor-pronombres')">
+                            Reductor Pronombres
+                        </button>
+                        <button class="subsubmenu-button" onclick="showContent('reductor-preguntas-choco-turbo')">
+                            Reductor Preguntas Choco Turbo
+                        </button>
+                    </div>
+                    <button class="subsubmenu-button" onclick="showContent('preguntas---debate')">
+                        PREGUNTAS - DEBATE
+                    </button>
+                    <button class="submenu-button" onclick="toggleSubSubmenu('actividades')">
+                        ACTIVIDADES
+                        <span class="arrow" id="arrow-actividades">▼</span>
+                    </button>
+                    <div class="subsubmenu" id="subsubmenu-actividades">
+                        <button class="subsubmenu-button" onclick="showContent('actividad-las-wh-questions')">
+                            ACTIVIDAD: Las WH questions
+                        </button>
+                        <button class="subsubmenu-button" onclick="showContent('actividad-sonidos-principales-del-inglés')">
+                            ACTIVIDAD: Sonidos Principales del inglés
+                        </button>
+                    </div>
+                    <button class="submenu-button" onclick="toggleSubSubmenu('temas-vistos-en-el-nivel')">
+                        Temas Vistos en el Nivel
+                        <span class="arrow" id="arrow-temas-vistos-en-el-nivel">▼</span>
+                    </button>
+                    <div class="subsubmenu" id="subsubmenu-temas-vistos-en-el-nivel">
+                        <button class="subsubmenu-button" onclick="showContent('estructuras')">
+                            Estructuras:
+                        </button>
+                        <button class="subsubmenu-button" onclick="showContent('errores-comunes')">
+                            Errores Comunes:
+                        </button>
+                        <button class="subsubmenu-button" onclick="showContent('determinantes')">
+                            Determinantes:
+                        </button>
+                        <button class="subsubmenu-button" onclick="showContent('vocabulario')">
+                            Vocabulario
+                        </button>
+                    </div>
+                    <button class="submenu-button" onclick="toggleSubSubmenu('tests-escritos')">
+                        Tests Escritos
+                        <span class="arrow" id="arrow-tests-escritos">▼</span>
+                    </button>
+                    <div class="subsubmenu" id="subsubmenu-tests-escritos">
+                        <button class="subsubmenu-button" onclick="showContent('tests-orales')">
+                            Tests Orales
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <button class="menu-button" onclick="toggleSubmenu('parte-1-lunes-diálogo-basado-en-el-paradigma')">
+                    Parte 1: (Lunes) Diálogo Basado en el Paradigma
+                    <span class="arrow" id="arrow-parte-1-lunes-diálogo-basado-en-el-paradigma">▼</span>
+                </button>
+                <div class="submenu" id="submenu-parte-1-lunes-diálogo-basado-en-el-paradigma">
+                    <button class="subsubmenu-button" onclick="showContent('promueve-el-diálogo-entre-los-estudiantes')">
+                        Promueve el diálogo entre los estudiantes.
+                    </button>
+                    <button class="subsubmenu-button" onclick="showContent('el-docente-toma-nota-de-los-errores-y-fortalezas-del-estudiante-de-acuerdo-con-el-tema-y-los-registra-en-el-formato')">
+                        El docente toma nota de los errores y fortalezas del estudiante de acuerdo con el tema, y los registra en el formato.
+                    </button>
+                    <button class="subsubmenu-button" onclick="showContent('utiliza-un-documento-con-ejercicios-relacionados-con-los-errores-cometidos-y-otros-correspondientes-a-los-temas-a-evaluar')">
+                        Utiliza un documento con ejercicios relacionados con los errores cometidos y otros correspondientes a los temas a evaluar.
+                    </button>
+                    <button class="submenu-button" onclick="toggleSubSubmenu('de-acuerdo-con-la-dinámica-de-la-clase-se-deben-evaluar-audios-y-revisar-actividades-esto-es-obligatorio')">
+                        De acuerdo con la dinámica de la clase, se deben evaluar audios y revisar actividades. Esto es obligatorio.
+                        <span class="arrow" id="arrow-de-acuerdo-con-la-dinámica-de-la-clase-se-deben-evaluar-audios-y-revisar-actividades-esto-es-obligatorio">▼</span>
+                    </button>
+                    <div class="subsubmenu" id="subsubmenu-de-acuerdo-con-la-dinámica-de-la-clase-se-deben-evaluar-audios-y-revisar-actividades-esto-es-obligatorio">
+                        <button class="subsubmenu-button" onclick="showContent('los-audios-reductores-de-ruido-y-actividades-a-evaluar-están-especificados-en-la-sección-de-evaluación-arriba')">
+                            Los audios (reductores de ruido) y actividades a evaluar están especificados en la sección de evaluación arriba
+                        </button>
+                    </div>
+                    <button class="subsubmenu-button" onclick="showContent('se-deben-tomar-notas-de-nuevas-ideas-opciones-o-enfoques-que-puedan-aplicarse-con-otros-grupos')">
+                        Se deben tomar notas de nuevas ideas, opciones o enfoques que puedan aplicarse con otros grupos.
+                    </button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <button class="menu-button" onclick="toggleSubmenu('parte-2-jueves-diálogo-y-evaluaciones')">
+                    Parte 2: (Jueves) Diálogo y Evaluaciones
+                    <span class="arrow" id="arrow-parte-2-jueves-diálogo-y-evaluaciones">▼</span>
+                </button>
+                <div class="submenu" id="submenu-parte-2-jueves-diálogo-y-evaluaciones">
+                    <button class="subsubmenu-button" onclick="showContent('qué-hace-el-docente')">
+                        ¿Qué hace el docente?
+                    </button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <button class="menu-button" onclick="toggleSubmenu('evaluación-final-del-nivel-cefr-a1-a2-b1-b2')">
+                    Evaluación Final del Nivel CEFR (A1, A2, B1, B2)
+                    <span class="arrow" id="arrow-evaluación-final-del-nivel-cefr-a1-a2-b1-b2">▼</span>
+                </button>
+                <div class="submenu" id="submenu-evaluación-final-del-nivel-cefr-a1-a2-b1-b2">
+                    <button class="subsubmenu-button" onclick="showContent('enfoque-de-la-evaluación-final-del-nivel')">
+                        Enfoque de la evaluación final del nivel
+                    </button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <button class="menu-button" onclick="toggleSubmenu('cómo-se-evalúa')">
+                    ¿Cómo se evalúa?
+                    <span class="arrow" id="arrow-cómo-se-evalúa">▼</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="placeholder" id="placeholder">
+                Selecciona un elemento del menú para ver su contenido
+            </div>
+            
+            <div class="content-area" id="content-audios-diarios-mes-1-audios-1-7">
+                <h1><strong>Materiales a Evaluar</strong></h1>
+                <h2><strong>Audios</strong></h2>
+                <h3><strong>Audios Diarios: Mes 1 Audios 1-7</strong></h3>
+                <p><span style="font-weight: 400;">📅 Día 1 – Datos personales básicos</span></p>
+                <p><span style="font-weight: 400;">Question: How are you?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: I'm good, thanks.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: What's your name?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: I'm Fernando.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: Where are you from?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: I'm from Ecuador.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: How old are you?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: I'm 35.</span></p>
+                <p><span style="font-weight: 400;">Traducción:</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿Cómo estás?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Estoy bien, gracias.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿Cómo te llamas?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Me llamo Answer.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿De dónde eres?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Soy de Ecuador.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿Cuántos años tienes?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Tengo 35 años.</span></p>
+                <p><span style="font-weight: 400;">📅 Día 2 – Cumpleaños y ubicación</span></p>
+                <p><span style="font-weight: 400;">Question: When’s your birthday?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: It's on May 1st.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: Where do you live?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: I live in Texas.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: What do you do?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: I'm a doctor.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: Where do you work?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: I work in a hospital.</span></p>
+                <p><span style="font-weight: 400;">Traducción:</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿Cuándo es tu cumpleaños?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Es el primero de mayo.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿Dónde vives?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Vivo en Texas.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿A qué te dedicas?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Soy médico.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿Dónde trabajas?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Trabajo en un hospital.</span></p>
+                <p><span style="font-weight: 400;">📅 Día 3 – Estudios y gustos</span></p>
+                <p><span style="font-weight: 400;">Question: Where do you study?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: I study at Choco English Academy.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: What's your favorite book?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: My favorite book is the Bible.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: What's your favorite movie?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: My favorite movie is Gifted Hands.</span></p>
+                <p><span style="font-weight: 400;">Traducción:</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿Dónde estudias?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Estudio en la Academia Choco English.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿Cuál es tu libro favorito?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Mi libro favorito es la Biblia.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿Cuál es tu película favorita?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Mi película favorita es Manos Milagrosas.</span></p>
+                <p><span style="font-weight: 400;">📅 Día 4 – Comida, hobbies y colores</span></p>
+                <p><span style="font-weight: 400;">Question: What's your favorite food?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: My favorite food is Mexican food.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: What's your favorite hobby?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: My favorite hobby is reading and listening to music.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: What's your favorite color?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: My favorite color is black.</span></p>
+                <p><span style="font-weight: 400;">Traducción:</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿Cuál es tu comida favorita?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Mi comida favorita es la comida mexicana.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿Cuál es tu pasatiempo favorito?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Mi pasatiempo favorito es leer y escuchar música.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿Cuál es tu color favorito?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Mi color favorito es el negro.</span></p>
+                <p><span style="font-weight: 400;">📅 Día 5 – ¿Qué hora es?</span></p>
+                <p><span style="font-weight: 400;">Question: What time is it?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: It's 2:30pm.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: What time is it?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: It's 8 o'clock.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: I need your help, can you help me please?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Sure, tell me what you need.</span></p>
+                <p><span style="font-weight: 400;">Traducción:</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿Qué hora es?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Son las 2:30 p.m.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿Qué hora es?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Son las 8 en punto.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: Necesito tu ayuda, ¿puedes ayudarme, por favor?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Claro, dime qué necesitas.</span></p>
+                <p><span style="font-weight: 400;">📅 Día 6 – Opiniones y planes</span></p>
+                <p><span style="font-weight: 400;">Question: What do you think about money?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: I think money is important.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: What will you do tomorrow?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: I’ll work and I’ll study.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: Do you have any plans for the weekend?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Yeah, I'm gonna travel to Mexico.</span></p>
+                <p><span style="font-weight: 400;">Traducción:</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿Qué piensas del dinero?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Creo que el dinero es importante.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿Qué harás mañana?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Trabajaré y estudiaré.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿Tienes planes para el fin de semana?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Sí, voy a viajar a México.</span></p>
+                <p><span style="font-weight: 400;">📅 Día 7 – Gustos (comer, jugar, dormir)</span></p>
+                <p><span style="font-weight: 400;">Question: Do you like to eat?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Yes, I like to eat pizza.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: Do you like to play?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Yes, I like to play soccer.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: Do you like to sleep?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Yes, I sleep a lot.</span></p>
+                <p><span style="font-weight: 400;">Traducción:</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿Te gusta comer?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Sí, me gusta comer pizza.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿Te gusta jugar?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Sí, me gusta jugar fútbol.</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Question: ¿Te gusta dormir?</span><span style="font-weight: 400;"><br/></span><span style="font-weight: 400;"> Answer: Sí, duermo mucho.</span></p>
+            </div>
+            <div class="content-area" id="content-audio-de-pronunciación">
+                <h1><strong>Materiales a Evaluar</strong></h1>
+                <h2><strong>Audios</strong></h2>
+                <h3><strong>Audio de Pronunciación</strong></h3>
+                <p><span style="font-weight: 400;">Sam woke up early to help his </span><strong>mother</strong><span style="font-weight: 400;"> with breakfast. "Are you feeling in good </span><strong>health</strong><span style="font-weight: 400;"> today?" she asked. He nodded, though he felt a bit </span><strong>hot</strong><span style="font-weight: 400;">. After breakfast, he said, "I’ll </span><strong>pack</strong><span style="font-weight: 400;"> my bag and go for a run. It’s important to stay </span><strong>fit</strong><span style="font-weight: 400;">, not </span><strong>fat</strong><span style="font-weight: 400;">!"</span></p>
+                <p><span style="font-weight: 400;">As he ran, Sam noticed the changing </span><strong>weather</strong><span style="font-weight: 400;">. There was a chance of </span><strong>rain</strong><span style="font-weight: 400;"> or even </span><strong>hail</strong><span style="font-weight: 400;">, but he thought, “I’ll keep going.” He saw a </span><strong>hen</strong><span style="font-weight: 400;"> in the </span><strong>sand</strong><span style="font-weight: 400;"> by the </span><strong>path</strong><span style="font-weight: 400;">, and a bird in the </span><strong>air</strong><span style="font-weight: 400;">, singing a song that made him </span><strong>feel</strong><span style="font-weight: 400;"> happy.</span></p>
+                <p><span style="font-weight: 400;">Sam stopped by the river, where he saw a man </span><strong>build</strong><span style="font-weight: 400;"> a small boat. "I’ve </span><strong>built</strong><span style="font-weight: 400;"> many boats like this," the man said. Sam admired his </span><strong>strength</strong><span style="font-weight: 400;"> and </span><strong>faith</strong><span style="font-weight: 400;"> in his craft.</span></p>
+                <p><span style="font-weight: 400;">Later, at school, the teacher said, “</span><strong>Think</strong><span style="font-weight: 400;"> about what makes life </span><strong>worth</strong><span style="font-weight: 400;"> living. Is it </span><strong>truth</strong><span style="font-weight: 400;">, </span><strong>wealth</strong><span style="font-weight: 400;">, or </span><strong>growth</strong><span style="font-weight: 400;">?" Sam raised his </span><strong>hand</strong><span style="font-weight: 400;"> and said, "For me, it’s my </span><strong>brother</strong><span style="font-weight: 400;">, my </span><strong>father</strong><span style="font-weight: 400;">, and my </span><strong>mother</strong><span style="font-weight: 400;">. They’re always there, no matter the </span><strong>month</strong><span style="font-weight: 400;"> or the </span><strong>weather</strong><span style="font-weight: 400;">."</span></p>
+                <p><span style="font-weight: 400;">In class, they read about the </span><strong>earth’s</strong><span style="font-weight: 400;"> history and the </span><strong>death</strong><span style="font-weight: 400;"> and </span><strong>birth</strong><span style="font-weight: 400;"> of civilizations. Sam learned how </span><strong>strength</strong><span style="font-weight: 400;"> and determination can change the world.</span></p>
+                <p><span style="font-weight: 400;">After school, he met his friends and said, "Hey, let’s play soccer!" They all agreed. "Who will be the </span><strong>goalkeeper</strong><span style="font-weight: 400;">?" someone asked. "I will!" Sam said. He </span><strong>held</strong><span style="font-weight: 400;"> his position well, showing his quick reflexes and strong </span><strong>faith</strong><span style="font-weight: 400;"> in his team.</span></p>
+                <p><span style="font-weight: 400;">That evening, at dinner, Sam’s mother asked, “What did you learn today?” He replied, “We learned about the </span><strong>truth</strong><span style="font-weight: 400;"> of the </span><strong>world</strong><span style="font-weight: 400;">, and how important it is to work </span><strong>together</strong><span style="font-weight: 400;"> to make it a better place.”</span></p>
+            </div>
+            <div class="content-area" id="content-reductores-de-ruido-saludos-y-despedidas---choco-turbo">
+                <h1><strong>Materiales a Evaluar</strong></h1>
+                <h2><strong>Reductores Ruido</strong></h2>
+                <h3><strong>Reductores de Ruido Saludos y Despedidas - Choco Turbo</strong></h3>
+                <p><span style="font-weight: 400;">This one</span></p>
+                <p><strong>Hi! How are you?</strong></p>
+                <p><span style="font-weight: 400;">¡Hola! ¿Cómo estás?</span></p>
+                <p><strong>Hello, nice to meet you!</strong></p>
+                <p><span style="font-weight: 400;">¡Hola, un placer conocerte!</span></p>
+                <p><strong>Good morning, everyone!</strong></p>
+                <p><span style="font-weight: 400;">¡Buenos días a todos!</span></p>
+                <p><strong>Good afternoon, sir.</strong></p>
+                <p><span style="font-weight: 400;">Buenas tardes, señor.</span></p>
+                <p><strong>Good evening, how was your day?</strong></p>
+                <p><span style="font-weight: 400;">Buenas noches, ¿cómo estuvo tu día?</span></p>
+                <p><strong>Hey, what’s up?</strong></p>
+                <p><span style="font-weight: 400;">¡Hola! ¿Qué pasa?</span></p>
+                <p><strong>What’s up, buddy?</strong></p>
+                <p><span style="font-weight: 400;">¿Qué tal, amigo?</span></p>
+                <p><strong>How are you today?</strong></p>
+                <p><span style="font-weight: 400;">¿Cómo estás hoy?</span></p>
+                <p><strong>How’s it going at work?</strong></p>
+                <p><span style="font-weight: 400;">¿Cómo va todo en el trabajo?</span></p>
+                <p><strong>Bye! See you soon!</strong></p>
+                <p><span style="font-weight: 400;">¡Adiós! ¡Nos vemos pronto!</span></p>
+                <p><strong>Goodbye, take care!</strong></p>
+                <p><span style="font-weight: 400;">Adiós, ¡cuídate!</span></p>
+                <p><strong>See you later, alligator!</strong></p>
+                <p><span style="font-weight: 400;">¡Nos vemos luego, cocodrilo!</span></p>
+                <p><strong>See you soon, my friend!</strong></p>
+                <p><span style="font-weight: 400;">¡Nos vemos pronto, amigo!</span></p>
+                <p><strong>Take care and stay safe!</strong></p>
+                <p><span style="font-weight: 400;">¡Cuídate y mantente a salvo!</span></p>
+                <p><strong>See you tomorrow at school!</strong></p>
+                <p><span style="font-weight: 400;">¡Nos vemos mañana en la escuela!</span></p>
+                <p><strong>See you next time, John!</strong></p>
+                <p><span style="font-weight: 400;">¡Nos vemos la próxima, John!</span></p>
+                <p><strong>Have a good day at work!</strong></p>
+                <p><span style="font-weight: 400;">¡Que tengas un buen día en el trabajo!</span></p>
+                <p><strong>Have a nice day, everyone!</strong></p>
+                <p><span style="font-weight: 400;">¡Que tengan un lindo día, todos!</span></p>
+            </div>
+            <div class="content-area" id="content-reductor-pronombres">
+                <h1><strong>Materiales a Evaluar</strong></h1>
+                <h2><strong>Reductores Ruido</strong></h2>
+                <h3><strong>Reductor Pronombres</strong></h3>
+                <p><strong>Are you tired?</strong></p>
+                <p><span style="font-weight: 400;">¿Estás cansado?</span></p>
+                <p><strong>Yes, I'm tired.</strong></p>
+                <p><span style="font-weight: 400;">Sí, estoy cansado.</span></p>
+                <p><strong>Are you busy?</strong></p>
+                <p><span style="font-weight: 400;">¿Estás ocupado?</span></p>
+                <p><strong>No, I'm free.</strong></p>
+                <p><span style="font-weight: 400;">No, estoy libre.</span></p>
+                <p><strong>Are you happy?</strong></p>
+                <p><span style="font-weight: 400;">¿Estás feliz?</span></p>
+                <p><strong>Yes, I'm happy.</strong></p>
+                <p><span style="font-weight: 400;">Sí, estoy feliz.</span></p>
+                <p><strong>Are you okay?</strong></p>
+                <p><span style="font-weight: 400;">¿Estás bien?</span></p>
+                <p><strong>Yes, I'm okay.</strong></p>
+                <p><span style="font-weight: 400;">Sí, estoy bien.</span></p>
+                <p><strong>Are you hungry?</strong></p>
+                <p><span style="font-weight: 400;">¿Tienes hambre?</span></p>
+                <p><strong>Yes, I'm hungry.</strong></p>
+                <p><span style="font-weight: 400;">Sí, tengo hambre.</span></p>
+                <p><strong>Is he your friend?</strong></p>
+                <p><span style="font-weight: 400;">¿Es él tu amigo?</span></p>
+                <p><strong>Yes, he's my friend.</strong></p>
+                <p><span style="font-weight: 400;">Sí, él es mi amigo.</span></p>
+                <p><strong>Is he tired?</strong></p>
+                <p><span style="font-weight: 400;">¿Está él cansado?</span></p>
+                <p><strong>Yes, he's tired.</strong></p>
+                <p><span style="font-weight: 400;">Sí, él está cansado.</span></p>
+                <p><strong>Is he a teacher?</strong></p>
+                <p><span style="font-weight: 400;">¿Es él profesor?</span></p>
+                <p><strong>No, he's a student.</strong></p>
+                <p><span style="font-weight: 400;">No, él es estudiante.</span></p>
+                <p><strong>Is he at home?</strong></p>
+                <p><span style="font-weight: 400;">¿Está él en casa?</span></p>
+                <p><strong>Yes, he's at home.</strong></p>
+                <p><span style="font-weight: 400;">Sí, él está en casa.</span></p>
+                <p><strong>Is he nice?</strong></p>
+                <p><span style="font-weight: 400;">¿Es él amable?</span></p>
+                <p><strong>Yes, he's nice.</strong></p>
+                <p><span style="font-weight: 400;">Sí, él es amable.</span></p>
+                <p><strong>Is she tall?</strong></p>
+                <p><span style="font-weight: 400;">¿Es ella alta?</span></p>
+                <p><strong>Yes, she's tall.</strong></p>
+                <p><span style="font-weight: 400;">Sí, ella es alta.</span></p>
+                <p><strong>Is she your sister?</strong></p>
+                <p><span style="font-weight: 400;">¿Es ella tu hermana?</span></p>
+                <p><strong>Yes, she's my sister.</strong></p>
+                <p><span style="font-weight: 400;">Sí, ella es mi hermana.</span></p>
+                <p><strong>Is she tired?</strong></p>
+                <p><span style="font-weight: 400;">¿Está ella cansada?</span></p>
+                <p><strong>Yes, she's tired.</strong></p>
+                <p><span style="font-weight: 400;">Sí, ella está cansada.</span></p>
+                <p><strong>Is she happy?</strong></p>
+                <p><span style="font-weight: 400;">¿Está ella feliz?</span></p>
+                <p><strong>Yes, she's happy.</strong></p>
+                <p><span style="font-weight: 400;">Sí, ella está feliz.</span></p>
+                <p><strong>Is she at work?</strong></p>
+                <p><span style="font-weight: 400;">¿Está ella en el trabajo?</span></p>
+                <p><strong>No, she's at home.</strong></p>
+                <p><span style="font-weight: 400;">No, está en casa.</span></p>
+                <p><strong>Is it new?</strong></p>
+                <p><span style="font-weight: 400;">¿Es nuevo?</span></p>
+                <p><strong>Yes, it's new.</strong></p>
+                <p><span style="font-weight: 400;">Sí, es nuevo.</span></p>
+                <p><strong>Is it cold?</strong></p>
+                <p><span style="font-weight: 400;">¿Está frío?</span></p>
+                <p><strong>Yes, it's cold.</strong></p>
+                <p><span style="font-weight: 400;">Sí, está frío.</span></p>
+                <p><strong>Is it a dog?</strong></p>
+                <p><span style="font-weight: 400;">¿Es un perro?</span></p>
+                <p><strong>Yes, it's a dog.</strong></p>
+                <p><span style="font-weight: 400;">Sí, es un perro.</span></p>
+                <p><strong>Is it working?</strong></p>
+                <p><span style="font-weight: 400;">¿Está funcionando?</span></p>
+                <p><strong>No, it's not working.</strong></p>
+                <p><span style="font-weight: 400;">No, no está funcionando.</span></p>
+                <p><strong>Is it your book?</strong></p>
+                <p><span style="font-weight: 400;">¿Es tu libro?</span></p>
+                <p><strong>Yes, it's my book.</strong></p>
+                <p><span style="font-weight: 400;">Sí, es mi libro.</span></p>
+                <p><strong>Are we ready?</strong></p>
+                <p><span style="font-weight: 400;">¿Estamos listos?</span></p>
+                <p><strong>Yes, we are ready.</strong></p>
+                <p><span style="font-weight: 400;">Sí, estamos listos.</span></p>
+                <p><strong>Are we late?</strong></p>
+                <p><span style="font-weight: 400;">¿Estamos tarde?</span></p>
+                <p><strong>No, we're on time.</strong></p>
+                <p><span style="font-weight: 400;">No, estamos a tiempo.</span></p>
+                <p><strong>Are we friends?</strong></p>
+                <p><span style="font-weight: 400;">¿Somos amigos?</span></p>
+                <p><strong>Yes, we are friends.</strong></p>
+                <p><span style="font-weight: 400;">Sí, somos amigos.</span></p>
+                <p><strong>Are we okay?</strong></p>
+                <p><span style="font-weight: 400;">¿Estamos bien?</span></p>
+                <p><strong>Yes, we're okay.</strong></p>
+                <p><span style="font-weight: 400;">Sí, estamos bien.</span></p>
+                <p><strong>Are we tired?</strong></p>
+                <p><span style="font-weight: 400;">¿Estamos cansados?</span></p>
+                <p><strong>Yes, we're tired.</strong></p>
+                <p><span style="font-weight: 400;">Sí, estamos cansados.</span></p>
+                <p><strong>Are they at home?</strong></p>
+                <p><span style="font-weight: 400;">¿Están ellos en casa?</span></p>
+                <p><strong>Yes, they're at home.</strong></p>
+                <p><span style="font-weight: 400;">Sí, están en casa.</span></p>
+                <p><strong>Are they students?</strong></p>
+                <p><span style="font-weight: 400;">¿Son ellos estudiantes?</span></p>
+                <p><strong>Yes, they are students.</strong></p>
+                <p><span style="font-weight: 400;">Sí, son estudiantes.</span></p>
+                <p><strong>Are they happy?</strong></p>
+                <p><span style="font-weight: 400;">¿Están ellos felices?</span></p>
+                <p><strong>Yes, they're happy.</strong></p>
+                <p><span style="font-weight: 400;">Sí, están felices.</span></p>
+                <p><strong>Are they friends?</strong></p>
+                <p><span style="font-weight: 400;">¿Son ellos amigos?</span></p>
+                <p><strong>Yes, they're friends.</strong></p>
+                <p><span style="font-weight: 400;">Sí, son amigos.</span></p>
+                <p><strong>Are they ready?</strong></p>
+                <p><span style="font-weight: 400;">¿Están ellos listos?</span></p>
+                <p><strong>Yes, they're ready.</strong></p>
+                <p><span style="font-weight: 400;">Sí, están listos.</span></p>
+            </div>
+            <div class="content-area" id="content-reductor-preguntas-choco-turbo">
+                <h1><strong>Materiales a Evaluar</strong></h1>
+                <h2><strong>Reductores Ruido</strong></h2>
+                <h3><strong>Reductor Preguntas Choco Turbo</strong></h3>
+                <p><strong>How are you?</strong></p>
+                <p><span style="font-weight: 400;">¿Cómo estás?</span></p>
+                <p><strong>I'm good, thanks</strong></p>
+                <p><span style="font-weight: 400;">Estoy bien, gracias</span></p>
+                <p><strong>What's your name?</strong></p>
+                <p><span style="font-weight: 400;">¿Cómo te llamas?</span></p>
+                <p><strong>I'm Richard</strong></p>
+                <p><span style="font-weight: 400;">Me llamo Richard</span></p>
+                <p><strong>Where are you from?</strong></p>
+                <p><span style="font-weight: 400;">¿De dónde eres?</span></p>
+                <p><strong>I'm from Ecuador</strong></p>
+                <p><span style="font-weight: 400;">Soy de Ecuador</span></p>
+                <p><strong>How old are you?</strong></p>
+                <p><span style="font-weight: 400;">¿Cuántos años tienes?</span></p>
+                <p><strong>I'm 35</strong></p>
+                <p><span style="font-weight: 400;">Tengo 35 años</span></p>
+                <p><strong>When’s your birthday?</strong></p>
+                <p><span style="font-weight: 400;">¿Cuándo es tu cumpleaños?</span></p>
+                <p><strong>It's on May 1st</strong></p>
+                <p><span style="font-weight: 400;">Es el 1 de mayo</span></p>
+                <p><strong>Where do you live?</strong></p>
+                <p><span style="font-weight: 400;">¿Dónde vives?</span></p>
+                <p><strong>I live in Texas</strong></p>
+                <p><span style="font-weight: 400;">Vivo en Texas</span></p>
+                <p><strong>What do you do?</strong></p>
+                <p><span style="font-weight: 400;">¿A qué te dedicas?</span></p>
+                <p><strong>I'm a doctor</strong></p>
+                <p><span style="font-weight: 400;">Soy médico</span></p>
+                <p><strong>Where do you work?</strong></p>
+                <p><span style="font-weight: 400;">¿Dónde trabajas?</span></p>
+                <p><strong>I work in a hospital</strong></p>
+                <p><span style="font-weight: 400;">Trabajo en un hospital</span></p>
+                <p><strong>Where do you study?</strong></p>
+                <p><span style="font-weight: 400;">¿Dónde estudias?</span></p>
+                <p><strong>I study at Choco English Academy</strong></p>
+                <p><span style="font-weight: 400;">Estudio en Choco English Academy</span></p>
+                <p><strong>What's your favorite book?</strong></p>
+                <p><span style="font-weight: 400;">¿Cuál es tu libro favorito?</span></p>
+                <p><strong>My favorite book is the Bible</strong></p>
+                <p><span style="font-weight: 400;">Mi libro favorito es la Biblia</span></p>
+                <p><strong>What's your favorite movie?</strong></p>
+                <p><span style="font-weight: 400;">¿Cuál es tu película favorita?</span></p>
+                <p><strong>My favorite movie is "Gifted Hands"</strong></p>
+                <p><span style="font-weight: 400;">Mi película favorita es "Manos milagrosas"</span></p>
+                <p><strong>What's your favorite food?</strong></p>
+                <p><span style="font-weight: 400;">¿Cuál es tu comida favorita?</span></p>
+                <p><strong>My favorite food is Mexican food</strong></p>
+                <p><span style="font-weight: 400;">Mi comida favorita es la comida mexicana</span></p>
+                <p><strong>What's your favorite hobby?</strong></p>
+                <p><span style="font-weight: 400;">¿Cuál es tu pasatiempo favorito?</span></p>
+                <p><strong>My favorite hobby is reading and listening to music</strong></p>
+                <p><span style="font-weight: 400;">Mi pasatiempo favorito es leer y escuchar música</span></p>
+                <p><strong>What's your favorite color?</strong></p>
+                <p><span style="font-weight: 400;">¿Cuál es tu color favorito?</span></p>
+                <p><strong>My favorite color is black</strong></p>
+                <p><span style="font-weight: 400;">Mi color favorito es el negro</span></p>
+                <p><strong>What time is it?</strong></p>
+                <p><span style="font-weight: 400;">¿Qué hora es?</span></p>
+                <p><strong>It's 2:30pm</strong></p>
+                <p><span style="font-weight: 400;">Son las 2:30 p.m.</span></p>
+                <p><strong>What time is it?</strong></p>
+                <p><span style="font-weight: 400;">¿Qué hora es?</span></p>
+                <p><strong>It's 8 o'clock</strong></p>
+                <p><span style="font-weight: 400;">Son las 8 en punto</span></p>
+                <p><strong>I need your help, can you help me please?</strong></p>
+                <p><span style="font-weight: 400;">Necesito tu ayuda, ¿puedes ayudarme por favor?</span></p>
+                <p><strong>Sure, tell me what you need</strong></p>
+                <p><span style="font-weight: 400;">Claro, dime qué necesitas</span></p>
+                <p><strong>What do you think about money?</strong></p>
+                <p><span style="font-weight: 400;">¿Qué piensas del dinero?</span></p>
+                <p><strong>I think money is important</strong></p>
+                <p><span style="font-weight: 400;">Pienso que el dinero es importante</span></p>
+                <p><strong>What will you do tomorrow?</strong></p>
+                <p><span style="font-weight: 400;">¿Qué harás mañana?</span></p>
+                <p><strong>I’ll work and I'll study</strong></p>
+                <p><span style="font-weight: 400;">Trabajaré y estudiaré</span></p>
+                <p><strong>Do you have any plans for the weekend?</strong></p>
+                <p><span style="font-weight: 400;">¿Tienes planes para el fin de semana?</span></p>
+                <p><strong>Yeah, I'm gonna travel to Mexico</strong></p>
+                <p><span style="font-weight: 400;">Sí, voy a viajar a México</span></p>
+                <p><strong>Do you like to eat?</strong></p>
+                <p><span style="font-weight: 400;">¿Te gusta comer?</span></p>
+                <p><strong>Yes, I like to eat pizza</strong></p>
+                <p><span style="font-weight: 400;">Sí, me gusta comer pizza</span></p>
+                <p><strong>Do you like to play?</strong></p>
+                <p><span style="font-weight: 400;">¿Te gusta jugar?</span></p>
+                <p><strong>Yes, I like to play soccer</strong></p>
+                <p><span style="font-weight: 400;">Sí, me gusta jugar fútbol</span></p>
+                <p><strong>Do you like to sleep?</strong></p>
+                <p><span style="font-weight: 400;">¿Te gusta dormir?</span></p>
+                <p><strong>Yes, sleep a lot</strong></p>
+                <p><span style="font-weight: 400;">Sí, duermo mucho</span></p>
+                <p><strong>What do you do in your free time?</strong></p>
+                <p><span style="font-weight: 400;">¿Qué haces en tu tiempo libre?</span></p>
+                <p><strong>I read, listen to music, talk to friends</strong></p>
+                <p><span style="font-weight: 400;">Leo, escucho música, hablo con amigos</span></p>
+                <p><strong>What's your phone number?</strong></p>
+                <p><span style="font-weight: 400;">¿Cuál es tu número de teléfono?</span></p>
+                <p><strong>It's 3103534870</strong></p>
+                <p><span style="font-weight: 400;">Es 3103534870</span></p>
+                <p><strong>What's your email address?</strong></p>
+                <p><span style="font-weight: 400;">¿Cuál es tu correo electrónico?</span></p>
+                <p><strong>It's chocoenglish@gmail.com</strong></p>
+                <p><span style="font-weight: 400;">Es chocoenglish@gmail.com</span></p>
+                <p><strong>How was your day?</strong></p>
+                <p><span style="font-weight: 400;">¿Cómo estuvo tu día?</span></p>
+                <p><strong>It was great, I really enjoyed it</strong></p>
+                <p><span style="font-weight: 400;">Estuvo genial, lo disfruté mucho</span></p>
+                <p><strong>How was your weekend?</strong></p>
+                <p><span style="font-weight: 400;">¿Cómo estuvo tu fin de semana?</span></p>
+                <p><strong>It was really bad, I couldn't do much</strong></p>
+                <p><span style="font-weight: 400;">Estuvo muy mal, no pude hacer mucho</span></p>
+                <p><strong>Who’s your best friend?</strong></p>
+                <p><span style="font-weight: 400;">¿Quién es tu mejor amigo?</span></p>
+                <p><strong>My best friend is my cousin, Marta</strong></p>
+                <p><span style="font-weight: 400;">Mi mejor amiga es mi prima, Marta</span></p>
+                <p><strong>Do you have siblings?</strong></p>
+                <p><span style="font-weight: 400;">¿Tienes hermanos?</span></p>
+                <p><strong>Yeah, I have siblings</strong></p>
+                <p><span style="font-weight: 400;">Sí, tengo hermanos</span></p>
+                <p><strong>How many siblings do you have?</strong></p>
+                <p><span style="font-weight: 400;">¿Cuántos hermanos tienes?</span></p>
+                <p><strong>Yeah, I have 6 siblings: 1 sister and 5 brothers</strong></p>
+                <p><span style="font-weight: 400;">Sí, tengo 6 hermanos: 1 hermana y 5 hermanos</span></p>
+                <p><strong>Do you have children?</strong></p>
+                <p><span style="font-weight: 400;">¿Tienes hijos?</span></p>
+                <p><strong>Yeah, I have children</strong></p>
+                <p><span style="font-weight: 400;">Sí, tengo hijos</span></p>
+                <p><strong>How many children do you have?</strong></p>
+                <p><span style="font-weight: 400;">¿Cuántos hijos tienes?</span></p>
+                <p><strong>I've got 4 kids: 1 boy and 3 girls</strong></p>
+                <p><span style="font-weight: 400;">Tengo 4 hijos: 1 niño y 3 niñas</span></p>
+                <p><strong>Do you have friends?</strong></p>
+                <p><span style="font-weight: 400;">¿Tienes amigos?</span></p>
+                <p><strong>Yeah, I've got friends</strong></p>
+                <p><span style="font-weight: 400;">Sí, tengo amigos</span></p>
+                <p><strong>How many friends do you have?</strong></p>
+                <p><span style="font-weight: 400;">¿Cuántos amigos tienes?</span></p>
+                <p><strong>Wow, I've got a lot of friends</strong></p>
+                <p><span style="font-weight: 400;">Wow, tengo muchos amigos</span></p>
+                <p><strong>How do you say “arroz”?</strong></p>
+                <p><span style="font-weight: 400;">¿Cómo se dice “arroz”?</span></p>
+                <p><strong>Rice</strong></p>
+                <p><span style="font-weight: 400;">Arroz</span></p>
+                <p><strong>Are you married?</strong></p>
+                <p><span style="font-weight: 400;">¿Estás casado?</span></p>
+                <p><strong>Yes, I'm married</strong></p>
+                <p><span style="font-weight: 400;">Sí, estoy casado</span></p>
+                <p><strong>Are you single?</strong></p>
+                <p><span style="font-weight: 400;">¿Estás soltero?</span></p>
+                <p><strong>No, I'm not single</strong></p>
+                <p><span style="font-weight: 400;">No, no estoy soltero</span></p>
+                <p><strong>Are you engaged?</strong></p>
+                <p><span style="font-weight: 400;">¿Estás comprometido?</span></p>
+                <p><strong>No, I'm not engaged</strong></p>
+                <p><span style="font-weight: 400;">No, no estoy comprometido</span></p>
+            </div>
+            <div class="content-area" id="content-preguntas---debate">
+                <h1><strong>Materiales a Evaluar</strong></h1>
+                <h2><strong>PREGUNTAS - DEBATE</strong></h2>
+                <p><span style="font-weight: 400;">Todos los estudiantes deben preparar sus respuestas para las preguntas:</span></p>
+                <p><strong>Pregunta en inglés</strong></p>
+                <p><strong>Pregunta en español</strong></p>
+                <p><span style="font-weight: 400;">Where do Alberto and Rosa live?</span></p>
+                <p><span style="font-weight: 400;">¿Dónde viven Alberto y Rosa?</span></p>
+                <p><span style="font-weight: 400;">How many children do they have?</span></p>
+                <p><span style="font-weight: 400;">¿Cuántos hijos tienen?</span></p>
+                <p><span style="font-weight: 400;">How many children do they want?</span></p>
+                <p><span style="font-weight: 400;">¿Cuántos hijos quieren?</span></p>
+                <p><span style="font-weight: 400;">What does their factory make?</span></p>
+                <p><span style="font-weight: 400;">¿Qué hace su fábrica?</span></p>
+                <p><span style="font-weight: 400;">Who helps in the factory?</span></p>
+                <p><span style="font-weight: 400;">¿Quién ayuda en la fábrica?</span></p>
+                <p><span style="font-weight: 400;">Where do the babies sit?</span></p>
+                <p><span style="font-weight: 400;">¿Dónde se sientan los bebés?</span></p>
+                <p><span style="font-weight: 400;">What does the 4-year-old child do?</span></p>
+                <p><span style="font-weight: 400;">¿Qué hace el niño de 4 años?</span></p>
+                <p><span style="font-weight: 400;">What does the 6-year-old child do?</span></p>
+                <p><span style="font-weight: 400;">¿Qué hace el niño de 6 años?</span></p>
+                <p><span style="font-weight: 400;">What do the children say about their family?</span></p>
+                <p><span style="font-weight: 400;">¿Qué dicen los niños sobre su familia?</span></p>
+                <p><span style="font-weight: 400;">Who comes to see the factory?</span></p>
+                <p><span style="font-weight: 400;">¿Quién viene a ver la fábrica?</span></p>
+                <p><span style="font-weight: 400;">How do the TV team feel when they see the children working?</span></p>
+                <p><span style="font-weight: 400;">¿Cómo se sienten los reporteros cuando ven a los niños trabajando?</span></p>
+                <p><span style="font-weight: 400;">How many children are the real sons and daughters of Alberto and Rosa?</span></p>
+                <p><span style="font-weight: 400;">¿Cuántos niños son los hijos verdaderos de Alberto y Rosa?</span></p>
+                <p><span style="font-weight: 400;">Who are the other children?</span></p>
+                <p><span style="font-weight: 400;">¿Quiénes son los otros niños?</span></p>
+                <p><span style="font-weight: 400;">What does Alberto say about the children?</span></p>
+                <p><span style="font-weight: 400;">¿Qué dice Alberto sobre los niños?</span></p>
+                <p><span style="font-weight: 400;">What does one boy say about his family?</span></p>
+                <p><span style="font-weight: 400;">¿Qué dice un niño sobre su familia?</span></p>
+                <p><span style="font-weight: 400;">Who comes to check the factory?</span></p>
+                <p><span style="font-weight: 400;">¿Quién viene a revisar la fábrica?</span></p>
+                <p><span style="font-weight: 400;">What does the government say the children must do?</span></p>
+                <p><span style="font-weight: 400;">¿Qué dice el gobierno que deben hacer los niños?</span></p>
+                <p><span style="font-weight: 400;">Do Alberto and Rosa agree with the government?</span></p>
+                <p><span style="font-weight: 400;">¿Están Alberto y Rosa de acuerdo con el gobierno?</span></p>
+                <p><span style="font-weight: 400;">Is the family happy?</span></p>
+                <p><span style="font-weight: 400;">¿Está feliz la familia?</span></p>
+                <p><span style="font-weight: 400;">Do the family members work alone or together?</span></p>
+                <p><span style="font-weight: 400;">¿Trabajan los miembros de la familia solos o juntos?</span></p>
+            </div>
+            <div class="content-area" id="content-actividad-las-wh-questions">
+                <h1><strong>Materiales a Evaluar</strong></h1>
+                <h2><strong>ACTIVIDADES</strong></h2>
+                <h3><strong>ACTIVIDAD: Las WH questions</strong></h3>
+                <p><span style="font-weight: 400;">Los estudiantes deben grabar un audio respondiendo a las siguientes preguntas:</span></p>
+                <ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">What do you think about your family?</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Who’s your best friend?</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Why do you eat?</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">When is your birthday?</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Where do you live?</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">How are you?</span></li>
+</ul>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">What do you think about your family?</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Who’s your best friend?</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Why do you eat?</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">When is your birthday?</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Where do you live?</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">How are you?</span></li>
+            </div>
+            <div class="content-area" id="content-actividad-sonidos-principales-del-inglés">
+                <h1><strong>Materiales a Evaluar</strong></h1>
+                <h2><strong>ACTIVIDADES</strong></h2>
+                <h3><strong>ACTIVIDAD: Sonidos Principales del inglés</strong></h3>
+                <p><span style="font-weight: 400;">Graba un audio en el que leas las siguientes palabras: stop, cat, ticket, measure, heart, think, teeth </span></p>
+            </div>
+            <div class="content-area" id="content-estructuras">
+                <h1><strong>Materiales a Evaluar</strong></h1>
+                <h2><strong>Temas Vistos en el Nivel</strong></h2>
+                <h3><strong>Estructuras:</strong></h3>
+                <ol>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Adjectives: common and demonstrative</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Adverbs of frequency</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Comparatives and superlatives</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Going to</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">How much/how many and very common uncountable nouns</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">I’d like</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Imperatives (+/-)</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Intensifiers - very basic</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Modals: can/can’t/could/couldn’t</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Past simple of “to be”</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Past Simple</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Possessive adjectives</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Possessive s</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Prepositions, common</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Prepositions of place</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Prepositions of time, including in/on/at</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Present continuous</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Present simple</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Pronouns: simple, personal</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Questions</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">There is/are : Lección en F.I. 1: Teacher Explains: There is / There are - There was / There were</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">To be, including questions+negatives</span></li>
+</ol>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Adjectives: common and demonstrative</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Adverbs of frequency</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Comparatives and superlatives</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Going to</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">How much/how many and very common uncountable nouns</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">I’d like</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Imperatives (+/-)</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Intensifiers - very basic</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Modals: can/can’t/could/couldn’t</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Past simple of “to be”</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Past Simple</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Possessive adjectives</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Possessive s</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Prepositions, common</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Prepositions of place</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Prepositions of time, including in/on/at</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Present continuous</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Present simple</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Pronouns: simple, personal</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Questions</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">There is/are : Lección en F.I. 1: Teacher Explains: There is / There are - There was / There were</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">To be, including questions+negatives</span></li>
+            </div>
+            <div class="content-area" id="content-errores-comunes">
+                <h1><strong>Materiales a Evaluar</strong></h1>
+                <h2><strong>Temas Vistos en el Nivel</strong></h2>
+                <h3><strong>Errores Comunes:</strong></h3>
+                <p><strong>Error común</strong></p>
+                <p><strong>Tema asociado</strong></p>
+                <p><span style="font-weight: 400;">Confundir was / were</span></p>
+                <p><span style="font-weight: 400;">Verbo "to be" en pasado</span></p>
+                <p><span style="font-weight: 400;">Confundir is / are</span></p>
+                <p><span style="font-weight: 400;">Verbo "to be" en presente</span></p>
+                <p><span style="font-weight: 400;">Usar do en lugar de does en preguntas o negaciones</span></p>
+                <p><span style="font-weight: 400;">Auxiliares en presente simple</span></p>
+                <p><span style="font-weight: 400;">Omitir el -s en tercera persona singular</span></p>
+                <p><span style="font-weight: 400;">Presente simple</span></p>
+                <p><span style="font-weight: 400;">Omitir el sujeto (influencia del español)</span></p>
+                <p><span style="font-weight: 400;">Orden y estructura de oraciones</span></p>
+                <p><span style="font-weight: 400;">Mal uso de some / any</span></p>
+                <p><span style="font-weight: 400;">Cantidad / sustantivos contables e incontables</span></p>
+                <p><span style="font-weight: 400;">Usar amn't en vez de aren't o am not</span></p>
+                <p><span style="font-weight: 400;">Contracciones con "to be"</span></p>
+                <p><span style="font-weight: 400;">Decir "I have 20 years"</span></p>
+                <p><span style="font-weight: 400;">Diferencias entre "tener" y "ser/estar"</span></p>
+                <p><span style="font-weight: 400;">Formar mal las preguntas: "Where you live?"</span></p>
+                <p><span style="font-weight: 400;">Formación de preguntas con auxiliar "do"</span></p>
+                <p><span style="font-weight: 400;">Uso incorrecto de preposiciones: in/on/at</span></p>
+                <p><span style="font-weight: 400;">Preposiciones de lugar y tiempo</span></p>
+                <p><span style="font-weight: 400;">Decir 'I am agree'</span></p>
+                <p><span style="font-weight: 400;">Adjectives: common and demonstrative</span></p>
+                <p><span style="font-weight: 400;">Decir 'He can to swim'</span></p>
+                <p><span style="font-weight: 400;">Modals: can/can’t/could/couldn’t</span></p>
+                <p><span style="font-weight: 400;">Confundir 'how much' con 'how many'</span></p>
+                <p><span style="font-weight: 400;">How much/how many and very common uncountable nouns</span></p>
+                <p><span style="font-weight: 400;">Decir 'She cans run'</span></p>
+                <p><span style="font-weight: 400;">Modals: can/can’t/could/couldn’t</span></p>
+                <p><span style="font-weight: 400;">Usar 'in' en lugar de 'on' para días</span></p>
+                <p><span style="font-weight: 400;">Prepositions of time, including in/on/at</span></p>
+                <p><span style="font-weight: 400;">Formar preguntas con mal orden: 'You are how?'</span></p>
+                <p><span style="font-weight: 400;">Questions</span></p>
+                <p><span style="font-weight: 400;">Confundir 'I'd like' con 'I like'</span></p>
+                <p><span style="font-weight: 400;">I’d like</span></p>
+                <p><span style="font-weight: 400;">Usar 'I no have' en vez de 'I don't have'</span></p>
+                <p><span style="font-weight: 400;">Present simple</span></p>
+                <p><span style="font-weight: 400;">Decir 'He run fastly'</span></p>
+                <p><span style="font-weight: 400;">Adverbs of frequency</span></p>
+                <p><span style="font-weight: 400;">Mal uso del 'possessive s': 'the dog tail'</span></p>
+                <p><span style="font-weight: 400;">Possessive s</span></p>
+            </div>
+            <div class="content-area" id="content-determinantes">
+                <h1><strong>Materiales a Evaluar</strong></h1>
+                <h2><strong>Temas Vistos en el Nivel</strong></h2>
+                <h3><strong>Determinantes:</strong></h3>
+                <p><strong>A1 - Determinantes - Temas Gramatica</strong></p>
+                <p><span style="font-weight: 400;">Comparatives and superlatives</span></p>
+                <p><span style="font-weight: 400;">Going to</span></p>
+                <p><span style="font-weight: 400;">How much/how many and very common uncountable nouns</span></p>
+                <p><span style="font-weight: 400;">I’d like</span></p>
+                <p><span style="font-weight: 400;">Modals: can/can’t/could/couldn’t</span></p>
+                <p><span style="font-weight: 400;">Past simple of “to be”</span></p>
+                <p><span style="font-weight: 400;">Past Simple</span></p>
+                <p><span style="font-weight: 400;">Possessive s</span></p>
+                <p><span style="font-weight: 400;">Present continuous</span></p>
+                <p><span style="font-weight: 400;">Present simple</span></p>
+                <p><span style="font-weight: 400;">Pronouns: simple, personal</span></p>
+                <p><span style="font-weight: 400;">Questions</span></p>
+                <p><span style="font-weight: 400;">There is/are</span></p>
+                <p><span style="font-weight: 400;">To be, including questions+negatives</span></p>
+                <p><strong>A1 - Determinantes - Sonidos/Listening</strong></p>
+                <p><span style="font-weight: 400;">Todos los 44 sonidos del inglés</span></p>
+                <p><span style="font-weight: 400;">Palabras que omiten sonidos: favorite, family</span></p>
+                <p><span style="font-weight: 400;">Terminaciones con K</span></p>
+                <p><span style="font-weight: 400;">Palabras que inician con "s"</span></p>
+            </div>
+            <div class="content-area" id="content-vocabulario">
+                <h1><strong>Materiales a Evaluar</strong></h1>
+                <h2><strong>Temas Vistos en el Nivel</strong></h2>
+                <h3><strong>Vocabulario</strong></h3>
+                <p><span style="font-weight: 400;">Practicar en el ANKI. Debe revisar también otras actividades como las lecturas, preguntas.</span></p>
+            </div>
+            <div class="content-area" id="content-tests-escritos">
+                <h1><strong>Materiales a Evaluar</strong></h1>
+                <h2><strong>Tests Escritos</strong></h2>
+                <p><span style="font-weight: 400;">Este módulo no contiene tests escritos dentro de sí, en reemplazo tiene un módulo de test aparte</span></p>
+            </div>
+            <div class="content-area" id="content-tests-orales">
+                <h1><strong>Materiales a Evaluar</strong></h1>
+                <h2><strong>Tests Escritos</strong></h2>
+                <h3><strong>Tests Orales</strong></h3>
+                <p><span style="font-weight: 400;">No aplica</span></p>
+            </div>
+            <div class="content-area" id="content-parte-1-lunes-diálogo-basado-en-el-paradigma">
+                <h1><strong>Parte 1: (Lunes) Diálogo Basado en el Paradigma</strong></h1>
+                <ul>
+<li>
+<h2><strong><strong>Promueve el diálogo entre los estudiantes.</strong></strong></h2>
+</li>
+</ul>
+                <li>
+<h2><strong><strong>Promueve el diálogo entre los estudiantes.</strong></strong></h2>
+</li>
+            </div>
+            <div class="content-area" id="content-promueve-el-diálogo-entre-los-estudiantes">
+                <h1><strong>Parte 1: (Lunes) Diálogo Basado en el Paradigma</strong></h1>
+                <h2><strong>Promueve el diálogo entre los estudiantes.</strong></h2>
+                <p><span style="font-weight: 400;">Para el diálogo debe usar las preguntas </span><strong>especificadas arriba </strong><span style="font-weight: 400;">para las cuales los estudiantes prepararon sus preguntas</span></p>
+                <ul>
+<li>
+<h2><strong><strong>El docente toma nota de los errores y fortalezas del estudiante de acuerdo con el tema, y los registra en el formato.</strong></strong></h2>
+</li>
+</ul>
+                <li>
+<h2><strong><strong>El docente toma nota de los errores y fortalezas del estudiante de acuerdo con el tema, y los registra en el formato.</strong></strong></h2>
+</li>
+            </div>
+            <div class="content-area" id="content-el-docente-toma-nota-de-los-errores-y-fortalezas-del-estudiante-de-acuerdo-con-el-tema-y-los-registra-en-el-formato">
+                <h1><strong>Parte 1: (Lunes) Diálogo Basado en el Paradigma</strong></h1>
+                <h2><strong>El docente toma nota de los errores y fortalezas del estudiante de acuerdo con el tema, y los registra en el formato.</strong></h2>
+                <p><span style="font-weight: 400;">El formato debe tener un </span><em><span style="font-weight: 400;">dropdown </span></em><span style="font-weight: 400;">en el que se puedan elegir múltiples opciones (habilidades, estructuras, errores comunes, determinantes y otros) </span></p>
+                <p><span style="font-weight: 400;">Este es el </span><strong>formato </strong><span style="font-weight: 400;">que el docente debe llenar </span><a href="https://docs.google.com/spreadsheets/d/1M6ymm7p4ZyLHwivDCiutwZ9XufRZbJIzYYVEzYUS3Yw/edit?gid=0#gid=0"><span style="font-weight: 400;">https://docs.google.com/spreadsheets/d/1M6ymm7p4ZyLHwivDCiutwZ9XufRZbJIzYYVEzYUS3Yw/edit?gid=0#gid=0</span></a><span style="font-weight: 400;"> </span></p>
+                <p><strong>Nota</strong><span style="font-weight: 400;">: El profesor aclara sutilmente los errores que cometan los estudiantes sin dañar la fluidez de la conversación</span></p>
+                <p><strong>Texto de Explicación de Errores Comunes: </strong><a href="https://docs.google.com/document/d/16YgUq_siD_kSvKookaCbheVji-kCiwekywQr9e8Jl_w/edit?tab=t.rjlorg5lie97"><span style="font-weight: 400;">https://docs.google.com/document/d/16YgUq_siD_kSvKookaCbheVji-kCiwekywQr9e8Jl_w/edit?tab=t.rjlorg5lie97</span></a><span style="font-weight: 400;"> </span></p>
+                <ul>
+<li>
+<h2><strong><strong>Utiliza un documento con ejercicios relacionados con los errores cometidos y otros correspondientes a los temas a evaluar.</strong></strong></h2>
+</li>
+</ul>
+                <li>
+<h2><strong><strong>Utiliza un documento con ejercicios relacionados con los errores cometidos y otros correspondientes a los temas a evaluar.</strong></strong></h2>
+</li>
+            </div>
+            <div class="content-area" id="content-utiliza-un-documento-con-ejercicios-relacionados-con-los-errores-cometidos-y-otros-correspondientes-a-los-temas-a-evaluar">
+                <h1><strong>Parte 1: (Lunes) Diálogo Basado en el Paradigma</strong></h1>
+                <h2><strong>Utiliza un documento con ejercicios relacionados con los errores cometidos y otros correspondientes a los temas a evaluar.</strong></h2>
+                <p><strong>Documento de Ejercicios para los Errores Comunes</strong><span style="font-weight: 400;">: </span><a href="https://docs.google.com/document/d/16YgUq_siD_kSvKookaCbheVji-kCiwekywQr9e8Jl_w/edit?usp=sharing"><span style="font-weight: 400;">https://docs.google.com/document/d/16YgUq_siD_kSvKookaCbheVji-kCiwekywQr9e8Jl_w/edit?usp=sharing</span></a><span style="font-weight: 400;"> </span></p>
+                <ul>
+<li>
+<h2><strong><strong>De acuerdo con la dinámica de la clase, se deben evaluar audios y revisar actividades. Esto es obligatorio.</strong></strong></h2>
+</li>
+</ul>
+                <li>
+<h2><strong><strong>De acuerdo con la dinámica de la clase, se deben evaluar audios y revisar actividades. Esto es obligatorio.</strong></strong></h2>
+</li>
+            </div>
+            <div class="content-area" id="content-los-audios-reductores-de-ruido-y-actividades-a-evaluar-están-especificados-en-la-sección-de-evaluación-arriba">
+                <h1><strong>Parte 1: (Lunes) Diálogo Basado en el Paradigma</strong></h1>
+                <h2><strong>De acuerdo con la dinámica de la clase, se deben evaluar audios y revisar actividades. Esto es obligatorio.</strong></h2>
+                <h3><strong>Los audios (reductores de ruido) y actividades a evaluar están especificados en la sección de evaluación arriba</strong></h3>
+                <ul>
+<li>
+<h2><strong><strong>Se deben tomar notas de nuevas ideas, opciones o enfoques que puedan aplicarse con otros grupos.</strong></strong></h2>
+</li>
+</ul>
+                <li>
+<h2><strong><strong>Se deben tomar notas de nuevas ideas, opciones o enfoques que puedan aplicarse con otros grupos.</strong></strong></h2>
+</li>
+            </div>
+            <div class="content-area" id="content-se-deben-tomar-notas-de-nuevas-ideas-opciones-o-enfoques-que-puedan-aplicarse-con-otros-grupos">
+                <h1><strong>Parte 1: (Lunes) Diálogo Basado en el Paradigma</strong></h1>
+                <h2><strong>Se deben tomar notas de nuevas ideas, opciones o enfoques que puedan aplicarse con otros grupos.</strong></h2>
+                <p><a href="https://docs.google.com/spreadsheets/d/1csxPuDuNxjhtyTxfbnItHf6uqutEiRQ2xjMBV_GJ5oY/edit?gid=0#gid=0"><span style="font-weight: 400;">https://docs.google.com/spreadsheets/d/1csxPuDuNxjhtyTxfbnItHf6uqutEiRQ2xjMBV_GJ5oY/edit?gid=0#gid=0</span></a><span style="font-weight: 400;"> </span></p>
+            </div>
+            <div class="content-area" id="content-parte-2-jueves-diálogo-y-evaluaciones">
+                <h1><strong>Parte 2: (Jueves) Diálogo y Evaluaciones</strong></h1>
+                <ol>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Debe realizar el diálogo (siguiendo el mismo proceso de la Parte 1).</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Debe concluir todas las evaluaciones.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Debe verificar que los estudiantes alcancen los logros correspondientes.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Debe usar las estrategias de evaluación establecidas por habilidad, en el orden indicado.</span></li>
+</ol>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Debe realizar el diálogo (siguiendo el mismo proceso de la Parte 1).</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Debe concluir todas las evaluaciones.</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Debe verificar que los estudiantes alcancen los logros correspondientes.</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Debe usar las estrategias de evaluación establecidas por habilidad, en el orden indicado.</span></li>
+            </div>
+            <div class="content-area" id="content-qué-hace-el-docente">
+                <h1><strong>Parte 2: (Jueves) Diálogo y Evaluaciones</strong></h1>
+                <h2><strong>¿Qué hace el docente?</strong></h2>
+            </div>
+            <div class="content-area" id="content-enfoque-de-la-evaluación-final-del-nivel">
+                <h1><strong>Evaluación Final del Nivel CEFR (A1, A2, B1, B2)</strong></h1>
+                <h2><strong>Enfoque de la evaluación final del nivel</strong></h2>
+                <p><span style="font-weight: 400;">Cuando se haga la evaluación final del nivel el enfoque será:</span></p>
+                <ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Un repaso de los temas.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Evaluaciones del nivel que incluyan los criterios de evaluación correspondientes, tales como lecturas, pruebas finales, audios, test, entrevistas, etcétera.</span></li>
+</ul>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Un repaso de los temas.</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Evaluaciones del nivel que incluyan los criterios de evaluación correspondientes, tales como lecturas, pruebas finales, audios, test, entrevistas, etcétera.</span></li>
+            </div>
+            <div class="content-area" id="content-cómo-se-evalúa">
+                <h1><strong>¿Cómo se evalúa?</strong></h1>
+                <ol>
+<li style="font-weight: 400;"><strong>Primero</strong><span style="font-weight: 400;">, el estudiante escucha el audio o lo que el profesor le dice para evaluar si comprende.</span><span style="font-weight: 400;"><br/><br/></span></li>
+<li style="font-weight: 400;"><strong>Si el estudiante no entiende</strong><span style="font-weight: 400;">, el profesor debe comprobar si conoce el vocabulario utilizado en esa expresión. Para esto, debe escribir el texto y mostrárselo al estudiante, quien debe decir el significado de cada palabra.</span></li>
+</ol>
+                <li style="font-weight: 400;"><strong>Primero</strong><span style="font-weight: 400;">, el estudiante escucha el audio o lo que el profesor le dice para evaluar si comprende.</span><span style="font-weight: 400;"><br/><br/></span></li>
+                <li style="font-weight: 400;"><strong>Si el estudiante no entiende</strong><span style="font-weight: 400;">, el profesor debe comprobar si conoce el vocabulario utilizado en esa expresión. Para esto, debe escribir el texto y mostrárselo al estudiante, quien debe decir el significado de cada palabra.</span></li>
+                <p><strong>Desafío:</strong><span style="font-weight: 400;"> Si el estudiante no es capaz de explicar el significado de cada palabra, el desafío es de vocabulario: desconoce el vocabulario que se está utilizando en el audio y por eso no lo comprende.</span><span style="font-weight: 400;"><br/></span><strong>Solución:</strong><span style="font-weight: 400;"> El estudiante debe aprender ese vocabulario. (El docente debe asegurarse de usar vocabulario adecuado al nivel.)</span></p>
+                <ol>
+<li style="font-weight: 400;"><strong>Si el estudiante explica el significado de las frases y el sentido general del texto</strong><span style="font-weight: 400;">,</span><span style="font-weight: 400;"> el profesor debe pedirle que lea la frase completa en voz alta. En este paso se evaluará la comprensión (es decir, si entiende el significado de las palabras combinadas).</span></li>
+</ol>
+                <li style="font-weight: 400;"><strong>Si el estudiante explica el significado de las frases y el sentido general del texto</strong><span style="font-weight: 400;">,</span><span style="font-weight: 400;"> el profesor debe pedirle que lea la frase completa en voz alta. En este paso se evaluará la comprensión (es decir, si entiende el significado de las palabras combinadas).</span></li>
+                <p><strong>Desafío:</strong><span style="font-weight: 400;"> Si el estudiante no es capaz de explicar el significado de las frases completas, el desafío es de comprensión y estructura: desconoce el uso de las estructuras, lo cual afecta la comprensión del audio.</span><span style="font-weight: 400;"><br/></span><strong>Solución:</strong><span style="font-weight: 400;"> Repasar las estructuras y aplicar técnicas de comprensión.</span></p>
+                <ol>
+<li style="font-weight: 400;"><strong>Si el estudiante comprende el significado de la frase mientras la lee, pero no al escucharla</strong><span style="font-weight: 400;">, debe mejorar su </span><em><span style="font-weight: 400;">listening</span></em><span style="font-weight: 400;">.</span></li>
+</ol>
+                <li style="font-weight: 400;"><strong>Si el estudiante comprende el significado de la frase mientras la lee, pero no al escucharla</strong><span style="font-weight: 400;">, debe mejorar su </span><em><span style="font-weight: 400;">listening</span></em><span style="font-weight: 400;">.</span></li>
+                <p><strong>Desafío:</strong><span style="font-weight: 400;"> Si el estudiante conoce el vocabulario, comprende el sentido general y las estructuras, pero no entiende cuando escucha el mismo contenido, entonces el problema es auditivo (</span><em><span style="font-weight: 400;">listening</span></em><span style="font-weight: 400;">). Debe reducir el "ruido" de esas estructuras.</span></p>
+                <p><strong>Solución:</strong><span style="font-weight: 400;"> El estudiante debe entrenarse para reconocer auditivamente esas estructuras.</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let activeContent = null;
+
+        function toggleSubmenu(id) {
+            const submenu = document.getElementById('submenu-' + id);
+            const arrow = document.getElementById('arrow-' + id);
+            const button = arrow.parentElement;
+            
+            if (submenu && submenu.classList.contains('open')) {
+                submenu.classList.remove('open');
+                arrow.classList.remove('rotate');
+                button.classList.remove('active');
+            } else if (submenu) {
+                // Cerrar otros submenús del mismo nivel
+                document.querySelectorAll('.submenu.open').forEach(sm => {
+                    sm.classList.remove('open');
+                    const arrowId = sm.id.replace('submenu-', 'arrow-');
+                    const arrowEl = document.getElementById(arrowId);
+                    if (arrowEl) {
+                        arrowEl.classList.remove('rotate');
+                        arrowEl.parentElement.classList.remove('active');
+                    }
+                });
+                
+                submenu.classList.add('open');
+                arrow.classList.add('rotate');
+                button.classList.add('active');
+            }
+        }
+
+        function toggleSubSubmenu(id) {
+            const subsubmenu = document.getElementById('subsubmenu-' + id);
+            const arrow = document.getElementById('arrow-' + id);
+            const button = arrow.parentElement;
+            
+            if (subsubmenu && subsubmenu.classList.contains('open')) {
+                subsubmenu.classList.remove('open');
+                arrow.classList.remove('rotate');
+                button.classList.remove('active');
+            } else if (subsubmenu) {
+                // Cerrar otros subsubmenús del mismo nivel
+                document.querySelectorAll('.subsubmenu.open').forEach(ssm => {
+                    ssm.classList.remove('open');
+                    const parentId = ssm.id.replace('subsubmenu-', '');
+                    const arrowId = 'arrow-' + parentId;
+                    const arrowEl = document.getElementById(arrowId);
+                    if (arrowEl) {
+                        arrowEl.classList.remove('rotate');
+                        arrowEl.parentElement.classList.remove('active');
+                    }
+                });
+                
+                subsubmenu.classList.add('open');
+                arrow.classList.add('rotate');
+                button.classList.add('active');
+            }
+        }
+
+        function showContent(contentId) {
+            // Ocultar contenido anterior
+            if (activeContent) {
+                activeContent.classList.remove('active');
+            }
+            
+            // Ocultar placeholder
+            document.getElementById('placeholder').style.display = 'none';
+            
+            // Mostrar nuevo contenido
+            const content = document.getElementById('content-' + contentId);
+            if (content) {
+                content.classList.add('active');
+                activeContent = content;
+            }
+            
+            // Actualizar botones activos
+            document.querySelectorAll('.subsubmenu-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
