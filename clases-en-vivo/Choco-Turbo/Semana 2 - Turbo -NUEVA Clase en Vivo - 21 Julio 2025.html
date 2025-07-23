@@ -123,17 +123,8 @@
         }
         
         .text-content {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: all 0.5s ease;
             margin-top: 15px;
-            display: block !important;
-        }
-
-        .text-content.visible {
-            max-height: 2000px;
-            opacity: 1;
+            display: none;
         }
 
         .text-content h4 {
@@ -1556,28 +1547,28 @@
 <div class="dia">
     <p class="titulo-dia">📅 Día 8 – Tiempo libre y contacto</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%208-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=MXnt%2F1Ef%2BIt6irrOVIBzFJAp6mZvnWlaxTb6TTu3mjGJQee3V1Spcsv50NL65zYSGcx42G1siC6xBXso3WJDt3x8YH3S5e2PK3P1LvFgbjBhIFbbADpoI78G0TtvJdzXwj29dFAPqTzwFnsSMX%2FxqHRIkQzh9G9vXBSTNsP4gHoCHHm6MGdsTZFjv8dbtf0cD7Wzi7zhEUS0eYlpzyZqxOG4PsTCmh8sLd0kR5fGgfgWFffYebVC4DEO399FplR%2B58cUk9r%2BOzQmzwF7%2BiJY3ysnQrD1N8yFcbe5gC1fqRojlyCWG6CZt2wRpbGsBHSev46I%2FGZLS1tndLa%2FaWcNXA%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%208-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=MXnt%2F1Ef%2BIt6irrOVIBzFJAp6mZvnWlaxTb6TTu3mjGJQee3V1Spcsv50NL65zYSGcx42G1siC6xBXso3WJDt3x8YH3S5e2PK3P1LvFgbjBhIFbbADpoI78G0TtvJdzXwj29dFAPqTzwFnsSMX%2FxqHRIkQzh9G9vXBSTNsP4gHoCHHm6MGdsTZFjv8dbtf0cD7Wzi7zhEUS0eYlpzyZqxOG4PsTCmh8sLd0kR5fGgfgWFffYebVC4DEO399FplR%2B58cUk9r%2BOzQmzwF7%2BiJY3ysnQrD1N8yFcbe5gC1fqRojlyCWG6CZt2wRpbGsBHSev46I%2FGZLS1tndLa%2FaWcNXA%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-79837')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-79837')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-79837')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-22222', 'spanish-22222', 'both-22222', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-22222', 'spanish-22222', 'both-22222', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-22222', 'spanish-22222', 'both-22222', 'both')">Show Both</button>
         
-        <div id="english-79837" class="text-content" style="display: none;">
+        <div id="english-22222" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: What do you do in your free time?<br /><br>Answer: I read, listen to music, talk to friends.<br /><br>Question: What's your phone number?<br /><br>Answer: It's 3103534870.<br /><br>Question: What's your email address?<br /><br>Answer: It's chocoenglish@gmail.com.</p><br><p>📅 Día 9 – Días pasados</p>
             </div>
         </div>
         
-        <div id="spanish-79837" class="text-content" style="display: none;">
+        <div id="spanish-22222" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 Question: ¿Qué haces en tu tiempo libre?<br /><br>Answer: Leo, escucho música, hablo con amigos.<br /><br>Question: ¿Cuál es tu número de teléfono?<br /><br>Answer: Es 3103534870.<br /><br>Question: ¿Cuál es tu correo electrónico?<br />
             </div>
         </div>
         
-        <div id="both-79837" class="text-content" style="display: none;">
+        <div id="both-22222" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: What do you do in your free time?<br /><br>Answer: I read, listen to music, talk to friends.<br /><br>Question: What's your phone number?<br /><br>Answer: It's 3103534870.<br /><br>Question: What's your email address?<br /><br>Answer: It's chocoenglish@gmail.com.</p><br><p>📅 Día 9 – Días pasados</p>
@@ -1593,28 +1584,28 @@
 <div class="dia">
     <p class="titulo-dia">📅 Día 9 – Días pasados</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%209-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=ieu8yJZPuc3bfjaXLqaRIbBA7%2Fs448b1OvaHG2XwScfI9tudFRdH0sVGBSKTAVWM9OxKxZW3AyDTppkTGHdKsctK9THM4ehvKnGjEbrU0jCRsxFfP5YSrC5UsenZ24FWl6SFTRbqCAYuC5pyG74sEddvDNbJSo1LoZaPdBzdm%2FsuaI9wEsgswVVD8UfdKLlLL6kopptJtbFUrQ2bgTWhkzM4tfsRxZXsmQ1HsVQ16mhU8oe5UFHmZRHuxoWWI9xVao5ApDmoYKgkRSSYLReJfMivO30b74Xc2lhR8Jwjnhmnbfs4cLjMDbq%2FDrEwIAM51VCDN3IzAqL4lKlQrhBLHQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%209-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=ieu8yJZPuc3bfjaXLqaRIbBA7%2Fs448b1OvaHG2XwScfI9tudFRdH0sVGBSKTAVWM9OxKxZW3AyDTppkTGHdKsctK9THM4ehvKnGjEbrU0jCRsxFfP5YSrC5UsenZ24FWl6SFTRbqCAYuC5pyG74sEddvDNbJSo1LoZaPdBzdm%2FsuaI9wEsgswVVD8UfdKLlLL6kopptJtbFUrQ2bgTWhkzM4tfsRxZXsmQ1HsVQ16mhU8oe5UFHmZRHuxoWWI9xVao5ApDmoYKgkRSSYLReJfMivO30b74Xc2lhR8Jwjnhmnbfs4cLjMDbq%2FDrEwIAM51VCDN3IzAqL4lKlQrhBLHQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-54510')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-54510')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-54510')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-79387', 'spanish-79387', 'both-79387', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-79387', 'spanish-79387', 'both-79387', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-79387', 'spanish-79387', 'both-79387', 'both')">Show Both</button>
         
-        <div id="english-54510" class="text-content" style="display: none;">
+        <div id="english-79387" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: How was your day?<br /><br>Answer: It was great, I really enjoyed it.<br /><br>Question: How was your weekend?<br /><br>Answer: It was really bad, I couldn't do much.<br /><br>Question: Who’s your best friend?<br /><br>Answer: My best friend is my cousin, Marta.</p>
             </div>
         </div>
         
-        <div id="spanish-54510" class="text-content" style="display: none;">
+        <div id="spanish-79387" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 Question: ¿Cómo estuvo tu día?<br /><br>Answer: Estuvo genial, lo disfruté mucho.<br /><br>Question: ¿Cómo estuvo tu fin de semana?<br /><br>Answer: Estuvo muy mal, no pude hacer mucho.<br /><br>Question: ¿Quién es tu mejor amigo/a?<br /><br>Answer: Mi mejor amiga es mi prima, Marta.</p><br><p>📅 Día 10 – Familia</p>
             </div>
         </div>
         
-        <div id="both-54510" class="text-content" style="display: none;">
+        <div id="both-79387" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: How was your day?<br /><br>Answer: It was great, I really enjoyed it.<br /><br>Question: How was your weekend?<br /><br>Answer: It was really bad, I couldn't do much.<br /><br>Question: Who’s your best friend?<br /><br>Answer: My best friend is my cousin, Marta.</p>
@@ -1630,28 +1621,28 @@
 <div class="dia">
     <p class="titulo-dia">📅 Día 10 – Familia</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2010-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=ZAF7Dxeh%2FStCytqkQNmWbsdnDbTVJ9tilPGJ97QaCoR174yFAAPa1Wm%2BbreAUphI%2F26r380YwZZv7eSAUh38Mr6orZ88FmIo00%2ButM1n7WWzURFs8%2BiSLcdYmScbpjaYx8HfzWIBHpCigVGWbOvMCMsLLIk0wUg0M1LMyKMmwD11VYEzC7geb2XZFPgt%2FyJulFRggYCwy1KtUNL8Q%2F2PH4FRYVQmZmcUj05yYoE70TLDWRu8X0FiJoMVl8ij9OuGnBtKfyleFHSNPD3SP3PgdMgMzr%2Bdc%2BlHHhT%2FweTDnwZXpLbwnd%2BSojMlVnYPeqt6IYYUDqFTLna%2F1hQKac7ZzQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2010-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=ZAF7Dxeh%2FStCytqkQNmWbsdnDbTVJ9tilPGJ97QaCoR174yFAAPa1Wm%2BbreAUphI%2F26r380YwZZv7eSAUh38Mr6orZ88FmIo00%2ButM1n7WWzURFs8%2BiSLcdYmScbpjaYx8HfzWIBHpCigVGWbOvMCMsLLIk0wUg0M1LMyKMmwD11VYEzC7geb2XZFPgt%2FyJulFRggYCwy1KtUNL8Q%2F2PH4FRYVQmZmcUj05yYoE70TLDWRu8X0FiJoMVl8ij9OuGnBtKfyleFHSNPD3SP3PgdMgMzr%2Bdc%2BlHHhT%2FweTDnwZXpLbwnd%2BSojMlVnYPeqt6IYYUDqFTLna%2F1hQKac7ZzQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-2610')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-2610')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-2610')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-42344', 'spanish-42344', 'both-42344', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-42344', 'spanish-42344', 'both-42344', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-42344', 'spanish-42344', 'both-42344', 'both')">Show Both</button>
         
-        <div id="english-2610" class="text-content" style="display: none;">
+        <div id="english-42344" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: Do you have siblings?<br /><br>Answer: Yeah, I have siblings.<br /><br>Question: How many siblings do you have?<br /><br>Answer: I have 6 siblings: 1 sister and 5 brothers.<br /><br>Question: Do you have children?<br /><br>Answer: Yeah, I have children.<br /><br>Question: How many children do you have?<br /><br>Answer: I've got 4 kids: 1 boy and 3 girls.</p>
             </div>
         </div>
         
-        <div id="spanish-2610" class="text-content" style="display: none;">
+        <div id="spanish-42344" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 Question: ¿Tienes hermanos/as?<br /><br>Answer: Sí, tengo hermanos/as.<br /><br>Question: ¿Cuántos hermanos tienes?<br /><br>Answer: Sí, tengo 6 hermanos: una hermana y cinco hermanos.<br /><br>Question: ¿Tienes hijos?<br /><br>Answer: Sí, tengo hijos.<br /><br>Question: ¿Cuántos hijos tienes?<br /><br>Answer: Tengo 4 hijos: un niño y tres niñas.</p><br><p>Día 11 – Amigos y amistades</p>
             </div>
         </div>
         
-        <div id="both-2610" class="text-content" style="display: none;">
+        <div id="both-42344" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: Do you have siblings?<br /><br>Answer: Yeah, I have siblings.<br /><br>Question: How many siblings do you have?<br /><br>Answer: I have 6 siblings: 1 sister and 5 brothers.<br /><br>Question: Do you have children?<br /><br>Answer: Yeah, I have children.<br /><br>Question: How many children do you have?<br /><br>Answer: I've got 4 kids: 1 boy and 3 girls.</p>
@@ -1667,28 +1658,28 @@
 <div class="dia">
     <p class="titulo-dia">Audio Section</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2011-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=eJITAiBU6hk6yUvnbaVpI004Uol5Pqex3bfr%2FA6WJr8E0zZ7xriymDG4P9z%2B4bGAb8sjXqIjwVOTFKTEc%2FTDZoBBPssEu%2FT4uZHdnXYXg3zgC%2Fr1COq6yRHWIP4vZefQzcWq0xB3VrtidPCEnCrDaQLle63UmfwpeGRdibxhXAEuvJaLtDAQD%2Brqp9Jxd1Y2J4GZibI5DQ9GkOoW4OgK6JFuTkk1W1%2FBH%2FkhDRYw%2BU%2FqKa6ZIE%2BYPtG2cL3PDJvfiGAdx5dxkSyOCLtJFxIb4%2F2Q9Go3gkSco%2FivYoh8uHcWCRBgzM%2FZP998wsZTMHu0e4QzBqc2PD%2B%2BDKo2ykL8bQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2011-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=eJITAiBU6hk6yUvnbaVpI004Uol5Pqex3bfr%2FA6WJr8E0zZ7xriymDG4P9z%2B4bGAb8sjXqIjwVOTFKTEc%2FTDZoBBPssEu%2FT4uZHdnXYXg3zgC%2Fr1COq6yRHWIP4vZefQzcWq0xB3VrtidPCEnCrDaQLle63UmfwpeGRdibxhXAEuvJaLtDAQD%2Brqp9Jxd1Y2J4GZibI5DQ9GkOoW4OgK6JFuTkk1W1%2FBH%2FkhDRYw%2BU%2FqKa6ZIE%2BYPtG2cL3PDJvfiGAdx5dxkSyOCLtJFxIb4%2F2Q9Go3gkSco%2FivYoh8uHcWCRBgzM%2FZP998wsZTMHu0e4QzBqc2PD%2B%2BDKo2ykL8bQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-73065')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-73065')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-73065')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-94843', 'spanish-94843', 'both-94843', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-94843', 'spanish-94843', 'both-94843', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-94843', 'spanish-94843', 'both-94843', 'both')">Show Both</button>
         
-        <div id="english-73065" class="text-content" style="display: none;">
+        <div id="english-94843" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: Do you have children?<br /><br>Answer: Yeah, I have children.<br /><br>Question: How many children do you have?<br /><br>Answer: I've got 4 kids: 1 boy and 3 girls.</p><br><p>Question: Do you have friends?<br /><br>Answer: Yeah, I've got friends.<br /><br>Question: How many friends do you have?<br /><br>Answer: Wow, I've got a lot of friends.</p>
             </div>
         </div>
         
-        <div id="spanish-73065" class="text-content" style="display: none;">
+        <div id="spanish-94843" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 Question: ¿Tienes amigos?<br /><br>Answer: Sí, tengo amigos.<br /><br>Question: ¿Cuántos amigos tienes?<br /><br>Answer: Wow, tengo muchos amigos.</p><br><p>Día 12 – Vocabulario en contexto</p>
             </div>
         </div>
         
-        <div id="both-73065" class="text-content" style="display: none;">
+        <div id="both-94843" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: Do you have children?<br /><br>Answer: Yeah, I have children.<br /><br>Question: How many children do you have?<br /><br>Answer: I've got 4 kids: 1 boy and 3 girls.</p><br><p>Question: Do you have friends?<br /><br>Answer: Yeah, I've got friends.<br /><br>Question: How many friends do you have?<br /><br>Answer: Wow, I've got a lot of friends.</p>
@@ -1704,28 +1695,28 @@
 <div class="dia">
     <p class="titulo-dia">Audio Section</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2012-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=URxfR6j4ooSYBjNrsKbLJpwze6Rx8PbVDYk7weAAWNf%2Ba0CpljdBC8z3OF9qbmZNGancR0XLbL5gZwV6Qag4WXT2giW1XhnbCNCr6CRBp8UL5gsYBv6gwkd7QDjUlhvy88JnG9Od%2BhqzvJNW8UgQLZUC%2BthpSMTJl6bI%2FTOs98RqfQYnZ2VMxtNmEsYa8%2BeuSp%2B6moPjKyZrcf3I%2F%2FU%2FKkDKAtRSj%2BGj0mk4W%2FafAgUnCrkXIPWJnNGApY%2BmjGOQIMLkpItq2z1XAPsXQDoWz8WTccz5IzVPUrVNQSS9YwhY2WAbXm4a5fTBTRMZrSlGR%2F7%2BwZ72wZuEH%2FmFflDd0g%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2012-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=URxfR6j4ooSYBjNrsKbLJpwze6Rx8PbVDYk7weAAWNf%2Ba0CpljdBC8z3OF9qbmZNGancR0XLbL5gZwV6Qag4WXT2giW1XhnbCNCr6CRBp8UL5gsYBv6gwkd7QDjUlhvy88JnG9Od%2BhqzvJNW8UgQLZUC%2BthpSMTJl6bI%2FTOs98RqfQYnZ2VMxtNmEsYa8%2BeuSp%2B6moPjKyZrcf3I%2F%2FU%2FKkDKAtRSj%2BGj0mk4W%2FafAgUnCrkXIPWJnNGApY%2BmjGOQIMLkpItq2z1XAPsXQDoWz8WTccz5IzVPUrVNQSS9YwhY2WAbXm4a5fTBTRMZrSlGR%2F7%2BwZ72wZuEH%2FmFflDd0g%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-35926')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-35926')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-35926')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-99600', 'spanish-99600', 'both-99600', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-99600', 'spanish-99600', 'both-99600', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-99600', 'spanish-99600', 'both-99600', 'both')">Show Both</button>
         
-        <div id="english-35926" class="text-content" style="display: none;">
+        <div id="english-99600" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: How do you say “arroz”?<br /><br>Answer: Rice.</p><br><p>Question: How do you say “película”?<br /><br>Answer: Movie</p><br><p>Question: How do you say “amor”?<br /><br>Answer: Love.</p><br><p>Question: How do you say “Quiero comer”?<br /><br>Answer: I wanna eat.<br /><br>Question: ¿Cómo se dice “Estoy en casa”?<br /><br>Answer: I’m home</p>
             </div>
         </div>
         
-        <div id="spanish-35926" class="text-content" style="display: none;">
+        <div id="spanish-99600" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 <p><strong>Pregunta:</strong> ¿Cómo se dice “arroz”?<br /><br><strong>Respuesta:</strong> Rice.</p><br><p><strong>Pregunta:</strong> ¿Cómo se dice “película”?<br /><br><strong>Respuesta:</strong> Movie.</p><br><p><strong>Pregunta:</strong> ¿Cómo se dice “amor”?<br /><br><strong>Respuesta:</strong> Love.</p><br><p><strong>Pregunta:</strong> ¿Cómo se dice “Quiero comer”?<br /><br><strong>Respuesta:</strong> I wanna eat.</p><br><p><strong>Pregunta:</strong> ¿Cómo se dice “Estoy en casa”?<br /><br><strong>Respuesta:</strong> I’m home.</p><br><p>Día 13 – Estado civil: casado</p>
             </div>
         </div>
         
-        <div id="both-35926" class="text-content" style="display: none;">
+        <div id="both-99600" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: How do you say “arroz”?<br /><br>Answer: Rice.</p><br><p>Question: How do you say “película”?<br /><br>Answer: Movie</p><br><p>Question: How do you say “amor”?<br /><br>Answer: Love.</p><br><p>Question: How do you say “Quiero comer”?<br /><br>Answer: I wanna eat.<br /><br>Question: ¿Cómo se dice “Estoy en casa”?<br /><br>Answer: I’m home</p>
@@ -1741,28 +1732,28 @@
 <div class="dia">
     <p class="titulo-dia">Audio Section</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2013-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=TivP1B5Xe7Hc8MptnfStn2u%2F9GpgxvVlw4283M7lWVUNZayAbJjzHdP9AQtZ5pTV2b2qvy3Mg38NrmQPf%2FC5ju6elcrmjuWSdCNHnGbL8IPpJKPIM8o5ftkmLmkRjmDDY6nEkhKRBSDrZQz0jV9rmxqLnzc8t9mI49zZBsbYzymMhHkA%2FBNV31w2LksN6gubkdfZbPhLep%2BUgW7muWfj%2BfnzM%2FHwrV1wnkuxiBa%2FE03BccYUZBW3DoR8MFVJts06o5Kr56Nrgu3pDnHH2cFRKFYOURX44W%2F755fwpWaLNlu%2BuYZ7SCsNuPVFMeHRXr5EjPFsucFhJHksvky5jf2WSQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2013-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=TivP1B5Xe7Hc8MptnfStn2u%2F9GpgxvVlw4283M7lWVUNZayAbJjzHdP9AQtZ5pTV2b2qvy3Mg38NrmQPf%2FC5ju6elcrmjuWSdCNHnGbL8IPpJKPIM8o5ftkmLmkRjmDDY6nEkhKRBSDrZQz0jV9rmxqLnzc8t9mI49zZBsbYzymMhHkA%2FBNV31w2LksN6gubkdfZbPhLep%2BUgW7muWfj%2BfnzM%2FHwrV1wnkuxiBa%2FE03BccYUZBW3DoR8MFVJts06o5Kr56Nrgu3pDnHH2cFRKFYOURX44W%2F755fwpWaLNlu%2BuYZ7SCsNuPVFMeHRXr5EjPFsucFhJHksvky5jf2WSQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-16988')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-16988')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-16988')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-29196', 'spanish-29196', 'both-29196', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-29196', 'spanish-29196', 'both-29196', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-29196', 'spanish-29196', 'both-29196', 'both')">Show Both</button>
         
-        <div id="english-16988" class="text-content" style="display: none;">
+        <div id="english-29196" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: Are you married?<br /><br>Answer: Yes, I'm married.</p><br><p>Question: Are you single?<br /><br>Answer: No, I'm not single.</p>
             </div>
         </div>
         
-        <div id="spanish-16988" class="text-content" style="display: none;">
+        <div id="spanish-29196" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 Question: ¿Estás casado?<br /><br>Answer: Sí, estoy casado.</p><br><p>Question: ¿Estás soltero?<br /><br>Answer: No, no estoy soltero.</p><br><p>Día 14 – Tener</p>
             </div>
         </div>
         
-        <div id="both-16988" class="text-content" style="display: none;">
+        <div id="both-29196" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: Are you married?<br /><br>Answer: Yes, I'm married.</p><br><p>Question: Are you single?<br /><br>Answer: No, I'm not single.</p>
@@ -1778,28 +1769,28 @@
 <div class="dia">
     <p class="titulo-dia">Audio Section</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2014-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=nuv1cyEdgG1mrZAUNflIhcNyKejO1pR18oWKf8tqJx%2BH7rzo8OlPCkEM5SzMFEVrKeRwAx%2F1BV32iFdcv%2FDgHIlm3lvsELF7H4DR0IdoEAa%2BRujGc4IMBB0I%2Fl%2Bi3ArnyzJSAPQ7tOoRQWSxGhUJXG1OjbF3FrJdmPVJ49hTiz4C4bk%2BWxMN9uP9kMnH7WJvWOLrOu8bddN0iHaYxbPisXWkwQSJW6NTNsVK%2F%2F3gDNO99TE%2FpwFLGmstm2f%2BoZAIcayu7mZFzdCluuNAd2EwDO2614kDyBtPU%2FSz4pqMzlU4x6TRtKkq5yEeV%2Bb6cl9bAAp5NN4rjntEZZRmb2gHIQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2014-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=nuv1cyEdgG1mrZAUNflIhcNyKejO1pR18oWKf8tqJx%2BH7rzo8OlPCkEM5SzMFEVrKeRwAx%2F1BV32iFdcv%2FDgHIlm3lvsELF7H4DR0IdoEAa%2BRujGc4IMBB0I%2Fl%2Bi3ArnyzJSAPQ7tOoRQWSxGhUJXG1OjbF3FrJdmPVJ49hTiz4C4bk%2BWxMN9uP9kMnH7WJvWOLrOu8bddN0iHaYxbPisXWkwQSJW6NTNsVK%2F%2F3gDNO99TE%2FpwFLGmstm2f%2BoZAIcayu7mZFzdCluuNAd2EwDO2614kDyBtPU%2FSz4pqMzlU4x6TRtKkq5yEeV%2Bb6cl9bAAp5NN4rjntEZZRmb2gHIQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-94989')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-94989')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-94989')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-48156', 'spanish-48156', 'both-48156', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-48156', 'spanish-48156', 'both-48156', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-48156', 'spanish-48156', 'both-48156', 'both')">Show Both</button>
         
-        <div id="english-94989" class="text-content" style="display: none;">
+        <div id="english-48156" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: Do you have siblings?<br /><br>Answer: Yeah, I have siblings.<br /><br>Question: How many siblings do you have?<br /><br>Answer: Yeah, I have 6 siblings: 1 sister and 5 brothers.<br /><br>Question: Do you have children?<br /><br>Answer: Yeah, I have children.<br /><br>Question: How many children do you have?<br /><br>Answer: I've got 4 kids: 1 boy and 3 girls.</p>
             </div>
         </div>
         
-        <div id="spanish-94989" class="text-content" style="display: none;">
+        <div id="spanish-48156" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 Question: ¿Tienes hermanos/as?<br /><br>Answer: Sí, tengo hermanos/as.<br /><br>Question: ¿Cuántos hermanos tienes?<br /><br>Answer: Sí, tengo 6 hermanos: una hermana y cinco hermanos.<br /><br>Question: ¿Tienes hijos?<br /><br>Answer: Sí, tengo hijos.<br /><br>Question: ¿Cuántos hijos tienes?<br /><br>Answer: Tengo 4 hijos: un niño y tres niñas.</p><br><p>Día 15 – Estado civil: comprometido</p>
             </div>
         </div>
         
-        <div id="both-94989" class="text-content" style="display: none;">
+        <div id="both-48156" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: Do you have siblings?<br /><br>Answer: Yeah, I have siblings.<br /><br>Question: How many siblings do you have?<br /><br>Answer: Yeah, I have 6 siblings: 1 sister and 5 brothers.<br /><br>Question: Do you have children?<br /><br>Answer: Yeah, I have children.<br /><br>Question: How many children do you have?<br /><br>Answer: I've got 4 kids: 1 boy and 3 girls.</p>
@@ -1815,28 +1806,28 @@
 <div class="dia">
     <p class="titulo-dia">Audio Section</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2015-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=JICaXUDwKlJwBxUK5EwCjqwM0GZSySTu6M%2B0ZnNOnZiTmTdh7VYlx4L1utHs1RZJ%2FvcyakZ73J8y5d%2BUIHv7Ci8XCCodKD7ugHgwIsKQfBpFxvOV5lHfeh4kMyho4sO%2FM0eiJbj%2FXT4xnnpmn2qjbAbwQ7%2Bg7pPHbeX5wUej35nmSrI3iaOkOmlyEN%2BXFpDNDwRCF9QgwIGZS2xuWSd5SiGo6IT23uETaJ4fL6e1v6F4AEHyFQptIs1A0thD7YhO7TGtvt0o%2FXIMrJUhgUpepYA1UEQMa1jHf%2FNik2s2Tsztp2OhkjbagNvUiQHSf2p9V78lsrV1H1KaqHCLVD0I2A%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2015-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=JICaXUDwKlJwBxUK5EwCjqwM0GZSySTu6M%2B0ZnNOnZiTmTdh7VYlx4L1utHs1RZJ%2FvcyakZ73J8y5d%2BUIHv7Ci8XCCodKD7ugHgwIsKQfBpFxvOV5lHfeh4kMyho4sO%2FM0eiJbj%2FXT4xnnpmn2qjbAbwQ7%2Bg7pPHbeX5wUej35nmSrI3iaOkOmlyEN%2BXFpDNDwRCF9QgwIGZS2xuWSd5SiGo6IT23uETaJ4fL6e1v6F4AEHyFQptIs1A0thD7YhO7TGtvt0o%2FXIMrJUhgUpepYA1UEQMa1jHf%2FNik2s2Tsztp2OhkjbagNvUiQHSf2p9V78lsrV1H1KaqHCLVD0I2A%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-74379')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-74379')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-74379')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-44115', 'spanish-44115', 'both-44115', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-44115', 'spanish-44115', 'both-44115', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-44115', 'spanish-44115', 'both-44115', 'both')">Show Both</button>
         
-        <div id="english-74379" class="text-content" style="display: none;">
+        <div id="english-44115" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p><strong>ENGLISH</strong></p><br><p>Question: Are you engaged?<br /><br>Answer: No, I'm not engaged.</p><br><p>Question: Are you married?<br /><br>Answer: Yes, I'm married.</p><br><p>Question: Are you single?<br /><br>Answer: Yes, I'm single.</p><br><p>Question: Are you divorced?<br /><br>Answer: No, I'm not divorced.</p>
             </div>
         </div>
         
-        <div id="spanish-74379" class="text-content" style="display: none;">
+        <div id="spanish-44115" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 <p>Pregunta: ¿Estás comprometido(a)?<br /><br>Respuesta: No, no estoy comprometido(a).</p><br><p>Pregunta: ¿Estás casado(a)?<br /><br>Respuesta: Sí, estoy casado(a).</p><br><p>Pregunta: ¿Estás soltero(a)?<br /><br>Respuesta: Sí, estoy soltero(a).</p><br><p>Pregunta: ¿Estás divorciado(a)?<br /><br>Respuesta: No, no estoy divorciado(a).</p>
             </div>
         </div>
         
-        <div id="both-74379" class="text-content" style="display: none;">
+        <div id="both-44115" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p><strong>ENGLISH</strong></p><br><p>Question: Are you engaged?<br /><br>Answer: No, I'm not engaged.</p><br><p>Question: Are you married?<br /><br>Answer: Yes, I'm married.</p><br><p>Question: Are you single?<br /><br>Answer: Yes, I'm single.</p><br><p>Question: Are you divorced?<br /><br>Answer: No, I'm not divorced.</p>
@@ -1857,28 +1848,28 @@
 <div class="dia">
     <p class="titulo-dia">🎧👧🏿 Voz Humana Mujer:</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://firebasestorage.googleapis.com/v0/b/chocolearn-f05e5.firebasestorage.app/o/audio%2FLectura%20de%20Pronunciaci%C3%B3n%20-%20Mujer%20Voz%20Humana-esv2-90p-bg-10p.mp3?alt=media&amp;token=531111ef-2d2a-46cb-a6a2-0f1bc7de7367" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://firebasestorage.googleapis.com/v0/b/chocolearn-f05e5.firebasestorage.app/o/audio%2FLectura%20de%20Pronunciaci%C3%B3n%20-%20Mujer%20Voz%20Humana-esv2-90p-bg-10p.mp3?alt=media&amp;token=531111ef-2d2a-46cb-a6a2-0f1bc7de7367" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-37056')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-37056')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-37056')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-84229', 'spanish-84229', 'both-84229', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-84229', 'spanish-84229', 'both-84229', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-84229', 'spanish-84229', 'both-84229', 'both')">Show Both</button>
         
-        <div id="english-37056" class="text-content" style="display: none;">
+        <div id="english-84229" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>🎧👱🏽‍♂️ Voz Humana Hombre:</p>
             </div>
         </div>
         
-        <div id="spanish-37056" class="text-content" style="display: none;">
+        <div id="spanish-84229" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 No Spanish content found
             </div>
         </div>
         
-        <div id="both-37056" class="text-content" style="display: none;">
+        <div id="both-84229" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>🎧👱🏽‍♂️ Voz Humana Hombre:</p>
@@ -1894,28 +1885,28 @@
 <div class="dia">
     <p class="titulo-dia">🎧👧🏿 Voz Humana Mujer:</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://firebasestorage.googleapis.com/v0/b/chocolearn-f05e5.firebasestorage.app/o/audio%2FLectura%20de%20Pronunciaci%C3%B3n%20-%20Hombre-esv2-90p-bg-10p.mp3?alt=media&amp;token=6df2cef9-c40e-4dce-80d6-4b6adc4931b5" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://firebasestorage.googleapis.com/v0/b/chocolearn-f05e5.firebasestorage.app/o/audio%2FLectura%20de%20Pronunciaci%C3%B3n%20-%20Hombre-esv2-90p-bg-10p.mp3?alt=media&amp;token=6df2cef9-c40e-4dce-80d6-4b6adc4931b5" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-42042')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-42042')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-42042')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-82010', 'spanish-82010', 'both-82010', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-82010', 'spanish-82010', 'both-82010', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-82010', 'spanish-82010', 'both-82010', 'both')">Show Both</button>
         
-        <div id="english-42042" class="text-content" style="display: none;">
+        <div id="english-82010" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>🎧 Agente AI:</p>
             </div>
         </div>
         
-        <div id="spanish-42042" class="text-content" style="display: none;">
+        <div id="spanish-82010" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 No Spanish content found
             </div>
         </div>
         
-        <div id="both-42042" class="text-content" style="display: none;">
+        <div id="both-82010" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>🎧 Agente AI:</p>
@@ -1931,28 +1922,28 @@
 <div class="dia">
     <p class="titulo-dia">🎧👧🏿 Voz Humana Mujer:</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Lectura%20de%20Pronunciaci%C3%B3n.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=P18RMNZ%2BpuTQ7jFkK00BuFh4ToCG7akYPJDCm7RldKID3O93RkCpR80dltrCPj%2F4Urvy%2BlxryUSsj5Ub3y8OGrtXARRk9LpIM9aCGqWd7wrWWwsfuSp6CZK7dpg0XHkvqBI293vrrVEQOt4PXJMJS8fSIALiGl9GCpkiUTLNkQw%2BAC80aqCj38xMQv3NvEaSIy915dHmmjuXfJNmgDc09b7TTXUSl8wgX6i5kt0ksAuYrA1xZOw0Pnx7JA%2BRSMQUdA9smJCVA7MagH5nNcMyo65dkg4u4uwlhOD8l3uF187%2BeAzD%2ByXfNN6wvJlt0zKXPcrP49PSLhfjmzQu71zBCw%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Lectura%20de%20Pronunciaci%C3%B3n.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=P18RMNZ%2BpuTQ7jFkK00BuFh4ToCG7akYPJDCm7RldKID3O93RkCpR80dltrCPj%2F4Urvy%2BlxryUSsj5Ub3y8OGrtXARRk9LpIM9aCGqWd7wrWWwsfuSp6CZK7dpg0XHkvqBI293vrrVEQOt4PXJMJS8fSIALiGl9GCpkiUTLNkQw%2BAC80aqCj38xMQv3NvEaSIy915dHmmjuXfJNmgDc09b7TTXUSl8wgX6i5kt0ksAuYrA1xZOw0Pnx7JA%2BRSMQUdA9smJCVA7MagH5nNcMyo65dkg4u4uwlhOD8l3uF187%2BeAzD%2ByXfNN6wvJlt0zKXPcrP49PSLhfjmzQu71zBCw%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-72802')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-72802')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-72802')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-19703', 'spanish-19703', 'both-19703', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-19703', 'spanish-19703', 'both-19703', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-19703', 'spanish-19703', 'both-19703', 'both')">Show Both</button>
         
-        <div id="english-72802" class="text-content" style="display: none;">
+        <div id="english-19703" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Sam woke up early to help his <strong>mother</strong> with breakfast. "Are you feeling in good <strong>health</strong> today?" she asked. He nodded, though he felt a bit <strong>hot</strong>. After breakfast, he said, "I’ll <strong>pack</strong> my bag and go for a run. It’s important to stay <strong>fit</strong>, not <strong>fat</strong>!"</p><br><p>As he ran, Sam noticed the changing <strong>weather</strong>. There was a chance of <strong>rain</strong> or even <strong>hail</strong>, but he thought, “I’ll keep going.” He saw a <strong>hen</strong> in the <strong>sand</strong> by the <strong>path</strong>, and a bird in the <strong>air</strong>, singing a song that made him <strong>feel</strong> happy.</p><br><p>Sam stopped by the river, where he saw a man <strong>build</strong> a small boat. "I’ve <strong>built</strong> many boats like this," the man said. Sam admired his <strong>strength</strong> and <strong>faith</strong> in his craft.</p><br><p>Later, at school, the teacher said, “<strong>Think</strong> about what makes life <strong>worth</strong> living. Is it <strong>truth</strong>, <strong>wealth</strong>, or <strong>growth</strong>?" Sam raised his <strong>hand</strong> and said, "For me, it’s my <strong>brother</strong>, my <strong>father</strong>, and my <strong>mother</strong>. They’re always there, no matter the <strong>month</strong> or the <strong>weather</strong>."</p><br><p>In class, they read about the <strong>earth’s</strong> history and the <strong>death</strong> and <strong>birth</strong> of civilizations. Sam learned how <strong>strength</strong> and determination can change the world.</p><br><p>After school, he met his friends and said, "Hey, let’s play soccer!" They all agreed. "Who will be the <strong>goalkeeper</strong>?" someone asked. "I will!" Sam said. He <strong>held</strong> his position well, showing his quick reflexes and strong <strong>faith</strong> in his team.</p><br><p>That evening, at dinner, Sam’s mother asked, “What did you learn today?” He replied, “We learned about the <strong>truth</strong> of the <strong>world</strong>, and how important it is to work <strong>together</strong> to make it a better place.”</p>
             </div>
         </div>
         
-        <div id="spanish-72802" class="text-content" style="display: none;">
+        <div id="spanish-19703" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 <p>Sam woke up early to help his <strong>mother</strong> with breakfast. "Are you feeling in good <strong>health</strong> today?" she asked. He nodded, though he felt a bit <strong>hot</strong>. After breakfast, he said, "I’ll <strong>pack</strong> my bag and go for a run. It’s important to stay <strong>fit</strong>, not <strong>fat</strong>!"</p><br><p>As he ran, Sam noticed the changing <strong>weather</strong>. There was a chance of <strong>rain</strong> or even <strong>hail</strong>, but he thought, “I’ll keep going.” He saw a <strong>hen</strong> in the <strong>sand</strong> by the <strong>path</strong>, and a bird in the <strong>air</strong>, singing a song that made him <strong>feel</strong> happy.</p><br><p>Sam stopped by the river, where he saw a man <strong>build</strong> a small boat. "I’ve <strong>built</strong> many boats like this," the man said. Sam admired his <strong>strength</strong> and <strong>faith</strong> in his craft.</p><br><p>Later, at school, the teacher said, “<strong>Think</strong> about what makes life <strong>worth</strong> living. Is it <strong>truth</strong>, <strong>wealth</strong>, or <strong>growth</strong>?" Sam raised his <strong>hand</strong> and said, "For me, it’s my <strong>brother</strong>, my <strong>father</strong>, and my <strong>mother</strong>. They’re always there, no matter the <strong>month</strong> or the <strong>weather</strong>."</p><br><p>In class, they read about the <strong>earth’s</strong> history and the <strong>death</strong> and <strong>birth</strong> of civilizations. Sam learned how <strong>strength</strong> and determination can change the world.</p><br><p>After school, he met his friends and said, "Hey, let’s play soccer!" They all agreed. "Who will be the <strong>goalkeeper</strong>?" someone asked. "I will!" Sam said. He <strong>held</strong> his position well, showing his quick reflexes and strong <strong>faith</strong> in his team.</p><br><p>That evening, at dinner, Sam’s mother asked, “What did you learn today?” He replied, “We learned about the <strong>truth</strong> of the <strong>world</strong>, and how important it is to work <strong>together</strong> to make it a better place.”</p>
             </div>
         </div>
         
-        <div id="both-72802" class="text-content" style="display: none;">
+        <div id="both-19703" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Sam woke up early to help his <strong>mother</strong> with breakfast. "Are you feeling in good <strong>health</strong> today?" she asked. He nodded, though he felt a bit <strong>hot</strong>. After breakfast, he said, "I’ll <strong>pack</strong> my bag and go for a run. It’s important to stay <strong>fit</strong>, not <strong>fat</strong>!"</p><br><p>As he ran, Sam noticed the changing <strong>weather</strong>. There was a chance of <strong>rain</strong> or even <strong>hail</strong>, but he thought, “I’ll keep going.” He saw a <strong>hen</strong> in the <strong>sand</strong> by the <strong>path</strong>, and a bird in the <strong>air</strong>, singing a song that made him <strong>feel</strong> happy.</p><br><p>Sam stopped by the river, where he saw a man <strong>build</strong> a small boat. "I’ve <strong>built</strong> many boats like this," the man said. Sam admired his <strong>strength</strong> and <strong>faith</strong> in his craft.</p><br><p>Later, at school, the teacher said, “<strong>Think</strong> about what makes life <strong>worth</strong> living. Is it <strong>truth</strong>, <strong>wealth</strong>, or <strong>growth</strong>?" Sam raised his <strong>hand</strong> and said, "For me, it’s my <strong>brother</strong>, my <strong>father</strong>, and my <strong>mother</strong>. They’re always there, no matter the <strong>month</strong> or the <strong>weather</strong>."</p><br><p>In class, they read about the <strong>earth’s</strong> history and the <strong>death</strong> and <strong>birth</strong> of civilizations. Sam learned how <strong>strength</strong> and determination can change the world.</p><br><p>After school, he met his friends and said, "Hey, let’s play soccer!" They all agreed. "Who will be the <strong>goalkeeper</strong>?" someone asked. "I will!" Sam said. He <strong>held</strong> his position well, showing his quick reflexes and strong <strong>faith</strong> in his team.</p><br><p>That evening, at dinner, Sam’s mother asked, “What did you learn today?” He replied, “We learned about the <strong>truth</strong> of the <strong>world</strong>, and how important it is to work <strong>together</strong> to make it a better place.”</p>
@@ -1976,20 +1967,20 @@
 <div class="dia">
     <p class="titulo-dia">Audio Section</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Preguntas%20Turbo%20-%201%20Vez%20Velocidad%20Normal-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=XFFqd7uqCkMad%2B8%2BVpn4Ib1PSWzcLRJbsKCtgJzoT0e7Gh%2FNoXSYGPaaJ%2FrK37uZjPHkKfbDw9T5BWHY%2B6qL8OT8iBTyIB72%2B7rMPX27rXMbcl%2FDdIAm0yvvrMfoDA5Rhh3AjbKKAb%2B7zUqNejm44NzvPuxYn%2FxFr5fhxnJcA4KOEagpVXC6cRYS8bkczWy6C8jMCu1h3W24ZxlAVmTupHLTJCcKRIOleAFNdj8LP1VgFFkfQlMS6z9%2BhhVOwDzkjKEU2e1nBHxwXBUcijvG9cFh91mxBTTxAiUSABrumkO7rEoEo9MwJZj%2F9VfzrvphLjaqsKBU3%2BN2IymRYJd%2BBg%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Preguntas%20Turbo%20-%201%20Vez%20Velocidad%20Normal-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=XFFqd7uqCkMad%2B8%2BVpn4Ib1PSWzcLRJbsKCtgJzoT0e7Gh%2FNoXSYGPaaJ%2FrK37uZjPHkKfbDw9T5BWHY%2B6qL8OT8iBTyIB72%2B7rMPX27rXMbcl%2FDdIAm0yvvrMfoDA5Rhh3AjbKKAb%2B7zUqNejm44NzvPuxYn%2FxFr5fhxnJcA4KOEagpVXC6cRYS8bkczWy6C8jMCu1h3W24ZxlAVmTupHLTJCcKRIOleAFNdj8LP1VgFFkfQlMS6z9%2BhhVOwDzkjKEU2e1nBHxwXBUcijvG9cFh91mxBTTxAiUSABrumkO7rEoEo9MwJZj%2F9VfzrvphLjaqsKBU3%2BN2IymRYJd%2BBg%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-8838')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-8838')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-8838')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-11927', 'spanish-11927', 'both-11927', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-11927', 'spanish-11927', 'both-11927', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-11927', 'spanish-11927', 'both-11927', 'both')">Show Both</button>
         
-        <div id="english-8838" class="text-content" style="display: none;">
+        <div id="english-11927" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 
     
-                <button class="boton" onclick="toggleVisibility('tabla-5726', this)">Show Table</button>
-                <div id="tabla-5726" class="texto">
+                <button class="boton" onclick="toggleVisibility('tabla-7229', this)">Show Table</button>
+                <div id="tabla-7229" class="texto">
                     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
         <tbody>
@@ -2704,13 +2695,13 @@
             </div>
         </div>
         
-        <div id="spanish-8838" class="text-content" style="display: none;">
+        <div id="spanish-11927" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 
     
-                <button class="boton" onclick="toggleVisibility('tabla-5726', this)">Show Table</button>
-                <div id="tabla-5726" class="texto">
+                <button class="boton" onclick="toggleVisibility('tabla-7229', this)">Show Table</button>
+                <div id="tabla-7229" class="texto">
                     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
         <tbody>
@@ -3425,13 +3416,13 @@
             </div>
         </div>
         
-        <div id="both-8838" class="text-content" style="display: none;">
+        <div id="both-11927" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 
     
-                <button class="boton" onclick="toggleVisibility('tabla-5726', this)">Show Table</button>
-                <div id="tabla-5726" class="texto">
+                <button class="boton" onclick="toggleVisibility('tabla-7229', this)">Show Table</button>
+                <div id="tabla-7229" class="texto">
                     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
         <tbody>
@@ -4148,8 +4139,8 @@
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 
     
-                <button class="boton" onclick="toggleVisibility('tabla-5726', this)">Show Table</button>
-                <div id="tabla-5726" class="texto">
+                <button class="boton" onclick="toggleVisibility('tabla-7229', this)">Show Table</button>
+                <div id="tabla-7229" class="texto">
                     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
         <tbody>
@@ -6712,28 +6703,28 @@
 <div class="dia">
     <p class="titulo-dia">📅 Día 8 – Tiempo libre y contacto</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%208-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=MXnt%2F1Ef%2BIt6irrOVIBzFJAp6mZvnWlaxTb6TTu3mjGJQee3V1Spcsv50NL65zYSGcx42G1siC6xBXso3WJDt3x8YH3S5e2PK3P1LvFgbjBhIFbbADpoI78G0TtvJdzXwj29dFAPqTzwFnsSMX%2FxqHRIkQzh9G9vXBSTNsP4gHoCHHm6MGdsTZFjv8dbtf0cD7Wzi7zhEUS0eYlpzyZqxOG4PsTCmh8sLd0kR5fGgfgWFffYebVC4DEO399FplR%2B58cUk9r%2BOzQmzwF7%2BiJY3ysnQrD1N8yFcbe5gC1fqRojlyCWG6CZt2wRpbGsBHSev46I%2FGZLS1tndLa%2FaWcNXA%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%208-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=MXnt%2F1Ef%2BIt6irrOVIBzFJAp6mZvnWlaxTb6TTu3mjGJQee3V1Spcsv50NL65zYSGcx42G1siC6xBXso3WJDt3x8YH3S5e2PK3P1LvFgbjBhIFbbADpoI78G0TtvJdzXwj29dFAPqTzwFnsSMX%2FxqHRIkQzh9G9vXBSTNsP4gHoCHHm6MGdsTZFjv8dbtf0cD7Wzi7zhEUS0eYlpzyZqxOG4PsTCmh8sLd0kR5fGgfgWFffYebVC4DEO399FplR%2B58cUk9r%2BOzQmzwF7%2BiJY3ysnQrD1N8yFcbe5gC1fqRojlyCWG6CZt2wRpbGsBHSev46I%2FGZLS1tndLa%2FaWcNXA%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-79837')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-79837')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-79837')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-22222', 'spanish-22222', 'both-22222', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-22222', 'spanish-22222', 'both-22222', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-22222', 'spanish-22222', 'both-22222', 'both')">Show Both</button>
         
-        <div id="english-79837" class="text-content" style="display: none;">
+        <div id="english-22222" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: What do you do in your free time?<br /><br>Answer: I read, listen to music, talk to friends.<br /><br>Question: What's your phone number?<br /><br>Answer: It's 3103534870.<br /><br>Question: What's your email address?<br /><br>Answer: It's chocoenglish@gmail.com.</p><br><p>📅 Día 9 – Días pasados</p>
             </div>
         </div>
         
-        <div id="spanish-79837" class="text-content" style="display: none;">
+        <div id="spanish-22222" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 Question: ¿Qué haces en tu tiempo libre?<br /><br>Answer: Leo, escucho música, hablo con amigos.<br /><br>Question: ¿Cuál es tu número de teléfono?<br /><br>Answer: Es 3103534870.<br /><br>Question: ¿Cuál es tu correo electrónico?<br />
             </div>
         </div>
         
-        <div id="both-79837" class="text-content" style="display: none;">
+        <div id="both-22222" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: What do you do in your free time?<br /><br>Answer: I read, listen to music, talk to friends.<br /><br>Question: What's your phone number?<br /><br>Answer: It's 3103534870.<br /><br>Question: What's your email address?<br /><br>Answer: It's chocoenglish@gmail.com.</p><br><p>📅 Día 9 – Días pasados</p>
@@ -6749,28 +6740,28 @@
 <div class="dia">
     <p class="titulo-dia">📅 Día 9 – Días pasados</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%209-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=ieu8yJZPuc3bfjaXLqaRIbBA7%2Fs448b1OvaHG2XwScfI9tudFRdH0sVGBSKTAVWM9OxKxZW3AyDTppkTGHdKsctK9THM4ehvKnGjEbrU0jCRsxFfP5YSrC5UsenZ24FWl6SFTRbqCAYuC5pyG74sEddvDNbJSo1LoZaPdBzdm%2FsuaI9wEsgswVVD8UfdKLlLL6kopptJtbFUrQ2bgTWhkzM4tfsRxZXsmQ1HsVQ16mhU8oe5UFHmZRHuxoWWI9xVao5ApDmoYKgkRSSYLReJfMivO30b74Xc2lhR8Jwjnhmnbfs4cLjMDbq%2FDrEwIAM51VCDN3IzAqL4lKlQrhBLHQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%209-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=ieu8yJZPuc3bfjaXLqaRIbBA7%2Fs448b1OvaHG2XwScfI9tudFRdH0sVGBSKTAVWM9OxKxZW3AyDTppkTGHdKsctK9THM4ehvKnGjEbrU0jCRsxFfP5YSrC5UsenZ24FWl6SFTRbqCAYuC5pyG74sEddvDNbJSo1LoZaPdBzdm%2FsuaI9wEsgswVVD8UfdKLlLL6kopptJtbFUrQ2bgTWhkzM4tfsRxZXsmQ1HsVQ16mhU8oe5UFHmZRHuxoWWI9xVao5ApDmoYKgkRSSYLReJfMivO30b74Xc2lhR8Jwjnhmnbfs4cLjMDbq%2FDrEwIAM51VCDN3IzAqL4lKlQrhBLHQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-54510')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-54510')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-54510')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-79387', 'spanish-79387', 'both-79387', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-79387', 'spanish-79387', 'both-79387', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-79387', 'spanish-79387', 'both-79387', 'both')">Show Both</button>
         
-        <div id="english-54510" class="text-content" style="display: none;">
+        <div id="english-79387" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: How was your day?<br /><br>Answer: It was great, I really enjoyed it.<br /><br>Question: How was your weekend?<br /><br>Answer: It was really bad, I couldn't do much.<br /><br>Question: Who’s your best friend?<br /><br>Answer: My best friend is my cousin, Marta.</p>
             </div>
         </div>
         
-        <div id="spanish-54510" class="text-content" style="display: none;">
+        <div id="spanish-79387" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 Question: ¿Cómo estuvo tu día?<br /><br>Answer: Estuvo genial, lo disfruté mucho.<br /><br>Question: ¿Cómo estuvo tu fin de semana?<br /><br>Answer: Estuvo muy mal, no pude hacer mucho.<br /><br>Question: ¿Quién es tu mejor amigo/a?<br /><br>Answer: Mi mejor amiga es mi prima, Marta.</p><br><p>📅 Día 10 – Familia</p>
             </div>
         </div>
         
-        <div id="both-54510" class="text-content" style="display: none;">
+        <div id="both-79387" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: How was your day?<br /><br>Answer: It was great, I really enjoyed it.<br /><br>Question: How was your weekend?<br /><br>Answer: It was really bad, I couldn't do much.<br /><br>Question: Who’s your best friend?<br /><br>Answer: My best friend is my cousin, Marta.</p>
@@ -6786,28 +6777,28 @@
 <div class="dia">
     <p class="titulo-dia">📅 Día 10 – Familia</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2010-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=ZAF7Dxeh%2FStCytqkQNmWbsdnDbTVJ9tilPGJ97QaCoR174yFAAPa1Wm%2BbreAUphI%2F26r380YwZZv7eSAUh38Mr6orZ88FmIo00%2ButM1n7WWzURFs8%2BiSLcdYmScbpjaYx8HfzWIBHpCigVGWbOvMCMsLLIk0wUg0M1LMyKMmwD11VYEzC7geb2XZFPgt%2FyJulFRggYCwy1KtUNL8Q%2F2PH4FRYVQmZmcUj05yYoE70TLDWRu8X0FiJoMVl8ij9OuGnBtKfyleFHSNPD3SP3PgdMgMzr%2Bdc%2BlHHhT%2FweTDnwZXpLbwnd%2BSojMlVnYPeqt6IYYUDqFTLna%2F1hQKac7ZzQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2010-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=ZAF7Dxeh%2FStCytqkQNmWbsdnDbTVJ9tilPGJ97QaCoR174yFAAPa1Wm%2BbreAUphI%2F26r380YwZZv7eSAUh38Mr6orZ88FmIo00%2ButM1n7WWzURFs8%2BiSLcdYmScbpjaYx8HfzWIBHpCigVGWbOvMCMsLLIk0wUg0M1LMyKMmwD11VYEzC7geb2XZFPgt%2FyJulFRggYCwy1KtUNL8Q%2F2PH4FRYVQmZmcUj05yYoE70TLDWRu8X0FiJoMVl8ij9OuGnBtKfyleFHSNPD3SP3PgdMgMzr%2Bdc%2BlHHhT%2FweTDnwZXpLbwnd%2BSojMlVnYPeqt6IYYUDqFTLna%2F1hQKac7ZzQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-2610')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-2610')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-2610')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-42344', 'spanish-42344', 'both-42344', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-42344', 'spanish-42344', 'both-42344', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-42344', 'spanish-42344', 'both-42344', 'both')">Show Both</button>
         
-        <div id="english-2610" class="text-content" style="display: none;">
+        <div id="english-42344" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: Do you have siblings?<br /><br>Answer: Yeah, I have siblings.<br /><br>Question: How many siblings do you have?<br /><br>Answer: I have 6 siblings: 1 sister and 5 brothers.<br /><br>Question: Do you have children?<br /><br>Answer: Yeah, I have children.<br /><br>Question: How many children do you have?<br /><br>Answer: I've got 4 kids: 1 boy and 3 girls.</p>
             </div>
         </div>
         
-        <div id="spanish-2610" class="text-content" style="display: none;">
+        <div id="spanish-42344" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 Question: ¿Tienes hermanos/as?<br /><br>Answer: Sí, tengo hermanos/as.<br /><br>Question: ¿Cuántos hermanos tienes?<br /><br>Answer: Sí, tengo 6 hermanos: una hermana y cinco hermanos.<br /><br>Question: ¿Tienes hijos?<br /><br>Answer: Sí, tengo hijos.<br /><br>Question: ¿Cuántos hijos tienes?<br /><br>Answer: Tengo 4 hijos: un niño y tres niñas.</p><br><p>Día 11 – Amigos y amistades</p>
             </div>
         </div>
         
-        <div id="both-2610" class="text-content" style="display: none;">
+        <div id="both-42344" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: Do you have siblings?<br /><br>Answer: Yeah, I have siblings.<br /><br>Question: How many siblings do you have?<br /><br>Answer: I have 6 siblings: 1 sister and 5 brothers.<br /><br>Question: Do you have children?<br /><br>Answer: Yeah, I have children.<br /><br>Question: How many children do you have?<br /><br>Answer: I've got 4 kids: 1 boy and 3 girls.</p>
@@ -6823,28 +6814,28 @@
 <div class="dia">
     <p class="titulo-dia">Audio Section</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2011-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=eJITAiBU6hk6yUvnbaVpI004Uol5Pqex3bfr%2FA6WJr8E0zZ7xriymDG4P9z%2B4bGAb8sjXqIjwVOTFKTEc%2FTDZoBBPssEu%2FT4uZHdnXYXg3zgC%2Fr1COq6yRHWIP4vZefQzcWq0xB3VrtidPCEnCrDaQLle63UmfwpeGRdibxhXAEuvJaLtDAQD%2Brqp9Jxd1Y2J4GZibI5DQ9GkOoW4OgK6JFuTkk1W1%2FBH%2FkhDRYw%2BU%2FqKa6ZIE%2BYPtG2cL3PDJvfiGAdx5dxkSyOCLtJFxIb4%2F2Q9Go3gkSco%2FivYoh8uHcWCRBgzM%2FZP998wsZTMHu0e4QzBqc2PD%2B%2BDKo2ykL8bQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2011-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=eJITAiBU6hk6yUvnbaVpI004Uol5Pqex3bfr%2FA6WJr8E0zZ7xriymDG4P9z%2B4bGAb8sjXqIjwVOTFKTEc%2FTDZoBBPssEu%2FT4uZHdnXYXg3zgC%2Fr1COq6yRHWIP4vZefQzcWq0xB3VrtidPCEnCrDaQLle63UmfwpeGRdibxhXAEuvJaLtDAQD%2Brqp9Jxd1Y2J4GZibI5DQ9GkOoW4OgK6JFuTkk1W1%2FBH%2FkhDRYw%2BU%2FqKa6ZIE%2BYPtG2cL3PDJvfiGAdx5dxkSyOCLtJFxIb4%2F2Q9Go3gkSco%2FivYoh8uHcWCRBgzM%2FZP998wsZTMHu0e4QzBqc2PD%2B%2BDKo2ykL8bQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-73065')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-73065')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-73065')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-94843', 'spanish-94843', 'both-94843', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-94843', 'spanish-94843', 'both-94843', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-94843', 'spanish-94843', 'both-94843', 'both')">Show Both</button>
         
-        <div id="english-73065" class="text-content" style="display: none;">
+        <div id="english-94843" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: Do you have children?<br /><br>Answer: Yeah, I have children.<br /><br>Question: How many children do you have?<br /><br>Answer: I've got 4 kids: 1 boy and 3 girls.</p><br><p>Question: Do you have friends?<br /><br>Answer: Yeah, I've got friends.<br /><br>Question: How many friends do you have?<br /><br>Answer: Wow, I've got a lot of friends.</p>
             </div>
         </div>
         
-        <div id="spanish-73065" class="text-content" style="display: none;">
+        <div id="spanish-94843" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 Question: ¿Tienes amigos?<br /><br>Answer: Sí, tengo amigos.<br /><br>Question: ¿Cuántos amigos tienes?<br /><br>Answer: Wow, tengo muchos amigos.</p><br><p>Día 12 – Vocabulario en contexto</p>
             </div>
         </div>
         
-        <div id="both-73065" class="text-content" style="display: none;">
+        <div id="both-94843" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: Do you have children?<br /><br>Answer: Yeah, I have children.<br /><br>Question: How many children do you have?<br /><br>Answer: I've got 4 kids: 1 boy and 3 girls.</p><br><p>Question: Do you have friends?<br /><br>Answer: Yeah, I've got friends.<br /><br>Question: How many friends do you have?<br /><br>Answer: Wow, I've got a lot of friends.</p>
@@ -6860,28 +6851,28 @@
 <div class="dia">
     <p class="titulo-dia">Audio Section</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2012-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=URxfR6j4ooSYBjNrsKbLJpwze6Rx8PbVDYk7weAAWNf%2Ba0CpljdBC8z3OF9qbmZNGancR0XLbL5gZwV6Qag4WXT2giW1XhnbCNCr6CRBp8UL5gsYBv6gwkd7QDjUlhvy88JnG9Od%2BhqzvJNW8UgQLZUC%2BthpSMTJl6bI%2FTOs98RqfQYnZ2VMxtNmEsYa8%2BeuSp%2B6moPjKyZrcf3I%2F%2FU%2FKkDKAtRSj%2BGj0mk4W%2FafAgUnCrkXIPWJnNGApY%2BmjGOQIMLkpItq2z1XAPsXQDoWz8WTccz5IzVPUrVNQSS9YwhY2WAbXm4a5fTBTRMZrSlGR%2F7%2BwZ72wZuEH%2FmFflDd0g%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2012-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=URxfR6j4ooSYBjNrsKbLJpwze6Rx8PbVDYk7weAAWNf%2Ba0CpljdBC8z3OF9qbmZNGancR0XLbL5gZwV6Qag4WXT2giW1XhnbCNCr6CRBp8UL5gsYBv6gwkd7QDjUlhvy88JnG9Od%2BhqzvJNW8UgQLZUC%2BthpSMTJl6bI%2FTOs98RqfQYnZ2VMxtNmEsYa8%2BeuSp%2B6moPjKyZrcf3I%2F%2FU%2FKkDKAtRSj%2BGj0mk4W%2FafAgUnCrkXIPWJnNGApY%2BmjGOQIMLkpItq2z1XAPsXQDoWz8WTccz5IzVPUrVNQSS9YwhY2WAbXm4a5fTBTRMZrSlGR%2F7%2BwZ72wZuEH%2FmFflDd0g%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-35926')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-35926')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-35926')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-99600', 'spanish-99600', 'both-99600', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-99600', 'spanish-99600', 'both-99600', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-99600', 'spanish-99600', 'both-99600', 'both')">Show Both</button>
         
-        <div id="english-35926" class="text-content" style="display: none;">
+        <div id="english-99600" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: How do you say “arroz”?<br /><br>Answer: Rice.</p><br><p>Question: How do you say “película”?<br /><br>Answer: Movie</p><br><p>Question: How do you say “amor”?<br /><br>Answer: Love.</p><br><p>Question: How do you say “Quiero comer”?<br /><br>Answer: I wanna eat.<br /><br>Question: ¿Cómo se dice “Estoy en casa”?<br /><br>Answer: I’m home</p>
             </div>
         </div>
         
-        <div id="spanish-35926" class="text-content" style="display: none;">
+        <div id="spanish-99600" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 <p><strong>Pregunta:</strong> ¿Cómo se dice “arroz”?<br /><br><strong>Respuesta:</strong> Rice.</p><br><p><strong>Pregunta:</strong> ¿Cómo se dice “película”?<br /><br><strong>Respuesta:</strong> Movie.</p><br><p><strong>Pregunta:</strong> ¿Cómo se dice “amor”?<br /><br><strong>Respuesta:</strong> Love.</p><br><p><strong>Pregunta:</strong> ¿Cómo se dice “Quiero comer”?<br /><br><strong>Respuesta:</strong> I wanna eat.</p><br><p><strong>Pregunta:</strong> ¿Cómo se dice “Estoy en casa”?<br /><br><strong>Respuesta:</strong> I’m home.</p><br><p>Día 13 – Estado civil: casado</p>
             </div>
         </div>
         
-        <div id="both-35926" class="text-content" style="display: none;">
+        <div id="both-99600" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: How do you say “arroz”?<br /><br>Answer: Rice.</p><br><p>Question: How do you say “película”?<br /><br>Answer: Movie</p><br><p>Question: How do you say “amor”?<br /><br>Answer: Love.</p><br><p>Question: How do you say “Quiero comer”?<br /><br>Answer: I wanna eat.<br /><br>Question: ¿Cómo se dice “Estoy en casa”?<br /><br>Answer: I’m home</p>
@@ -6897,28 +6888,28 @@
 <div class="dia">
     <p class="titulo-dia">Audio Section</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2013-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=TivP1B5Xe7Hc8MptnfStn2u%2F9GpgxvVlw4283M7lWVUNZayAbJjzHdP9AQtZ5pTV2b2qvy3Mg38NrmQPf%2FC5ju6elcrmjuWSdCNHnGbL8IPpJKPIM8o5ftkmLmkRjmDDY6nEkhKRBSDrZQz0jV9rmxqLnzc8t9mI49zZBsbYzymMhHkA%2FBNV31w2LksN6gubkdfZbPhLep%2BUgW7muWfj%2BfnzM%2FHwrV1wnkuxiBa%2FE03BccYUZBW3DoR8MFVJts06o5Kr56Nrgu3pDnHH2cFRKFYOURX44W%2F755fwpWaLNlu%2BuYZ7SCsNuPVFMeHRXr5EjPFsucFhJHksvky5jf2WSQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2013-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=TivP1B5Xe7Hc8MptnfStn2u%2F9GpgxvVlw4283M7lWVUNZayAbJjzHdP9AQtZ5pTV2b2qvy3Mg38NrmQPf%2FC5ju6elcrmjuWSdCNHnGbL8IPpJKPIM8o5ftkmLmkRjmDDY6nEkhKRBSDrZQz0jV9rmxqLnzc8t9mI49zZBsbYzymMhHkA%2FBNV31w2LksN6gubkdfZbPhLep%2BUgW7muWfj%2BfnzM%2FHwrV1wnkuxiBa%2FE03BccYUZBW3DoR8MFVJts06o5Kr56Nrgu3pDnHH2cFRKFYOURX44W%2F755fwpWaLNlu%2BuYZ7SCsNuPVFMeHRXr5EjPFsucFhJHksvky5jf2WSQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-16988')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-16988')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-16988')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-29196', 'spanish-29196', 'both-29196', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-29196', 'spanish-29196', 'both-29196', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-29196', 'spanish-29196', 'both-29196', 'both')">Show Both</button>
         
-        <div id="english-16988" class="text-content" style="display: none;">
+        <div id="english-29196" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: Are you married?<br /><br>Answer: Yes, I'm married.</p><br><p>Question: Are you single?<br /><br>Answer: No, I'm not single.</p>
             </div>
         </div>
         
-        <div id="spanish-16988" class="text-content" style="display: none;">
+        <div id="spanish-29196" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 Question: ¿Estás casado?<br /><br>Answer: Sí, estoy casado.</p><br><p>Question: ¿Estás soltero?<br /><br>Answer: No, no estoy soltero.</p><br><p>Día 14 – Tener</p>
             </div>
         </div>
         
-        <div id="both-16988" class="text-content" style="display: none;">
+        <div id="both-29196" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: Are you married?<br /><br>Answer: Yes, I'm married.</p><br><p>Question: Are you single?<br /><br>Answer: No, I'm not single.</p>
@@ -6934,28 +6925,28 @@
 <div class="dia">
     <p class="titulo-dia">Audio Section</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2014-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=nuv1cyEdgG1mrZAUNflIhcNyKejO1pR18oWKf8tqJx%2BH7rzo8OlPCkEM5SzMFEVrKeRwAx%2F1BV32iFdcv%2FDgHIlm3lvsELF7H4DR0IdoEAa%2BRujGc4IMBB0I%2Fl%2Bi3ArnyzJSAPQ7tOoRQWSxGhUJXG1OjbF3FrJdmPVJ49hTiz4C4bk%2BWxMN9uP9kMnH7WJvWOLrOu8bddN0iHaYxbPisXWkwQSJW6NTNsVK%2F%2F3gDNO99TE%2FpwFLGmstm2f%2BoZAIcayu7mZFzdCluuNAd2EwDO2614kDyBtPU%2FSz4pqMzlU4x6TRtKkq5yEeV%2Bb6cl9bAAp5NN4rjntEZZRmb2gHIQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2014-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=nuv1cyEdgG1mrZAUNflIhcNyKejO1pR18oWKf8tqJx%2BH7rzo8OlPCkEM5SzMFEVrKeRwAx%2F1BV32iFdcv%2FDgHIlm3lvsELF7H4DR0IdoEAa%2BRujGc4IMBB0I%2Fl%2Bi3ArnyzJSAPQ7tOoRQWSxGhUJXG1OjbF3FrJdmPVJ49hTiz4C4bk%2BWxMN9uP9kMnH7WJvWOLrOu8bddN0iHaYxbPisXWkwQSJW6NTNsVK%2F%2F3gDNO99TE%2FpwFLGmstm2f%2BoZAIcayu7mZFzdCluuNAd2EwDO2614kDyBtPU%2FSz4pqMzlU4x6TRtKkq5yEeV%2Bb6cl9bAAp5NN4rjntEZZRmb2gHIQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-94989')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-94989')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-94989')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-48156', 'spanish-48156', 'both-48156', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-48156', 'spanish-48156', 'both-48156', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-48156', 'spanish-48156', 'both-48156', 'both')">Show Both</button>
         
-        <div id="english-94989" class="text-content" style="display: none;">
+        <div id="english-48156" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: Do you have siblings?<br /><br>Answer: Yeah, I have siblings.<br /><br>Question: How many siblings do you have?<br /><br>Answer: Yeah, I have 6 siblings: 1 sister and 5 brothers.<br /><br>Question: Do you have children?<br /><br>Answer: Yeah, I have children.<br /><br>Question: How many children do you have?<br /><br>Answer: I've got 4 kids: 1 boy and 3 girls.</p>
             </div>
         </div>
         
-        <div id="spanish-94989" class="text-content" style="display: none;">
+        <div id="spanish-48156" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 Question: ¿Tienes hermanos/as?<br /><br>Answer: Sí, tengo hermanos/as.<br /><br>Question: ¿Cuántos hermanos tienes?<br /><br>Answer: Sí, tengo 6 hermanos: una hermana y cinco hermanos.<br /><br>Question: ¿Tienes hijos?<br /><br>Answer: Sí, tengo hijos.<br /><br>Question: ¿Cuántos hijos tienes?<br /><br>Answer: Tengo 4 hijos: un niño y tres niñas.</p><br><p>Día 15 – Estado civil: comprometido</p>
             </div>
         </div>
         
-        <div id="both-94989" class="text-content" style="display: none;">
+        <div id="both-48156" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: Do you have siblings?<br /><br>Answer: Yeah, I have siblings.<br /><br>Question: How many siblings do you have?<br /><br>Answer: Yeah, I have 6 siblings: 1 sister and 5 brothers.<br /><br>Question: Do you have children?<br /><br>Answer: Yeah, I have children.<br /><br>Question: How many children do you have?<br /><br>Answer: I've got 4 kids: 1 boy and 3 girls.</p>
@@ -6971,28 +6962,28 @@
 <div class="dia">
     <p class="titulo-dia">Audio Section</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2015-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=JICaXUDwKlJwBxUK5EwCjqwM0GZSySTu6M%2B0ZnNOnZiTmTdh7VYlx4L1utHs1RZJ%2FvcyakZ73J8y5d%2BUIHv7Ci8XCCodKD7ugHgwIsKQfBpFxvOV5lHfeh4kMyho4sO%2FM0eiJbj%2FXT4xnnpmn2qjbAbwQ7%2Bg7pPHbeX5wUej35nmSrI3iaOkOmlyEN%2BXFpDNDwRCF9QgwIGZS2xuWSd5SiGo6IT23uETaJ4fL6e1v6F4AEHyFQptIs1A0thD7YhO7TGtvt0o%2FXIMrJUhgUpepYA1UEQMa1jHf%2FNik2s2Tsztp2OhkjbagNvUiQHSf2p9V78lsrV1H1KaqHCLVD0I2A%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2015-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=JICaXUDwKlJwBxUK5EwCjqwM0GZSySTu6M%2B0ZnNOnZiTmTdh7VYlx4L1utHs1RZJ%2FvcyakZ73J8y5d%2BUIHv7Ci8XCCodKD7ugHgwIsKQfBpFxvOV5lHfeh4kMyho4sO%2FM0eiJbj%2FXT4xnnpmn2qjbAbwQ7%2Bg7pPHbeX5wUej35nmSrI3iaOkOmlyEN%2BXFpDNDwRCF9QgwIGZS2xuWSd5SiGo6IT23uETaJ4fL6e1v6F4AEHyFQptIs1A0thD7YhO7TGtvt0o%2FXIMrJUhgUpepYA1UEQMa1jHf%2FNik2s2Tsztp2OhkjbagNvUiQHSf2p9V78lsrV1H1KaqHCLVD0I2A%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-74379')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-74379')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-74379')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-44115', 'spanish-44115', 'both-44115', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-44115', 'spanish-44115', 'both-44115', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-44115', 'spanish-44115', 'both-44115', 'both')">Show Both</button>
         
-        <div id="english-74379" class="text-content" style="display: none;">
+        <div id="english-44115" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p><strong>ENGLISH</strong></p><br><p>Question: Are you engaged?<br /><br>Answer: No, I'm not engaged.</p><br><p>Question: Are you married?<br /><br>Answer: Yes, I'm married.</p><br><p>Question: Are you single?<br /><br>Answer: Yes, I'm single.</p><br><p>Question: Are you divorced?<br /><br>Answer: No, I'm not divorced.</p>
             </div>
         </div>
         
-        <div id="spanish-74379" class="text-content" style="display: none;">
+        <div id="spanish-44115" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 <p>Pregunta: ¿Estás comprometido(a)?<br /><br>Respuesta: No, no estoy comprometido(a).</p><br><p>Pregunta: ¿Estás casado(a)?<br /><br>Respuesta: Sí, estoy casado(a).</p><br><p>Pregunta: ¿Estás soltero(a)?<br /><br>Respuesta: Sí, estoy soltero(a).</p><br><p>Pregunta: ¿Estás divorciado(a)?<br /><br>Respuesta: No, no estoy divorciado(a).</p>
             </div>
         </div>
         
-        <div id="both-74379" class="text-content" style="display: none;">
+        <div id="both-44115" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p><strong>ENGLISH</strong></p><br><p>Question: Are you engaged?<br /><br>Answer: No, I'm not engaged.</p><br><p>Question: Are you married?<br /><br>Answer: Yes, I'm married.</p><br><p>Question: Are you single?<br /><br>Answer: Yes, I'm single.</p><br><p>Question: Are you divorced?<br /><br>Answer: No, I'm not divorced.</p>
@@ -7009,28 +7000,28 @@
 <div class="dia">
     <p class="titulo-dia">🎧👧🏿 Voz Humana Mujer:</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://firebasestorage.googleapis.com/v0/b/chocolearn-f05e5.firebasestorage.app/o/audio%2FLectura%20de%20Pronunciaci%C3%B3n%20-%20Mujer%20Voz%20Humana-esv2-90p-bg-10p.mp3?alt=media&amp;token=531111ef-2d2a-46cb-a6a2-0f1bc7de7367" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://firebasestorage.googleapis.com/v0/b/chocolearn-f05e5.firebasestorage.app/o/audio%2FLectura%20de%20Pronunciaci%C3%B3n%20-%20Mujer%20Voz%20Humana-esv2-90p-bg-10p.mp3?alt=media&amp;token=531111ef-2d2a-46cb-a6a2-0f1bc7de7367" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-37056')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-37056')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-37056')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-84229', 'spanish-84229', 'both-84229', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-84229', 'spanish-84229', 'both-84229', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-84229', 'spanish-84229', 'both-84229', 'both')">Show Both</button>
         
-        <div id="english-37056" class="text-content" style="display: none;">
+        <div id="english-84229" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>🎧👱🏽‍♂️ Voz Humana Hombre:</p>
             </div>
         </div>
         
-        <div id="spanish-37056" class="text-content" style="display: none;">
+        <div id="spanish-84229" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 No Spanish content found
             </div>
         </div>
         
-        <div id="both-37056" class="text-content" style="display: none;">
+        <div id="both-84229" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>🎧👱🏽‍♂️ Voz Humana Hombre:</p>
@@ -7046,28 +7037,28 @@
 <div class="dia">
     <p class="titulo-dia">🎧👧🏿 Voz Humana Mujer:</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://firebasestorage.googleapis.com/v0/b/chocolearn-f05e5.firebasestorage.app/o/audio%2FLectura%20de%20Pronunciaci%C3%B3n%20-%20Hombre-esv2-90p-bg-10p.mp3?alt=media&amp;token=6df2cef9-c40e-4dce-80d6-4b6adc4931b5" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://firebasestorage.googleapis.com/v0/b/chocolearn-f05e5.firebasestorage.app/o/audio%2FLectura%20de%20Pronunciaci%C3%B3n%20-%20Hombre-esv2-90p-bg-10p.mp3?alt=media&amp;token=6df2cef9-c40e-4dce-80d6-4b6adc4931b5" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-42042')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-42042')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-42042')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-82010', 'spanish-82010', 'both-82010', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-82010', 'spanish-82010', 'both-82010', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-82010', 'spanish-82010', 'both-82010', 'both')">Show Both</button>
         
-        <div id="english-42042" class="text-content" style="display: none;">
+        <div id="english-82010" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>🎧 Agente AI:</p>
             </div>
         </div>
         
-        <div id="spanish-42042" class="text-content" style="display: none;">
+        <div id="spanish-82010" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 No Spanish content found
             </div>
         </div>
         
-        <div id="both-42042" class="text-content" style="display: none;">
+        <div id="both-82010" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>🎧 Agente AI:</p>
@@ -7083,28 +7074,28 @@
 <div class="dia">
     <p class="titulo-dia">🎧👧🏿 Voz Humana Mujer:</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Lectura%20de%20Pronunciaci%C3%B3n.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=P18RMNZ%2BpuTQ7jFkK00BuFh4ToCG7akYPJDCm7RldKID3O93RkCpR80dltrCPj%2F4Urvy%2BlxryUSsj5Ub3y8OGrtXARRk9LpIM9aCGqWd7wrWWwsfuSp6CZK7dpg0XHkvqBI293vrrVEQOt4PXJMJS8fSIALiGl9GCpkiUTLNkQw%2BAC80aqCj38xMQv3NvEaSIy915dHmmjuXfJNmgDc09b7TTXUSl8wgX6i5kt0ksAuYrA1xZOw0Pnx7JA%2BRSMQUdA9smJCVA7MagH5nNcMyo65dkg4u4uwlhOD8l3uF187%2BeAzD%2ByXfNN6wvJlt0zKXPcrP49PSLhfjmzQu71zBCw%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Lectura%20de%20Pronunciaci%C3%B3n.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=P18RMNZ%2BpuTQ7jFkK00BuFh4ToCG7akYPJDCm7RldKID3O93RkCpR80dltrCPj%2F4Urvy%2BlxryUSsj5Ub3y8OGrtXARRk9LpIM9aCGqWd7wrWWwsfuSp6CZK7dpg0XHkvqBI293vrrVEQOt4PXJMJS8fSIALiGl9GCpkiUTLNkQw%2BAC80aqCj38xMQv3NvEaSIy915dHmmjuXfJNmgDc09b7TTXUSl8wgX6i5kt0ksAuYrA1xZOw0Pnx7JA%2BRSMQUdA9smJCVA7MagH5nNcMyo65dkg4u4uwlhOD8l3uF187%2BeAzD%2ByXfNN6wvJlt0zKXPcrP49PSLhfjmzQu71zBCw%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-72802')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-72802')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-72802')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-19703', 'spanish-19703', 'both-19703', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-19703', 'spanish-19703', 'both-19703', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-19703', 'spanish-19703', 'both-19703', 'both')">Show Both</button>
         
-        <div id="english-72802" class="text-content" style="display: none;">
+        <div id="english-19703" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Sam woke up early to help his <strong>mother</strong> with breakfast. "Are you feeling in good <strong>health</strong> today?" she asked. He nodded, though he felt a bit <strong>hot</strong>. After breakfast, he said, "I’ll <strong>pack</strong> my bag and go for a run. It’s important to stay <strong>fit</strong>, not <strong>fat</strong>!"</p><br><p>As he ran, Sam noticed the changing <strong>weather</strong>. There was a chance of <strong>rain</strong> or even <strong>hail</strong>, but he thought, “I’ll keep going.” He saw a <strong>hen</strong> in the <strong>sand</strong> by the <strong>path</strong>, and a bird in the <strong>air</strong>, singing a song that made him <strong>feel</strong> happy.</p><br><p>Sam stopped by the river, where he saw a man <strong>build</strong> a small boat. "I’ve <strong>built</strong> many boats like this," the man said. Sam admired his <strong>strength</strong> and <strong>faith</strong> in his craft.</p><br><p>Later, at school, the teacher said, “<strong>Think</strong> about what makes life <strong>worth</strong> living. Is it <strong>truth</strong>, <strong>wealth</strong>, or <strong>growth</strong>?" Sam raised his <strong>hand</strong> and said, "For me, it’s my <strong>brother</strong>, my <strong>father</strong>, and my <strong>mother</strong>. They’re always there, no matter the <strong>month</strong> or the <strong>weather</strong>."</p><br><p>In class, they read about the <strong>earth’s</strong> history and the <strong>death</strong> and <strong>birth</strong> of civilizations. Sam learned how <strong>strength</strong> and determination can change the world.</p><br><p>After school, he met his friends and said, "Hey, let’s play soccer!" They all agreed. "Who will be the <strong>goalkeeper</strong>?" someone asked. "I will!" Sam said. He <strong>held</strong> his position well, showing his quick reflexes and strong <strong>faith</strong> in his team.</p><br><p>That evening, at dinner, Sam’s mother asked, “What did you learn today?” He replied, “We learned about the <strong>truth</strong> of the <strong>world</strong>, and how important it is to work <strong>together</strong> to make it a better place.”</p>
             </div>
         </div>
         
-        <div id="spanish-72802" class="text-content" style="display: none;">
+        <div id="spanish-19703" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 <p>Sam woke up early to help his <strong>mother</strong> with breakfast. "Are you feeling in good <strong>health</strong> today?" she asked. He nodded, though he felt a bit <strong>hot</strong>. After breakfast, he said, "I’ll <strong>pack</strong> my bag and go for a run. It’s important to stay <strong>fit</strong>, not <strong>fat</strong>!"</p><br><p>As he ran, Sam noticed the changing <strong>weather</strong>. There was a chance of <strong>rain</strong> or even <strong>hail</strong>, but he thought, “I’ll keep going.” He saw a <strong>hen</strong> in the <strong>sand</strong> by the <strong>path</strong>, and a bird in the <strong>air</strong>, singing a song that made him <strong>feel</strong> happy.</p><br><p>Sam stopped by the river, where he saw a man <strong>build</strong> a small boat. "I’ve <strong>built</strong> many boats like this," the man said. Sam admired his <strong>strength</strong> and <strong>faith</strong> in his craft.</p><br><p>Later, at school, the teacher said, “<strong>Think</strong> about what makes life <strong>worth</strong> living. Is it <strong>truth</strong>, <strong>wealth</strong>, or <strong>growth</strong>?" Sam raised his <strong>hand</strong> and said, "For me, it’s my <strong>brother</strong>, my <strong>father</strong>, and my <strong>mother</strong>. They’re always there, no matter the <strong>month</strong> or the <strong>weather</strong>."</p><br><p>In class, they read about the <strong>earth’s</strong> history and the <strong>death</strong> and <strong>birth</strong> of civilizations. Sam learned how <strong>strength</strong> and determination can change the world.</p><br><p>After school, he met his friends and said, "Hey, let’s play soccer!" They all agreed. "Who will be the <strong>goalkeeper</strong>?" someone asked. "I will!" Sam said. He <strong>held</strong> his position well, showing his quick reflexes and strong <strong>faith</strong> in his team.</p><br><p>That evening, at dinner, Sam’s mother asked, “What did you learn today?” He replied, “We learned about the <strong>truth</strong> of the <strong>world</strong>, and how important it is to work <strong>together</strong> to make it a better place.”</p>
             </div>
         </div>
         
-        <div id="both-72802" class="text-content" style="display: none;">
+        <div id="both-19703" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Sam woke up early to help his <strong>mother</strong> with breakfast. "Are you feeling in good <strong>health</strong> today?" she asked. He nodded, though he felt a bit <strong>hot</strong>. After breakfast, he said, "I’ll <strong>pack</strong> my bag and go for a run. It’s important to stay <strong>fit</strong>, not <strong>fat</strong>!"</p><br><p>As he ran, Sam noticed the changing <strong>weather</strong>. There was a chance of <strong>rain</strong> or even <strong>hail</strong>, but he thought, “I’ll keep going.” He saw a <strong>hen</strong> in the <strong>sand</strong> by the <strong>path</strong>, and a bird in the <strong>air</strong>, singing a song that made him <strong>feel</strong> happy.</p><br><p>Sam stopped by the river, where he saw a man <strong>build</strong> a small boat. "I’ve <strong>built</strong> many boats like this," the man said. Sam admired his <strong>strength</strong> and <strong>faith</strong> in his craft.</p><br><p>Later, at school, the teacher said, “<strong>Think</strong> about what makes life <strong>worth</strong> living. Is it <strong>truth</strong>, <strong>wealth</strong>, or <strong>growth</strong>?" Sam raised his <strong>hand</strong> and said, "For me, it’s my <strong>brother</strong>, my <strong>father</strong>, and my <strong>mother</strong>. They’re always there, no matter the <strong>month</strong> or the <strong>weather</strong>."</p><br><p>In class, they read about the <strong>earth’s</strong> history and the <strong>death</strong> and <strong>birth</strong> of civilizations. Sam learned how <strong>strength</strong> and determination can change the world.</p><br><p>After school, he met his friends and said, "Hey, let’s play soccer!" They all agreed. "Who will be the <strong>goalkeeper</strong>?" someone asked. "I will!" Sam said. He <strong>held</strong> his position well, showing his quick reflexes and strong <strong>faith</strong> in his team.</p><br><p>That evening, at dinner, Sam’s mother asked, “What did you learn today?” He replied, “We learned about the <strong>truth</strong> of the <strong>world</strong>, and how important it is to work <strong>together</strong> to make it a better place.”</p>
@@ -7120,20 +7111,20 @@
 <div class="dia">
     <p class="titulo-dia">Audio Section</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Preguntas%20Turbo%20-%201%20Vez%20Velocidad%20Normal-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=XFFqd7uqCkMad%2B8%2BVpn4Ib1PSWzcLRJbsKCtgJzoT0e7Gh%2FNoXSYGPaaJ%2FrK37uZjPHkKfbDw9T5BWHY%2B6qL8OT8iBTyIB72%2B7rMPX27rXMbcl%2FDdIAm0yvvrMfoDA5Rhh3AjbKKAb%2B7zUqNejm44NzvPuxYn%2FxFr5fhxnJcA4KOEagpVXC6cRYS8bkczWy6C8jMCu1h3W24ZxlAVmTupHLTJCcKRIOleAFNdj8LP1VgFFkfQlMS6z9%2BhhVOwDzkjKEU2e1nBHxwXBUcijvG9cFh91mxBTTxAiUSABrumkO7rEoEo9MwJZj%2F9VfzrvphLjaqsKBU3%2BN2IymRYJd%2BBg%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Preguntas%20Turbo%20-%201%20Vez%20Velocidad%20Normal-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=XFFqd7uqCkMad%2B8%2BVpn4Ib1PSWzcLRJbsKCtgJzoT0e7Gh%2FNoXSYGPaaJ%2FrK37uZjPHkKfbDw9T5BWHY%2B6qL8OT8iBTyIB72%2B7rMPX27rXMbcl%2FDdIAm0yvvrMfoDA5Rhh3AjbKKAb%2B7zUqNejm44NzvPuxYn%2FxFr5fhxnJcA4KOEagpVXC6cRYS8bkczWy6C8jMCu1h3W24ZxlAVmTupHLTJCcKRIOleAFNdj8LP1VgFFkfQlMS6z9%2BhhVOwDzkjKEU2e1nBHxwXBUcijvG9cFh91mxBTTxAiUSABrumkO7rEoEo9MwJZj%2F9VfzrvphLjaqsKBU3%2BN2IymRYJd%2BBg%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-8838')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-8838')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-8838')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-11927', 'spanish-11927', 'both-11927', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-11927', 'spanish-11927', 'both-11927', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-11927', 'spanish-11927', 'both-11927', 'both')">Show Both</button>
         
-        <div id="english-8838" class="text-content" style="display: none;">
+        <div id="english-11927" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 
     
-                <button class="boton" onclick="toggleVisibility('tabla-5726', this)">Show Table</button>
-                <div id="tabla-5726" class="texto">
+                <button class="boton" onclick="toggleVisibility('tabla-7229', this)">Show Table</button>
+                <div id="tabla-7229" class="texto">
                     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
         <tbody>
@@ -7848,13 +7839,13 @@
             </div>
         </div>
         
-        <div id="spanish-8838" class="text-content" style="display: none;">
+        <div id="spanish-11927" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 
     
-                <button class="boton" onclick="toggleVisibility('tabla-5726', this)">Show Table</button>
-                <div id="tabla-5726" class="texto">
+                <button class="boton" onclick="toggleVisibility('tabla-7229', this)">Show Table</button>
+                <div id="tabla-7229" class="texto">
                     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
         <tbody>
@@ -8569,13 +8560,13 @@
             </div>
         </div>
         
-        <div id="both-8838" class="text-content" style="display: none;">
+        <div id="both-11927" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 
     
-                <button class="boton" onclick="toggleVisibility('tabla-5726', this)">Show Table</button>
-                <div id="tabla-5726" class="texto">
+                <button class="boton" onclick="toggleVisibility('tabla-7229', this)">Show Table</button>
+                <div id="tabla-7229" class="texto">
                     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
         <tbody>
@@ -9292,8 +9283,8 @@
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 
     
-                <button class="boton" onclick="toggleVisibility('tabla-5726', this)">Show Table</button>
-                <div id="tabla-5726" class="texto">
+                <button class="boton" onclick="toggleVisibility('tabla-7229', this)">Show Table</button>
+                <div id="tabla-7229" class="texto">
                     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
         <tbody>
@@ -10363,28 +10354,28 @@
 <div class="dia">
     <p class="titulo-dia">📅 Día 8 – Tiempo libre y contacto</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%208-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=MXnt%2F1Ef%2BIt6irrOVIBzFJAp6mZvnWlaxTb6TTu3mjGJQee3V1Spcsv50NL65zYSGcx42G1siC6xBXso3WJDt3x8YH3S5e2PK3P1LvFgbjBhIFbbADpoI78G0TtvJdzXwj29dFAPqTzwFnsSMX%2FxqHRIkQzh9G9vXBSTNsP4gHoCHHm6MGdsTZFjv8dbtf0cD7Wzi7zhEUS0eYlpzyZqxOG4PsTCmh8sLd0kR5fGgfgWFffYebVC4DEO399FplR%2B58cUk9r%2BOzQmzwF7%2BiJY3ysnQrD1N8yFcbe5gC1fqRojlyCWG6CZt2wRpbGsBHSev46I%2FGZLS1tndLa%2FaWcNXA%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%208-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=MXnt%2F1Ef%2BIt6irrOVIBzFJAp6mZvnWlaxTb6TTu3mjGJQee3V1Spcsv50NL65zYSGcx42G1siC6xBXso3WJDt3x8YH3S5e2PK3P1LvFgbjBhIFbbADpoI78G0TtvJdzXwj29dFAPqTzwFnsSMX%2FxqHRIkQzh9G9vXBSTNsP4gHoCHHm6MGdsTZFjv8dbtf0cD7Wzi7zhEUS0eYlpzyZqxOG4PsTCmh8sLd0kR5fGgfgWFffYebVC4DEO399FplR%2B58cUk9r%2BOzQmzwF7%2BiJY3ysnQrD1N8yFcbe5gC1fqRojlyCWG6CZt2wRpbGsBHSev46I%2FGZLS1tndLa%2FaWcNXA%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-79837')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-79837')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-79837')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-22222', 'spanish-22222', 'both-22222', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-22222', 'spanish-22222', 'both-22222', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-22222', 'spanish-22222', 'both-22222', 'both')">Show Both</button>
         
-        <div id="english-79837" class="text-content" style="display: none;">
+        <div id="english-22222" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: What do you do in your free time?<br /><br>Answer: I read, listen to music, talk to friends.<br /><br>Question: What's your phone number?<br /><br>Answer: It's 3103534870.<br /><br>Question: What's your email address?<br /><br>Answer: It's chocoenglish@gmail.com.</p><br><p>📅 Día 9 – Días pasados</p>
             </div>
         </div>
         
-        <div id="spanish-79837" class="text-content" style="display: none;">
+        <div id="spanish-22222" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 Question: ¿Qué haces en tu tiempo libre?<br /><br>Answer: Leo, escucho música, hablo con amigos.<br /><br>Question: ¿Cuál es tu número de teléfono?<br /><br>Answer: Es 3103534870.<br /><br>Question: ¿Cuál es tu correo electrónico?<br />
             </div>
         </div>
         
-        <div id="both-79837" class="text-content" style="display: none;">
+        <div id="both-22222" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: What do you do in your free time?<br /><br>Answer: I read, listen to music, talk to friends.<br /><br>Question: What's your phone number?<br /><br>Answer: It's 3103534870.<br /><br>Question: What's your email address?<br /><br>Answer: It's chocoenglish@gmail.com.</p><br><p>📅 Día 9 – Días pasados</p>
@@ -10400,28 +10391,28 @@
 <div class="dia">
     <p class="titulo-dia">📅 Día 9 – Días pasados</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%209-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=ieu8yJZPuc3bfjaXLqaRIbBA7%2Fs448b1OvaHG2XwScfI9tudFRdH0sVGBSKTAVWM9OxKxZW3AyDTppkTGHdKsctK9THM4ehvKnGjEbrU0jCRsxFfP5YSrC5UsenZ24FWl6SFTRbqCAYuC5pyG74sEddvDNbJSo1LoZaPdBzdm%2FsuaI9wEsgswVVD8UfdKLlLL6kopptJtbFUrQ2bgTWhkzM4tfsRxZXsmQ1HsVQ16mhU8oe5UFHmZRHuxoWWI9xVao5ApDmoYKgkRSSYLReJfMivO30b74Xc2lhR8Jwjnhmnbfs4cLjMDbq%2FDrEwIAM51VCDN3IzAqL4lKlQrhBLHQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%209-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=ieu8yJZPuc3bfjaXLqaRIbBA7%2Fs448b1OvaHG2XwScfI9tudFRdH0sVGBSKTAVWM9OxKxZW3AyDTppkTGHdKsctK9THM4ehvKnGjEbrU0jCRsxFfP5YSrC5UsenZ24FWl6SFTRbqCAYuC5pyG74sEddvDNbJSo1LoZaPdBzdm%2FsuaI9wEsgswVVD8UfdKLlLL6kopptJtbFUrQ2bgTWhkzM4tfsRxZXsmQ1HsVQ16mhU8oe5UFHmZRHuxoWWI9xVao5ApDmoYKgkRSSYLReJfMivO30b74Xc2lhR8Jwjnhmnbfs4cLjMDbq%2FDrEwIAM51VCDN3IzAqL4lKlQrhBLHQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-54510')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-54510')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-54510')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-79387', 'spanish-79387', 'both-79387', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-79387', 'spanish-79387', 'both-79387', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-79387', 'spanish-79387', 'both-79387', 'both')">Show Both</button>
         
-        <div id="english-54510" class="text-content" style="display: none;">
+        <div id="english-79387" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: How was your day?<br /><br>Answer: It was great, I really enjoyed it.<br /><br>Question: How was your weekend?<br /><br>Answer: It was really bad, I couldn't do much.<br /><br>Question: Who’s your best friend?<br /><br>Answer: My best friend is my cousin, Marta.</p>
             </div>
         </div>
         
-        <div id="spanish-54510" class="text-content" style="display: none;">
+        <div id="spanish-79387" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 Question: ¿Cómo estuvo tu día?<br /><br>Answer: Estuvo genial, lo disfruté mucho.<br /><br>Question: ¿Cómo estuvo tu fin de semana?<br /><br>Answer: Estuvo muy mal, no pude hacer mucho.<br /><br>Question: ¿Quién es tu mejor amigo/a?<br /><br>Answer: Mi mejor amiga es mi prima, Marta.</p><br><p>📅 Día 10 – Familia</p>
             </div>
         </div>
         
-        <div id="both-54510" class="text-content" style="display: none;">
+        <div id="both-79387" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: How was your day?<br /><br>Answer: It was great, I really enjoyed it.<br /><br>Question: How was your weekend?<br /><br>Answer: It was really bad, I couldn't do much.<br /><br>Question: Who’s your best friend?<br /><br>Answer: My best friend is my cousin, Marta.</p>
@@ -10437,28 +10428,28 @@
 <div class="dia">
     <p class="titulo-dia">📅 Día 10 – Familia</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2010-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=ZAF7Dxeh%2FStCytqkQNmWbsdnDbTVJ9tilPGJ97QaCoR174yFAAPa1Wm%2BbreAUphI%2F26r380YwZZv7eSAUh38Mr6orZ88FmIo00%2ButM1n7WWzURFs8%2BiSLcdYmScbpjaYx8HfzWIBHpCigVGWbOvMCMsLLIk0wUg0M1LMyKMmwD11VYEzC7geb2XZFPgt%2FyJulFRggYCwy1KtUNL8Q%2F2PH4FRYVQmZmcUj05yYoE70TLDWRu8X0FiJoMVl8ij9OuGnBtKfyleFHSNPD3SP3PgdMgMzr%2Bdc%2BlHHhT%2FweTDnwZXpLbwnd%2BSojMlVnYPeqt6IYYUDqFTLna%2F1hQKac7ZzQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2010-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=ZAF7Dxeh%2FStCytqkQNmWbsdnDbTVJ9tilPGJ97QaCoR174yFAAPa1Wm%2BbreAUphI%2F26r380YwZZv7eSAUh38Mr6orZ88FmIo00%2ButM1n7WWzURFs8%2BiSLcdYmScbpjaYx8HfzWIBHpCigVGWbOvMCMsLLIk0wUg0M1LMyKMmwD11VYEzC7geb2XZFPgt%2FyJulFRggYCwy1KtUNL8Q%2F2PH4FRYVQmZmcUj05yYoE70TLDWRu8X0FiJoMVl8ij9OuGnBtKfyleFHSNPD3SP3PgdMgMzr%2Bdc%2BlHHhT%2FweTDnwZXpLbwnd%2BSojMlVnYPeqt6IYYUDqFTLna%2F1hQKac7ZzQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-2610')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-2610')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-2610')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-42344', 'spanish-42344', 'both-42344', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-42344', 'spanish-42344', 'both-42344', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-42344', 'spanish-42344', 'both-42344', 'both')">Show Both</button>
         
-        <div id="english-2610" class="text-content" style="display: none;">
+        <div id="english-42344" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: Do you have siblings?<br /><br>Answer: Yeah, I have siblings.<br /><br>Question: How many siblings do you have?<br /><br>Answer: I have 6 siblings: 1 sister and 5 brothers.<br /><br>Question: Do you have children?<br /><br>Answer: Yeah, I have children.<br /><br>Question: How many children do you have?<br /><br>Answer: I've got 4 kids: 1 boy and 3 girls.</p>
             </div>
         </div>
         
-        <div id="spanish-2610" class="text-content" style="display: none;">
+        <div id="spanish-42344" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 Question: ¿Tienes hermanos/as?<br /><br>Answer: Sí, tengo hermanos/as.<br /><br>Question: ¿Cuántos hermanos tienes?<br /><br>Answer: Sí, tengo 6 hermanos: una hermana y cinco hermanos.<br /><br>Question: ¿Tienes hijos?<br /><br>Answer: Sí, tengo hijos.<br /><br>Question: ¿Cuántos hijos tienes?<br /><br>Answer: Tengo 4 hijos: un niño y tres niñas.</p><br><p>Día 11 – Amigos y amistades</p>
             </div>
         </div>
         
-        <div id="both-2610" class="text-content" style="display: none;">
+        <div id="both-42344" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: Do you have siblings?<br /><br>Answer: Yeah, I have siblings.<br /><br>Question: How many siblings do you have?<br /><br>Answer: I have 6 siblings: 1 sister and 5 brothers.<br /><br>Question: Do you have children?<br /><br>Answer: Yeah, I have children.<br /><br>Question: How many children do you have?<br /><br>Answer: I've got 4 kids: 1 boy and 3 girls.</p>
@@ -10474,28 +10465,28 @@
 <div class="dia">
     <p class="titulo-dia">Audio Section</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2011-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=eJITAiBU6hk6yUvnbaVpI004Uol5Pqex3bfr%2FA6WJr8E0zZ7xriymDG4P9z%2B4bGAb8sjXqIjwVOTFKTEc%2FTDZoBBPssEu%2FT4uZHdnXYXg3zgC%2Fr1COq6yRHWIP4vZefQzcWq0xB3VrtidPCEnCrDaQLle63UmfwpeGRdibxhXAEuvJaLtDAQD%2Brqp9Jxd1Y2J4GZibI5DQ9GkOoW4OgK6JFuTkk1W1%2FBH%2FkhDRYw%2BU%2FqKa6ZIE%2BYPtG2cL3PDJvfiGAdx5dxkSyOCLtJFxIb4%2F2Q9Go3gkSco%2FivYoh8uHcWCRBgzM%2FZP998wsZTMHu0e4QzBqc2PD%2B%2BDKo2ykL8bQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2011-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=eJITAiBU6hk6yUvnbaVpI004Uol5Pqex3bfr%2FA6WJr8E0zZ7xriymDG4P9z%2B4bGAb8sjXqIjwVOTFKTEc%2FTDZoBBPssEu%2FT4uZHdnXYXg3zgC%2Fr1COq6yRHWIP4vZefQzcWq0xB3VrtidPCEnCrDaQLle63UmfwpeGRdibxhXAEuvJaLtDAQD%2Brqp9Jxd1Y2J4GZibI5DQ9GkOoW4OgK6JFuTkk1W1%2FBH%2FkhDRYw%2BU%2FqKa6ZIE%2BYPtG2cL3PDJvfiGAdx5dxkSyOCLtJFxIb4%2F2Q9Go3gkSco%2FivYoh8uHcWCRBgzM%2FZP998wsZTMHu0e4QzBqc2PD%2B%2BDKo2ykL8bQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-73065')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-73065')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-73065')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-94843', 'spanish-94843', 'both-94843', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-94843', 'spanish-94843', 'both-94843', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-94843', 'spanish-94843', 'both-94843', 'both')">Show Both</button>
         
-        <div id="english-73065" class="text-content" style="display: none;">
+        <div id="english-94843" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: Do you have children?<br /><br>Answer: Yeah, I have children.<br /><br>Question: How many children do you have?<br /><br>Answer: I've got 4 kids: 1 boy and 3 girls.</p><br><p>Question: Do you have friends?<br /><br>Answer: Yeah, I've got friends.<br /><br>Question: How many friends do you have?<br /><br>Answer: Wow, I've got a lot of friends.</p>
             </div>
         </div>
         
-        <div id="spanish-73065" class="text-content" style="display: none;">
+        <div id="spanish-94843" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 Question: ¿Tienes amigos?<br /><br>Answer: Sí, tengo amigos.<br /><br>Question: ¿Cuántos amigos tienes?<br /><br>Answer: Wow, tengo muchos amigos.</p><br><p>Día 12 – Vocabulario en contexto</p>
             </div>
         </div>
         
-        <div id="both-73065" class="text-content" style="display: none;">
+        <div id="both-94843" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: Do you have children?<br /><br>Answer: Yeah, I have children.<br /><br>Question: How many children do you have?<br /><br>Answer: I've got 4 kids: 1 boy and 3 girls.</p><br><p>Question: Do you have friends?<br /><br>Answer: Yeah, I've got friends.<br /><br>Question: How many friends do you have?<br /><br>Answer: Wow, I've got a lot of friends.</p>
@@ -10511,28 +10502,28 @@
 <div class="dia">
     <p class="titulo-dia">Audio Section</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2012-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=URxfR6j4ooSYBjNrsKbLJpwze6Rx8PbVDYk7weAAWNf%2Ba0CpljdBC8z3OF9qbmZNGancR0XLbL5gZwV6Qag4WXT2giW1XhnbCNCr6CRBp8UL5gsYBv6gwkd7QDjUlhvy88JnG9Od%2BhqzvJNW8UgQLZUC%2BthpSMTJl6bI%2FTOs98RqfQYnZ2VMxtNmEsYa8%2BeuSp%2B6moPjKyZrcf3I%2F%2FU%2FKkDKAtRSj%2BGj0mk4W%2FafAgUnCrkXIPWJnNGApY%2BmjGOQIMLkpItq2z1XAPsXQDoWz8WTccz5IzVPUrVNQSS9YwhY2WAbXm4a5fTBTRMZrSlGR%2F7%2BwZ72wZuEH%2FmFflDd0g%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2012-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=URxfR6j4ooSYBjNrsKbLJpwze6Rx8PbVDYk7weAAWNf%2Ba0CpljdBC8z3OF9qbmZNGancR0XLbL5gZwV6Qag4WXT2giW1XhnbCNCr6CRBp8UL5gsYBv6gwkd7QDjUlhvy88JnG9Od%2BhqzvJNW8UgQLZUC%2BthpSMTJl6bI%2FTOs98RqfQYnZ2VMxtNmEsYa8%2BeuSp%2B6moPjKyZrcf3I%2F%2FU%2FKkDKAtRSj%2BGj0mk4W%2FafAgUnCrkXIPWJnNGApY%2BmjGOQIMLkpItq2z1XAPsXQDoWz8WTccz5IzVPUrVNQSS9YwhY2WAbXm4a5fTBTRMZrSlGR%2F7%2BwZ72wZuEH%2FmFflDd0g%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-35926')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-35926')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-35926')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-99600', 'spanish-99600', 'both-99600', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-99600', 'spanish-99600', 'both-99600', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-99600', 'spanish-99600', 'both-99600', 'both')">Show Both</button>
         
-        <div id="english-35926" class="text-content" style="display: none;">
+        <div id="english-99600" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: How do you say “arroz”?<br /><br>Answer: Rice.</p><br><p>Question: How do you say “película”?<br /><br>Answer: Movie</p><br><p>Question: How do you say “amor”?<br /><br>Answer: Love.</p><br><p>Question: How do you say “Quiero comer”?<br /><br>Answer: I wanna eat.<br /><br>Question: ¿Cómo se dice “Estoy en casa”?<br /><br>Answer: I’m home</p>
             </div>
         </div>
         
-        <div id="spanish-35926" class="text-content" style="display: none;">
+        <div id="spanish-99600" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 <p><strong>Pregunta:</strong> ¿Cómo se dice “arroz”?<br /><br><strong>Respuesta:</strong> Rice.</p><br><p><strong>Pregunta:</strong> ¿Cómo se dice “película”?<br /><br><strong>Respuesta:</strong> Movie.</p><br><p><strong>Pregunta:</strong> ¿Cómo se dice “amor”?<br /><br><strong>Respuesta:</strong> Love.</p><br><p><strong>Pregunta:</strong> ¿Cómo se dice “Quiero comer”?<br /><br><strong>Respuesta:</strong> I wanna eat.</p><br><p><strong>Pregunta:</strong> ¿Cómo se dice “Estoy en casa”?<br /><br><strong>Respuesta:</strong> I’m home.</p><br><p>Día 13 – Estado civil: casado</p>
             </div>
         </div>
         
-        <div id="both-35926" class="text-content" style="display: none;">
+        <div id="both-99600" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: How do you say “arroz”?<br /><br>Answer: Rice.</p><br><p>Question: How do you say “película”?<br /><br>Answer: Movie</p><br><p>Question: How do you say “amor”?<br /><br>Answer: Love.</p><br><p>Question: How do you say “Quiero comer”?<br /><br>Answer: I wanna eat.<br /><br>Question: ¿Cómo se dice “Estoy en casa”?<br /><br>Answer: I’m home</p>
@@ -10548,28 +10539,28 @@
 <div class="dia">
     <p class="titulo-dia">Audio Section</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2013-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=TivP1B5Xe7Hc8MptnfStn2u%2F9GpgxvVlw4283M7lWVUNZayAbJjzHdP9AQtZ5pTV2b2qvy3Mg38NrmQPf%2FC5ju6elcrmjuWSdCNHnGbL8IPpJKPIM8o5ftkmLmkRjmDDY6nEkhKRBSDrZQz0jV9rmxqLnzc8t9mI49zZBsbYzymMhHkA%2FBNV31w2LksN6gubkdfZbPhLep%2BUgW7muWfj%2BfnzM%2FHwrV1wnkuxiBa%2FE03BccYUZBW3DoR8MFVJts06o5Kr56Nrgu3pDnHH2cFRKFYOURX44W%2F755fwpWaLNlu%2BuYZ7SCsNuPVFMeHRXr5EjPFsucFhJHksvky5jf2WSQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2013-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=TivP1B5Xe7Hc8MptnfStn2u%2F9GpgxvVlw4283M7lWVUNZayAbJjzHdP9AQtZ5pTV2b2qvy3Mg38NrmQPf%2FC5ju6elcrmjuWSdCNHnGbL8IPpJKPIM8o5ftkmLmkRjmDDY6nEkhKRBSDrZQz0jV9rmxqLnzc8t9mI49zZBsbYzymMhHkA%2FBNV31w2LksN6gubkdfZbPhLep%2BUgW7muWfj%2BfnzM%2FHwrV1wnkuxiBa%2FE03BccYUZBW3DoR8MFVJts06o5Kr56Nrgu3pDnHH2cFRKFYOURX44W%2F755fwpWaLNlu%2BuYZ7SCsNuPVFMeHRXr5EjPFsucFhJHksvky5jf2WSQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-16988')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-16988')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-16988')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-29196', 'spanish-29196', 'both-29196', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-29196', 'spanish-29196', 'both-29196', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-29196', 'spanish-29196', 'both-29196', 'both')">Show Both</button>
         
-        <div id="english-16988" class="text-content" style="display: none;">
+        <div id="english-29196" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: Are you married?<br /><br>Answer: Yes, I'm married.</p><br><p>Question: Are you single?<br /><br>Answer: No, I'm not single.</p>
             </div>
         </div>
         
-        <div id="spanish-16988" class="text-content" style="display: none;">
+        <div id="spanish-29196" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 Question: ¿Estás casado?<br /><br>Answer: Sí, estoy casado.</p><br><p>Question: ¿Estás soltero?<br /><br>Answer: No, no estoy soltero.</p><br><p>Día 14 – Tener</p>
             </div>
         </div>
         
-        <div id="both-16988" class="text-content" style="display: none;">
+        <div id="both-29196" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: Are you married?<br /><br>Answer: Yes, I'm married.</p><br><p>Question: Are you single?<br /><br>Answer: No, I'm not single.</p>
@@ -10585,28 +10576,28 @@
 <div class="dia">
     <p class="titulo-dia">Audio Section</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2014-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=nuv1cyEdgG1mrZAUNflIhcNyKejO1pR18oWKf8tqJx%2BH7rzo8OlPCkEM5SzMFEVrKeRwAx%2F1BV32iFdcv%2FDgHIlm3lvsELF7H4DR0IdoEAa%2BRujGc4IMBB0I%2Fl%2Bi3ArnyzJSAPQ7tOoRQWSxGhUJXG1OjbF3FrJdmPVJ49hTiz4C4bk%2BWxMN9uP9kMnH7WJvWOLrOu8bddN0iHaYxbPisXWkwQSJW6NTNsVK%2F%2F3gDNO99TE%2FpwFLGmstm2f%2BoZAIcayu7mZFzdCluuNAd2EwDO2614kDyBtPU%2FSz4pqMzlU4x6TRtKkq5yEeV%2Bb6cl9bAAp5NN4rjntEZZRmb2gHIQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2014-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=nuv1cyEdgG1mrZAUNflIhcNyKejO1pR18oWKf8tqJx%2BH7rzo8OlPCkEM5SzMFEVrKeRwAx%2F1BV32iFdcv%2FDgHIlm3lvsELF7H4DR0IdoEAa%2BRujGc4IMBB0I%2Fl%2Bi3ArnyzJSAPQ7tOoRQWSxGhUJXG1OjbF3FrJdmPVJ49hTiz4C4bk%2BWxMN9uP9kMnH7WJvWOLrOu8bddN0iHaYxbPisXWkwQSJW6NTNsVK%2F%2F3gDNO99TE%2FpwFLGmstm2f%2BoZAIcayu7mZFzdCluuNAd2EwDO2614kDyBtPU%2FSz4pqMzlU4x6TRtKkq5yEeV%2Bb6cl9bAAp5NN4rjntEZZRmb2gHIQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-94989')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-94989')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-94989')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-48156', 'spanish-48156', 'both-48156', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-48156', 'spanish-48156', 'both-48156', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-48156', 'spanish-48156', 'both-48156', 'both')">Show Both</button>
         
-        <div id="english-94989" class="text-content" style="display: none;">
+        <div id="english-48156" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Question: Do you have siblings?<br /><br>Answer: Yeah, I have siblings.<br /><br>Question: How many siblings do you have?<br /><br>Answer: Yeah, I have 6 siblings: 1 sister and 5 brothers.<br /><br>Question: Do you have children?<br /><br>Answer: Yeah, I have children.<br /><br>Question: How many children do you have?<br /><br>Answer: I've got 4 kids: 1 boy and 3 girls.</p>
             </div>
         </div>
         
-        <div id="spanish-94989" class="text-content" style="display: none;">
+        <div id="spanish-48156" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 Question: ¿Tienes hermanos/as?<br /><br>Answer: Sí, tengo hermanos/as.<br /><br>Question: ¿Cuántos hermanos tienes?<br /><br>Answer: Sí, tengo 6 hermanos: una hermana y cinco hermanos.<br /><br>Question: ¿Tienes hijos?<br /><br>Answer: Sí, tengo hijos.<br /><br>Question: ¿Cuántos hijos tienes?<br /><br>Answer: Tengo 4 hijos: un niño y tres niñas.</p><br><p>Día 15 – Estado civil: comprometido</p>
             </div>
         </div>
         
-        <div id="both-94989" class="text-content" style="display: none;">
+        <div id="both-48156" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Question: Do you have siblings?<br /><br>Answer: Yeah, I have siblings.<br /><br>Question: How many siblings do you have?<br /><br>Answer: Yeah, I have 6 siblings: 1 sister and 5 brothers.<br /><br>Question: Do you have children?<br /><br>Answer: Yeah, I have children.<br /><br>Question: How many children do you have?<br /><br>Answer: I've got 4 kids: 1 boy and 3 girls.</p>
@@ -10622,28 +10613,28 @@
 <div class="dia">
     <p class="titulo-dia">Audio Section</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2015-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=JICaXUDwKlJwBxUK5EwCjqwM0GZSySTu6M%2B0ZnNOnZiTmTdh7VYlx4L1utHs1RZJ%2FvcyakZ73J8y5d%2BUIHv7Ci8XCCodKD7ugHgwIsKQfBpFxvOV5lHfeh4kMyho4sO%2FM0eiJbj%2FXT4xnnpmn2qjbAbwQ7%2Bg7pPHbeX5wUej35nmSrI3iaOkOmlyEN%2BXFpDNDwRCF9QgwIGZS2xuWSd5SiGo6IT23uETaJ4fL6e1v6F4AEHyFQptIs1A0thD7YhO7TGtvt0o%2FXIMrJUhgUpepYA1UEQMa1jHf%2FNik2s2Tsztp2OhkjbagNvUiQHSf2p9V78lsrV1H1KaqHCLVD0I2A%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%201%20Turbo%20-%20D%C3%ADa%2015-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=JICaXUDwKlJwBxUK5EwCjqwM0GZSySTu6M%2B0ZnNOnZiTmTdh7VYlx4L1utHs1RZJ%2FvcyakZ73J8y5d%2BUIHv7Ci8XCCodKD7ugHgwIsKQfBpFxvOV5lHfeh4kMyho4sO%2FM0eiJbj%2FXT4xnnpmn2qjbAbwQ7%2Bg7pPHbeX5wUej35nmSrI3iaOkOmlyEN%2BXFpDNDwRCF9QgwIGZS2xuWSd5SiGo6IT23uETaJ4fL6e1v6F4AEHyFQptIs1A0thD7YhO7TGtvt0o%2FXIMrJUhgUpepYA1UEQMa1jHf%2FNik2s2Tsztp2OhkjbagNvUiQHSf2p9V78lsrV1H1KaqHCLVD0I2A%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-74379')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-74379')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-74379')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-44115', 'spanish-44115', 'both-44115', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-44115', 'spanish-44115', 'both-44115', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-44115', 'spanish-44115', 'both-44115', 'both')">Show Both</button>
         
-        <div id="english-74379" class="text-content" style="display: none;">
+        <div id="english-44115" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p><strong>ENGLISH</strong></p><br><p>Question: Are you engaged?<br /><br>Answer: No, I'm not engaged.</p><br><p>Question: Are you married?<br /><br>Answer: Yes, I'm married.</p><br><p>Question: Are you single?<br /><br>Answer: Yes, I'm single.</p><br><p>Question: Are you divorced?<br /><br>Answer: No, I'm not divorced.</p>
             </div>
         </div>
         
-        <div id="spanish-74379" class="text-content" style="display: none;">
+        <div id="spanish-44115" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 <p>Pregunta: ¿Estás comprometido(a)?<br /><br>Respuesta: No, no estoy comprometido(a).</p><br><p>Pregunta: ¿Estás casado(a)?<br /><br>Respuesta: Sí, estoy casado(a).</p><br><p>Pregunta: ¿Estás soltero(a)?<br /><br>Respuesta: Sí, estoy soltero(a).</p><br><p>Pregunta: ¿Estás divorciado(a)?<br /><br>Respuesta: No, no estoy divorciado(a).</p>
             </div>
         </div>
         
-        <div id="both-74379" class="text-content" style="display: none;">
+        <div id="both-44115" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p><strong>ENGLISH</strong></p><br><p>Question: Are you engaged?<br /><br>Answer: No, I'm not engaged.</p><br><p>Question: Are you married?<br /><br>Answer: Yes, I'm married.</p><br><p>Question: Are you single?<br /><br>Answer: Yes, I'm single.</p><br><p>Question: Are you divorced?<br /><br>Answer: No, I'm not divorced.</p>
@@ -10660,28 +10651,28 @@
 <div class="dia">
     <p class="titulo-dia">🎧👧🏿 Voz Humana Mujer:</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://firebasestorage.googleapis.com/v0/b/chocolearn-f05e5.firebasestorage.app/o/audio%2FLectura%20de%20Pronunciaci%C3%B3n%20-%20Mujer%20Voz%20Humana-esv2-90p-bg-10p.mp3?alt=media&amp;token=531111ef-2d2a-46cb-a6a2-0f1bc7de7367" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://firebasestorage.googleapis.com/v0/b/chocolearn-f05e5.firebasestorage.app/o/audio%2FLectura%20de%20Pronunciaci%C3%B3n%20-%20Mujer%20Voz%20Humana-esv2-90p-bg-10p.mp3?alt=media&amp;token=531111ef-2d2a-46cb-a6a2-0f1bc7de7367" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-37056')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-37056')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-37056')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-84229', 'spanish-84229', 'both-84229', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-84229', 'spanish-84229', 'both-84229', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-84229', 'spanish-84229', 'both-84229', 'both')">Show Both</button>
         
-        <div id="english-37056" class="text-content" style="display: none;">
+        <div id="english-84229" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>🎧👱🏽‍♂️ Voz Humana Hombre:</p>
             </div>
         </div>
         
-        <div id="spanish-37056" class="text-content" style="display: none;">
+        <div id="spanish-84229" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 No Spanish content found
             </div>
         </div>
         
-        <div id="both-37056" class="text-content" style="display: none;">
+        <div id="both-84229" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>🎧👱🏽‍♂️ Voz Humana Hombre:</p>
@@ -10697,28 +10688,28 @@
 <div class="dia">
     <p class="titulo-dia">🎧👧🏿 Voz Humana Mujer:</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://firebasestorage.googleapis.com/v0/b/chocolearn-f05e5.firebasestorage.app/o/audio%2FLectura%20de%20Pronunciaci%C3%B3n%20-%20Hombre-esv2-90p-bg-10p.mp3?alt=media&amp;token=6df2cef9-c40e-4dce-80d6-4b6adc4931b5" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://firebasestorage.googleapis.com/v0/b/chocolearn-f05e5.firebasestorage.app/o/audio%2FLectura%20de%20Pronunciaci%C3%B3n%20-%20Hombre-esv2-90p-bg-10p.mp3?alt=media&amp;token=6df2cef9-c40e-4dce-80d6-4b6adc4931b5" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-42042')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-42042')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-42042')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-82010', 'spanish-82010', 'both-82010', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-82010', 'spanish-82010', 'both-82010', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-82010', 'spanish-82010', 'both-82010', 'both')">Show Both</button>
         
-        <div id="english-42042" class="text-content" style="display: none;">
+        <div id="english-82010" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>🎧 Agente AI:</p>
             </div>
         </div>
         
-        <div id="spanish-42042" class="text-content" style="display: none;">
+        <div id="spanish-82010" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 No Spanish content found
             </div>
         </div>
         
-        <div id="both-42042" class="text-content" style="display: none;">
+        <div id="both-82010" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>🎧 Agente AI:</p>
@@ -10734,28 +10725,28 @@
 <div class="dia">
     <p class="titulo-dia">🎧👧🏿 Voz Humana Mujer:</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Lectura%20de%20Pronunciaci%C3%B3n.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=P18RMNZ%2BpuTQ7jFkK00BuFh4ToCG7akYPJDCm7RldKID3O93RkCpR80dltrCPj%2F4Urvy%2BlxryUSsj5Ub3y8OGrtXARRk9LpIM9aCGqWd7wrWWwsfuSp6CZK7dpg0XHkvqBI293vrrVEQOt4PXJMJS8fSIALiGl9GCpkiUTLNkQw%2BAC80aqCj38xMQv3NvEaSIy915dHmmjuXfJNmgDc09b7TTXUSl8wgX6i5kt0ksAuYrA1xZOw0Pnx7JA%2BRSMQUdA9smJCVA7MagH5nNcMyo65dkg4u4uwlhOD8l3uF187%2BeAzD%2ByXfNN6wvJlt0zKXPcrP49PSLhfjmzQu71zBCw%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/Lectura%20de%20Pronunciaci%C3%B3n.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=P18RMNZ%2BpuTQ7jFkK00BuFh4ToCG7akYPJDCm7RldKID3O93RkCpR80dltrCPj%2F4Urvy%2BlxryUSsj5Ub3y8OGrtXARRk9LpIM9aCGqWd7wrWWwsfuSp6CZK7dpg0XHkvqBI293vrrVEQOt4PXJMJS8fSIALiGl9GCpkiUTLNkQw%2BAC80aqCj38xMQv3NvEaSIy915dHmmjuXfJNmgDc09b7TTXUSl8wgX6i5kt0ksAuYrA1xZOw0Pnx7JA%2BRSMQUdA9smJCVA7MagH5nNcMyo65dkg4u4uwlhOD8l3uF187%2BeAzD%2ByXfNN6wvJlt0zKXPcrP49PSLhfjmzQu71zBCw%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-72802')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-72802')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-72802')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-19703', 'spanish-19703', 'both-19703', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-19703', 'spanish-19703', 'both-19703', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-19703', 'spanish-19703', 'both-19703', 'both')">Show Both</button>
         
-        <div id="english-72802" class="text-content" style="display: none;">
+        <div id="english-19703" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 <p>Sam woke up early to help his <strong>mother</strong> with breakfast. "Are you feeling in good <strong>health</strong> today?" she asked. He nodded, though he felt a bit <strong>hot</strong>. After breakfast, he said, "I’ll <strong>pack</strong> my bag and go for a run. It’s important to stay <strong>fit</strong>, not <strong>fat</strong>!"</p><br><p>As he ran, Sam noticed the changing <strong>weather</strong>. There was a chance of <strong>rain</strong> or even <strong>hail</strong>, but he thought, “I’ll keep going.” He saw a <strong>hen</strong> in the <strong>sand</strong> by the <strong>path</strong>, and a bird in the <strong>air</strong>, singing a song that made him <strong>feel</strong> happy.</p><br><p>Sam stopped by the river, where he saw a man <strong>build</strong> a small boat. "I’ve <strong>built</strong> many boats like this," the man said. Sam admired his <strong>strength</strong> and <strong>faith</strong> in his craft.</p><br><p>Later, at school, the teacher said, “<strong>Think</strong> about what makes life <strong>worth</strong> living. Is it <strong>truth</strong>, <strong>wealth</strong>, or <strong>growth</strong>?" Sam raised his <strong>hand</strong> and said, "For me, it’s my <strong>brother</strong>, my <strong>father</strong>, and my <strong>mother</strong>. They’re always there, no matter the <strong>month</strong> or the <strong>weather</strong>."</p><br><p>In class, they read about the <strong>earth’s</strong> history and the <strong>death</strong> and <strong>birth</strong> of civilizations. Sam learned how <strong>strength</strong> and determination can change the world.</p><br><p>After school, he met his friends and said, "Hey, let’s play soccer!" They all agreed. "Who will be the <strong>goalkeeper</strong>?" someone asked. "I will!" Sam said. He <strong>held</strong> his position well, showing his quick reflexes and strong <strong>faith</strong> in his team.</p><br><p>That evening, at dinner, Sam’s mother asked, “What did you learn today?” He replied, “We learned about the <strong>truth</strong> of the <strong>world</strong>, and how important it is to work <strong>together</strong> to make it a better place.”</p>
             </div>
         </div>
         
-        <div id="spanish-72802" class="text-content" style="display: none;">
+        <div id="spanish-19703" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 <p>Sam woke up early to help his <strong>mother</strong> with breakfast. "Are you feeling in good <strong>health</strong> today?" she asked. He nodded, though he felt a bit <strong>hot</strong>. After breakfast, he said, "I’ll <strong>pack</strong> my bag and go for a run. It’s important to stay <strong>fit</strong>, not <strong>fat</strong>!"</p><br><p>As he ran, Sam noticed the changing <strong>weather</strong>. There was a chance of <strong>rain</strong> or even <strong>hail</strong>, but he thought, “I’ll keep going.” He saw a <strong>hen</strong> in the <strong>sand</strong> by the <strong>path</strong>, and a bird in the <strong>air</strong>, singing a song that made him <strong>feel</strong> happy.</p><br><p>Sam stopped by the river, where he saw a man <strong>build</strong> a small boat. "I’ve <strong>built</strong> many boats like this," the man said. Sam admired his <strong>strength</strong> and <strong>faith</strong> in his craft.</p><br><p>Later, at school, the teacher said, “<strong>Think</strong> about what makes life <strong>worth</strong> living. Is it <strong>truth</strong>, <strong>wealth</strong>, or <strong>growth</strong>?" Sam raised his <strong>hand</strong> and said, "For me, it’s my <strong>brother</strong>, my <strong>father</strong>, and my <strong>mother</strong>. They’re always there, no matter the <strong>month</strong> or the <strong>weather</strong>."</p><br><p>In class, they read about the <strong>earth’s</strong> history and the <strong>death</strong> and <strong>birth</strong> of civilizations. Sam learned how <strong>strength</strong> and determination can change the world.</p><br><p>After school, he met his friends and said, "Hey, let’s play soccer!" They all agreed. "Who will be the <strong>goalkeeper</strong>?" someone asked. "I will!" Sam said. He <strong>held</strong> his position well, showing his quick reflexes and strong <strong>faith</strong> in his team.</p><br><p>That evening, at dinner, Sam’s mother asked, “What did you learn today?” He replied, “We learned about the <strong>truth</strong> of the <strong>world</strong>, and how important it is to work <strong>together</strong> to make it a better place.”</p>
             </div>
         </div>
         
-        <div id="both-72802" class="text-content" style="display: none;">
+        <div id="both-19703" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 <p>Sam woke up early to help his <strong>mother</strong> with breakfast. "Are you feeling in good <strong>health</strong> today?" she asked. He nodded, though he felt a bit <strong>hot</strong>. After breakfast, he said, "I’ll <strong>pack</strong> my bag and go for a run. It’s important to stay <strong>fit</strong>, not <strong>fat</strong>!"</p><br><p>As he ran, Sam noticed the changing <strong>weather</strong>. There was a chance of <strong>rain</strong> or even <strong>hail</strong>, but he thought, “I’ll keep going.” He saw a <strong>hen</strong> in the <strong>sand</strong> by the <strong>path</strong>, and a bird in the <strong>air</strong>, singing a song that made him <strong>feel</strong> happy.</p><br><p>Sam stopped by the river, where he saw a man <strong>build</strong> a small boat. "I’ve <strong>built</strong> many boats like this," the man said. Sam admired his <strong>strength</strong> and <strong>faith</strong> in his craft.</p><br><p>Later, at school, the teacher said, “<strong>Think</strong> about what makes life <strong>worth</strong> living. Is it <strong>truth</strong>, <strong>wealth</strong>, or <strong>growth</strong>?" Sam raised his <strong>hand</strong> and said, "For me, it’s my <strong>brother</strong>, my <strong>father</strong>, and my <strong>mother</strong>. They’re always there, no matter the <strong>month</strong> or the <strong>weather</strong>."</p><br><p>In class, they read about the <strong>earth’s</strong> history and the <strong>death</strong> and <strong>birth</strong> of civilizations. Sam learned how <strong>strength</strong> and determination can change the world.</p><br><p>After school, he met his friends and said, "Hey, let’s play soccer!" They all agreed. "Who will be the <strong>goalkeeper</strong>?" someone asked. "I will!" Sam said. He <strong>held</strong> his position well, showing his quick reflexes and strong <strong>faith</strong> in his team.</p><br><p>That evening, at dinner, Sam’s mother asked, “What did you learn today?” He replied, “We learned about the <strong>truth</strong> of the <strong>world</strong>, and how important it is to work <strong>together</strong> to make it a better place.”</p>
@@ -10775,20 +10766,20 @@
 <div class="dia">
     <p class="titulo-dia">Audio Section</p>
     <div class="audio-container">
-        <p><audio controls loop style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Preguntas%20Turbo%20-%201%20Vez%20Velocidad%20Normal-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=XFFqd7uqCkMad%2B8%2BVpn4Ib1PSWzcLRJbsKCtgJzoT0e7Gh%2FNoXSYGPaaJ%2FrK37uZjPHkKfbDw9T5BWHY%2B6qL8OT8iBTyIB72%2B7rMPX27rXMbcl%2FDdIAm0yvvrMfoDA5Rhh3AjbKKAb%2B7zUqNejm44NzvPuxYn%2FxFr5fhxnJcA4KOEagpVXC6cRYS8bkczWy6C8jMCu1h3W24ZxlAVmTupHLTJCcKRIOleAFNdj8LP1VgFFkfQlMS6z9%2BhhVOwDzkjKEU2e1nBHxwXBUcijvG9cFh91mxBTTxAiUSABrumkO7rEoEo9MwJZj%2F9VfzrvphLjaqsKBU3%2BN2IymRYJd%2BBg%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
+        <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Preguntas%20Turbo%20-%201%20Vez%20Velocidad%20Normal-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=XFFqd7uqCkMad%2B8%2BVpn4Ib1PSWzcLRJbsKCtgJzoT0e7Gh%2FNoXSYGPaaJ%2FrK37uZjPHkKfbDw9T5BWHY%2B6qL8OT8iBTyIB72%2B7rMPX27rXMbcl%2FDdIAm0yvvrMfoDA5Rhh3AjbKKAb%2B7zUqNejm44NzvPuxYn%2FxFr5fhxnJcA4KOEagpVXC6cRYS8bkczWy6C8jMCu1h3W24ZxlAVmTupHLTJCcKRIOleAFNdj8LP1VgFFkfQlMS6z9%2BhhVOwDzkjKEU2e1nBHxwXBUcijvG9cFh91mxBTTxAiUSABrumkO7rEoEo9MwJZj%2F9VfzrvphLjaqsKBU3%2BN2IymRYJd%2BBg%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
     </div>
     <div class="text-controls">
-        <button class="boton" onclick="toggleText('english-8838')">Show English</button>
-        <button class="boton" onclick="toggleText('spanish-8838')">Show Spanish</button>
-        <button class="boton" onclick="toggleText('both-8838')">Show Both</button>
+        <button class="boton" onclick="showTextContent('english-11927', 'spanish-11927', 'both-11927', 'english')">Show English</button>
+        <button class="boton" onclick="showTextContent('english-11927', 'spanish-11927', 'both-11927', 'spanish')">Show Spanish</button>
+        <button class="boton" onclick="showTextContent('english-11927', 'spanish-11927', 'both-11927', 'both')">Show Both</button>
         
-        <div id="english-8838" class="text-content" style="display: none;">
+        <div id="english-11927" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                 
     
-                <button class="boton" onclick="toggleVisibility('tabla-5726', this)">Show Table</button>
-                <div id="tabla-5726" class="texto">
+                <button class="boton" onclick="toggleVisibility('tabla-7229', this)">Show Table</button>
+                <div id="tabla-7229" class="texto">
                     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
         <tbody>
@@ -11503,13 +11494,13 @@
             </div>
         </div>
         
-        <div id="spanish-8838" class="text-content" style="display: none;">
+        <div id="spanish-11927" class="text-content" style="display: none;">
             <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 
     
-                <button class="boton" onclick="toggleVisibility('tabla-5726', this)">Show Table</button>
-                <div id="tabla-5726" class="texto">
+                <button class="boton" onclick="toggleVisibility('tabla-7229', this)">Show Table</button>
+                <div id="tabla-7229" class="texto">
                     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
         <tbody>
@@ -12224,13 +12215,13 @@
             </div>
         </div>
         
-        <div id="both-8838" class="text-content" style="display: none;">
+        <div id="both-11927" class="text-content" style="display: none;">
             <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                 
     
-                <button class="boton" onclick="toggleVisibility('tabla-5726', this)">Show Table</button>
-                <div id="tabla-5726" class="texto">
+                <button class="boton" onclick="toggleVisibility('tabla-7229', this)">Show Table</button>
+                <div id="tabla-7229" class="texto">
                     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
         <tbody>
@@ -12947,8 +12938,8 @@
             <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                 
     
-                <button class="boton" onclick="toggleVisibility('tabla-5726', this)">Show Table</button>
-                <div id="tabla-5726" class="texto">
+                <button class="boton" onclick="toggleVisibility('tabla-7229', this)">Show Table</button>
+                <div id="tabla-7229" class="texto">
                     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
         <tbody>
@@ -15009,44 +15000,25 @@
             }
         }
 
-        function toggleText(targetId) {
-            console.log('toggleText called with ID:', targetId);
+        function showTextContent(englishId, spanishId, bothId, type) {
+            // Hide all text content divs for this audio section
+            const englishEl = document.getElementById(englishId);
+            const spanishEl = document.getElementById(spanishId);
+            const bothEl = document.getElementById(bothId);
             
-            const targetEl = document.getElementById(targetId);
-            if (!targetEl) {
-                console.error('Element not found:', targetId);
-                return;
+            if (englishEl) englishEl.style.display = 'none';
+            if (spanishEl) spanishEl.style.display = 'none';
+            if (bothEl) bothEl.style.display = 'none';
+            
+            // Show the selected content
+            if (type === 'english' && englishEl) {
+                englishEl.style.display = 'block';
+            } else if (type === 'spanish' && spanishEl) {
+                spanishEl.style.display = 'block';
+            } else if (type === 'both' && bothEl) {
+                bothEl.style.display = 'block';
             }
-
-            const container = targetEl.closest('.text-controls');
-            if (!container) {
-                console.error('Parent .text-controls not found for:', targetId);
-                return;
-            }
-
-            // Hide all text content sections in this container
-            const allSections = container.querySelectorAll('.text-content');
-            allSections.forEach(el => {
-                el.classList.remove('visible');
-                el.style.display = 'block';  // Ensure display is block for transitions
-            });
-
-            // Show the target section
-            targetEl.classList.add('visible');
-            console.log('Toggled visibility for:', targetId);
         }
-
-        // Debug function to check elements
-        function debugElements() {
-            console.log('All elements with text-content class:', document.querySelectorAll('.text-content'));
-            console.log('All elements with text-controls class:', document.querySelectorAll('.text-controls'));
-        }
-
-        // Call debug function when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Page loaded, running debug...');
-            setTimeout(debugElements, 1000);
-        });
     </script>
 
 </body>
