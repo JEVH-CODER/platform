@@ -30,34 +30,65 @@
             box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
         }
 
-        /* Fullscreen mode styles */
-        .fullscreen-mode {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
+        /* Styles when in true fullscreen mode */
+        :fullscreen {
+            background: white !important;
             width: 100vw !important;
             height: 100vh !important;
-            z-index: 9999 !important;
+        }
+
+        :-webkit-full-screen {
             background: white !important;
+            width: 100vw !important;
+            height: 100vh !important;
+        }
+
+        :-moz-full-screen {
+            background: white !important;
+            width: 100vw !important;
+            height: 100vh !important;
+        }
+
+        :-ms-fullscreen {
+            background: white !important;
+            width: 100vw !important;
+            height: 100vh !important;
+        }
+
+        /* Container adjustments in fullscreen */
+        body:fullscreen .container,
+        body:-webkit-full-screen .container,
+        body:-moz-full-screen .container {
+            width: 100vw !important;
+            height: 100vh !important;
+            background: white !important;
+        }
+
+        /* Content adjustments in fullscreen */
+        body:fullscreen .content,
+        body:-webkit-full-screen .content,
+        body:-moz-full-screen .content {
+            width: 100% !important;
+            height: 100vh !important;
+            padding: 20px !important;
             overflow: auto !important;
         }
 
-        .fullscreen-mode .sidebar {
+        /* Hide sidebar in fullscreen */
+        body:fullscreen .sidebar,
+        body:-webkit-full-screen .sidebar,
+        body:-moz-full-screen .sidebar {
             display: none !important;
         }
 
-        .fullscreen-mode .content {
-            width: 100% !important;
-            height: 100vh !important;
-            padding: 60px 40px 40px 40px !important;
-        }
-
-        /* Hide toggle sidebar button in fullscreen */
-        .fullscreen-mode #toggleSidebarBtn {
+        /* Hide toggle button in fullscreen */
+        body:fullscreen #toggleSidebarBtn,
+        body:-webkit-full-screen #toggleSidebarBtn,
+        body:-moz-full-screen #toggleSidebarBtn {
             display: none !important;
         }
 
-        /* Exit fullscreen button (when in fullscreen) */
+        /* Exit fullscreen button (appears only in fullscreen) */
         .exit-fullscreen-btn {
             position: fixed;
             top: 20px;
@@ -73,12 +104,27 @@
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 20px rgba(254, 73, 128, 0.3);
+            display: none;
         }
 
         .exit-fullscreen-btn:hover {
             background: rgba(254, 73, 128, 1);
             transform: scale(1.05);
             box-shadow: 0 6px 25px rgba(254, 73, 128, 0.4);
+        }
+
+        /* Show exit button only in fullscreen */
+        body:fullscreen .exit-fullscreen-btn,
+        body:-webkit-full-screen .exit-fullscreen-btn,
+        body:-moz-full-screen .exit-fullscreen-btn {
+            display: block !important;
+        }
+
+        /* Hide regular fullscreen button in fullscreen */
+        body:fullscreen .fullscreen-btn,
+        body:-webkit-full-screen .fullscreen-btn,
+        body:-moz-full-screen .fullscreen-btn {
+            display: none !important;
         }
 
         * {
@@ -873,55 +919,96 @@
             }
         }
     </script>
-<script>
-let isFullscreen = false;
+    <script>
+        // Fullscreen API functions
+        function enterFullscreen() {
+            const element = document.documentElement; // Use entire document
 
-function toggleFullscreen() {
-    const container = document.querySelector('.container');
-    const fullscreenBtn = document.getElementById('fullscreenBtn');
-    
-    if (!isFullscreen) {
-        // Enter fullscreen
-        container.classList.add('fullscreen-mode');
-        fullscreenBtn.innerHTML = '✕';
-        fullscreenBtn.className = 'exit-fullscreen-btn';
-        fullscreenBtn.title = 'Exit Fullscreen (ESC)';
-        isFullscreen = true;
-        
-        // Hide body scroll
-        document.body.style.overflow = 'hidden';
-        
-    } else {
-        // Exit fullscreen
-        container.classList.remove('fullscreen-mode');
-        fullscreenBtn.innerHTML = '⛶';
-        fullscreenBtn.className = 'fullscreen-btn';
-        fullscreenBtn.title = 'Enter Fullscreen';
-        isFullscreen = false;
-        
-        // Restore body scroll
-        document.body.style.overflow = 'auto';
-    }
-}
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.mozRequestFullScreen) { // Firefox
+                element.mozRequestFullScreen();
+            } else if (element.webkitRequestFullscreen) { // Chrome, Safari, Opera
+                element.webkitRequestFullscreen();
+            } else if (element.msRequestFullscreen) { // IE/Edge
+                element.msRequestFullscreen();
+            }
+        }
 
-// ESC key to exit fullscreen
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && isFullscreen) {
-        toggleFullscreen();
-    }
-});
+        function exitFullscreen() {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) { // Firefox
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) { // Chrome, Safari, Opera
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { // IE/Edge
+                document.msExitFullscreen();
+            }
+        }
 
-// Optional: Double-click on content to toggle fullscreen
-document.querySelector('.content').addEventListener('dblclick', function(e) {
-    // Only trigger if not clicking on interactive elements
-    if (!e.target.closest('button, audio, a, input, textarea')) {
-        toggleFullscreen();
-    }
-});
-</script>
-<button id="fullscreenBtn" class="fullscreen-btn" onclick="toggleFullscreen()">
-    ⛶ <!-- Fullscreen icon -->
-</button>
+        // Listen for fullscreen changes
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+        document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+        document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+
+        function handleFullscreenChange() {
+            const isFullscreen = !!(document.fullscreenElement ||
+                document.webkitFullscreenElement ||
+                document.mozFullScreenElement ||
+                document.msFullscreenElement);
+
+            if (isFullscreen) {
+                console.log('Entered fullscreen mode');
+                // Force sidebar to be hidden
+                document.querySelector('.container').classList.add('sidebar-hidden');
+            } else {
+                console.log('Exited fullscreen mode');
+                // Optionally restore sidebar
+                // document.querySelector('.container').classList.remove('sidebar-hidden');
+            }
+        }
+
+        // ESC key handling (redundant but good for UX)
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                // Fullscreen API handles ESC automatically, but we can add custom behavior here if needed
+                console.log('ESC pressed - fullscreen will be handled by browser');
+            }
+        });
+
+        // Optional: Double-click to enter fullscreen
+        document.querySelector('.content').addEventListener('dblclick', function(e) {
+            // Only trigger if not clicking on interactive elements
+            if (!e.target.closest('button, audio, a, input, textarea')) {
+                if (!document.fullscreenElement && !document.webkitFullscreenElement &&
+                    !document.mozFullScreenElement && !document.msFullscreenElement) {
+                    enterFullscreen();
+                }
+            }
+        });
+
+        // Optional: F11 key alternative (some browsers block this)
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F11') {
+                e.preventDefault();
+                if (!document.fullscreenElement && !document.webkitFullscreenElement &&
+                    !document.mozFullScreenElement && !document.msFullscreenElement) {
+                    enterFullscreen();
+                } else {
+                    exitFullscreen();
+                }
+            }
+        });
+    </script>
+    <button id="fullscreenBtn" class="fullscreen-btn" onclick="enterFullscreen()" title="Pantalla Completa">
+        ⛶ <!-- Fullscreen expand icon -->
+    </button>
+
+    <button id="exitFullscreenBtn" class="exit-fullscreen-btn" onclick="exitFullscreen()" title="Salir de Pantalla Completa (ESC)">
+        ✕ <!-- Close/exit icon -->
+    </button>
 </body>
 
 </html>
