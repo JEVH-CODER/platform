@@ -6,33 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clase Teacher - Módulo Turbo - Semana 1</title>
     <style>
-        /* Fullscreen toggle button styles */
-        #fullscreenBtn {
+        /* Fullscreen button styles */
+        .fullscreen-btn {
             position: fixed;
             bottom: 20px;
             right: 20px;
             z-index: 1001;
-            background: linear-gradient(135deg, #16c4e3 0%, #FE4980 100%);
+            background: rgba(0, 0, 0, 0.8);
             color: white;
             border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
+            border-radius: 8px;
+            padding: 12px 15px;
             cursor: pointer;
-            font-size: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            font-size: 16px;
             transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
-        #fullscreenBtn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        .fullscreen-btn:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
         }
 
-        /* Fullscreen styles */
+        /* Fullscreen mode styles */
         .fullscreen-mode {
             position: fixed !important;
             top: 0 !important;
@@ -41,6 +39,7 @@
             height: 100vh !important;
             z-index: 9999 !important;
             background: white !important;
+            overflow: auto !important;
         }
 
         .fullscreen-mode .sidebar {
@@ -49,8 +48,37 @@
 
         .fullscreen-mode .content {
             width: 100% !important;
-            padding: 20px !important;
-            overflow-y: auto !important;
+            height: 100vh !important;
+            padding: 60px 40px 40px 40px !important;
+        }
+
+        /* Hide toggle sidebar button in fullscreen */
+        .fullscreen-mode #toggleSidebarBtn {
+            display: none !important;
+        }
+
+        /* Exit fullscreen button (when in fullscreen) */
+        .exit-fullscreen-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            background: rgba(254, 73, 128, 0.9);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(254, 73, 128, 0.3);
+        }
+
+        .exit-fullscreen-btn:hover {
+            background: rgba(254, 73, 128, 1);
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(254, 73, 128, 0.4);
         }
 
         * {
@@ -845,44 +873,55 @@
             }
         }
     </script>
-    <button id="fullscreenBtn" onclick="toggleFullscreen()" title="Toggle Fullscreen">
-    📱
-</button>
 <script>
+let isFullscreen = false;
+
 function toggleFullscreen() {
     const container = document.querySelector('.container');
-    const btn = document.getElementById('fullscreenBtn');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
     
-    if (container.classList.contains('fullscreen-mode')) {
-        // Exit fullscreen
-        container.classList.remove('fullscreen-mode');
-        btn.innerHTML = '📱';
-        btn.title = 'Toggle Fullscreen';
-        
-        // Restore body scrolling
-        document.body.style.overflow = '';
-    } else {
+    if (!isFullscreen) {
         // Enter fullscreen
         container.classList.add('fullscreen-mode');
-        btn.innerHTML = '🔙';
-        btn.title = 'Exit Fullscreen';
+        fullscreenBtn.innerHTML = '✕';
+        fullscreenBtn.className = 'exit-fullscreen-btn';
+        fullscreenBtn.title = 'Exit Fullscreen (ESC)';
+        isFullscreen = true;
         
-        // Prevent body scrolling
+        // Hide body scroll
         document.body.style.overflow = 'hidden';
+        
+    } else {
+        // Exit fullscreen
+        container.classList.remove('fullscreen-mode');
+        fullscreenBtn.innerHTML = '⛶';
+        fullscreenBtn.className = 'fullscreen-btn';
+        fullscreenBtn.title = 'Enter Fullscreen';
+        isFullscreen = false;
+        
+        // Restore body scroll
+        document.body.style.overflow = 'auto';
     }
 }
 
-// Optional: Exit fullscreen with Escape key
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        const container = document.querySelector('.container');
-        if (container.classList.contains('fullscreen-mode')) {
-            toggleFullscreen();
-        }
+// ESC key to exit fullscreen
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && isFullscreen) {
+        toggleFullscreen();
+    }
+});
+
+// Optional: Double-click on content to toggle fullscreen
+document.querySelector('.content').addEventListener('dblclick', function(e) {
+    // Only trigger if not clicking on interactive elements
+    if (!e.target.closest('button, audio, a, input, textarea')) {
+        toggleFullscreen();
     }
 });
 </script>
-
+<button id="fullscreenBtn" class="fullscreen-btn" onclick="toggleFullscreen()">
+    ⛶ <!-- Fullscreen icon -->
+</button>
 </body>
 
 </html>
