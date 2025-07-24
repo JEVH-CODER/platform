@@ -711,10 +711,41 @@
                                     Vocabulario Clave del módulo (35)
                                 </button>
                                 </div>
-                            <button class="subsubmenu-button" onclick="showContent('tests-escritos')">
+                            <button class="submenu-button" onclick="showParentContent('tests-escritos')">
                                 Tests Escritos
                             </button>
+                            <button class="arrow-button" onclick="toggleSubSubmenu('tests-escritos')" style="
+                                background: none;
+                                border: none;
+                                color: #666;
+                                cursor: pointer;
+                                padding: 5px;
+                                margin-left: 5px;
+                            ">
+                                <span class="arrow" id="arrow-tests-escritos">▼</span>
+                            </button>
+                            <div class="subsubmenu" id="subsubmenu-tests-escritos">
                             
+                                <button class="subsubmenu-button" onclick="showContent('test-does-fundamentación-indispensable')">
+                                    Test DOES Fundamentación Indispensable
+                                </button>
+                                
+                                <button class="subsubmenu-button" onclick="showContent('test-pronombres-1-fundamentación-indispensable')">
+                                    Test Pronombres 1 Fundamentación Indispensable
+                                </button>
+                                
+                                <button class="subsubmenu-button" onclick="showContent('test-pronombres-2-fundamentación-indispensable')">
+                                    Test Pronombres 2 Fundamentación Indispensable
+                                </button>
+                                
+                                <button class="subsubmenu-button" onclick="showContent('tests-números-fundamentación-indispensable')">
+                                    Tests Números Fundamentación Indispensable
+                                </button>
+                                
+                                <button class="subsubmenu-button" onclick="showContent('test-did-fundamentación-indispensable')">
+                                    Test DID Fundamentación Indispensable
+                                </button>
+                                </div>
                             <button class="subsubmenu-button" onclick="showContent('tests-orales')">
                                 Tests Orales
                             </button>
@@ -1876,25 +1907,25 @@ Sí, promete.</p>
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%201-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=cxkpeQfE8J4NZjEIHkrHKzy0PWyr%2BPzg2D3DLi7IYp%2BR0gN8VmENFhwrmjITP6wTZphM3SRxikezUEzGlKC%2BzeSNDFJ9UIOIgBYxBGsYobyqCCOAm3x3kAnm75yOB%2BGlAZNigDsDmEKKLKF41USG7Sd1zhwMboSwFQhdslH5Vd2U%2FNuiQqRckmDaaScXKlhwgIM9R5ouJhcNGzTG509o%2FrEgPtlzdVBG7xIqkn5jSjd8ViR%2FrvV74sOEJ2VcN53c2eovO%2BiZPc9RgnC77PUAqwExgG7QiG7Alxj05XF8AkBGzJHEMMoHJItfmVKY6lyRXW42A3LHcN0qKGQWIo3WYQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-16086', 'spanish-16086', 'both-16086', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-16086', 'spanish-16086', 'both-16086', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-16086', 'spanish-16086', 'both-16086', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-6352', 'spanish-6352', 'both-6352', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-6352', 'spanish-6352', 'both-6352', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-6352', 'spanish-6352', 'both-6352', 'both', this)">Show Both</button>
             
-            <div id="english-16086" class="text-content" style="display: none;">
+            <div id="english-6352" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>What do you do in the morning<br><br></strong> ☕ I wake up at 6:30, take a shower, and eat breakfast<br><br>My sister goes to school at 7:00, and my dad drives to work<br><br>We all start the day early<br><br>Do you eat eggs or cereal<br><br>What time do you leave home<br><br>🌞<br /> <strong>¿Qué haces en la mañana<br><br></strong> ☕ Me despierto a las 6:30, me ducho y desayuno<br><br>Mi hermana va a la escuela a las 7:00 y mi papá conduce al trabajo<br><br>Todos comenzamos el día temprano<br><br>¿Comes huevos o cereal<br><br></p> <hr /> <p><strong>🗓️ Día 2 - Casa</strong>  </p>
                 </div>
             </div>
             
-            <div id="spanish-16086" class="text-content" style="display: none;">
+            <div id="spanish-6352" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     ¿A qué hora sales de casa
                 </div>
             </div>
             
-            <div id="both-16086" class="text-content" style="display: none;">
+            <div id="both-6352" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>What do you do in the morning<br><br></strong> ☕ I wake up at 6:30, take a shower, and eat breakfast<br><br>My sister goes to school at 7:00, and my dad drives to work<br><br>We all start the day early<br><br>Do you eat eggs or cereal<br><br>What time do you leave home<br><br>🌞<br /> <strong>¿Qué haces en la mañana<br><br></strong> ☕ Me despierto a las 6:30, me ducho y desayuno<br><br>Mi hermana va a la escuela a las 7:00 y mi papá conduce al trabajo<br><br>Todos comenzamos el día temprano<br><br>¿Comes huevos o cereal<br><br></p> <hr /> <p><strong>🗓️ Día 2 - Casa</strong>  </p>
@@ -1913,25 +1944,25 @@ Sí, promete.</p>
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%202-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=BqJe3BjMWkn2M2jiL1Vhjnw%2F3PW9zsQAyp6UBSYrg8gK0VSBGw%2B%2B6ZDicFmxOwVB7%2FWzOpEZzo457ou301diVpOaJMKByP2SjvFzCTzBp6VWyhPV3E9Nu4AA3puF432bh%2FYT6rb9hw4uIdkxJA9zBX0DWG6nefYR52rWzSKGzoYSCn6Q1OeFYovEBiuNpQrUJs7KOiSMWQ4NM%2BqWuJ8B1TCsGkHLBkKEXsmIdyhZiLP5vhjfOyChZ4ixOWHpimcdrKlG3fVCL6EnVS1EyUFHIUvH%2F9Pnntt4trzM%2FB8lHxZEcuxK%2Bc5Imu2b2OZmXANPQu0TEoxXLd6ooxcmtumIqQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-75074', 'spanish-75074', 'both-75074', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-75074', 'spanish-75074', 'both-75074', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-75074', 'spanish-75074', 'both-75074', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-30879', 'spanish-30879', 'both-30879', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-30879', 'spanish-30879', 'both-30879', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-30879', 'spanish-30879', 'both-30879', 'both', this)">Show Both</button>
             
-            <div id="english-75074" class="text-content" style="display: none;">
+            <div id="english-30879" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>I am happy today<br><br></strong> 😄 My brother is at school and my parents are at work<br><br>It is sunny outside, and the birds are singing<br><br>Are you at home or at school<br><br></p> <hr /> <p><strong>🗓️ Día 3 - Sentimiento</strong> </p>
                 </div>
             </div>
             
-            <div id="spanish-75074" class="text-content" style="display: none;">
+            <div id="spanish-30879" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     ☀️<br /> <strong>¡Estoy feliz hoy<br><br></strong> 😄 Mi hermano está en la escuela y mis padres están en el trabajo<br><br>Está soleado afuera y los pájaros están cantando<br><br>¿Estás en casa o en la escuela
                 </div>
             </div>
             
-            <div id="both-75074" class="text-content" style="display: none;">
+            <div id="both-30879" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>I am happy today<br><br></strong> 😄 My brother is at school and my parents are at work<br><br>It is sunny outside, and the birds are singing<br><br>Are you at home or at school<br><br></p> <hr /> <p><strong>🗓️ Día 3 - Sentimiento</strong> </p>
@@ -1950,25 +1981,25 @@ Sí, promete.</p>
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%203-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=Yed33DlBjj894gXQgj25KpilOfWbt8aGtXyZBNwwHXZxFM%2FLNSsjCAmW1nRTG5Ij7xQfn0BMyEOqcigdsYBtoM26eaQXwmgU14DmmJzt5JVxfvhBeKV3Y4QVETGVZZZIRGwO81GjavKTg2G1i25viBEbQu5SdcouSjqh8nUgBBLNtAwnUK11wwqd6FH0mw%2BJcsEzSm9UhDb6hPviHePQDidJjs5SdcbqDAJVULFJiE%2FR%2By%2FYqBtF%2FG2LxIzFnMyaQdQfdz6GCIGibvKMQdArNI6AKs%2Fq2IVcSCayfp2VYhZox9NXZiAqpvE6Yq5EL3Q8tQz2NqCGmvCjlrsZUCGvSw%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-50353', 'spanish-50353', 'both-50353', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-50353', 'spanish-50353', 'both-50353', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-50353', 'spanish-50353', 'both-50353', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-65980', 'spanish-65980', 'both-65980', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-65980', 'spanish-65980', 'both-65980', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-65980', 'spanish-65980', 'both-65980', 'both', this)">Show Both</button>
             
-            <div id="english-50353" class="text-content" style="display: none;">
+            <div id="english-65980" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>I am not tired, but my friend is<br><br></strong> 😴 He is not very active in the morning<br><br>We are not busy today<br><br>What about you<br><br>Are you tired or awake<br><br>😪<br /> <strong>No estoy cansado, pero mi amigo sí<br><br></strong> 😴 Él no está muy activo en la mañana<br><br>No estamos ocupados hoy<br><br>¿Y tú<br><br>¿Estás cansado o despierto<br><br></p> <hr /> <p><strong>🗓️ Día 4 - Mi mamá</strong>  </p>
                 </div>
             </div>
             
-            <div id="spanish-50353" class="text-content" style="display: none;">
+            <div id="spanish-65980" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     No Spanish content found
                 </div>
             </div>
             
-            <div id="both-50353" class="text-content" style="display: none;">
+            <div id="both-65980" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>I am not tired, but my friend is<br><br></strong> 😴 He is not very active in the morning<br><br>We are not busy today<br><br>What about you<br><br>Are you tired or awake<br><br>😪<br /> <strong>No estoy cansado, pero mi amigo sí<br><br></strong> 😴 Él no está muy activo en la mañana<br><br>No estamos ocupados hoy<br><br>¿Y tú<br><br>¿Estás cansado o despierto<br><br></p> <hr /> <p><strong>🗓️ Día 4 - Mi mamá</strong>  </p>
@@ -1987,25 +2018,25 @@ Sí, promete.</p>
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%204-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=q%2Bc5c48lzu1n2lB%2FP%2Ff1HMTdgada%2F2uTxb6q1RyEd41aHjZpPyGA0j6a1CE%2BX1wO97II7zRSWL27G%2FbmBRVp%2FwOpHM39JeOTWLqdTKgEO3LMv0AlF0v0NGgnHOsgBPo81HdbHWXtPEIO7sQ9uvVJ8aYqVyXyn2Qt%2FX5gsuYm5Cbr4zgI1TOk2OaQOPb6wL0CVeMtR2Zqnssxo8dKxkOM94fft46H3WrHQgq9l%2FeNau3ZvduhweUeW0wucCOsQYDda4iZncT31nAB%2FLNCNcZHO768SezTvnCZ2AZ060MpIuDWeNULtgsAnaxBgrMj46Id41eTeJho3K1T10rBVhGyYg%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-18672', 'spanish-18672', 'both-18672', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-18672', 'spanish-18672', 'both-18672', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-18672', 'spanish-18672', 'both-18672', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-42656', 'spanish-42656', 'both-42656', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-42656', 'spanish-42656', 'both-42656', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-42656', 'spanish-42656', 'both-42656', 'both', this)">Show Both</button>
             
-            <div id="english-18672" class="text-content" style="display: none;">
+            <div id="english-42656" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>My mom works in an office<br><br></strong> 💼 She drinks tea, not coffee<br><br>My brother plays soccer every weekend<br><br>What does your dad do<br><br>Does your sister play any sports<br><br>⚽<br /> <strong>Mi mamá trabaja en una oficina<br><br></strong> 💼 Ella toma té, no café<br><br>Mi hermano juega fútbol todos los fines de semana<br><br>¿Tu hermana practica algún deporte<br><br></p> <hr /> <p><strong>🗓️ Día 5 - ¿Qué hay<br><br></strong>  </p>
                 </div>
             </div>
             
-            <div id="spanish-18672" class="text-content" style="display: none;">
+            <div id="spanish-42656" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     ¿Qué hace tu papá
                 </div>
             </div>
             
-            <div id="both-18672" class="text-content" style="display: none;">
+            <div id="both-42656" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>My mom works in an office<br><br></strong> 💼 She drinks tea, not coffee<br><br>My brother plays soccer every weekend<br><br>What does your dad do<br><br>Does your sister play any sports<br><br>⚽<br /> <strong>Mi mamá trabaja en una oficina<br><br></strong> 💼 Ella toma té, no café<br><br>Mi hermano juega fútbol todos los fines de semana<br><br>¿Tu hermana practica algún deporte<br><br></p> <hr /> <p><strong>🗓️ Día 5 - ¿Qué hay<br><br></strong>  </p>
@@ -2024,25 +2055,25 @@ Sí, promete.</p>
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%205-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=AxU5XoZXo4if%2BqBfj%2BD1WjnuIrYsevqVlRg4F37l0GrcbmEhi3No2noSInik0pw5rr%2B%2FjmB%2FHOBtkamW8u6qxE4O96uIK09kuTGKkIDMrBD1BBKikKKMufMRXp%2BcbxVs70ggC7CjLrzvjb9hXg8mMiJ%2FnRtr7Xm6EuaxWi7h4werzIT1BkqWHmouGKuF53HHErvy0LfQIR2iDIEjGdes8HZW%2F%2BFDrMbS3m63e%2FLerp10niUp2iQOsSQzcxDoKnxzt4zlg0NHHphHi8GBd5WAahS8iVTymW3SKwsHZ80ISGcodFQIaEIFw0AoxZhHe4vbe%2BctC6U1PSclu4vP%2FO9xqQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-17674', 'spanish-17674', 'both-17674', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-17674', 'spanish-17674', 'both-17674', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-17674', 'spanish-17674', 'both-17674', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-7410', 'spanish-7410', 'both-7410', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-7410', 'spanish-7410', 'both-7410', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-7410', 'spanish-7410', 'both-7410', 'both', this)">Show Both</button>
             
-            <div id="english-17674" class="text-content" style="display: none;">
+            <div id="english-7410" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>There is a cat on the sofa<br><br></strong> 😺 There are two books on the table<br><br>Is there a computer in your room<br><br>Are there posters on your wall<br><br>🎨<br /> <strong>Hay un gato en el sofá<br><br></strong> 😺 Hay dos libros sobre la mesa<br><br>¿Hay una computadora en tu habitación<br><br>¿Hay pósteres en tu pared<br><br></p> <hr /> <p><strong>🗓️ Día 6 - Pasatiempos</strong>  </p>
                 </div>
             </div>
             
-            <div id="spanish-17674" class="text-content" style="display: none;">
+            <div id="spanish-7410" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     No Spanish content found
                 </div>
             </div>
             
-            <div id="both-17674" class="text-content" style="display: none;">
+            <div id="both-7410" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>There is a cat on the sofa<br><br></strong> 😺 There are two books on the table<br><br>Is there a computer in your room<br><br>Are there posters on your wall<br><br>🎨<br /> <strong>Hay un gato en el sofá<br><br></strong> 😺 Hay dos libros sobre la mesa<br><br>¿Hay una computadora en tu habitación<br><br>¿Hay pósteres en tu pared<br><br></p> <hr /> <p><strong>🗓️ Día 6 - Pasatiempos</strong>  </p>
@@ -2061,25 +2092,25 @@ Sí, promete.</p>
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%206-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=eNnrHkCfglBFbX2xaFDNxWzSp9kaurhcJfdTsu%2Flpkc1XJAtQaKWSVkO9Q3A0kxgvSSM7g2fI%2FiGBfTLxjxFz4VVFM72s301ZJK5kUdTd06KYc8Ec77p%2BCJ%2BOwMPYZxl25%2F5u6aL3xDmBLaCpnJzzPirw3RlVrZZW9wjAncVzNzhPbABA4qisMNDjg1RQ1Kg7BuIpfI%2FsrqMrAnOh8rD0J9x3n3mO5bKt0yuulE%2FwZ7XBOjTPacjYwUgWvPcgTpOamS51tZTgCidbLLnCXRAR%2BHu0245BccpvkjkpKhNLHAGTsH%2B7GaRiJ4OYTqCelSIRCmVIJhpC735YdvsZUPedw%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-86565', 'spanish-86565', 'both-86565', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-86565', 'spanish-86565', 'both-86565', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-86565', 'spanish-86565', 'both-86565', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-67141', 'spanish-67141', 'both-67141', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-67141', 'spanish-67141', 'both-67141', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-67141', 'spanish-67141', 'both-67141', 'both', this)">Show Both</button>
             
-            <div id="english-86565" class="text-content" style="display: none;">
+            <div id="english-67141" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>I can swim and ride a bike<br><br></strong> 🏊 My sister can dance, but she can't sing<br><br>Can you play an instrument<br><br>What can your friends do<br><br>🎶<br /> <strong>Puedo nadar y andar en bicicleta<br><br></strong> 🏊 Mi hermana puede bailar, pero no puede cantar<br><br>¿Puedes tocar un instrumento<br><br></p> <hr /> <p><strong>🗓️ Día 7 - Hobbies</strong>  </p>
                 </div>
             </div>
             
-            <div id="spanish-86565" class="text-content" style="display: none;">
+            <div id="spanish-67141" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     ¿Qué pueden hacer tus amigos
                 </div>
             </div>
             
-            <div id="both-86565" class="text-content" style="display: none;">
+            <div id="both-67141" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>I can swim and ride a bike<br><br></strong> 🏊 My sister can dance, but she can't sing<br><br>Can you play an instrument<br><br>What can your friends do<br><br>🎶<br /> <strong>Puedo nadar y andar en bicicleta<br><br></strong> 🏊 Mi hermana puede bailar, pero no puede cantar<br><br>¿Puedes tocar un instrumento<br><br></p> <hr /> <p><strong>🗓️ Día 7 - Hobbies</strong>  </p>
@@ -2098,25 +2129,25 @@ Sí, promete.</p>
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%207-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=N45EyYprjrK2q%2BAm39P%2FXuTWaLRaiIeSqGoUOpN3zMMicsh0TuCW194zk8pgza%2FUk8jpTyOdbYDf7M6DYTwC4wTVFyrPspkk3DqDXa4Sp5vYuKUnIwhSWB1kCfh%2FiqLTSKUFFZKsM%2Bu4lkJF9rVV7%2B6wNlbhURJTdxSWXsL6eDZ0PiceT1kIRz4Px4GrIZbqutcKSUQ9GW%2Brr6Vg%2FuVUOS%2Fdkd6aqaEEKjr02UVqqmU2jnSS90f7jHKSGZmQIfTuqXtu1O66dunKlvNjA5crlcQfRnLbyZVNpn%2FqsiersMxW6s0%2BRKe9RMMEi%2FVG2BWlPLxzgzztSYb%2FTs8jjGIYYg%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-11160', 'spanish-11160', 'both-11160', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-11160', 'spanish-11160', 'both-11160', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-11160', 'spanish-11160', 'both-11160', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-62759', 'spanish-62759', 'both-62759', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-62759', 'spanish-62759', 'both-62759', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-62759', 'spanish-62759', 'both-62759', 'both', this)">Show Both</button>
             
-            <div id="english-11160" class="text-content" style="display: none;">
+            <div id="english-62759" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>I have a dog<br><br></strong> 🐶 My brother has a video game<br><br>We have fun on weekends<br><br>Do you have a pet<br><br>Does your friend have a bike<br><br>🚲<br /> <strong>Tengo un perro<br><br></strong> 🐶 Mi hermano tiene un videojuego<br><br>Nos divertimos los fines de semana<br><br>¿Tienes una mascota<br><br></p> <hr />
                 </div>
             </div>
             
-            <div id="spanish-11160" class="text-content" style="display: none;">
+            <div id="spanish-62759" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     ¿Tu amigo tiene una bicicleta
                 </div>
             </div>
             
-            <div id="both-11160" class="text-content" style="display: none;">
+            <div id="both-62759" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>I have a dog<br><br></strong> 🐶 My brother has a video game<br><br>We have fun on weekends<br><br>Do you have a pet<br><br>Does your friend have a bike<br><br>🚲<br /> <strong>Tengo un perro<br><br></strong> 🐶 Mi hermano tiene un videojuego<br><br>Nos divertimos los fines de semana<br><br>¿Tienes una mascota<br><br></p> <hr />
@@ -2132,33 +2163,32 @@ Sí, promete.</p>
             
             <div class="content-area" id="content-audios-generales-audio-de-pronunciación">
                 <div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3"><strong>Audios Generales</strong>: Audio de Pronunciación</div>
-<p>🎧👱🏽‍♂️ Voz Humana Hombre:</p>
 
     <div class="dia">
-        <p class="titulo-dia">🎧👱🏽‍♂️ Voz Humana Hombre:</p>
+        <p class="titulo-dia">Audio Section</p>
         <div class="audio-container">
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://firebasestorage.googleapis.com/v0/b/chocolearn-f05e5.firebasestorage.app/o/audio%2FLectura%20de%20Pronunciaci%C3%B3n%20-%20Hombre-esv2-90p-bg-10p.mp3?alt=media&amp;token=6df2cef9-c40e-4dce-80d6-4b6adc4931b5" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-18247', 'spanish-18247', 'both-18247', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-18247', 'spanish-18247', 'both-18247', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-18247', 'spanish-18247', 'both-18247', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-5944', 'spanish-5944', 'both-5944', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-5944', 'spanish-5944', 'both-5944', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-5944', 'spanish-5944', 'both-5944', 'both', this)">Show Both</button>
             
-            <div id="english-18247" class="text-content" style="display: none;">
+            <div id="english-5944" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p>Sam woke up early to help his <strong>mother</strong> with breakfast<br><br>"Are you feeling in good <strong>health</strong> today<br><br>" she asked<br><br>He nodded, though he felt a bit <strong>hot</strong><br><br>After breakfast, he said, "I’ll <strong>pack</strong> my bag and go for a run<br><br>It’s important to stay <strong>fit</strong>, not <strong>fat</strong><br><br>"</p> <p>As he ran, Sam noticed the changing <strong>weather</strong><br><br>There was a chance of <strong>rain</strong> or even <strong>hail</strong>, but he thought, “I’ll keep going<br><br>” He saw a <strong>hen</strong> in the <strong>sand</strong> by the <strong>path</strong>, and a bird in the <strong>air</strong>, singing a song that made him <strong>feel</strong> happy<br><br></p> <p>Sam stopped by the river, where he saw a man <strong>build</strong> a small boat<br><br>"I’ve <strong>built</strong> many boats like this," the man said<br><br>Sam admired his <strong>strength</strong> and <strong>faith</strong> in his craft<br><br></p> <p>Later, at school, the teacher said, “<strong>Think</strong> about what makes life <strong>worth</strong> living<br><br>Is it <strong>truth</strong>, <strong>wealth</strong>, or <strong>growth</strong><br><br>" Sam raised his <strong>hand</strong> and said, "For me, it’s my <strong>brother</strong>, my <strong>father</strong>, and my <strong>mother</strong><br><br>They’re always there, no matter the <strong>month</strong> or the <strong>weather</strong><br><br>"</p> <p>In class, they read about the <strong>earth’s</strong> history and the <strong>death</strong> and <strong>birth</strong> of civilizations<br><br>Sam learned how <strong>strength</strong> and determination can change the world<br><br></p> <p>After school, he met his friends and said, "Hey, let’s play soccer<br><br>" They all agreed<br><br>"Who will be the <strong>goalkeeper</strong><br><br>" someone asked<br><br>"I will<br><br>" Sam said<br><br>He <strong>held</strong> his position well, showing his quick reflexes and strong <strong>faith</strong> in his team<br><br></p> <p>That evening, at dinner, Sam’s mother asked, “What did you learn today<br><br>” He replied, “We learned about the <strong>truth</strong> of the <strong>world</strong>, and how important it is to work <strong>together</strong> to make it a better place<br><br>”</p>
                 </div>
             </div>
             
-            <div id="spanish-18247" class="text-content" style="display: none;">
+            <div id="spanish-5944" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     No Spanish content found
                 </div>
             </div>
             
-            <div id="both-18247" class="text-content" style="display: none;">
+            <div id="both-5944" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p>Sam woke up early to help his <strong>mother</strong> with breakfast<br><br>"Are you feeling in good <strong>health</strong> today<br><br>" she asked<br><br>He nodded, though he felt a bit <strong>hot</strong><br><br>After breakfast, he said, "I’ll <strong>pack</strong> my bag and go for a run<br><br>It’s important to stay <strong>fit</strong>, not <strong>fat</strong><br><br>"</p> <p>As he ran, Sam noticed the changing <strong>weather</strong><br><br>There was a chance of <strong>rain</strong> or even <strong>hail</strong>, but he thought, “I’ll keep going<br><br>” He saw a <strong>hen</strong> in the <strong>sand</strong> by the <strong>path</strong>, and a bird in the <strong>air</strong>, singing a song that made him <strong>feel</strong> happy<br><br></p> <p>Sam stopped by the river, where he saw a man <strong>build</strong> a small boat<br><br>"I’ve <strong>built</strong> many boats like this," the man said<br><br>Sam admired his <strong>strength</strong> and <strong>faith</strong> in his craft<br><br></p> <p>Later, at school, the teacher said, “<strong>Think</strong> about what makes life <strong>worth</strong> living<br><br>Is it <strong>truth</strong>, <strong>wealth</strong>, or <strong>growth</strong><br><br>" Sam raised his <strong>hand</strong> and said, "For me, it’s my <strong>brother</strong>, my <strong>father</strong>, and my <strong>mother</strong><br><br>They’re always there, no matter the <strong>month</strong> or the <strong>weather</strong><br><br>"</p> <p>In class, they read about the <strong>earth’s</strong> history and the <strong>death</strong> and <strong>birth</strong> of civilizations<br><br>Sam learned how <strong>strength</strong> and determination can change the world<br><br></p> <p>After school, he met his friends and said, "Hey, let’s play soccer<br><br>" They all agreed<br><br>"Who will be the <strong>goalkeeper</strong><br><br>" someone asked<br><br>"I will<br><br>" Sam said<br><br>He <strong>held</strong> his position well, showing his quick reflexes and strong <strong>faith</strong> in his team<br><br></p> <p>That evening, at dinner, Sam’s mother asked, “What did you learn today<br><br>” He replied, “We learned about the <strong>truth</strong> of the <strong>world</strong>, and how important it is to work <strong>together</strong> to make it a better place<br><br>”</p>
@@ -2185,9 +2215,9 @@ Sí, promete.</p>
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/DoPresente.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=fgWeJQN1vhQSNFJcRKlBh8zCkwKnuPWWT7AiltwQaDC%2FehFM0FBKvTaFfEIgSJeZoUHgapoK3jyoX1mapTvSewo%2BFZ29N56UHv1t4KdnFoyn012OFYvjDpWz54LHU4kG3DH84knv1tlRFlyv34IVTQD%2By8fAtYZIi9HrVV16X%2BMARW5sIlNJzrhGaDGrMBCqtqcLjji57N3JbfYlst%2BKBmpyG58CnhMY%2BXUp%2BMq%2BPmZKRaRjkQ%2FBd%2FOi5pxLL9rtGZEGDdg6L7njaHSz3Dt%2BsfChFnradChQEIRNU9u4F5GO371VdCyFIOp177TQQIOX2Mcy8IzpmJGW%2B3Uqt1JGTQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleVisibility('table-96127', this)">Show Table</button>
+            <button class="boton" onclick="toggleVisibility('table-30874', this)">Show Table</button>
             
-            <div id="table-96127" class="texto">
+            <div id="table-30874" class="texto">
                 
     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
@@ -2669,9 +2699,9 @@ Sí, promete.</p>
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/DoCompletoPasado.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=ts%2BC7Jyk4ViDRlIqjSwHKvPdiYJF7mzW6FnNRFIk%2BSz59bspeIeNpbwXYtfb3f%2FnABa1mU9tqNxijgLVoZrDgfJzQmCF7jApisTPnitk1fSny3P6VX0n9XaYKvkvwqKBwwW2pHSvGnf1WC9fwgDMRncv1%2FUDXZJJx8DJPuG6TMar1LnIFi28LJBY1j%2FqBd%2FPkG%2FWit32XSFsf83%2Fo8X6m9g9Hvjg3CFNfo30uee57pay5pYgwxB1tQ5bbypSZ1uhVKmpF%2FjOl3FftxVf1Ix1UYLqkvV9tm3OCxejxQN3RYuIhsnHyI1xYDPG%2B9iEIKXPLYtTjo5D57ECry5x4WR8eQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleVisibility('table-48949', this)">Show Table</button>
+            <button class="boton" onclick="toggleVisibility('table-85394', this)">Show Table</button>
             
-            <div id="table-48949" class="texto">
+            <div id="table-85394" class="texto">
                 
     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
@@ -3153,9 +3183,9 @@ Sí, promete.</p>
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/English%20Reductores%20N%C3%BAmeros%20etc-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=hCWO%2FszljvWmRWyqA%2BnNa6OJ9cBTJPtzbgc6T95I52EP4sDByGN4t95eUagPk%2BXIDQnIqPElspm8syEAHlyg2JoWjGuA2Jl3F8ZXRHOYP0falrARRM9I%2BQ9oDGKr65zxdjJhx0AjPAZ6SDT8qR4L%2FHvhVk%2B%2Bg6e%2FSTrAu2%2BUXpqvOk1y2Pza72z07ysVLH6EgQCyUknCeOXzHYD5zByEfap2s8SQhQMWOzFEwBFxw93At6CvdjmKxWb%2FWw2wN8FnXPNjNguqYrU%2FlmY4XL%2BDURq6NYBdaCfwP9yUu57UOA6UNL20aCsbwv%2FzIEoU8ctUWZf7juuq0tRiIWs%2Btz43dQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleVisibility('table-25867', this)">Show Table</button>
+            <button class="boton" onclick="toggleVisibility('table-20042', this)">Show Table</button>
             
-            <div id="table-25867" class="texto">
+            <div id="table-20042" class="texto">
                 
     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
@@ -3704,11 +3734,10 @@ Sí, promete.</p>
             
             <div class="content-area" id="content-tests-escritos">
                 <div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#FE4980;line-height:1.2;font-size:1.8em;margin-top:1.5em;margin-bottom:1em"><strong>Tests Escritos</strong></div>
-<ol>
-<li>
-<div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Test DOES Fundamentación Indispensable</div>
-</li>
-</ol>
+            </div>
+            
+            <div class="content-area" id="content-test-does-fundamentación-indispensable">
+                <div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Test DOES Fundamentación Indispensable</div>
 <p><strong>1. Cómo harías esta pregunta en inglés: ¿Le gusta a ella comer?</strong><br />
 Does she like to eat?<br />
 Do they like to eat?<br />
@@ -3749,11 +3778,10 @@ Do they swim?</p>
 Do we travel every summer?<br />
 Do they travel every summer?<br />
 Does she travel every summer?</p>
-<ol>
-<li>
-<div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Test Pronombres 1 Fundamentación Indispensable</div>
-</li>
-</ol>
+            </div>
+            
+            <div class="content-area" id="content-test-pronombres-1-fundamentación-indispensable">
+                <div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Test Pronombres 1 Fundamentación Indispensable</div>
 <p><strong>1. “He” puede significar “él.”</strong></p>
 <ul>
 <li>True  </li>
@@ -3812,13 +3840,12 @@ Does she travel every summer?</p>
 <p><strong>10. “They are going with us” traduce “Ellos van con ustedes”</strong></p>
 <ol>
 <li>True  </li>
-<li>
-<p>False</p>
-</li>
-<li>
-<div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Test Pronombres 2 Fundamentación Indispensable</div>
-</li>
+<li>False</li>
 </ol>
+            </div>
+            
+            <div class="content-area" id="content-test-pronombres-2-fundamentación-indispensable">
+                <div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Test Pronombres 2 Fundamentación Indispensable</div>
 <p>1. ¿Qué significan en esta oración los pronombres en negrita?: I live in my house, I built it myself and it’s mine.</p>
 <ul>
 <li>Yo, mi, yo misma, mía  </li>
@@ -3887,13 +3914,12 @@ Does she travel every summer?</p>
 <ol>
 <li>You / your / them  </li>
 <li>You / your / your  </li>
-<li>
-<p>You / you / them</p>
-</li>
-<li>
-<div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Tests Números Fundamentación Indispensable</div>
-</li>
+<li>You / you / them</li>
 </ol>
+            </div>
+            
+            <div class="content-area" id="content-tests-números-fundamentación-indispensable">
+                <div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Tests Números Fundamentación Indispensable</div>
 <p><strong>1. Escoge el número que corresponde a: fifty-three</strong></p>
 <ul>
 <li>53  </li>
@@ -3944,11 +3970,10 @@ Two</p>
 Three<br />
 Thirty<br />
 Thirteen</p>
-<ol>
-<li>
-<div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Test DID Fundamentación Indispensable</div>
-</li>
-</ol>
+            </div>
+            
+            <div class="content-area" id="content-test-did-fundamentación-indispensable">
+                <div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Test DID Fundamentación Indispensable</div>
 <p><strong>1. Cómo harías esta pregunta en inglés: ¿Le gustó a ella comer?</strong><br />
 Did she like to eat?<br />
 Does she like to eat?<br />
@@ -6314,25 +6339,25 @@ Sí, promete.</p>
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%201-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=cxkpeQfE8J4NZjEIHkrHKzy0PWyr%2BPzg2D3DLi7IYp%2BR0gN8VmENFhwrmjITP6wTZphM3SRxikezUEzGlKC%2BzeSNDFJ9UIOIgBYxBGsYobyqCCOAm3x3kAnm75yOB%2BGlAZNigDsDmEKKLKF41USG7Sd1zhwMboSwFQhdslH5Vd2U%2FNuiQqRckmDaaScXKlhwgIM9R5ouJhcNGzTG509o%2FrEgPtlzdVBG7xIqkn5jSjd8ViR%2FrvV74sOEJ2VcN53c2eovO%2BiZPc9RgnC77PUAqwExgG7QiG7Alxj05XF8AkBGzJHEMMoHJItfmVKY6lyRXW42A3LHcN0qKGQWIo3WYQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-3471', 'spanish-3471', 'both-3471', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-3471', 'spanish-3471', 'both-3471', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-3471', 'spanish-3471', 'both-3471', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-55355', 'spanish-55355', 'both-55355', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-55355', 'spanish-55355', 'both-55355', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-55355', 'spanish-55355', 'both-55355', 'both', this)">Show Both</button>
             
-            <div id="english-3471" class="text-content" style="display: none;">
+            <div id="english-55355" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>What do you do in the morning<br><br></strong> ☕ I wake up at 6:30, take a shower, and eat breakfast<br><br>My sister goes to school at 7:00, and my dad drives to work<br><br>We all start the day early<br><br>Do you eat eggs or cereal<br><br>What time do you leave home<br><br>🌞<br /> <strong>¿Qué haces en la mañana<br><br></strong> ☕ Me despierto a las 6:30, me ducho y desayuno<br><br>Mi hermana va a la escuela a las 7:00 y mi papá conduce al trabajo<br><br>Todos comenzamos el día temprano<br><br>¿Comes huevos o cereal<br><br></p> <hr /> <p><strong>🗓️ Día 2 - Casa</strong>  </p>
                 </div>
             </div>
             
-            <div id="spanish-3471" class="text-content" style="display: none;">
+            <div id="spanish-55355" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     ¿A qué hora sales de casa
                 </div>
             </div>
             
-            <div id="both-3471" class="text-content" style="display: none;">
+            <div id="both-55355" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>What do you do in the morning<br><br></strong> ☕ I wake up at 6:30, take a shower, and eat breakfast<br><br>My sister goes to school at 7:00, and my dad drives to work<br><br>We all start the day early<br><br>Do you eat eggs or cereal<br><br>What time do you leave home<br><br>🌞<br /> <strong>¿Qué haces en la mañana<br><br></strong> ☕ Me despierto a las 6:30, me ducho y desayuno<br><br>Mi hermana va a la escuela a las 7:00 y mi papá conduce al trabajo<br><br>Todos comenzamos el día temprano<br><br>¿Comes huevos o cereal<br><br></p> <hr /> <p><strong>🗓️ Día 2 - Casa</strong>  </p>
@@ -6351,25 +6376,25 @@ Sí, promete.</p>
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%202-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=BqJe3BjMWkn2M2jiL1Vhjnw%2F3PW9zsQAyp6UBSYrg8gK0VSBGw%2B%2B6ZDicFmxOwVB7%2FWzOpEZzo457ou301diVpOaJMKByP2SjvFzCTzBp6VWyhPV3E9Nu4AA3puF432bh%2FYT6rb9hw4uIdkxJA9zBX0DWG6nefYR52rWzSKGzoYSCn6Q1OeFYovEBiuNpQrUJs7KOiSMWQ4NM%2BqWuJ8B1TCsGkHLBkKEXsmIdyhZiLP5vhjfOyChZ4ixOWHpimcdrKlG3fVCL6EnVS1EyUFHIUvH%2F9Pnntt4trzM%2FB8lHxZEcuxK%2Bc5Imu2b2OZmXANPQu0TEoxXLd6ooxcmtumIqQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-2961', 'spanish-2961', 'both-2961', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-2961', 'spanish-2961', 'both-2961', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-2961', 'spanish-2961', 'both-2961', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-6993', 'spanish-6993', 'both-6993', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-6993', 'spanish-6993', 'both-6993', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-6993', 'spanish-6993', 'both-6993', 'both', this)">Show Both</button>
             
-            <div id="english-2961" class="text-content" style="display: none;">
+            <div id="english-6993" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>I am happy today<br><br></strong> 😄 My brother is at school and my parents are at work<br><br>It is sunny outside, and the birds are singing<br><br>Are you at home or at school<br><br></p> <hr /> <p><strong>🗓️ Día 3 - Sentimiento</strong> </p>
                 </div>
             </div>
             
-            <div id="spanish-2961" class="text-content" style="display: none;">
+            <div id="spanish-6993" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     ☀️<br /> <strong>¡Estoy feliz hoy<br><br></strong> 😄 Mi hermano está en la escuela y mis padres están en el trabajo<br><br>Está soleado afuera y los pájaros están cantando<br><br>¿Estás en casa o en la escuela
                 </div>
             </div>
             
-            <div id="both-2961" class="text-content" style="display: none;">
+            <div id="both-6993" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>I am happy today<br><br></strong> 😄 My brother is at school and my parents are at work<br><br>It is sunny outside, and the birds are singing<br><br>Are you at home or at school<br><br></p> <hr /> <p><strong>🗓️ Día 3 - Sentimiento</strong> </p>
@@ -6388,25 +6413,25 @@ Sí, promete.</p>
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%203-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=Yed33DlBjj894gXQgj25KpilOfWbt8aGtXyZBNwwHXZxFM%2FLNSsjCAmW1nRTG5Ij7xQfn0BMyEOqcigdsYBtoM26eaQXwmgU14DmmJzt5JVxfvhBeKV3Y4QVETGVZZZIRGwO81GjavKTg2G1i25viBEbQu5SdcouSjqh8nUgBBLNtAwnUK11wwqd6FH0mw%2BJcsEzSm9UhDb6hPviHePQDidJjs5SdcbqDAJVULFJiE%2FR%2By%2FYqBtF%2FG2LxIzFnMyaQdQfdz6GCIGibvKMQdArNI6AKs%2Fq2IVcSCayfp2VYhZox9NXZiAqpvE6Yq5EL3Q8tQz2NqCGmvCjlrsZUCGvSw%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-28460', 'spanish-28460', 'both-28460', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-28460', 'spanish-28460', 'both-28460', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-28460', 'spanish-28460', 'both-28460', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-28020', 'spanish-28020', 'both-28020', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-28020', 'spanish-28020', 'both-28020', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-28020', 'spanish-28020', 'both-28020', 'both', this)">Show Both</button>
             
-            <div id="english-28460" class="text-content" style="display: none;">
+            <div id="english-28020" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>I am not tired, but my friend is<br><br></strong> 😴 He is not very active in the morning<br><br>We are not busy today<br><br>What about you<br><br>Are you tired or awake<br><br>😪<br /> <strong>No estoy cansado, pero mi amigo sí<br><br></strong> 😴 Él no está muy activo en la mañana<br><br>No estamos ocupados hoy<br><br>¿Y tú<br><br>¿Estás cansado o despierto<br><br></p> <hr /> <p><strong>🗓️ Día 4 - Mi mamá</strong>  </p>
                 </div>
             </div>
             
-            <div id="spanish-28460" class="text-content" style="display: none;">
+            <div id="spanish-28020" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     No Spanish content found
                 </div>
             </div>
             
-            <div id="both-28460" class="text-content" style="display: none;">
+            <div id="both-28020" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>I am not tired, but my friend is<br><br></strong> 😴 He is not very active in the morning<br><br>We are not busy today<br><br>What about you<br><br>Are you tired or awake<br><br>😪<br /> <strong>No estoy cansado, pero mi amigo sí<br><br></strong> 😴 Él no está muy activo en la mañana<br><br>No estamos ocupados hoy<br><br>¿Y tú<br><br>¿Estás cansado o despierto<br><br></p> <hr /> <p><strong>🗓️ Día 4 - Mi mamá</strong>  </p>
@@ -6425,25 +6450,25 @@ Sí, promete.</p>
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%204-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=q%2Bc5c48lzu1n2lB%2FP%2Ff1HMTdgada%2F2uTxb6q1RyEd41aHjZpPyGA0j6a1CE%2BX1wO97II7zRSWL27G%2FbmBRVp%2FwOpHM39JeOTWLqdTKgEO3LMv0AlF0v0NGgnHOsgBPo81HdbHWXtPEIO7sQ9uvVJ8aYqVyXyn2Qt%2FX5gsuYm5Cbr4zgI1TOk2OaQOPb6wL0CVeMtR2Zqnssxo8dKxkOM94fft46H3WrHQgq9l%2FeNau3ZvduhweUeW0wucCOsQYDda4iZncT31nAB%2FLNCNcZHO768SezTvnCZ2AZ060MpIuDWeNULtgsAnaxBgrMj46Id41eTeJho3K1T10rBVhGyYg%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-49083', 'spanish-49083', 'both-49083', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-49083', 'spanish-49083', 'both-49083', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-49083', 'spanish-49083', 'both-49083', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-43633', 'spanish-43633', 'both-43633', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-43633', 'spanish-43633', 'both-43633', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-43633', 'spanish-43633', 'both-43633', 'both', this)">Show Both</button>
             
-            <div id="english-49083" class="text-content" style="display: none;">
+            <div id="english-43633" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>My mom works in an office<br><br></strong> 💼 She drinks tea, not coffee<br><br>My brother plays soccer every weekend<br><br>What does your dad do<br><br>Does your sister play any sports<br><br>⚽<br /> <strong>Mi mamá trabaja en una oficina<br><br></strong> 💼 Ella toma té, no café<br><br>Mi hermano juega fútbol todos los fines de semana<br><br>¿Tu hermana practica algún deporte<br><br></p> <hr /> <p><strong>🗓️ Día 5 - ¿Qué hay<br><br></strong>  </p>
                 </div>
             </div>
             
-            <div id="spanish-49083" class="text-content" style="display: none;">
+            <div id="spanish-43633" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     ¿Qué hace tu papá
                 </div>
             </div>
             
-            <div id="both-49083" class="text-content" style="display: none;">
+            <div id="both-43633" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>My mom works in an office<br><br></strong> 💼 She drinks tea, not coffee<br><br>My brother plays soccer every weekend<br><br>What does your dad do<br><br>Does your sister play any sports<br><br>⚽<br /> <strong>Mi mamá trabaja en una oficina<br><br></strong> 💼 Ella toma té, no café<br><br>Mi hermano juega fútbol todos los fines de semana<br><br>¿Tu hermana practica algún deporte<br><br></p> <hr /> <p><strong>🗓️ Día 5 - ¿Qué hay<br><br></strong>  </p>
@@ -6462,25 +6487,25 @@ Sí, promete.</p>
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%205-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=AxU5XoZXo4if%2BqBfj%2BD1WjnuIrYsevqVlRg4F37l0GrcbmEhi3No2noSInik0pw5rr%2B%2FjmB%2FHOBtkamW8u6qxE4O96uIK09kuTGKkIDMrBD1BBKikKKMufMRXp%2BcbxVs70ggC7CjLrzvjb9hXg8mMiJ%2FnRtr7Xm6EuaxWi7h4werzIT1BkqWHmouGKuF53HHErvy0LfQIR2iDIEjGdes8HZW%2F%2BFDrMbS3m63e%2FLerp10niUp2iQOsSQzcxDoKnxzt4zlg0NHHphHi8GBd5WAahS8iVTymW3SKwsHZ80ISGcodFQIaEIFw0AoxZhHe4vbe%2BctC6U1PSclu4vP%2FO9xqQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-2221', 'spanish-2221', 'both-2221', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-2221', 'spanish-2221', 'both-2221', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-2221', 'spanish-2221', 'both-2221', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-43289', 'spanish-43289', 'both-43289', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-43289', 'spanish-43289', 'both-43289', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-43289', 'spanish-43289', 'both-43289', 'both', this)">Show Both</button>
             
-            <div id="english-2221" class="text-content" style="display: none;">
+            <div id="english-43289" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>There is a cat on the sofa<br><br></strong> 😺 There are two books on the table<br><br>Is there a computer in your room<br><br>Are there posters on your wall<br><br>🎨<br /> <strong>Hay un gato en el sofá<br><br></strong> 😺 Hay dos libros sobre la mesa<br><br>¿Hay una computadora en tu habitación<br><br>¿Hay pósteres en tu pared<br><br></p> <hr /> <p><strong>🗓️ Día 6 - Pasatiempos</strong>  </p>
                 </div>
             </div>
             
-            <div id="spanish-2221" class="text-content" style="display: none;">
+            <div id="spanish-43289" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     No Spanish content found
                 </div>
             </div>
             
-            <div id="both-2221" class="text-content" style="display: none;">
+            <div id="both-43289" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>There is a cat on the sofa<br><br></strong> 😺 There are two books on the table<br><br>Is there a computer in your room<br><br>Are there posters on your wall<br><br>🎨<br /> <strong>Hay un gato en el sofá<br><br></strong> 😺 Hay dos libros sobre la mesa<br><br>¿Hay una computadora en tu habitación<br><br>¿Hay pósteres en tu pared<br><br></p> <hr /> <p><strong>🗓️ Día 6 - Pasatiempos</strong>  </p>
@@ -6499,25 +6524,25 @@ Sí, promete.</p>
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%206-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=eNnrHkCfglBFbX2xaFDNxWzSp9kaurhcJfdTsu%2Flpkc1XJAtQaKWSVkO9Q3A0kxgvSSM7g2fI%2FiGBfTLxjxFz4VVFM72s301ZJK5kUdTd06KYc8Ec77p%2BCJ%2BOwMPYZxl25%2F5u6aL3xDmBLaCpnJzzPirw3RlVrZZW9wjAncVzNzhPbABA4qisMNDjg1RQ1Kg7BuIpfI%2FsrqMrAnOh8rD0J9x3n3mO5bKt0yuulE%2FwZ7XBOjTPacjYwUgWvPcgTpOamS51tZTgCidbLLnCXRAR%2BHu0245BccpvkjkpKhNLHAGTsH%2B7GaRiJ4OYTqCelSIRCmVIJhpC735YdvsZUPedw%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-38459', 'spanish-38459', 'both-38459', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-38459', 'spanish-38459', 'both-38459', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-38459', 'spanish-38459', 'both-38459', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-42599', 'spanish-42599', 'both-42599', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-42599', 'spanish-42599', 'both-42599', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-42599', 'spanish-42599', 'both-42599', 'both', this)">Show Both</button>
             
-            <div id="english-38459" class="text-content" style="display: none;">
+            <div id="english-42599" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>I can swim and ride a bike<br><br></strong> 🏊 My sister can dance, but she can't sing<br><br>Can you play an instrument<br><br>What can your friends do<br><br>🎶<br /> <strong>Puedo nadar y andar en bicicleta<br><br></strong> 🏊 Mi hermana puede bailar, pero no puede cantar<br><br>¿Puedes tocar un instrumento<br><br></p> <hr /> <p><strong>🗓️ Día 7 - Hobbies</strong>  </p>
                 </div>
             </div>
             
-            <div id="spanish-38459" class="text-content" style="display: none;">
+            <div id="spanish-42599" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     ¿Qué pueden hacer tus amigos
                 </div>
             </div>
             
-            <div id="both-38459" class="text-content" style="display: none;">
+            <div id="both-42599" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>I can swim and ride a bike<br><br></strong> 🏊 My sister can dance, but she can't sing<br><br>Can you play an instrument<br><br>What can your friends do<br><br>🎶<br /> <strong>Puedo nadar y andar en bicicleta<br><br></strong> 🏊 Mi hermana puede bailar, pero no puede cantar<br><br>¿Puedes tocar un instrumento<br><br></p> <hr /> <p><strong>🗓️ Día 7 - Hobbies</strong>  </p>
@@ -6536,25 +6561,25 @@ Sí, promete.</p>
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%207-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=N45EyYprjrK2q%2BAm39P%2FXuTWaLRaiIeSqGoUOpN3zMMicsh0TuCW194zk8pgza%2FUk8jpTyOdbYDf7M6DYTwC4wTVFyrPspkk3DqDXa4Sp5vYuKUnIwhSWB1kCfh%2FiqLTSKUFFZKsM%2Bu4lkJF9rVV7%2B6wNlbhURJTdxSWXsL6eDZ0PiceT1kIRz4Px4GrIZbqutcKSUQ9GW%2Brr6Vg%2FuVUOS%2Fdkd6aqaEEKjr02UVqqmU2jnSS90f7jHKSGZmQIfTuqXtu1O66dunKlvNjA5crlcQfRnLbyZVNpn%2FqsiersMxW6s0%2BRKe9RMMEi%2FVG2BWlPLxzgzztSYb%2FTs8jjGIYYg%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-79869', 'spanish-79869', 'both-79869', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-79869', 'spanish-79869', 'both-79869', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-79869', 'spanish-79869', 'both-79869', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-21672', 'spanish-21672', 'both-21672', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-21672', 'spanish-21672', 'both-21672', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-21672', 'spanish-21672', 'both-21672', 'both', this)">Show Both</button>
             
-            <div id="english-79869" class="text-content" style="display: none;">
+            <div id="english-21672" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>I have a dog<br><br></strong> 🐶 My brother has a video game<br><br>We have fun on weekends<br><br>Do you have a pet<br><br>Does your friend have a bike<br><br>🚲<br /> <strong>Tengo un perro<br><br></strong> 🐶 Mi hermano tiene un videojuego<br><br>Nos divertimos los fines de semana<br><br>¿Tienes una mascota<br><br></p> <hr />
                 </div>
             </div>
             
-            <div id="spanish-79869" class="text-content" style="display: none;">
+            <div id="spanish-21672" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     ¿Tu amigo tiene una bicicleta
                 </div>
             </div>
             
-            <div id="both-79869" class="text-content" style="display: none;">
+            <div id="both-21672" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>I have a dog<br><br></strong> 🐶 My brother has a video game<br><br>We have fun on weekends<br><br>Do you have a pet<br><br>Does your friend have a bike<br><br>🚲<br /> <strong>Tengo un perro<br><br></strong> 🐶 Mi hermano tiene un videojuego<br><br>Nos divertimos los fines de semana<br><br>¿Tienes una mascota<br><br></p> <hr />
@@ -6566,33 +6591,32 @@ Sí, promete.</p>
             </div>
         </div>
     </div><div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3"><strong>Audios Generales</strong>: Audio de Pronunciación</div>
-<p>🎧👱🏽‍♂️ Voz Humana Hombre:</p>
 
     <div class="dia">
-        <p class="titulo-dia">🎧👱🏽‍♂️ Voz Humana Hombre:</p>
+        <p class="titulo-dia">Audio Section</p>
         <div class="audio-container">
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://firebasestorage.googleapis.com/v0/b/chocolearn-f05e5.firebasestorage.app/o/audio%2FLectura%20de%20Pronunciaci%C3%B3n%20-%20Hombre-esv2-90p-bg-10p.mp3?alt=media&amp;token=6df2cef9-c40e-4dce-80d6-4b6adc4931b5" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-82870', 'spanish-82870', 'both-82870', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-82870', 'spanish-82870', 'both-82870', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-82870', 'spanish-82870', 'both-82870', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-98293', 'spanish-98293', 'both-98293', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-98293', 'spanish-98293', 'both-98293', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-98293', 'spanish-98293', 'both-98293', 'both', this)">Show Both</button>
             
-            <div id="english-82870" class="text-content" style="display: none;">
+            <div id="english-98293" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p>Sam woke up early to help his <strong>mother</strong> with breakfast<br><br>"Are you feeling in good <strong>health</strong> today<br><br>" she asked<br><br>He nodded, though he felt a bit <strong>hot</strong><br><br>After breakfast, he said, "I’ll <strong>pack</strong> my bag and go for a run<br><br>It’s important to stay <strong>fit</strong>, not <strong>fat</strong><br><br>"</p> <p>As he ran, Sam noticed the changing <strong>weather</strong><br><br>There was a chance of <strong>rain</strong> or even <strong>hail</strong>, but he thought, “I’ll keep going<br><br>” He saw a <strong>hen</strong> in the <strong>sand</strong> by the <strong>path</strong>, and a bird in the <strong>air</strong>, singing a song that made him <strong>feel</strong> happy<br><br></p> <p>Sam stopped by the river, where he saw a man <strong>build</strong> a small boat<br><br>"I’ve <strong>built</strong> many boats like this," the man said<br><br>Sam admired his <strong>strength</strong> and <strong>faith</strong> in his craft<br><br></p> <p>Later, at school, the teacher said, “<strong>Think</strong> about what makes life <strong>worth</strong> living<br><br>Is it <strong>truth</strong>, <strong>wealth</strong>, or <strong>growth</strong><br><br>" Sam raised his <strong>hand</strong> and said, "For me, it’s my <strong>brother</strong>, my <strong>father</strong>, and my <strong>mother</strong><br><br>They’re always there, no matter the <strong>month</strong> or the <strong>weather</strong><br><br>"</p> <p>In class, they read about the <strong>earth’s</strong> history and the <strong>death</strong> and <strong>birth</strong> of civilizations<br><br>Sam learned how <strong>strength</strong> and determination can change the world<br><br></p> <p>After school, he met his friends and said, "Hey, let’s play soccer<br><br>" They all agreed<br><br>"Who will be the <strong>goalkeeper</strong><br><br>" someone asked<br><br>"I will<br><br>" Sam said<br><br>He <strong>held</strong> his position well, showing his quick reflexes and strong <strong>faith</strong> in his team<br><br></p> <p>That evening, at dinner, Sam’s mother asked, “What did you learn today<br><br>” He replied, “We learned about the <strong>truth</strong> of the <strong>world</strong>, and how important it is to work <strong>together</strong> to make it a better place<br><br>”</p>
                 </div>
             </div>
             
-            <div id="spanish-82870" class="text-content" style="display: none;">
+            <div id="spanish-98293" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     No Spanish content found
                 </div>
             </div>
             
-            <div id="both-82870" class="text-content" style="display: none;">
+            <div id="both-98293" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p>Sam woke up early to help his <strong>mother</strong> with breakfast<br><br>"Are you feeling in good <strong>health</strong> today<br><br>" she asked<br><br>He nodded, though he felt a bit <strong>hot</strong><br><br>After breakfast, he said, "I’ll <strong>pack</strong> my bag and go for a run<br><br>It’s important to stay <strong>fit</strong>, not <strong>fat</strong><br><br>"</p> <p>As he ran, Sam noticed the changing <strong>weather</strong><br><br>There was a chance of <strong>rain</strong> or even <strong>hail</strong>, but he thought, “I’ll keep going<br><br>” He saw a <strong>hen</strong> in the <strong>sand</strong> by the <strong>path</strong>, and a bird in the <strong>air</strong>, singing a song that made him <strong>feel</strong> happy<br><br></p> <p>Sam stopped by the river, where he saw a man <strong>build</strong> a small boat<br><br>"I’ve <strong>built</strong> many boats like this," the man said<br><br>Sam admired his <strong>strength</strong> and <strong>faith</strong> in his craft<br><br></p> <p>Later, at school, the teacher said, “<strong>Think</strong> about what makes life <strong>worth</strong> living<br><br>Is it <strong>truth</strong>, <strong>wealth</strong>, or <strong>growth</strong><br><br>" Sam raised his <strong>hand</strong> and said, "For me, it’s my <strong>brother</strong>, my <strong>father</strong>, and my <strong>mother</strong><br><br>They’re always there, no matter the <strong>month</strong> or the <strong>weather</strong><br><br>"</p> <p>In class, they read about the <strong>earth’s</strong> history and the <strong>death</strong> and <strong>birth</strong> of civilizations<br><br>Sam learned how <strong>strength</strong> and determination can change the world<br><br></p> <p>After school, he met his friends and said, "Hey, let’s play soccer<br><br>" They all agreed<br><br>"Who will be the <strong>goalkeeper</strong><br><br>" someone asked<br><br>"I will<br><br>" Sam said<br><br>He <strong>held</strong> his position well, showing his quick reflexes and strong <strong>faith</strong> in his team<br><br></p> <p>That evening, at dinner, Sam’s mother asked, “What did you learn today<br><br>” He replied, “We learned about the <strong>truth</strong> of the <strong>world</strong>, and how important it is to work <strong>together</strong> to make it a better place<br><br>”</p>
@@ -6611,9 +6635,9 @@ Sí, promete.</p>
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/DoPresente.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=fgWeJQN1vhQSNFJcRKlBh8zCkwKnuPWWT7AiltwQaDC%2FehFM0FBKvTaFfEIgSJeZoUHgapoK3jyoX1mapTvSewo%2BFZ29N56UHv1t4KdnFoyn012OFYvjDpWz54LHU4kG3DH84knv1tlRFlyv34IVTQD%2By8fAtYZIi9HrVV16X%2BMARW5sIlNJzrhGaDGrMBCqtqcLjji57N3JbfYlst%2BKBmpyG58CnhMY%2BXUp%2BMq%2BPmZKRaRjkQ%2FBd%2FOi5pxLL9rtGZEGDdg6L7njaHSz3Dt%2BsfChFnradChQEIRNU9u4F5GO371VdCyFIOp177TQQIOX2Mcy8IzpmJGW%2B3Uqt1JGTQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleVisibility('table-82977', this)">Show Table</button>
+            <button class="boton" onclick="toggleVisibility('table-93779', this)">Show Table</button>
             
-            <div id="table-82977" class="texto">
+            <div id="table-93779" class="texto">
                 
     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
@@ -7091,9 +7115,9 @@ Sí, promete.</p>
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/DoCompletoPasado.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=ts%2BC7Jyk4ViDRlIqjSwHKvPdiYJF7mzW6FnNRFIk%2BSz59bspeIeNpbwXYtfb3f%2FnABa1mU9tqNxijgLVoZrDgfJzQmCF7jApisTPnitk1fSny3P6VX0n9XaYKvkvwqKBwwW2pHSvGnf1WC9fwgDMRncv1%2FUDXZJJx8DJPuG6TMar1LnIFi28LJBY1j%2FqBd%2FPkG%2FWit32XSFsf83%2Fo8X6m9g9Hvjg3CFNfo30uee57pay5pYgwxB1tQ5bbypSZ1uhVKmpF%2FjOl3FftxVf1Ix1UYLqkvV9tm3OCxejxQN3RYuIhsnHyI1xYDPG%2B9iEIKXPLYtTjo5D57ECry5x4WR8eQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleVisibility('table-13033', this)">Show Table</button>
+            <button class="boton" onclick="toggleVisibility('table-33141', this)">Show Table</button>
             
-            <div id="table-13033" class="texto">
+            <div id="table-33141" class="texto">
                 
     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
@@ -7571,9 +7595,9 @@ Sí, promete.</p>
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/English%20Reductores%20N%C3%BAmeros%20etc-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=hCWO%2FszljvWmRWyqA%2BnNa6OJ9cBTJPtzbgc6T95I52EP4sDByGN4t95eUagPk%2BXIDQnIqPElspm8syEAHlyg2JoWjGuA2Jl3F8ZXRHOYP0falrARRM9I%2BQ9oDGKr65zxdjJhx0AjPAZ6SDT8qR4L%2FHvhVk%2B%2Bg6e%2FSTrAu2%2BUXpqvOk1y2Pza72z07ysVLH6EgQCyUknCeOXzHYD5zByEfap2s8SQhQMWOzFEwBFxw93At6CvdjmKxWb%2FWw2wN8FnXPNjNguqYrU%2FlmY4XL%2BDURq6NYBdaCfwP9yUu57UOA6UNL20aCsbwv%2FzIEoU8ctUWZf7juuq0tRiIWs%2Btz43dQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleVisibility('table-27962', this)">Show Table</button>
+            <button class="boton" onclick="toggleVisibility('table-56508', this)">Show Table</button>
             
-            <div id="table-27962" class="texto">
+            <div id="table-56508" class="texto">
                 
     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
@@ -8053,12 +8077,7 @@ Sí, promete.</p><div style="margin:0em 1em;font-family:Poppins, sans-serif;colo
 <li>
 <p>school</p>
 </li>
-</ol><div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#FE4980;line-height:1.2;font-size:1.8em;margin-top:1.5em;margin-bottom:1em"><strong>Tests Escritos</strong></div>
-<ol>
-<li>
-<div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Test DOES Fundamentación Indispensable</div>
-</li>
-</ol>
+</ol><div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#FE4980;line-height:1.2;font-size:1.8em;margin-top:1.5em;margin-bottom:1em"><strong>Tests Escritos</strong></div><div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Test DOES Fundamentación Indispensable</div>
 <p><strong>1. Cómo harías esta pregunta en inglés: ¿Le gusta a ella comer?</strong><br />
 Does she like to eat?<br />
 Do they like to eat?<br />
@@ -8098,12 +8117,7 @@ Do they swim?</p>
 <p><strong>10. Convierte esta frase en pregunta: Nosotros viajamos cada verano.</strong><br />
 Do we travel every summer?<br />
 Do they travel every summer?<br />
-Does she travel every summer?</p>
-<ol>
-<li>
-<div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Test Pronombres 1 Fundamentación Indispensable</div>
-</li>
-</ol>
+Does she travel every summer?</p><div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Test Pronombres 1 Fundamentación Indispensable</div>
 <p><strong>1. “He” puede significar “él.”</strong></p>
 <ul>
 <li>True  </li>
@@ -8162,13 +8176,8 @@ Does she travel every summer?</p>
 <p><strong>10. “They are going with us” traduce “Ellos van con ustedes”</strong></p>
 <ol>
 <li>True  </li>
-<li>
-<p>False</p>
-</li>
-<li>
-<div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Test Pronombres 2 Fundamentación Indispensable</div>
-</li>
-</ol>
+<li>False</li>
+</ol><div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Test Pronombres 2 Fundamentación Indispensable</div>
 <p>1. ¿Qué significan en esta oración los pronombres en negrita?: I live in my house, I built it myself and it’s mine.</p>
 <ul>
 <li>Yo, mi, yo misma, mía  </li>
@@ -8237,13 +8246,8 @@ Does she travel every summer?</p>
 <ol>
 <li>You / your / them  </li>
 <li>You / your / your  </li>
-<li>
-<p>You / you / them</p>
-</li>
-<li>
-<div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Tests Números Fundamentación Indispensable</div>
-</li>
-</ol>
+<li>You / you / them</li>
+</ol><div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Tests Números Fundamentación Indispensable</div>
 <p><strong>1. Escoge el número que corresponde a: fifty-three</strong></p>
 <ul>
 <li>53  </li>
@@ -8293,12 +8297,7 @@ Two</p>
 <p><strong>10. Escoge el número que corresponde a: 3</strong><br />
 Three<br />
 Thirty<br />
-Thirteen</p>
-<ol>
-<li>
-<div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Test DID Fundamentación Indispensable</div>
-</li>
-</ol>
+Thirteen</p><div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Test DID Fundamentación Indispensable</div>
 <p><strong>1. Cómo harías esta pregunta en inglés: ¿Le gustó a ella comer?</strong><br />
 Did she like to eat?<br />
 Does she like to eat?<br />
@@ -8353,25 +8352,25 @@ Do we travel every summer?</p><div style="margin:0em 1em;font-family:Poppins, sa
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%201-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=cxkpeQfE8J4NZjEIHkrHKzy0PWyr%2BPzg2D3DLi7IYp%2BR0gN8VmENFhwrmjITP6wTZphM3SRxikezUEzGlKC%2BzeSNDFJ9UIOIgBYxBGsYobyqCCOAm3x3kAnm75yOB%2BGlAZNigDsDmEKKLKF41USG7Sd1zhwMboSwFQhdslH5Vd2U%2FNuiQqRckmDaaScXKlhwgIM9R5ouJhcNGzTG509o%2FrEgPtlzdVBG7xIqkn5jSjd8ViR%2FrvV74sOEJ2VcN53c2eovO%2BiZPc9RgnC77PUAqwExgG7QiG7Alxj05XF8AkBGzJHEMMoHJItfmVKY6lyRXW42A3LHcN0qKGQWIo3WYQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-27831', 'spanish-27831', 'both-27831', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-27831', 'spanish-27831', 'both-27831', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-27831', 'spanish-27831', 'both-27831', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-22784', 'spanish-22784', 'both-22784', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-22784', 'spanish-22784', 'both-22784', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-22784', 'spanish-22784', 'both-22784', 'both', this)">Show Both</button>
             
-            <div id="english-27831" class="text-content" style="display: none;">
+            <div id="english-22784" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>What do you do in the morning<br><br></strong> ☕ I wake up at 6:30, take a shower, and eat breakfast<br><br>My sister goes to school at 7:00, and my dad drives to work<br><br>We all start the day early<br><br>Do you eat eggs or cereal<br><br>What time do you leave home<br><br>🌞<br /> <strong>¿Qué haces en la mañana<br><br></strong> ☕ Me despierto a las 6:30, me ducho y desayuno<br><br>Mi hermana va a la escuela a las 7:00 y mi papá conduce al trabajo<br><br>Todos comenzamos el día temprano<br><br>¿Comes huevos o cereal<br><br></p> <hr /> <p><strong>🗓️ Día 2 - Casa</strong>  </p>
                 </div>
             </div>
             
-            <div id="spanish-27831" class="text-content" style="display: none;">
+            <div id="spanish-22784" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     ¿A qué hora sales de casa
                 </div>
             </div>
             
-            <div id="both-27831" class="text-content" style="display: none;">
+            <div id="both-22784" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>What do you do in the morning<br><br></strong> ☕ I wake up at 6:30, take a shower, and eat breakfast<br><br>My sister goes to school at 7:00, and my dad drives to work<br><br>We all start the day early<br><br>Do you eat eggs or cereal<br><br>What time do you leave home<br><br>🌞<br /> <strong>¿Qué haces en la mañana<br><br></strong> ☕ Me despierto a las 6:30, me ducho y desayuno<br><br>Mi hermana va a la escuela a las 7:00 y mi papá conduce al trabajo<br><br>Todos comenzamos el día temprano<br><br>¿Comes huevos o cereal<br><br></p> <hr /> <p><strong>🗓️ Día 2 - Casa</strong>  </p>
@@ -8390,25 +8389,25 @@ Do we travel every summer?</p><div style="margin:0em 1em;font-family:Poppins, sa
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%202-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=BqJe3BjMWkn2M2jiL1Vhjnw%2F3PW9zsQAyp6UBSYrg8gK0VSBGw%2B%2B6ZDicFmxOwVB7%2FWzOpEZzo457ou301diVpOaJMKByP2SjvFzCTzBp6VWyhPV3E9Nu4AA3puF432bh%2FYT6rb9hw4uIdkxJA9zBX0DWG6nefYR52rWzSKGzoYSCn6Q1OeFYovEBiuNpQrUJs7KOiSMWQ4NM%2BqWuJ8B1TCsGkHLBkKEXsmIdyhZiLP5vhjfOyChZ4ixOWHpimcdrKlG3fVCL6EnVS1EyUFHIUvH%2F9Pnntt4trzM%2FB8lHxZEcuxK%2Bc5Imu2b2OZmXANPQu0TEoxXLd6ooxcmtumIqQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-8571', 'spanish-8571', 'both-8571', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-8571', 'spanish-8571', 'both-8571', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-8571', 'spanish-8571', 'both-8571', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-30649', 'spanish-30649', 'both-30649', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-30649', 'spanish-30649', 'both-30649', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-30649', 'spanish-30649', 'both-30649', 'both', this)">Show Both</button>
             
-            <div id="english-8571" class="text-content" style="display: none;">
+            <div id="english-30649" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>I am happy today<br><br></strong> 😄 My brother is at school and my parents are at work<br><br>It is sunny outside, and the birds are singing<br><br>Are you at home or at school<br><br></p> <hr /> <p><strong>🗓️ Día 3 - Sentimiento</strong> </p>
                 </div>
             </div>
             
-            <div id="spanish-8571" class="text-content" style="display: none;">
+            <div id="spanish-30649" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     ☀️<br /> <strong>¡Estoy feliz hoy<br><br></strong> 😄 Mi hermano está en la escuela y mis padres están en el trabajo<br><br>Está soleado afuera y los pájaros están cantando<br><br>¿Estás en casa o en la escuela
                 </div>
             </div>
             
-            <div id="both-8571" class="text-content" style="display: none;">
+            <div id="both-30649" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>I am happy today<br><br></strong> 😄 My brother is at school and my parents are at work<br><br>It is sunny outside, and the birds are singing<br><br>Are you at home or at school<br><br></p> <hr /> <p><strong>🗓️ Día 3 - Sentimiento</strong> </p>
@@ -8427,25 +8426,25 @@ Do we travel every summer?</p><div style="margin:0em 1em;font-family:Poppins, sa
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%203-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=Yed33DlBjj894gXQgj25KpilOfWbt8aGtXyZBNwwHXZxFM%2FLNSsjCAmW1nRTG5Ij7xQfn0BMyEOqcigdsYBtoM26eaQXwmgU14DmmJzt5JVxfvhBeKV3Y4QVETGVZZZIRGwO81GjavKTg2G1i25viBEbQu5SdcouSjqh8nUgBBLNtAwnUK11wwqd6FH0mw%2BJcsEzSm9UhDb6hPviHePQDidJjs5SdcbqDAJVULFJiE%2FR%2By%2FYqBtF%2FG2LxIzFnMyaQdQfdz6GCIGibvKMQdArNI6AKs%2Fq2IVcSCayfp2VYhZox9NXZiAqpvE6Yq5EL3Q8tQz2NqCGmvCjlrsZUCGvSw%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-72141', 'spanish-72141', 'both-72141', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-72141', 'spanish-72141', 'both-72141', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-72141', 'spanish-72141', 'both-72141', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-7574', 'spanish-7574', 'both-7574', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-7574', 'spanish-7574', 'both-7574', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-7574', 'spanish-7574', 'both-7574', 'both', this)">Show Both</button>
             
-            <div id="english-72141" class="text-content" style="display: none;">
+            <div id="english-7574" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>I am not tired, but my friend is<br><br></strong> 😴 He is not very active in the morning<br><br>We are not busy today<br><br>What about you<br><br>Are you tired or awake<br><br>😪<br /> <strong>No estoy cansado, pero mi amigo sí<br><br></strong> 😴 Él no está muy activo en la mañana<br><br>No estamos ocupados hoy<br><br>¿Y tú<br><br>¿Estás cansado o despierto<br><br></p> <hr /> <p><strong>🗓️ Día 4 - Mi mamá</strong>  </p>
                 </div>
             </div>
             
-            <div id="spanish-72141" class="text-content" style="display: none;">
+            <div id="spanish-7574" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     No Spanish content found
                 </div>
             </div>
             
-            <div id="both-72141" class="text-content" style="display: none;">
+            <div id="both-7574" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>I am not tired, but my friend is<br><br></strong> 😴 He is not very active in the morning<br><br>We are not busy today<br><br>What about you<br><br>Are you tired or awake<br><br>😪<br /> <strong>No estoy cansado, pero mi amigo sí<br><br></strong> 😴 Él no está muy activo en la mañana<br><br>No estamos ocupados hoy<br><br>¿Y tú<br><br>¿Estás cansado o despierto<br><br></p> <hr /> <p><strong>🗓️ Día 4 - Mi mamá</strong>  </p>
@@ -8464,25 +8463,25 @@ Do we travel every summer?</p><div style="margin:0em 1em;font-family:Poppins, sa
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%204-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=q%2Bc5c48lzu1n2lB%2FP%2Ff1HMTdgada%2F2uTxb6q1RyEd41aHjZpPyGA0j6a1CE%2BX1wO97II7zRSWL27G%2FbmBRVp%2FwOpHM39JeOTWLqdTKgEO3LMv0AlF0v0NGgnHOsgBPo81HdbHWXtPEIO7sQ9uvVJ8aYqVyXyn2Qt%2FX5gsuYm5Cbr4zgI1TOk2OaQOPb6wL0CVeMtR2Zqnssxo8dKxkOM94fft46H3WrHQgq9l%2FeNau3ZvduhweUeW0wucCOsQYDda4iZncT31nAB%2FLNCNcZHO768SezTvnCZ2AZ060MpIuDWeNULtgsAnaxBgrMj46Id41eTeJho3K1T10rBVhGyYg%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-24119', 'spanish-24119', 'both-24119', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-24119', 'spanish-24119', 'both-24119', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-24119', 'spanish-24119', 'both-24119', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-47446', 'spanish-47446', 'both-47446', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-47446', 'spanish-47446', 'both-47446', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-47446', 'spanish-47446', 'both-47446', 'both', this)">Show Both</button>
             
-            <div id="english-24119" class="text-content" style="display: none;">
+            <div id="english-47446" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>My mom works in an office<br><br></strong> 💼 She drinks tea, not coffee<br><br>My brother plays soccer every weekend<br><br>What does your dad do<br><br>Does your sister play any sports<br><br>⚽<br /> <strong>Mi mamá trabaja en una oficina<br><br></strong> 💼 Ella toma té, no café<br><br>Mi hermano juega fútbol todos los fines de semana<br><br>¿Tu hermana practica algún deporte<br><br></p> <hr /> <p><strong>🗓️ Día 5 - ¿Qué hay<br><br></strong>  </p>
                 </div>
             </div>
             
-            <div id="spanish-24119" class="text-content" style="display: none;">
+            <div id="spanish-47446" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     ¿Qué hace tu papá
                 </div>
             </div>
             
-            <div id="both-24119" class="text-content" style="display: none;">
+            <div id="both-47446" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>My mom works in an office<br><br></strong> 💼 She drinks tea, not coffee<br><br>My brother plays soccer every weekend<br><br>What does your dad do<br><br>Does your sister play any sports<br><br>⚽<br /> <strong>Mi mamá trabaja en una oficina<br><br></strong> 💼 Ella toma té, no café<br><br>Mi hermano juega fútbol todos los fines de semana<br><br>¿Tu hermana practica algún deporte<br><br></p> <hr /> <p><strong>🗓️ Día 5 - ¿Qué hay<br><br></strong>  </p>
@@ -8501,25 +8500,25 @@ Do we travel every summer?</p><div style="margin:0em 1em;font-family:Poppins, sa
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%205-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=AxU5XoZXo4if%2BqBfj%2BD1WjnuIrYsevqVlRg4F37l0GrcbmEhi3No2noSInik0pw5rr%2B%2FjmB%2FHOBtkamW8u6qxE4O96uIK09kuTGKkIDMrBD1BBKikKKMufMRXp%2BcbxVs70ggC7CjLrzvjb9hXg8mMiJ%2FnRtr7Xm6EuaxWi7h4werzIT1BkqWHmouGKuF53HHErvy0LfQIR2iDIEjGdes8HZW%2F%2BFDrMbS3m63e%2FLerp10niUp2iQOsSQzcxDoKnxzt4zlg0NHHphHi8GBd5WAahS8iVTymW3SKwsHZ80ISGcodFQIaEIFw0AoxZhHe4vbe%2BctC6U1PSclu4vP%2FO9xqQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-15349', 'spanish-15349', 'both-15349', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-15349', 'spanish-15349', 'both-15349', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-15349', 'spanish-15349', 'both-15349', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-22833', 'spanish-22833', 'both-22833', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-22833', 'spanish-22833', 'both-22833', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-22833', 'spanish-22833', 'both-22833', 'both', this)">Show Both</button>
             
-            <div id="english-15349" class="text-content" style="display: none;">
+            <div id="english-22833" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>There is a cat on the sofa<br><br></strong> 😺 There are two books on the table<br><br>Is there a computer in your room<br><br>Are there posters on your wall<br><br>🎨<br /> <strong>Hay un gato en el sofá<br><br></strong> 😺 Hay dos libros sobre la mesa<br><br>¿Hay una computadora en tu habitación<br><br>¿Hay pósteres en tu pared<br><br></p> <hr /> <p><strong>🗓️ Día 6 - Pasatiempos</strong>  </p>
                 </div>
             </div>
             
-            <div id="spanish-15349" class="text-content" style="display: none;">
+            <div id="spanish-22833" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     No Spanish content found
                 </div>
             </div>
             
-            <div id="both-15349" class="text-content" style="display: none;">
+            <div id="both-22833" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>There is a cat on the sofa<br><br></strong> 😺 There are two books on the table<br><br>Is there a computer in your room<br><br>Are there posters on your wall<br><br>🎨<br /> <strong>Hay un gato en el sofá<br><br></strong> 😺 Hay dos libros sobre la mesa<br><br>¿Hay una computadora en tu habitación<br><br>¿Hay pósteres en tu pared<br><br></p> <hr /> <p><strong>🗓️ Día 6 - Pasatiempos</strong>  </p>
@@ -8538,25 +8537,25 @@ Do we travel every summer?</p><div style="margin:0em 1em;font-family:Poppins, sa
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%206-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=eNnrHkCfglBFbX2xaFDNxWzSp9kaurhcJfdTsu%2Flpkc1XJAtQaKWSVkO9Q3A0kxgvSSM7g2fI%2FiGBfTLxjxFz4VVFM72s301ZJK5kUdTd06KYc8Ec77p%2BCJ%2BOwMPYZxl25%2F5u6aL3xDmBLaCpnJzzPirw3RlVrZZW9wjAncVzNzhPbABA4qisMNDjg1RQ1Kg7BuIpfI%2FsrqMrAnOh8rD0J9x3n3mO5bKt0yuulE%2FwZ7XBOjTPacjYwUgWvPcgTpOamS51tZTgCidbLLnCXRAR%2BHu0245BccpvkjkpKhNLHAGTsH%2B7GaRiJ4OYTqCelSIRCmVIJhpC735YdvsZUPedw%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-63243', 'spanish-63243', 'both-63243', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-63243', 'spanish-63243', 'both-63243', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-63243', 'spanish-63243', 'both-63243', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-16420', 'spanish-16420', 'both-16420', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-16420', 'spanish-16420', 'both-16420', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-16420', 'spanish-16420', 'both-16420', 'both', this)">Show Both</button>
             
-            <div id="english-63243" class="text-content" style="display: none;">
+            <div id="english-16420" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>I can swim and ride a bike<br><br></strong> 🏊 My sister can dance, but she can't sing<br><br>Can you play an instrument<br><br>What can your friends do<br><br>🎶<br /> <strong>Puedo nadar y andar en bicicleta<br><br></strong> 🏊 Mi hermana puede bailar, pero no puede cantar<br><br>¿Puedes tocar un instrumento<br><br></p> <hr /> <p><strong>🗓️ Día 7 - Hobbies</strong>  </p>
                 </div>
             </div>
             
-            <div id="spanish-63243" class="text-content" style="display: none;">
+            <div id="spanish-16420" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     ¿Qué pueden hacer tus amigos
                 </div>
             </div>
             
-            <div id="both-63243" class="text-content" style="display: none;">
+            <div id="both-16420" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>I can swim and ride a bike<br><br></strong> 🏊 My sister can dance, but she can't sing<br><br>Can you play an instrument<br><br>What can your friends do<br><br>🎶<br /> <strong>Puedo nadar y andar en bicicleta<br><br></strong> 🏊 Mi hermana puede bailar, pero no puede cantar<br><br>¿Puedes tocar un instrumento<br><br></p> <hr /> <p><strong>🗓️ Día 7 - Hobbies</strong>  </p>
@@ -8575,25 +8574,25 @@ Do we travel every summer?</p><div style="margin:0em 1em;font-family:Poppins, sa
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Mes%202%20%28A1%29%20-%20D%C3%ADa%207-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=N45EyYprjrK2q%2BAm39P%2FXuTWaLRaiIeSqGoUOpN3zMMicsh0TuCW194zk8pgza%2FUk8jpTyOdbYDf7M6DYTwC4wTVFyrPspkk3DqDXa4Sp5vYuKUnIwhSWB1kCfh%2FiqLTSKUFFZKsM%2Bu4lkJF9rVV7%2B6wNlbhURJTdxSWXsL6eDZ0PiceT1kIRz4Px4GrIZbqutcKSUQ9GW%2Brr6Vg%2FuVUOS%2Fdkd6aqaEEKjr02UVqqmU2jnSS90f7jHKSGZmQIfTuqXtu1O66dunKlvNjA5crlcQfRnLbyZVNpn%2FqsiersMxW6s0%2BRKe9RMMEi%2FVG2BWlPLxzgzztSYb%2FTs8jjGIYYg%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-84836', 'spanish-84836', 'both-84836', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-84836', 'spanish-84836', 'both-84836', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-84836', 'spanish-84836', 'both-84836', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-12804', 'spanish-12804', 'both-12804', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-12804', 'spanish-12804', 'both-12804', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-12804', 'spanish-12804', 'both-12804', 'both', this)">Show Both</button>
             
-            <div id="english-84836" class="text-content" style="display: none;">
+            <div id="english-12804" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p><strong>I have a dog<br><br></strong> 🐶 My brother has a video game<br><br>We have fun on weekends<br><br>Do you have a pet<br><br>Does your friend have a bike<br><br>🚲<br /> <strong>Tengo un perro<br><br></strong> 🐶 Mi hermano tiene un videojuego<br><br>Nos divertimos los fines de semana<br><br>¿Tienes una mascota<br><br></p> <hr />
                 </div>
             </div>
             
-            <div id="spanish-84836" class="text-content" style="display: none;">
+            <div id="spanish-12804" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     ¿Tu amigo tiene una bicicleta
                 </div>
             </div>
             
-            <div id="both-84836" class="text-content" style="display: none;">
+            <div id="both-12804" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p><strong>I have a dog<br><br></strong> 🐶 My brother has a video game<br><br>We have fun on weekends<br><br>Do you have a pet<br><br>Does your friend have a bike<br><br>🚲<br /> <strong>Tengo un perro<br><br></strong> 🐶 Mi hermano tiene un videojuego<br><br>Nos divertimos los fines de semana<br><br>¿Tienes una mascota<br><br></p> <hr />
@@ -8605,33 +8604,32 @@ Do we travel every summer?</p><div style="margin:0em 1em;font-family:Poppins, sa
             </div>
         </div>
     </div><div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3"><strong>Audios Generales</strong>: Audio de Pronunciación</div>
-<p>🎧👱🏽‍♂️ Voz Humana Hombre:</p>
 
     <div class="dia">
-        <p class="titulo-dia">🎧👱🏽‍♂️ Voz Humana Hombre:</p>
+        <p class="titulo-dia">Audio Section</p>
         <div class="audio-container">
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://firebasestorage.googleapis.com/v0/b/chocolearn-f05e5.firebasestorage.app/o/audio%2FLectura%20de%20Pronunciaci%C3%B3n%20-%20Hombre-esv2-90p-bg-10p.mp3?alt=media&amp;token=6df2cef9-c40e-4dce-80d6-4b6adc4931b5" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleTextContent('english-92251', 'spanish-92251', 'both-92251', 'english', this)">Show English</button>
-            <button class="boton" onclick="toggleTextContent('english-92251', 'spanish-92251', 'both-92251', 'spanish', this)">Show Spanish</button>
-            <button class="boton" onclick="toggleTextContent('english-92251', 'spanish-92251', 'both-92251', 'both', this)">Show Both</button>
+            <button class="boton" onclick="toggleTextContent('english-51071', 'spanish-51071', 'both-51071', 'english', this)">Show English</button>
+            <button class="boton" onclick="toggleTextContent('english-51071', 'spanish-51071', 'both-51071', 'spanish', this)">Show Spanish</button>
+            <button class="boton" onclick="toggleTextContent('english-51071', 'spanish-51071', 'both-51071', 'both', this)">Show Both</button>
             
-            <div id="english-92251" class="text-content" style="display: none;">
+            <div id="english-51071" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
                     <p>Sam woke up early to help his <strong>mother</strong> with breakfast<br><br>"Are you feeling in good <strong>health</strong> today<br><br>" she asked<br><br>He nodded, though he felt a bit <strong>hot</strong><br><br>After breakfast, he said, "I’ll <strong>pack</strong> my bag and go for a run<br><br>It’s important to stay <strong>fit</strong>, not <strong>fat</strong><br><br>"</p> <p>As he ran, Sam noticed the changing <strong>weather</strong><br><br>There was a chance of <strong>rain</strong> or even <strong>hail</strong>, but he thought, “I’ll keep going<br><br>” He saw a <strong>hen</strong> in the <strong>sand</strong> by the <strong>path</strong>, and a bird in the <strong>air</strong>, singing a song that made him <strong>feel</strong> happy<br><br></p> <p>Sam stopped by the river, where he saw a man <strong>build</strong> a small boat<br><br>"I’ve <strong>built</strong> many boats like this," the man said<br><br>Sam admired his <strong>strength</strong> and <strong>faith</strong> in his craft<br><br></p> <p>Later, at school, the teacher said, “<strong>Think</strong> about what makes life <strong>worth</strong> living<br><br>Is it <strong>truth</strong>, <strong>wealth</strong>, or <strong>growth</strong><br><br>" Sam raised his <strong>hand</strong> and said, "For me, it’s my <strong>brother</strong>, my <strong>father</strong>, and my <strong>mother</strong><br><br>They’re always there, no matter the <strong>month</strong> or the <strong>weather</strong><br><br>"</p> <p>In class, they read about the <strong>earth’s</strong> history and the <strong>death</strong> and <strong>birth</strong> of civilizations<br><br>Sam learned how <strong>strength</strong> and determination can change the world<br><br></p> <p>After school, he met his friends and said, "Hey, let’s play soccer<br><br>" They all agreed<br><br>"Who will be the <strong>goalkeeper</strong><br><br>" someone asked<br><br>"I will<br><br>" Sam said<br><br>He <strong>held</strong> his position well, showing his quick reflexes and strong <strong>faith</strong> in his team<br><br></p> <p>That evening, at dinner, Sam’s mother asked, “What did you learn today<br><br>” He replied, “We learned about the <strong>truth</strong> of the <strong>world</strong>, and how important it is to work <strong>together</strong> to make it a better place<br><br>”</p>
                 </div>
             </div>
             
-            <div id="spanish-92251" class="text-content" style="display: none;">
+            <div id="spanish-51071" class="text-content" style="display: none;">
                 <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
                     No Spanish content found
                 </div>
             </div>
             
-            <div id="both-92251" class="text-content" style="display: none;">
+            <div id="both-51071" class="text-content" style="display: none;">
                 <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
                     <p>Sam woke up early to help his <strong>mother</strong> with breakfast<br><br>"Are you feeling in good <strong>health</strong> today<br><br>" she asked<br><br>He nodded, though he felt a bit <strong>hot</strong><br><br>After breakfast, he said, "I’ll <strong>pack</strong> my bag and go for a run<br><br>It’s important to stay <strong>fit</strong>, not <strong>fat</strong><br><br>"</p> <p>As he ran, Sam noticed the changing <strong>weather</strong><br><br>There was a chance of <strong>rain</strong> or even <strong>hail</strong>, but he thought, “I’ll keep going<br><br>” He saw a <strong>hen</strong> in the <strong>sand</strong> by the <strong>path</strong>, and a bird in the <strong>air</strong>, singing a song that made him <strong>feel</strong> happy<br><br></p> <p>Sam stopped by the river, where he saw a man <strong>build</strong> a small boat<br><br>"I’ve <strong>built</strong> many boats like this," the man said<br><br>Sam admired his <strong>strength</strong> and <strong>faith</strong> in his craft<br><br></p> <p>Later, at school, the teacher said, “<strong>Think</strong> about what makes life <strong>worth</strong> living<br><br>Is it <strong>truth</strong>, <strong>wealth</strong>, or <strong>growth</strong><br><br>" Sam raised his <strong>hand</strong> and said, "For me, it’s my <strong>brother</strong>, my <strong>father</strong>, and my <strong>mother</strong><br><br>They’re always there, no matter the <strong>month</strong> or the <strong>weather</strong><br><br>"</p> <p>In class, they read about the <strong>earth’s</strong> history and the <strong>death</strong> and <strong>birth</strong> of civilizations<br><br>Sam learned how <strong>strength</strong> and determination can change the world<br><br></p> <p>After school, he met his friends and said, "Hey, let’s play soccer<br><br>" They all agreed<br><br>"Who will be the <strong>goalkeeper</strong><br><br>" someone asked<br><br>"I will<br><br>" Sam said<br><br>He <strong>held</strong> his position well, showing his quick reflexes and strong <strong>faith</strong> in his team<br><br></p> <p>That evening, at dinner, Sam’s mother asked, “What did you learn today<br><br>” He replied, “We learned about the <strong>truth</strong> of the <strong>world</strong>, and how important it is to work <strong>together</strong> to make it a better place<br><br>”</p>
@@ -8654,9 +8652,9 @@ Do we travel every summer?</p><div style="margin:0em 1em;font-family:Poppins, sa
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/DoPresente.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=fgWeJQN1vhQSNFJcRKlBh8zCkwKnuPWWT7AiltwQaDC%2FehFM0FBKvTaFfEIgSJeZoUHgapoK3jyoX1mapTvSewo%2BFZ29N56UHv1t4KdnFoyn012OFYvjDpWz54LHU4kG3DH84knv1tlRFlyv34IVTQD%2By8fAtYZIi9HrVV16X%2BMARW5sIlNJzrhGaDGrMBCqtqcLjji57N3JbfYlst%2BKBmpyG58CnhMY%2BXUp%2BMq%2BPmZKRaRjkQ%2FBd%2FOi5pxLL9rtGZEGDdg6L7njaHSz3Dt%2BsfChFnradChQEIRNU9u4F5GO371VdCyFIOp177TQQIOX2Mcy8IzpmJGW%2B3Uqt1JGTQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleVisibility('table-73732', this)">Show Table</button>
+            <button class="boton" onclick="toggleVisibility('table-30050', this)">Show Table</button>
             
-            <div id="table-73732" class="texto">
+            <div id="table-30050" class="texto">
                 
     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
@@ -9134,9 +9132,9 @@ Do we travel every summer?</p><div style="margin:0em 1em;font-family:Poppins, sa
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/DoCompletoPasado.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=ts%2BC7Jyk4ViDRlIqjSwHKvPdiYJF7mzW6FnNRFIk%2BSz59bspeIeNpbwXYtfb3f%2FnABa1mU9tqNxijgLVoZrDgfJzQmCF7jApisTPnitk1fSny3P6VX0n9XaYKvkvwqKBwwW2pHSvGnf1WC9fwgDMRncv1%2FUDXZJJx8DJPuG6TMar1LnIFi28LJBY1j%2FqBd%2FPkG%2FWit32XSFsf83%2Fo8X6m9g9Hvjg3CFNfo30uee57pay5pYgwxB1tQ5bbypSZ1uhVKmpF%2FjOl3FftxVf1Ix1UYLqkvV9tm3OCxejxQN3RYuIhsnHyI1xYDPG%2B9iEIKXPLYtTjo5D57ECry5x4WR8eQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleVisibility('table-93454', this)">Show Table</button>
+            <button class="boton" onclick="toggleVisibility('table-65286', this)">Show Table</button>
             
-            <div id="table-93454" class="texto">
+            <div id="table-65286" class="texto">
                 
     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
@@ -9614,9 +9612,9 @@ Do we travel every summer?</p><div style="margin:0em 1em;font-family:Poppins, sa
             <p><audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/English%20Reductores%20N%C3%BAmeros%20etc-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=hCWO%2FszljvWmRWyqA%2BnNa6OJ9cBTJPtzbgc6T95I52EP4sDByGN4t95eUagPk%2BXIDQnIqPElspm8syEAHlyg2JoWjGuA2Jl3F8ZXRHOYP0falrARRM9I%2BQ9oDGKr65zxdjJhx0AjPAZ6SDT8qR4L%2FHvhVk%2B%2Bg6e%2FSTrAu2%2BUXpqvOk1y2Pza72z07ysVLH6EgQCyUknCeOXzHYD5zByEfap2s8SQhQMWOzFEwBFxw93At6CvdjmKxWb%2FWw2wN8FnXPNjNguqYrU%2FlmY4XL%2BDURq6NYBdaCfwP9yUu57UOA6UNL20aCsbwv%2FzIEoU8ctUWZf7juuq0tRiIWs%2Btz43dQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio></p>
         </div>
         <div class="text-controls">
-            <button class="boton" onclick="toggleVisibility('table-76000', this)">Show Table</button>
+            <button class="boton" onclick="toggleVisibility('table-81476', this)">Show Table</button>
             
-            <div id="table-76000" class="texto">
+            <div id="table-81476" class="texto">
                 
     <table style="table-layout: fixed; margin:0em 0.5em;border-collapse:collapse;width:100%;font-family:Poppins, sans-serif">
         <colgroup><col><col></colgroup>
@@ -10113,6 +10111,270 @@ Sí, promete.</p>
 <p>school</p>
 </li>
 </ol>
+                </div>
+                
+                <div class="content-area parent-content" id="parent-content-tests-escritos">
+                    <div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#FE4980;line-height:1.2;font-size:1.8em;margin-top:1.5em;margin-bottom:1em"><strong>Tests Escritos</strong></div><div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Test DOES Fundamentación Indispensable</div>
+<p><strong>1. Cómo harías esta pregunta en inglés: ¿Le gusta a ella comer?</strong><br />
+Does she like to eat?<br />
+Do they like to eat?<br />
+Do you like to eat?</p>
+<p><strong>2. Convierte esta frase en pregunta: Ella ama jugar baloncesto todos los días.</strong><br />
+Does she like to play basketball every day?<br />
+Does she play basketball every day?<br />
+Does she want to play basketball every day?</p>
+<p><strong>3. Cómo harías esta pregunta en inglés: ¿Te gusta a ti correr?</strong><br />
+Do you like to run?<br />
+Does she like to run?<br />
+Does he like to run?</p>
+<p><strong>4. Convierte esta frase en pregunta: Él juega videojuegos los fines de semana.</strong><br />
+Does he play video games on the weekends?<br />
+Does he like to play video games?<br />
+Do you play video games on the weekends?</p>
+<p><strong>5. Cómo harías esta pregunta en inglés: ¿Les gusta a ellos bailar?</strong><br />
+Do they like to dance?<br />
+Does he like to dance?<br />
+Do we like to dance?</p>
+<p><strong>6. Convierte esta frase en pregunta: Ella trabaja en una oficina.</strong><br />
+Does she work in an office?<br />
+Does she want to work in an office?<br />
+Do you work in an office?</p>
+<p><strong>7. Cómo harías esta pregunta en inglés: ¿Te gusta a ti estudiar?</strong><br />
+Do you like to study?<br />
+Does she like to study?<br />
+Does he study?</p>
+<p><strong>8. Convierte esta frase en pregunta: Él come frutas todos los días.</strong><br />
+Does he eat fruits every day?<br />
+Do you eat fruits every day?<br />
+Do they eat fruits every day?</p>
+<p><strong>9. Cómo harías esta pregunta en inglés: ¿Le gusta a ella nadar?</strong><br />
+Does she like to swim?<br />
+Do you like to swim?<br />
+Do they swim?</p>
+<p><strong>10. Convierte esta frase en pregunta: Nosotros viajamos cada verano.</strong><br />
+Do we travel every summer?<br />
+Do they travel every summer?<br />
+Does she travel every summer?</p><div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Test Pronombres 1 Fundamentación Indispensable</div>
+<p><strong>1. “He” puede significar “él.”</strong></p>
+<ul>
+<li>True  </li>
+<li>False</li>
+</ul>
+<hr />
+<p><strong>2. “You” puede significar nosotros</strong></p>
+<ul>
+<li>True  </li>
+<li>False</li>
+</ul>
+<hr />
+<p><strong>3. “Their” significa “su” (de ellos/ellas).</strong></p>
+<ul>
+<li>True  </li>
+<li>False</li>
+</ul>
+<hr />
+<p><strong>4. “Myself” se traduce como “a mí mismo/a.”</strong></p>
+<ul>
+<li>True  </li>
+<li>False</li>
+</ul>
+<hr />
+<p><strong>5. “It” puede referirse a “él”</strong></p>
+<ul>
+<li>True  </li>
+<li>False</li>
+</ul>
+<hr />
+<p><strong>Formato 2: Traducción de frases</strong></p>
+<p><strong>6. “This book is hers and that is his church” traduce “Este libro es de ella y esa es su iglesia (la iglesia de él).”</strong></p>
+<ul>
+<li>True  </li>
+<li>False</li>
+</ul>
+<hr />
+<p><strong>7. “Those are my friends and this is your house” traduce “Esos son nuestros amigos y esta es mi casa.”</strong></p>
+<ul>
+<li>True  </li>
+<li>False</li>
+</ul>
+<hr />
+<p><strong>8. “These are their toys and that is our car” traduce “Estos son sus juguetes y ese es nuestro coche.”</strong></p>
+<ul>
+<li>True  </li>
+<li>False</li>
+</ul>
+<hr />
+<p><strong>9. “She loves him and he loves her” traduce “Ella lo ama a él y él la ama a ella.”</strong></p>
+<ul>
+<li>True  </li>
+<li>False</li>
+</ul>
+<hr />
+<p><strong>10. “They are going with us” traduce “Ellos van con ustedes”</strong></p>
+<ol>
+<li>True  </li>
+<li>False</li>
+</ol><div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Test Pronombres 2 Fundamentación Indispensable</div>
+<p>1. ¿Qué significan en esta oración los pronombres en negrita?: I live in my house, I built it myself and it’s mine.</p>
+<ul>
+<li>Yo, mi, yo misma, mía  </li>
+<li>Yo, mía, yo misma, mí  </li>
+<li>Yo, a mí, yo misma, mía</li>
+</ul>
+<hr />
+<p>2. ¿Qué significan en esta oración los pronombres en negrita?: She lives in her house, she built it herself and it’s hers?</p>
+<ul>
+<li>Ella, su, ella misma, suya.  </li>
+<li>Ella, suya, ella misma, su.  </li>
+<li>Ella, a ella, ella misma, suya.</li>
+</ul>
+<hr />
+<p>3. ¿Qué significan en esta oración los pronombres en negrita?: He takes care of himself and values his time.</p>
+<ul>
+<li>Él, él mismo, su.  </li>
+<li>Él, cuidar, a él mismo, su.  </li>
+<li>Él, a él, él mismo, suyo.</li>
+</ul>
+<hr />
+<p>4. ¿Qué significan en esta oración los pronombres en negrita?: They will take care of themselves and protect their interests.</p>
+<ul>
+<li>Ellos, ellos mismos, sus.  </li>
+<li>Ellos, cuidan, ellos mismos, sus.  </li>
+<li>Ellos, a ellos, ellos mismos, suyo.</li>
+</ul>
+<hr />
+<p>5. ¿Qué significan en esta oración los pronombres en negrita?: We believe in our ideas and work hard for them.</p>
+<ul>
+<li>Nosotros, nuestras, ellos.  </li>
+<li>Nosotros, nuestras, ellos mismos.  </li>
+<li>Nosotros, creemos, nuestras, ellos.</li>
+</ul>
+<hr />
+<p>Formato 2: Completar la frase</p>
+<p>6. __ live in __ house, I built it ___ and it’s ___.</p>
+<ul>
+<li>I / my / myself / mine  </li>
+<li>My / I / myself / mine  </li>
+<li>I / mine / myself / my</li>
+</ul>
+<hr />
+<p>7. __ live in __ house, she built it ___ and it’s ___.</p>
+<ul>
+<li>She / her / herself / hers  </li>
+<li>Her / she / herself / hers  </li>
+<li>She / hers / herself / her</li>
+</ul>
+<hr />
+<p>8. __ take care of __ and always appreciate __ efforts.</p>
+<ul>
+<li>They / me / my  </li>
+<li>They / mine / my  </li>
+<li>They / my / my</li>
+</ul>
+<hr />
+<p>9. __ always reminds __ to be kind to __.</p>
+<ul>
+<li>She / us / them  </li>
+<li>We / us / them  </li>
+<li>He / mine / myself</li>
+</ul>
+<hr />
+<p>10. __ believe in __ dreams and work for __.</p>
+<ol>
+<li>You / your / them  </li>
+<li>You / your / your  </li>
+<li>You / you / them</li>
+</ol><div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Tests Números Fundamentación Indispensable</div>
+<p><strong>1. Escoge el número que corresponde a: fifty-three</strong></p>
+<ul>
+<li>53  </li>
+<li>35  </li>
+<li>5</li>
+</ul>
+<p><strong>2. Escoge el número que corresponde a: seven hundred</strong></p>
+<ul>
+<li>700  </li>
+<li>70  </li>
+<li>7</li>
+</ul>
+<p><strong>3. Escoge el número que corresponde a: ninety-four</strong></p>
+<ul>
+<li>94  </li>
+<li>49  </li>
+<li>4</li>
+</ul>
+<p><strong>4. Escoge el número que corresponde a: eight hundred</strong></p>
+<ul>
+<li>800  </li>
+<li>80  </li>
+<li>984</li>
+</ul>
+<p><strong>5. Escoge el número que corresponde a: one thousand</strong></p>
+<ul>
+<li>1,900  </li>
+<li>1,000  </li>
+<li>19</li>
+</ul>
+<p><strong>6. Escoge el número que corresponde a: 19</strong><br />
+Nineteen<br />
+Ninety<br />
+Nine</p>
+<p><strong>7. Escoge el número que corresponde a: 15</strong><br />
+Fifteen<br />
+Fifty<br />
+Five hundred</p>
+<p><strong>8. Escoge el número que corresponde a: 7</strong><br />
+Seven<br />
+Seventy<br />
+Seventeen</p>
+<p><strong>9. Escoge el número que corresponde a: 12</strong><br />
+Twelve<br />
+Twenty<br />
+Two</p>
+<p><strong>10. Escoge el número que corresponde a: 3</strong><br />
+Three<br />
+Thirty<br />
+Thirteen</p><div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#000;font-weight:900;line-height:1.6;margin-bottom:1.2em;font-size:1.2em;background:rgba(22, 196, 227, 0.05);padding:10px;border-left:4px solid #16c4e3">Test DID Fundamentación Indispensable</div>
+<p><strong>1. Cómo harías esta pregunta en inglés: ¿Le gustó a ella comer?</strong><br />
+Did she like to eat?<br />
+Does she like to eat?<br />
+Did they like to eat?</p>
+<p><strong>2. Convierte esta frase en pregunta: She liked to play basketball every day.</strong><br />
+Did she like to play basketball every day?<br />
+Does she like to play basketball every day?<br />
+Would she like to play basketball every day?</p>
+<p><strong>3. Cómo harías esta pregunta en inglés: ¿Te gustó a ti correr?</strong><br />
+Did you like to run?<br />
+Do you like to run?<br />
+Would you like to run?</p>
+<p><strong>4. Convierte esta frase en pregunta: He played video games on the weekends.</strong><br />
+Did he play video games on the weekends?<br />
+Would he play video games on the weekends?<br />
+Does he play video games on the weekends?</p>
+<p><strong>5. Cómo harías esta pregunta en inglés: ¿Les gustó a ellos bailar?</strong><br />
+Did they like to dance?<br />
+Do they like to dance?<br />
+Would they like to dance?</p>
+<p><strong>6. Convierte esta frase en pregunta: She worked in an office.</strong><br />
+Did she work in an office?<br />
+Would she work in an office?<br />
+Does she work in an office?</p>
+<p><strong>7. Cómo harías esta pregunta en inglés: ¿Te gustó a ti estudiar?</strong><br />
+Did you like to study?<br />
+Do you like to study?<br />
+Would you like to study?</p>
+<p><strong>8. Convierte esta frase en pregunta: He ate fruits every day.</strong><br />
+Did he eat fruits every day?<br />
+Does he eat fruits every day?<br />
+Would he eat fruits every day?</p>
+<p><strong>9. Cómo harías esta pregunta en inglés: ¿Le gustó a ella nadar?</strong><br />
+Did she like to swim?<br />
+Does she like to swim?<br />
+Would she like to swim?</p>
+<p><strong>10. Convierte esta frase en pregunta: We traveled every summer.</strong><br />
+Did we travel every summer?<br />
+Would we travel every summer?<br />
+Do we travel every summer?</p>
                 </div>
                 
         <div class="content-area parent-content " id="parent-content-paradigma">
