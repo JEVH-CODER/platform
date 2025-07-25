@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      background: transparent;
+    }
+    audio::-internal-media-controls-download-button {
+      display: none;
+    }
+    audio::-webkit-media-controls-enclosure {
+      overflow: hidden;
+    }
+    audio::-webkit-media-controls-panel {
+      width: 100%;
+    }
+  </style>
+  <script>
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.onkeydown = function(e) {
+      if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0))) {
+        return false;
+      }
+    };
+  </script>
+</head>
+<body>
+  <audio controls loop style="width:100%; height:30px;">
+    <source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/SIMPLE%20To%20be%20Respuestas%20negativas.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&Expires=1898571600&Signature=a2%2BNmRLUNNKWXbWP6lZhyXkdSRFfHXV7YGXPSN4PTiqxUbqkuXTUq%2Ff%2FDZco593v5f5SS4fWEYHEeeyKjbdTJtXE%2BYNUlvltNr2tMwY3Mhgt8unASpNjnN9woaOdFosfcGLMBIWc0R9GtES%2BoFxOkm7L5Y5Lu5WNgBG5NEazWQiWP8omPNdEuahzmnrgiMQaLgtHqyb1z4IB8hA5XYXTA6tv1IpBVzfzRcGnyLKgrCtNFnBYgNvuotHSUddYkmaG1cEqCMtDDtgJmxCemlDItZ8eGMwzP4%2BIquxg06L7C6lHr2tsEoLODXI2JbsXD8D1TBlKGxBNRcgD7vR7J6EWww%3D%3D" type="audio/mp3">
+    Tu navegador no soporta audio.
+  </audio>
+</body>
+</html>
