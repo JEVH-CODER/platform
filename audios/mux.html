@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Custom Audio Player</title>
+  <style>
+    body {
+      margin: 0;
+      background: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    #audio-player {
+      width: 100%;
+      max-width: 600px;
+    }
+    video {
+      width: 100%;
+      height: 50px;
+      background: black;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="audio-player">
+    <video id="video" controls playsinline></video>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    const video = document.getElementById('video');
+    const videoSrc = 'https://stream.mux.com/E88005yR1UJTr84DftbMXS3gzg6kNlUK5f3KXkByLSmE.m3u8';
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function() {
+        // video.play(); // optionally auto play (may be blocked by browsers)
+      });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      // Some browsers (Safari) support HLS natively
+      video.src = videoSrc;
+    } else {
+      alert('Your browser does not support HLS playback.');
+    }
+  </script>
+</body>
+</html>
