@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lectura de Pronunciación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: white;
+            color: #333;
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 20px 15px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            background: linear-gradient(135deg, #16c4e3, #FE4980);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(22, 196, 227, 0.3);
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 10px;
+            padding: 0;
+        }
+
+        .text-pair {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: linear-gradient(145deg, #f8f9fa, #ffffff);
+            border-radius: 12px;
+            border-left: 4px solid #16c4e3;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .text-pair:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(22, 196, 227, 0.1);
+        }
+
+        .english {
+            font-weight: 600;
+            color: #16c4e3;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .spanish {
+            font-weight: 400;
+            color: #333;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        .accent-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #FE4980;
+            border-radius: 50%;
+            margin-right: 8px;
+            margin-bottom: 2px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .text-pair {
+                padding: 12px;
+                margin-bottom: 20px;
+            }
+            
+            .english {
+                font-size: 0.95rem;
+            }
+            
+            .spanish {
+                font-size: 0.9rem;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            color: #666;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Lectura de Pronunciación</h1>
+        </div>
+
+        <div class="content">
+            <div class="text-pair">
+                <div class="english">Sam woke up early to help his mother with breakfast.</div>
+                <div class="spanish"><span class="accent-dot"></span>Sam se despertó temprano para ayudar a su madre con el desayuno.</div>
+            </div>
+
+            <div class="text-pair">
+                <div class="english">"Are you feeling in good health today?" she asked.</div>
+                <div class="spanish"><span class="accent-dot"></span>"¿Te sientes bien de salud hoy?" preguntó ella.</div>
+            </div>
+
+            <div class="text-pair">
+                <div class="english">He nodded, though he felt a bit hot.</div>
+                <div class="spanish"><span class="accent-dot"></span>Él asintió, aunque sentía un poco de calor.</div>
+            </div>
+
+            <div class="text-pair">
+                <div class="english">After breakfast, he said, "I'll pack my bag and go for a run. It's important to stay fit, not fat!"</div>
+                <div class="spanish"><span class="accent-dot"></span>Después del desayuno, dijo: "Empacaré mi mochila y saldré a correr. ¡Es importante mantenerse en forma, no gordo!"</div>
+            </div>
+
+            <div class="text-pair">
+                <div class="english">As he ran, Sam noticed the changing weather.</div>
+                <div class="spanish"><span class="accent-dot"></span>Mientras corría, Sam notó el cambio en el clima.</div>
+            </div>
+
+            <div class="text-pair">
+                <div class="english">There was a chance of rain or even hail, but he thought, "I'll keep going."</div>
+                <div class="spanish"><span class="accent-dot"></span>Había posibilidades de lluvia o incluso granizo, pero pensó: "Seguiré adelante".</div>
+            </div>
+
+            <div class="text-pair">
+                <div class="english">He saw a hen in the sand by the path, and a bird in the air, singing a song that made him feel happy.</div>
+                <div class="spanish"><span class="accent-dot"></span>Vio una gallina en la arena junto al camino y un pájaro en el aire, cantando una canción que lo hizo sentir feliz.</div>
+            </div>
+
+            <div class="text-pair">
+                <div class="english">Sam stopped by the river, where he saw a man build a small boat.</div>
+                <div class="spanish"><span class="accent-dot"></span>Sam se detuvo junto al río, donde vio a un hombre construyendo un pequeño bote.</div>
+            </div>
+
+            <div class="text-pair">
+                <div class="english">"I've built many boats like this," the man said.</div>
+                <div class="spanish"><span class="accent-dot"></span>"He construido muchos botes como este", dijo el hombre.</div>
+            </div>
+
+            <div class="text-pair">
+                <div class="english">Sam admired his strength and faith in his craft.</div>
+                <div class="spanish"><span class="accent-dot"></span>Sam admiró su fuerza y la confianza en su oficio.</div>
+            </div>
+
+            <div class="text-pair">
+                <div class="english">Later, at school, the teacher said, "Think about what makes life worth living. Is it truth, wealth, or growth?"</div>
+                <div class="spanish"><span class="accent-dot"></span>Más tarde, en la escuela, el maestro dijo: "Piensen en lo que hace que la vida valga la pena. ¿Es la verdad, la riqueza o el crecimiento?"</div>
+            </div>
+
+            <div class="text-pair">
+                <div class="english">Sam raised his hand and said, "For me, it's my brother, my father, and my mother. They're always there, no matter the month or the weather."</div>
+                <div class="spanish"><span class="accent-dot"></span>Sam levantó la mano y dijo: "Para mí, son mi hermano, mi padre y mi madre. Ellos siempre están ahí, sin importar el mes ni el clima".</div>
+            </div>
+
+            <div class="text-pair">
+                <div class="english">In class, they read about the earth's history and the death and birth of civilizations.</div>
+                <div class="spanish"><span class="accent-dot"></span>En clase, leyeron sobre la historia de la Tierra y la muerte y el nacimiento de civilizaciones.</div>
+            </div>
+
+            <div class="text-pair">
+                <div class="english">Sam learned how strength and determination can change the world.</div>
+                <div class="spanish"><span class="accent-dot"></span>Sam aprendió cómo la fuerza y la determinación pueden cambiar el mundo.</div>
+            </div>
+
+            <div class="text-pair">
+                <div class="english">After school, he met his friends and said, "Hey, let's play soccer!"</div>
+                <div class="spanish"><span class="accent-dot"></span>Después de la escuela, se reunió con sus amigos y dijo: "¡Oigan, juguemos fútbol!"</div>
+            </div>
+
+            <div class="text-pair">
+                <div class="english">They all agreed.</div>
+                <div class="spanish"><span class="accent-dot"></span>Todos estuvieron de acuerdo.</div>
+            </div>
+
+            <div class="text-pair">
+                <div class="english">"Who will be the goalkeeper?" someone asked.</div>
+                <div class="spanish"><span class="accent-dot"></span>"¿Quién será el portero?" preguntó alguien.</div>
+            </div>
+
+            <div class="text-pair">
+                <div class="english">"I will!" Sam said.</div>
+                <div class="spanish"><span class="accent-dot"></span>"¡Yo lo seré!" dijo Sam.</div>
+            </div>
+
+            <div class="text-pair">
+                <div class="english">He held his position well, showing his quick reflexes and strong faith in his team.</div>
+                <div class="spanish"><span class="accent-dot"></span>Se mantuvo firme en su posición, mostrando sus rápidos reflejos y su fuerte confianza en su equipo.</div>
+            </div>
+
+            <div class="text-pair">
+                <div class="english">That evening, at dinner, Sam's mother asked, "What did you learn today?"</div>
+                <div class="spanish"><span class="accent-dot"></span>Esa noche, durante la cena, la madre de Sam le preguntó: "¿Qué aprendiste hoy?"</div>
+            </div>
+
+            <div class="text-pair">
+                <div class="english">He replied, "We learned about the truth of the world, and how important it is to work together to make it a better place."</div>
+                <div class="spanish"><span class="accent-dot"></span>Él respondió: "Aprendimos sobre la verdad del mundo y lo importante que es trabajar juntos para hacerlo un lugar mejor".</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            📱 Optimizado para lectura móvil
+        </div>
+    </div>
+</body>
+</html>
