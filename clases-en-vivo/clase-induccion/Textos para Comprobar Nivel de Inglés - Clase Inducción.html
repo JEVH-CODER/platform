@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Textos para Comprobar Nivel de Inglés - Clase Inducción </title>
+            <style>
+            
+            /* Fullscreen button styles */
+            .fullscreen-btn {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1001;
+                background: rgba(0, 0, 0, 0.8);
+                color: white;
+                border: none;
+                border-radius: 8px;
+                padding: 12px 15px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: all 0.3s ease;
+                backdrop-filter: blur(10px);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            }
+            .fullscreen-btn:hover {
+                background: rgba(0, 0, 0, 0.9);
+                transform: scale(1.05);
+                box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+            }
+            
+            /* Styles when in true fullscreen mode */
+            :fullscreen {
+                background: white !important;
+                width: 100vw !important;
+                height: 100vh !important;
+            }
+            :-webkit-full-screen {
+                background: white !important;
+                width: 100vw !important;
+                height: 100vh !important;
+            }
+            :-moz-full-screen {
+                background: white !important;
+                width: 100vw !important;
+                height: 100vh !important;
+            }
+            :-ms-fullscreen {
+                background: white !important;
+                width: 100vw !important;
+                height: 100vh !important;
+            }
+            
+            /* Container adjustments in fullscreen */
+            body:fullscreen .container,
+            body:-webkit-full-screen .container,
+            body:-moz-full-screen .container {
+                width: 100vw !important;
+                height: 100vh !important;
+                background: white !important;
+            }
+            
+            /* Content adjustments in fullscreen */
+            body:fullscreen .content,
+            body:-webkit-full-screen .content,
+            body:-moz-full-screen .content {
+                width: 100% !important;
+                height: 100vh !important;
+                padding: 20px !important;
+                overflow: auto !important;
+            }
+            
+            /* Hide sidebar in fullscreen */
+            body:fullscreen .sidebar,
+            body:-webkit-full-screen .sidebar,
+            body:-moz-full-screen .sidebar {
+                display: none !important;
+            }
+            
+            /* Hide toggle button in fullscreen */
+            body:fullscreen #toggleSidebarBtn,
+            body:-webkit-full-screen #toggleSidebarBtn,
+            body:-moz-full-screen #toggleSidebarBtn {
+                display: none !important;
+            }
+            
+            /* Exit fullscreen button (appears only in fullscreen) */
+            .exit-fullscreen-btn {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 10000;
+                background: rgba(254, 73, 128, 0.9);
+                color: white;
+                border: none;
+                border-radius: 8px;
+                padding: 12px 15px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: all 0.3s ease;
+                backdrop-filter: blur(10px);
+                box-shadow: 0 4px 20px rgba(254, 73, 128, 0.3);
+                display: none;
+            }
+            .exit-fullscreen-btn:hover {
+                background: rgba(254, 73, 128, 1);
+                transform: scale(1.05);
+                box-shadow: 0 6px 25px rgba(254, 73, 128, 0.4);
+            }
+            
+            /* Show exit button only in fullscreen */
+            body:fullscreen .exit-fullscreen-btn,
+            body:-webkit-full-screen .exit-fullscreen-btn,
+            body:-moz-full-screen .exit-fullscreen-btn {
+                display: block !important;
+            }
+            
+            /* Hide regular fullscreen button in fullscreen */
+            body:fullscreen .fullscreen-btn,
+            body:-webkit-full-screen .fullscreen-btn,
+            body:-moz-full-screen .fullscreen-btn {
+                display: none !important;
+            }
+            
+            .text-content {
+                margin-top: 15px;
+                display: none !important;
+            }
+
+            .text-content.show {
+                display: block !important;
+            }
+
+            .text-content h4 {
+                margin: 10px 0 !important;
+                font-family: 'Poppins', sans-serif !important;
+            }
+
+            .text-controls {
+                margin-top: 15px;
+            }
+
+            .text-controls .boton {
+                margin-right: 10px;
+                margin-bottom: 10px;
+            }
+
+            .text-controls .boton.active {
+                background-color: #FE4980;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            body {
+                font-family: 'Poppins', sans-serif;
+                background: #ffffff;
+                min-height: 100vh;
+                display: flex;
+            }
+            
+            .titulo-audio {
+                font-weight: bold;
+                color: #FE4980;
+                margin-bottom: 10px;
+            }
+            
+            .dia {
+                margin: 1em 0;
+                padding: 15px;
+                border-radius: 8px;
+                background: rgba(22, 196, 227, 0.05);
+                border-left: 4px solid #16c4e3;
+            }
+
+            .titulo-dia {
+                font-weight: bold;
+                color: #FE4980;
+                margin-bottom: 10px;
+                font-family: 'Poppins', sans-serif;
+                font-size: 1.2em;
+            }
+
+            .audio-container {
+                margin-top: 10px;
+            }
+
+            .audio-container audio {
+                width: 100%;
+                border-radius: 4px;
+            }
+
+            .audio-container audio {
+                width: 100%;
+            }
+            
+            .texto {
+                margin-top: 10px;
+                display: none;
+            }
+            
+            .boton {
+                background-color: #16c4e3;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                margin: 5px 0;
+                cursor: pointer;
+                border-radius: 5px;
+                font-family: 'Poppins', sans-serif;
+            }
+            
+            .boton:hover {
+                background-color: #12b1ce;
+            }
+            
+            .container {
+                display: flex;
+                width: 100%;
+                min-height: 100vh;
+                transition: all 0.3s ease;
+            }
+            
+            .sidebar {
+                width: 350px;
+                transition: all 0.3s ease;
+                background: #ffffff;
+                backdrop-filter: blur(10px);
+                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+                overflow-y: auto;
+                border-right: 1px solid rgba(0, 0, 0, 0.1);
+            }
+            
+            .container.sidebar-hidden .sidebar {
+                width: 0;
+                overflow: hidden;
+                padding: 0;
+                border: none;
+            }
+            
+            .content {
+                flex: 1;
+                padding: 40px;
+                background: #ffffff;
+                backdrop-filter: blur(10px);
+                overflow-y: auto;
+                transition: all 0.3s ease;
+                width: calc(100% - 350px);
+            }
+            
+            .container.sidebar-hidden .content {
+                width: 100%;
+            }
+            
+            .menu-header {
+                background: linear-gradient(135deg, #16c4e3 0%, #16c4e3 100%);
+                color: white;
+                padding: 20px;
+                text-align: center;
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+            
+            .menu-item {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+            
+            .menu-button {
+                width: 100%;
+                padding: 15px 20px;
+                border: none;
+                background: transparent;
+                text-align: left;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: bold;
+                color: #333;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                transition: all 0.3s ease;
+            }
+            
+            .menu-button:hover {
+                background: linear-gradient(90deg, #16c4e3, #FE4980);
+                color: white;
+                transform: translateX(5px);
+            }
+            
+            .menu-button.active {
+                background: linear-gradient(90deg, #16c4e3, #FE4980);
+                color: white;
+            }
+            
+            .submenu-button {
+                width: 100%;
+                padding: 12px 40px;
+                border: none;
+                background: transparent;
+                text-align: left;
+                cursor: pointer;
+                font-size: 15px;
+                font-weight: 600;
+                color: #555;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                transition: all 0.3s ease;
+                border-left: 3px solid transparent;
+            }
+            
+            .submenu-button:hover {
+                background: rgba(22, 196, 227, 0.1);
+                border-left: 3px solid #16c4e3;
+                transform: translateX(3px);
+            }
+            
+            .submenu-button.active {
+                background: rgba(22, 196, 227, 0.15);
+                border-left: 3px solid #16c4e3;
+                color: #16c4e3;
+            }
+            
+            .subsubmenu-button {
+                width: 100%;
+                padding: 10px 60px;
+                border: none;
+                background: transparent;
+                text-align: left;
+                cursor: pointer;
+                font-size: 14px;
+                font-weight: 500;
+                color: #666;
+                transition: all 0.3s ease;
+                border-left: 2px solid transparent;
+            }
+            
+            .subsubmenu-button:hover {
+                background: rgba(254, 73, 128, 0.1);
+                border-left: 2px solid #FE4980;
+                color: #FE4980;
+                transform: translateX(2px);
+            }
+            
+            .subsubmenu-button.active {
+                background: rgba(254, 73, 128, 0.15);
+                border-left: 2px solid #FE4980;
+                color: #FE4980;
+                font-weight: 600;
+            }
+            
+            .submenu,
+            .subsubmenu {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease;
+            }
+            
+            .submenu.open {
+                max-height: 1000px;
+            }
+            
+            .subsubmenu.open {
+                max-height: 500px;
+            }
+            
+            .arrow {
+                transition: transform 0.3s ease;
+                font-size: 12px;
+            }
+            
+            .arrow.rotate {
+                transform: rotate(180deg);
+            }
+            
+            .content-area {
+                display: none;
+                animation: fadeIn 0.5s ease;
+            }
+            
+            .content-area.active {
+                display: block;
+            }
+            
+            p {
+                margin: 0em 1em;
+                font-family: 'Poppins', sans-serif;
+                color: #000;
+                line-height: 1.6;
+                margin-bottom: 1.2em;
+                font-size: 1.2em;
+            }
+            
+            ul {
+                margin: 0em 1em;
+                font-family: 'Poppins', sans-serif;
+                color: #000;
+                line-height: 1.6;
+                margin-bottom: 1.2em;
+                font-size: 1.2em;
+            }
+            
+            ol {
+                margin: 0em 1em;
+                font-family: 'Poppins', sans-serif;
+                color: #000;
+                line-height: 1.6;
+                margin-bottom: 1.2em;
+                font-size: 1.2em;
+            }
+            
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <button id="toggleSidebarBtn" onclick="toggleSidebar()" style="
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            background: #000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-size: 18px;
+        ">☰</button>
+        
+        <div class="container">
+            <div class="sidebar">
+                <div class="menu-header">
+                    📚 Textos para Comprobar Nivel de Inglés - Clase Inducción 
+                </div>
+                
+            <div class="menu-item">
+                <button class="menu-button" onclick="showParentContent('instrucciones-al-teacher')">
+                    Instrucciones al Teacher
+                </button>
+                <button class="arrow-button" onclick="toggleSubmenu('instrucciones-al-teacher')" style="
+                    background: none;
+                    border: none;
+                    color: #666;
+                    cursor: pointer;
+                    padding: 5px;
+                    margin-left: 5px;
+                ">
+                    <span class="arrow" id="arrow-instrucciones-al-teacher">▼</span>
+                </button>
+            </div>
+            <div class="menu-item">
+                <button class="menu-button" onclick="showParentContent('a1-beginner-texto-nivel-de-inglés-a1')">
+                    A1 Beginner \- Texto Nivel de Inglés A1
+                </button>
+                <button class="arrow-button" onclick="toggleSubmenu('a1-beginner-texto-nivel-de-inglés-a1')" style="
+                    background: none;
+                    border: none;
+                    color: #666;
+                    cursor: pointer;
+                    padding: 5px;
+                    margin-left: 5px;
+                ">
+                    <span class="arrow" id="arrow-a1-beginner-texto-nivel-de-inglés-a1">▼</span>
+                </button>
+            </div>
+            <div class="menu-item">
+                <button class="menu-button" onclick="showParentContent('a2-elementary-texto-nivel-de-inglés-a2')">
+                    A2 \- Elementary \- Texto Nivel de Inglés A2
+                </button>
+                <button class="arrow-button" onclick="toggleSubmenu('a2-elementary-texto-nivel-de-inglés-a2')" style="
+                    background: none;
+                    border: none;
+                    color: #666;
+                    cursor: pointer;
+                    padding: 5px;
+                    margin-left: 5px;
+                ">
+                    <span class="arrow" id="arrow-a2-elementary-texto-nivel-de-inglés-a2">▼</span>
+                </button>
+            </div>
+            <div class="menu-item">
+                <button class="menu-button" onclick="showParentContent('b1-intermediate-texto-nivel-de-inglés-b1')">
+                    B1 \- Intermediate \- Texto Nivel de Inglés B1
+                </button>
+                <button class="arrow-button" onclick="toggleSubmenu('b1-intermediate-texto-nivel-de-inglés-b1')" style="
+                    background: none;
+                    border: none;
+                    color: #666;
+                    cursor: pointer;
+                    padding: 5px;
+                    margin-left: 5px;
+                ">
+                    <span class="arrow" id="arrow-b1-intermediate-texto-nivel-de-inglés-b1">▼</span>
+                </button>
+            </div>
+            <div class="menu-item">
+                <button class="menu-button" onclick="showParentContent('b2-upper-intermediate-texto-nivel-de-inglés-b2')">
+                    B2 Upper Intermediate \- Texto Nivel de Inglés B2
+                </button>
+                <button class="arrow-button" onclick="toggleSubmenu('b2-upper-intermediate-texto-nivel-de-inglés-b2')" style="
+                    background: none;
+                    border: none;
+                    color: #666;
+                    cursor: pointer;
+                    padding: 5px;
+                    margin-left: 5px;
+                ">
+                    <span class="arrow" id="arrow-b2-upper-intermediate-texto-nivel-de-inglés-b2">▼</span>
+                </button>
+            </div>
+            </div>
+            <div class="content">
+                
+            <div class="content-area" id="content-instrucciones-al-teacher">
+                <div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#16c4e3;line-height:1.2;font-size:2.5em;font-weight:900;margin-bottom:20px;border-bottom:3px solid #16c4e3;padding-bottom:10px"><strong>Instrucciones al Teacher</strong></div>
+<ol>
+<li>El profesor debe preguntar al estudiante en qué nivel cree que está.  </li>
+<li>Debe poner el audio de la lectura correspondiente al nivel que el estudiante escogió y pedirle que explique lo que entendió del audio. Si el estudiante no es capaz de entender al menos el 95% del contenido, aún no está en ese nivel.  </li>
+<li>Debe poner la lectura del nivel que el estudiante escogió y pedirle que lea el texto en voz alta. Si el estudiante no es capaz de pronunciar correctamente al menos el 95% de la lectura, aún no está en ese nivel.  </li>
+<li>Debe poner la lectura del nivel que el estudiante escogió y pedirle que traduzca el texto. Si el estudiante no es capaz de traducir correctamente al menos el 95% del contenido, aún no está en ese nivel.  </li>
+<li>Si el estudiante no pasa las tres pruebas anteriores en su totalidad, no está apto para aprobar ese nivel. El profesor debe retroceder al nivel anterior y realizar las mismas pruebas, y así sucesivamente.</li>
+</ol>
+            </div>
+            
+            <div class="content-area" id="content-a1-beginner-texto-nivel-de-inglés-a1">
+                <div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#16c4e3;line-height:1.2;font-size:2.5em;font-weight:900;margin-bottom:20px;border-bottom:3px solid #16c4e3;padding-bottom:10px"><strong>A1 Beginner - Texto Nivel de Inglés A1</strong></div>
+<div class="dia">
+    <p class="titulo-dia">A1 Beginner - Texto Nivel de Inglés A1</p>
+    <div class="audio-container">
+        <audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Clase%20inducci%C3%B3n%20-%20Prueba%20de%20nivel%20A1-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=fyZNZ%2FOtMY7JlGkrQcaZRfeaVuMcCuyGW%2Fh%2FcXQ3XM3xkADRGjqVn9dilqz6WQzzTbinsAhe4FyvsZ%2B1DNlpxGEj16MC4XRVsVD8powz%2FTaxNc8XVeQn2AQ6hEK5TuThhdiG6vyc9d6quYJN6beg3oHBMuFN78LsWPqdBd906CDs7if3s5cXbCF0kcVbESqejNljIFEhIbuAL8aDoyzvDZMVE7azS2HQpseTeAeKxzVL6k%2FupJBKIVtgC7jrfrJRLxIqAlzOYl3STuV90Gx8%2B6UJrHtwwhhZPnGgrDj%2BLJ9wXQ8q8Vn7%2F%2BEh4kFwFdV73jT58Kvh0CZLIqxkmgeACA%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio>
+    </div>
+    <div class="text-controls">
+        <button class="boton" onclick="toggleTextContent('english-46388', 'spanish-46388', 'both-46388', 'english', this)">Show English</button>
+        <button class="boton" onclick="toggleTextContent('english-46388', 'spanish-46388', 'both-46388', 'spanish', this)">Show Spanish</button>
+        <button class="boton" onclick="toggleTextContent('english-46388', 'spanish-46388', 'both-46388', 'both', this)">Show Both</button>
+        
+        <div id="english-46388" class="text-content" style="display: none;">
+            <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
+                <p><p><strong>1. My Family</strong></p><br><p>I have a small family. I live with my mother, father, and my little sister. My father is a teacher, and my mother is a nurse. My sister is 5 years old. She loves playing with her toys. We have a cat named Luna. Luna is very cute, and we all love her.</p><br><p><strong>2. My Home</strong></p><br><p>I live in a small house. There are two bedrooms, a kitchen, a living room, and one bathroom. My bedroom is blue, and I have a bed, a desk, and a wardrobe. I also have a big window that looks at the street. I like my room because it is very comfortable.</p><br><p><strong>3. My School</strong><br>I go to school every day. My school is near my house, so I walk there. My classes start at 9:00 a.m. and finish at 1:00 p.m. I like my school because I have many friends. My favorite subject is science because I enjoy learning about animals and plants.</p><br><p><strong>4. My Favorite Color</strong><br>My favorite color is blue. I like blue because it is calm and peaceful. My room is blue, and I also have a blue backpack. I think blue is a beautiful color for the sky and the ocean. I also like green because it reminds me of nature.</p><br><p><strong>5. My Weekend</strong><br>On weekends, I like to relax. On Saturday, I go to the park with my family. We play soccer and walk around. On Sunday, I stay at home and read books or watch TV. Sometimes, I visit my grandparents. I enjoy spending time with them.</p><br><hr /></p>
+            </div>
+        </div>
+        
+        <div id="spanish-46388" class="text-content" style="display: none;">
+            <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
+                <p>No content found</p>
+            </div>
+        </div>
+        
+        <div id="both-46388" class="text-content" style="display: none;">
+            <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
+                <p><p><strong>1. My Family</strong></p><br><p>I have a small family. I live with my mother, father, and my little sister. My father is a teacher, and my mother is a nurse. My sister is 5 years old. She loves playing with her toys. We have a cat named Luna. Luna is very cute, and we all love her.</p><br><p><strong>2. My Home</strong></p><br><p>I live in a small house. There are two bedrooms, a kitchen, a living room, and one bathroom. My bedroom is blue, and I have a bed, a desk, and a wardrobe. I also have a big window that looks at the street. I like my room because it is very comfortable.</p><br><p><strong>3. My School</strong><br>I go to school every day. My school is near my house, so I walk there. My classes start at 9:00 a.m. and finish at 1:00 p.m. I like my school because I have many friends. My favorite subject is science because I enjoy learning about animals and plants.</p><br><p><strong>4. My Favorite Color</strong><br>My favorite color is blue. I like blue because it is calm and peaceful. My room is blue, and I also have a blue backpack. I think blue is a beautiful color for the sky and the ocean. I also like green because it reminds me of nature.</p><br><p><strong>5. My Weekend</strong><br>On weekends, I like to relax. On Saturday, I go to the park with my family. We play soccer and walk around. On Sunday, I stay at home and read books or watch TV. Sometimes, I visit my grandparents. I enjoy spending time with them.</p><br><hr /></p>
+            </div>
+            <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
+                <p>No content found</p>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+            
+            <div class="content-area" id="content-a2-elementary-texto-nivel-de-inglés-a2">
+                <div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#16c4e3;line-height:1.2;font-size:2.5em;font-weight:900;margin-bottom:20px;border-bottom:3px solid #16c4e3;padding-bottom:10px"><strong>A2 - Elementary - Texto Nivel de Inglés A2</strong></div>
+<div class="dia">
+    <p class="titulo-dia">A2 - Elementary - Texto Nivel de Inglés A2</p>
+    <div class="audio-container">
+        <audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Clase%20inducci%C3%B3n%20-%20Prueba%20de%20nivel%20A2-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=tKeOPfPVxL5iGgYuh8FXx3F9IBNGrqCWfLU%2F4Aad5jUF1kkR5iQNMmUMPYNqCGHtE3QhQCj2RCq3sh1KSUuKrSCjxj52bK4NIGbOge99cc2cb6WxEnCV2sFcJQXlZdRTytTOGD3vCMY2ovlk%2BseephPiDouO4YZDnKurHi4yTTswylr3KCYL8ocZzMvO5YnIozu2u%2BIr5VGR5dKW8AQ5EdcT5JLVNEsR0WTG0sKu7YqeuA2xnqdQTw%2B8GT0AaZeMg%2FCI6PosK6L7DrgmSBY7vcseggUtl0hByWFYJsyfiokTuaTgXHStUChZB%2FNRK7yJfqdv4CW7i7pthwzV3zGyBg%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio>
+    </div>
+    <div class="text-controls">
+        <button class="boton" onclick="toggleTextContent('english-29251', 'spanish-29251', 'both-29251', 'english', this)">Show English</button>
+        <button class="boton" onclick="toggleTextContent('english-29251', 'spanish-29251', 'both-29251', 'spanish', this)">Show Spanish</button>
+        <button class="boton" onclick="toggleTextContent('english-29251', 'spanish-29251', 'both-29251', 'both', this)">Show Both</button>
+        
+        <div id="english-29251" class="text-content" style="display: none;">
+            <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
+                <p><p><strong>1. My Family</strong><br>I have a big family. I live with my parents, my two brothers, and my grandmother. My father works in an office, and my mother is a teacher at a school. My older brother is 15 years old, and he likes to play football. My younger brother is 8, and he loves reading comics. My grandmother is very kind, and she tells us great stories.</p><br><p><strong>2. My House</strong><br>I live in a house with a big garden. There are four bedrooms, a living room, a kitchen, and two bathrooms. My bedroom is spacious, and I have a comfortable bed and a desk where I do my homework. In the kitchen, we have a big fridge and a modern oven. I like cooking with my mom in the kitchen.</p><br><p><strong>3. My Hobbies</strong><br>In my free time, I have many hobbies. I like playing basketball and going swimming. I also enjoy reading books, especially adventure stories. On weekends, I go to the park with my friends, and we play football or have a picnic. I love playing the guitar and singing songs.</p><br><p><strong>4. My School Day</strong><br>My school day starts at 8:30 a.m. We have 6 classes every day. In the morning, I have English, math, and history. I think history is very interesting because I love learning about the past. After lunch, we have science and art. I enjoy art because I can paint and draw.</p><br><p><strong>5. The Weather</strong><br>Today, the weather is very nice. It is sunny and warm, perfect for a walk outside. In the summer, it gets really hot, and I like going to the beach. In winter, it is cold, and sometimes it snows. I wear a jacket, scarf, and gloves when it’s cold.</p><br><hr /></p>
+            </div>
+        </div>
+        
+        <div id="spanish-29251" class="text-content" style="display: none;">
+            <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
+                <p>No content found</p>
+            </div>
+        </div>
+        
+        <div id="both-29251" class="text-content" style="display: none;">
+            <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
+                <p><p><strong>1. My Family</strong><br>I have a big family. I live with my parents, my two brothers, and my grandmother. My father works in an office, and my mother is a teacher at a school. My older brother is 15 years old, and he likes to play football. My younger brother is 8, and he loves reading comics. My grandmother is very kind, and she tells us great stories.</p><br><p><strong>2. My House</strong><br>I live in a house with a big garden. There are four bedrooms, a living room, a kitchen, and two bathrooms. My bedroom is spacious, and I have a comfortable bed and a desk where I do my homework. In the kitchen, we have a big fridge and a modern oven. I like cooking with my mom in the kitchen.</p><br><p><strong>3. My Hobbies</strong><br>In my free time, I have many hobbies. I like playing basketball and going swimming. I also enjoy reading books, especially adventure stories. On weekends, I go to the park with my friends, and we play football or have a picnic. I love playing the guitar and singing songs.</p><br><p><strong>4. My School Day</strong><br>My school day starts at 8:30 a.m. We have 6 classes every day. In the morning, I have English, math, and history. I think history is very interesting because I love learning about the past. After lunch, we have science and art. I enjoy art because I can paint and draw.</p><br><p><strong>5. The Weather</strong><br>Today, the weather is very nice. It is sunny and warm, perfect for a walk outside. In the summer, it gets really hot, and I like going to the beach. In winter, it is cold, and sometimes it snows. I wear a jacket, scarf, and gloves when it’s cold.</p><br><hr /></p>
+            </div>
+            <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
+                <p>No content found</p>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+            
+            <div class="content-area" id="content-b1-intermediate-texto-nivel-de-inglés-b1">
+                <div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#16c4e3;line-height:1.2;font-size:2.5em;font-weight:900;margin-bottom:20px;border-bottom:3px solid #16c4e3;padding-bottom:10px"><strong>B1 - Intermediate - Texto Nivel de Inglés B1</strong></div>
+<div class="dia">
+    <p class="titulo-dia">B1 - Intermediate - Texto Nivel de Inglés B1</p>
+    <div class="audio-container">
+        <audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Clase%20inducci%C3%B3n%20-%20Prueba%20de%20nivel%20B1-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=V7vyY%2Bj0dqw4l2qgfOdFnrYl9E1JVT%2FKgiqdEZOwOzKnR37f4df5%2FnZCoK3gOG3aIdiTQVJEVR28QajyTMP2V19nzVPAUugDAOb3f99XUQn%2BubfqaPXVZkSu7TXz5SHme3znJ%2F5EATyBz8%2FGQucYGUn4GqHYQDlpqV5HQApd8zMVG9BqAdIrjhGjfnHZhlpuZrsX42dSNxwQAzI1YzOOsE6qHRLR1XxZxXqMA7bQyRUPIHIkKV0ISU0uyzfXd48SZUlPz4dUJ7sSMYIeAr97qJ5zKpibg9Fba%2FVNXA%2BIblob0wMH4N4b5Xct4mcF8FPlriMwuHL4pTxYZmPbSIdTVQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio>
+    </div>
+    <div class="text-controls">
+        <button class="boton" onclick="toggleTextContent('english-17298', 'spanish-17298', 'both-17298', 'english', this)">Show English</button>
+        <button class="boton" onclick="toggleTextContent('english-17298', 'spanish-17298', 'both-17298', 'spanish', this)">Show Spanish</button>
+        <button class="boton" onclick="toggleTextContent('english-17298', 'spanish-17298', 'both-17298', 'both', this)">Show Both</button>
+        
+        <div id="english-17298" class="text-content" style="display: none;">
+            <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
+                <p><p><strong>1. My Family</strong><br>I come from a big family. I have two brothers and one sister. My parents are both teachers. My older brother works in a bank, and my younger brother is still at school. My sister is 14 years old, and she loves playing the piano. Every year, we have a family reunion where we spend time together, playing games and eating delicious food.</p><br><p><strong>2. My Dream House</strong><br>My dream house would be by the sea. It would have three floors, with large windows that look out at the ocean. I would have a big kitchen, where I could cook my favorite meals, and a cozy living room with a fireplace. There would also be a small garden with flowers and a few trees. I would love to spend my evenings there, enjoying the view.</p><br><p><strong>3. My Favorite Holiday</strong><br>My favorite holiday is Christmas. I love Christmas because I can spend time with my family. We decorate the Christmas tree and prepare a big dinner. We give presents to each other, and everyone is happy. I also enjoy the Christmas lights in the city, and I like singing Christmas carols. It's a time for joy and celebration.</p><br><p><strong>4. Traveling</strong><br>I really enjoy traveling to new places. Last year, I visited Italy and had an amazing time. I saw beautiful cities like Rome and Venice. I loved the food, especially pasta and pizza. This summer, I plan to travel to Spain. I’m excited to visit Madrid and Barcelona and learn more about the Spanish culture.</p><br><p><strong>5. My Daily Routine</strong><br>I have a busy daily routine. I wake up at 6:30 a.m. and start my day with a cup of coffee. I usually go to work by bus, and it takes about 30 minutes to get there. At work, I have meetings and reply to emails. After work, I go to the gym or walk in the park. In the evening, I relax by reading or watching TV.</p><br><hr /></p>
+            </div>
+        </div>
+        
+        <div id="spanish-17298" class="text-content" style="display: none;">
+            <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
+                <p>No content found</p>
+            </div>
+        </div>
+        
+        <div id="both-17298" class="text-content" style="display: none;">
+            <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
+                <p><p><strong>1. My Family</strong><br>I come from a big family. I have two brothers and one sister. My parents are both teachers. My older brother works in a bank, and my younger brother is still at school. My sister is 14 years old, and she loves playing the piano. Every year, we have a family reunion where we spend time together, playing games and eating delicious food.</p><br><p><strong>2. My Dream House</strong><br>My dream house would be by the sea. It would have three floors, with large windows that look out at the ocean. I would have a big kitchen, where I could cook my favorite meals, and a cozy living room with a fireplace. There would also be a small garden with flowers and a few trees. I would love to spend my evenings there, enjoying the view.</p><br><p><strong>3. My Favorite Holiday</strong><br>My favorite holiday is Christmas. I love Christmas because I can spend time with my family. We decorate the Christmas tree and prepare a big dinner. We give presents to each other, and everyone is happy. I also enjoy the Christmas lights in the city, and I like singing Christmas carols. It's a time for joy and celebration.</p><br><p><strong>4. Traveling</strong><br>I really enjoy traveling to new places. Last year, I visited Italy and had an amazing time. I saw beautiful cities like Rome and Venice. I loved the food, especially pasta and pizza. This summer, I plan to travel to Spain. I’m excited to visit Madrid and Barcelona and learn more about the Spanish culture.</p><br><p><strong>5. My Daily Routine</strong><br>I have a busy daily routine. I wake up at 6:30 a.m. and start my day with a cup of coffee. I usually go to work by bus, and it takes about 30 minutes to get there. At work, I have meetings and reply to emails. After work, I go to the gym or walk in the park. In the evening, I relax by reading or watching TV.</p><br><hr /></p>
+            </div>
+            <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
+                <p>No content found</p>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+            
+            <div class="content-area" id="content-b2-upper-intermediate-texto-nivel-de-inglés-b2">
+                <div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#16c4e3;line-height:1.2;font-size:2.5em;font-weight:900;margin-bottom:20px;border-bottom:3px solid #16c4e3;padding-bottom:10px"><strong>B2 Upper Intermediate - Texto Nivel de Inglés B2</strong></div>
+<div class="dia">
+    <p class="titulo-dia">B2 Upper Intermediate - Texto Nivel de Inglés B2</p>
+    <div class="audio-container">
+        <audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Clase%20inducci%C3%B3n%20-%20Prueba%20de%20nivel%20B2-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=Pi33jMBd5IWhpVDccotnQuwld7E0LXW4GOjKz41qqaaKp%2Bj9hjKaaaw7unyCkYaQ9JZg%2BbhHvRlHUXxJyliK4pFeo6irNVw9WDuNrQBxZQUiYvnqtc0dUL9M0wnMxIK2fEhCtjwJnDfHdqfRWba18WrJIhniOvyrYHO69SPLHD0u2CwiK8L6oqGyrz0w1OwbSh1kWT2iaNY05lVeHNzQbVaAZ0c%2Bb5OAm75vYlL8IVpKEzqv0Dz1wIdGhQWuTTBYNyyGcPWzT4G2gCYFzdIVqmy7B3HV1NhnWe7nbtQKXKaYV62ge%2FYQdP%2FkhuCbargvMw9a739c2hVg%2FILYfmcSpA%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio>
+    </div>
+    <div class="text-controls">
+        <button class="boton" onclick="toggleTextContent('english-46649', 'spanish-46649', 'both-46649', 'english', this)">Show English</button>
+        <button class="boton" onclick="toggleTextContent('english-46649', 'spanish-46649', 'both-46649', 'spanish', this)">Show Spanish</button>
+        <button class="boton" onclick="toggleTextContent('english-46649', 'spanish-46649', 'both-46649', 'both', this)">Show Both</button>
+        
+        <div id="english-46649" class="text-content" style="display: none;">
+            <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
+                <p><p><strong>1. My Family and Values</strong><br>I come from a very close-knit family. We have always supported each other through difficult times. My parents taught me the importance of hard work and kindness. I believe that family values are essential for building strong relationships. We often spend time together, talking about our experiences, and learning from each other.</p><br><p><strong>2. My Education</strong><br>I studied at a local university, where I majored in Business Administration. The university provided a wide range of courses, and I was able to specialize in marketing. During my studies, I learned a lot about managing projects, working in teams, and solving real-world business problems. I also participated in internships that gave me hands-on experience.</p><br><p><strong>3. Environmental Concerns</strong><br>I am very concerned about the environment. Climate change is a global issue that affects everyone. I believe that it is important to reduce our carbon footprint by using renewable energy, recycling, and reducing waste. Small changes in our daily lives, like using less plastic and conserving water, can have a big impact on the environment. Governments and companies also need to take action to protect our planet.</p><br><p><strong>4. My Career Aspirations</strong><br>I am currently working in the marketing department of a large company. My goal is to advance in my career and take on more responsibility. I am also considering further education, perhaps pursuing a master’s degree in business or digital marketing. In the future, I would like to start my own business and help other companies with their marketing strategies.</p><br><p><strong>5. The Future of Technology</strong><br>Technology is advancing at a rapid pace, and I believe it will continue to shape our future in profound ways. Artificial intelligence, for example, is already changing industries such as healthcare, finance, and transportation. In the next few years, we may see even more innovation in areas like virtual reality and automation. While technology brings many benefits, it also raises questions about privacy and job displacement, which we must address carefully.</p><br><hr /></p>
+            </div>
+        </div>
+        
+        <div id="spanish-46649" class="text-content" style="display: none;">
+            <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
+                <p>No content found</p>
+            </div>
+        </div>
+        
+        <div id="both-46649" class="text-content" style="display: none;">
+            <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
+                <p><p><strong>1. My Family and Values</strong><br>I come from a very close-knit family. We have always supported each other through difficult times. My parents taught me the importance of hard work and kindness. I believe that family values are essential for building strong relationships. We often spend time together, talking about our experiences, and learning from each other.</p><br><p><strong>2. My Education</strong><br>I studied at a local university, where I majored in Business Administration. The university provided a wide range of courses, and I was able to specialize in marketing. During my studies, I learned a lot about managing projects, working in teams, and solving real-world business problems. I also participated in internships that gave me hands-on experience.</p><br><p><strong>3. Environmental Concerns</strong><br>I am very concerned about the environment. Climate change is a global issue that affects everyone. I believe that it is important to reduce our carbon footprint by using renewable energy, recycling, and reducing waste. Small changes in our daily lives, like using less plastic and conserving water, can have a big impact on the environment. Governments and companies also need to take action to protect our planet.</p><br><p><strong>4. My Career Aspirations</strong><br>I am currently working in the marketing department of a large company. My goal is to advance in my career and take on more responsibility. I am also considering further education, perhaps pursuing a master’s degree in business or digital marketing. In the future, I would like to start my own business and help other companies with their marketing strategies.</p><br><p><strong>5. The Future of Technology</strong><br>Technology is advancing at a rapid pace, and I believe it will continue to shape our future in profound ways. Artificial intelligence, for example, is already changing industries such as healthcare, finance, and transportation. In the next few years, we may see even more innovation in areas like virtual reality and automation. While technology brings many benefits, it also raises questions about privacy and job displacement, which we must address carefully.</p><br><hr /></p>
+            </div>
+            <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
+                <p>No content found</p>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+            
+        <div class="content-area parent-content active" id="parent-content-instrucciones-al-teacher">
+            <div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#16c4e3;line-height:1.2;font-size:2.5em;font-weight:900;margin-bottom:20px;border-bottom:3px solid #16c4e3;padding-bottom:10px"><strong>Instrucciones al Teacher</strong></div>
+<ol>
+<li>El profesor debe preguntar al estudiante en qué nivel cree que está.  </li>
+<li>Debe poner el audio de la lectura correspondiente al nivel que el estudiante escogió y pedirle que explique lo que entendió del audio. Si el estudiante no es capaz de entender al menos el 95% del contenido, aún no está en ese nivel.  </li>
+<li>Debe poner la lectura del nivel que el estudiante escogió y pedirle que lea el texto en voz alta. Si el estudiante no es capaz de pronunciar correctamente al menos el 95% de la lectura, aún no está en ese nivel.  </li>
+<li>Debe poner la lectura del nivel que el estudiante escogió y pedirle que traduzca el texto. Si el estudiante no es capaz de traducir correctamente al menos el 95% del contenido, aún no está en ese nivel.  </li>
+<li>Si el estudiante no pasa las tres pruebas anteriores en su totalidad, no está apto para aprobar ese nivel. El profesor debe retroceder al nivel anterior y realizar las mismas pruebas, y así sucesivamente.</li>
+</ol>
+        </div>
+        
+        <div class="content-area parent-content " id="parent-content-a1-beginner-texto-nivel-de-inglés-a1">
+            <div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#16c4e3;line-height:1.2;font-size:2.5em;font-weight:900;margin-bottom:20px;border-bottom:3px solid #16c4e3;padding-bottom:10px"><strong>A1 Beginner - Texto Nivel de Inglés A1</strong></div>
+<div class="dia">
+    <p class="titulo-dia">A1 Beginner - Texto Nivel de Inglés A1</p>
+    <div class="audio-container">
+        <audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Clase%20inducci%C3%B3n%20-%20Prueba%20de%20nivel%20A1-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=fyZNZ%2FOtMY7JlGkrQcaZRfeaVuMcCuyGW%2Fh%2FcXQ3XM3xkADRGjqVn9dilqz6WQzzTbinsAhe4FyvsZ%2B1DNlpxGEj16MC4XRVsVD8powz%2FTaxNc8XVeQn2AQ6hEK5TuThhdiG6vyc9d6quYJN6beg3oHBMuFN78LsWPqdBd906CDs7if3s5cXbCF0kcVbESqejNljIFEhIbuAL8aDoyzvDZMVE7azS2HQpseTeAeKxzVL6k%2FupJBKIVtgC7jrfrJRLxIqAlzOYl3STuV90Gx8%2B6UJrHtwwhhZPnGgrDj%2BLJ9wXQ8q8Vn7%2F%2BEh4kFwFdV73jT58Kvh0CZLIqxkmgeACA%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio>
+    </div>
+    <div class="text-controls">
+        <button class="boton" onclick="toggleTextContent('english-71450', 'spanish-71450', 'both-71450', 'english', this)">Show English</button>
+        <button class="boton" onclick="toggleTextContent('english-71450', 'spanish-71450', 'both-71450', 'spanish', this)">Show Spanish</button>
+        <button class="boton" onclick="toggleTextContent('english-71450', 'spanish-71450', 'both-71450', 'both', this)">Show Both</button>
+        
+        <div id="english-71450" class="text-content" style="display: none;">
+            <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
+                <p><p><strong>1. My Family</strong></p><br><p>I have a small family. I live with my mother, father, and my little sister. My father is a teacher, and my mother is a nurse. My sister is 5 years old. She loves playing with her toys. We have a cat named Luna. Luna is very cute, and we all love her.</p><br><p><strong>2. My Home</strong></p><br><p>I live in a small house. There are two bedrooms, a kitchen, a living room, and one bathroom. My bedroom is blue, and I have a bed, a desk, and a wardrobe. I also have a big window that looks at the street. I like my room because it is very comfortable.</p><br><p><strong>3. My School</strong><br>I go to school every day. My school is near my house, so I walk there. My classes start at 9:00 a.m. and finish at 1:00 p.m. I like my school because I have many friends. My favorite subject is science because I enjoy learning about animals and plants.</p><br><p><strong>4. My Favorite Color</strong><br>My favorite color is blue. I like blue because it is calm and peaceful. My room is blue, and I also have a blue backpack. I think blue is a beautiful color for the sky and the ocean. I also like green because it reminds me of nature.</p><br><p><strong>5. My Weekend</strong><br>On weekends, I like to relax. On Saturday, I go to the park with my family. We play soccer and walk around. On Sunday, I stay at home and read books or watch TV. Sometimes, I visit my grandparents. I enjoy spending time with them.</p><br><hr /></p>
+            </div>
+        </div>
+        
+        <div id="spanish-71450" class="text-content" style="display: none;">
+            <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
+                <p>No content found</p>
+            </div>
+        </div>
+        
+        <div id="both-71450" class="text-content" style="display: none;">
+            <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
+                <p><p><strong>1. My Family</strong></p><br><p>I have a small family. I live with my mother, father, and my little sister. My father is a teacher, and my mother is a nurse. My sister is 5 years old. She loves playing with her toys. We have a cat named Luna. Luna is very cute, and we all love her.</p><br><p><strong>2. My Home</strong></p><br><p>I live in a small house. There are two bedrooms, a kitchen, a living room, and one bathroom. My bedroom is blue, and I have a bed, a desk, and a wardrobe. I also have a big window that looks at the street. I like my room because it is very comfortable.</p><br><p><strong>3. My School</strong><br>I go to school every day. My school is near my house, so I walk there. My classes start at 9:00 a.m. and finish at 1:00 p.m. I like my school because I have many friends. My favorite subject is science because I enjoy learning about animals and plants.</p><br><p><strong>4. My Favorite Color</strong><br>My favorite color is blue. I like blue because it is calm and peaceful. My room is blue, and I also have a blue backpack. I think blue is a beautiful color for the sky and the ocean. I also like green because it reminds me of nature.</p><br><p><strong>5. My Weekend</strong><br>On weekends, I like to relax. On Saturday, I go to the park with my family. We play soccer and walk around. On Sunday, I stay at home and read books or watch TV. Sometimes, I visit my grandparents. I enjoy spending time with them.</p><br><hr /></p>
+            </div>
+            <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
+                <p>No content found</p>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+        
+        <div class="content-area parent-content " id="parent-content-a2-elementary-texto-nivel-de-inglés-a2">
+            <div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#16c4e3;line-height:1.2;font-size:2.5em;font-weight:900;margin-bottom:20px;border-bottom:3px solid #16c4e3;padding-bottom:10px"><strong>A2 - Elementary - Texto Nivel de Inglés A2</strong></div>
+<div class="dia">
+    <p class="titulo-dia">A2 - Elementary - Texto Nivel de Inglés A2</p>
+    <div class="audio-container">
+        <audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Clase%20inducci%C3%B3n%20-%20Prueba%20de%20nivel%20A2-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=tKeOPfPVxL5iGgYuh8FXx3F9IBNGrqCWfLU%2F4Aad5jUF1kkR5iQNMmUMPYNqCGHtE3QhQCj2RCq3sh1KSUuKrSCjxj52bK4NIGbOge99cc2cb6WxEnCV2sFcJQXlZdRTytTOGD3vCMY2ovlk%2BseephPiDouO4YZDnKurHi4yTTswylr3KCYL8ocZzMvO5YnIozu2u%2BIr5VGR5dKW8AQ5EdcT5JLVNEsR0WTG0sKu7YqeuA2xnqdQTw%2B8GT0AaZeMg%2FCI6PosK6L7DrgmSBY7vcseggUtl0hByWFYJsyfiokTuaTgXHStUChZB%2FNRK7yJfqdv4CW7i7pthwzV3zGyBg%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio>
+    </div>
+    <div class="text-controls">
+        <button class="boton" onclick="toggleTextContent('english-79890', 'spanish-79890', 'both-79890', 'english', this)">Show English</button>
+        <button class="boton" onclick="toggleTextContent('english-79890', 'spanish-79890', 'both-79890', 'spanish', this)">Show Spanish</button>
+        <button class="boton" onclick="toggleTextContent('english-79890', 'spanish-79890', 'both-79890', 'both', this)">Show Both</button>
+        
+        <div id="english-79890" class="text-content" style="display: none;">
+            <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
+                <p><p><strong>1. My Family</strong><br>I have a big family. I live with my parents, my two brothers, and my grandmother. My father works in an office, and my mother is a teacher at a school. My older brother is 15 years old, and he likes to play football. My younger brother is 8, and he loves reading comics. My grandmother is very kind, and she tells us great stories.</p><br><p><strong>2. My House</strong><br>I live in a house with a big garden. There are four bedrooms, a living room, a kitchen, and two bathrooms. My bedroom is spacious, and I have a comfortable bed and a desk where I do my homework. In the kitchen, we have a big fridge and a modern oven. I like cooking with my mom in the kitchen.</p><br><p><strong>3. My Hobbies</strong><br>In my free time, I have many hobbies. I like playing basketball and going swimming. I also enjoy reading books, especially adventure stories. On weekends, I go to the park with my friends, and we play football or have a picnic. I love playing the guitar and singing songs.</p><br><p><strong>4. My School Day</strong><br>My school day starts at 8:30 a.m. We have 6 classes every day. In the morning, I have English, math, and history. I think history is very interesting because I love learning about the past. After lunch, we have science and art. I enjoy art because I can paint and draw.</p><br><p><strong>5. The Weather</strong><br>Today, the weather is very nice. It is sunny and warm, perfect for a walk outside. In the summer, it gets really hot, and I like going to the beach. In winter, it is cold, and sometimes it snows. I wear a jacket, scarf, and gloves when it’s cold.</p><br><hr /></p>
+            </div>
+        </div>
+        
+        <div id="spanish-79890" class="text-content" style="display: none;">
+            <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
+                <p>No content found</p>
+            </div>
+        </div>
+        
+        <div id="both-79890" class="text-content" style="display: none;">
+            <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
+                <p><p><strong>1. My Family</strong><br>I have a big family. I live with my parents, my two brothers, and my grandmother. My father works in an office, and my mother is a teacher at a school. My older brother is 15 years old, and he likes to play football. My younger brother is 8, and he loves reading comics. My grandmother is very kind, and she tells us great stories.</p><br><p><strong>2. My House</strong><br>I live in a house with a big garden. There are four bedrooms, a living room, a kitchen, and two bathrooms. My bedroom is spacious, and I have a comfortable bed and a desk where I do my homework. In the kitchen, we have a big fridge and a modern oven. I like cooking with my mom in the kitchen.</p><br><p><strong>3. My Hobbies</strong><br>In my free time, I have many hobbies. I like playing basketball and going swimming. I also enjoy reading books, especially adventure stories. On weekends, I go to the park with my friends, and we play football or have a picnic. I love playing the guitar and singing songs.</p><br><p><strong>4. My School Day</strong><br>My school day starts at 8:30 a.m. We have 6 classes every day. In the morning, I have English, math, and history. I think history is very interesting because I love learning about the past. After lunch, we have science and art. I enjoy art because I can paint and draw.</p><br><p><strong>5. The Weather</strong><br>Today, the weather is very nice. It is sunny and warm, perfect for a walk outside. In the summer, it gets really hot, and I like going to the beach. In winter, it is cold, and sometimes it snows. I wear a jacket, scarf, and gloves when it’s cold.</p><br><hr /></p>
+            </div>
+            <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
+                <p>No content found</p>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+        
+        <div class="content-area parent-content " id="parent-content-b1-intermediate-texto-nivel-de-inglés-b1">
+            <div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#16c4e3;line-height:1.2;font-size:2.5em;font-weight:900;margin-bottom:20px;border-bottom:3px solid #16c4e3;padding-bottom:10px"><strong>B1 - Intermediate - Texto Nivel de Inglés B1</strong></div>
+<div class="dia">
+    <p class="titulo-dia">B1 - Intermediate - Texto Nivel de Inglés B1</p>
+    <div class="audio-container">
+        <audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Clase%20inducci%C3%B3n%20-%20Prueba%20de%20nivel%20B1-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=V7vyY%2Bj0dqw4l2qgfOdFnrYl9E1JVT%2FKgiqdEZOwOzKnR37f4df5%2FnZCoK3gOG3aIdiTQVJEVR28QajyTMP2V19nzVPAUugDAOb3f99XUQn%2BubfqaPXVZkSu7TXz5SHme3znJ%2F5EATyBz8%2FGQucYGUn4GqHYQDlpqV5HQApd8zMVG9BqAdIrjhGjfnHZhlpuZrsX42dSNxwQAzI1YzOOsE6qHRLR1XxZxXqMA7bQyRUPIHIkKV0ISU0uyzfXd48SZUlPz4dUJ7sSMYIeAr97qJ5zKpibg9Fba%2FVNXA%2BIblob0wMH4N4b5Xct4mcF8FPlriMwuHL4pTxYZmPbSIdTVQ%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio>
+    </div>
+    <div class="text-controls">
+        <button class="boton" onclick="toggleTextContent('english-8816', 'spanish-8816', 'both-8816', 'english', this)">Show English</button>
+        <button class="boton" onclick="toggleTextContent('english-8816', 'spanish-8816', 'both-8816', 'spanish', this)">Show Spanish</button>
+        <button class="boton" onclick="toggleTextContent('english-8816', 'spanish-8816', 'both-8816', 'both', this)">Show Both</button>
+        
+        <div id="english-8816" class="text-content" style="display: none;">
+            <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
+                <p><p><strong>1. My Family</strong><br>I come from a big family. I have two brothers and one sister. My parents are both teachers. My older brother works in a bank, and my younger brother is still at school. My sister is 14 years old, and she loves playing the piano. Every year, we have a family reunion where we spend time together, playing games and eating delicious food.</p><br><p><strong>2. My Dream House</strong><br>My dream house would be by the sea. It would have three floors, with large windows that look out at the ocean. I would have a big kitchen, where I could cook my favorite meals, and a cozy living room with a fireplace. There would also be a small garden with flowers and a few trees. I would love to spend my evenings there, enjoying the view.</p><br><p><strong>3. My Favorite Holiday</strong><br>My favorite holiday is Christmas. I love Christmas because I can spend time with my family. We decorate the Christmas tree and prepare a big dinner. We give presents to each other, and everyone is happy. I also enjoy the Christmas lights in the city, and I like singing Christmas carols. It's a time for joy and celebration.</p><br><p><strong>4. Traveling</strong><br>I really enjoy traveling to new places. Last year, I visited Italy and had an amazing time. I saw beautiful cities like Rome and Venice. I loved the food, especially pasta and pizza. This summer, I plan to travel to Spain. I’m excited to visit Madrid and Barcelona and learn more about the Spanish culture.</p><br><p><strong>5. My Daily Routine</strong><br>I have a busy daily routine. I wake up at 6:30 a.m. and start my day with a cup of coffee. I usually go to work by bus, and it takes about 30 minutes to get there. At work, I have meetings and reply to emails. After work, I go to the gym or walk in the park. In the evening, I relax by reading or watching TV.</p><br><hr /></p>
+            </div>
+        </div>
+        
+        <div id="spanish-8816" class="text-content" style="display: none;">
+            <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
+                <p>No content found</p>
+            </div>
+        </div>
+        
+        <div id="both-8816" class="text-content" style="display: none;">
+            <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
+                <p><p><strong>1. My Family</strong><br>I come from a big family. I have two brothers and one sister. My parents are both teachers. My older brother works in a bank, and my younger brother is still at school. My sister is 14 years old, and she loves playing the piano. Every year, we have a family reunion where we spend time together, playing games and eating delicious food.</p><br><p><strong>2. My Dream House</strong><br>My dream house would be by the sea. It would have three floors, with large windows that look out at the ocean. I would have a big kitchen, where I could cook my favorite meals, and a cozy living room with a fireplace. There would also be a small garden with flowers and a few trees. I would love to spend my evenings there, enjoying the view.</p><br><p><strong>3. My Favorite Holiday</strong><br>My favorite holiday is Christmas. I love Christmas because I can spend time with my family. We decorate the Christmas tree and prepare a big dinner. We give presents to each other, and everyone is happy. I also enjoy the Christmas lights in the city, and I like singing Christmas carols. It's a time for joy and celebration.</p><br><p><strong>4. Traveling</strong><br>I really enjoy traveling to new places. Last year, I visited Italy and had an amazing time. I saw beautiful cities like Rome and Venice. I loved the food, especially pasta and pizza. This summer, I plan to travel to Spain. I’m excited to visit Madrid and Barcelona and learn more about the Spanish culture.</p><br><p><strong>5. My Daily Routine</strong><br>I have a busy daily routine. I wake up at 6:30 a.m. and start my day with a cup of coffee. I usually go to work by bus, and it takes about 30 minutes to get there. At work, I have meetings and reply to emails. After work, I go to the gym or walk in the park. In the evening, I relax by reading or watching TV.</p><br><hr /></p>
+            </div>
+            <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
+                <p>No content found</p>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+        
+        <div class="content-area parent-content " id="parent-content-b2-upper-intermediate-texto-nivel-de-inglés-b2">
+            <div style="margin:0em 1em;font-family:Poppins, sans-serif;color:#16c4e3;line-height:1.2;font-size:2.5em;font-weight:900;margin-bottom:20px;border-bottom:3px solid #16c4e3;padding-bottom:10px"><strong>B2 Upper Intermediate - Texto Nivel de Inglés B2</strong></div>
+<div class="dia">
+    <p class="titulo-dia">B2 Upper Intermediate - Texto Nivel de Inglés B2</p>
+    <div class="audio-container">
+        <audio controls loop controlsList="nodownload" style="height:30px"><source src="https://storage.googleapis.com/chocolearn-f05e5.firebasestorage.app/audio/bgmusic_Clase%20inducci%C3%B3n%20-%20Prueba%20de%20nivel%20B2-esv2-90p-bg-10p.mp3?GoogleAccessId=firebase-adminsdk-tubvg%40chocolearn-f05e5.iam.gserviceaccount.com&amp;Expires=1898571600&amp;Signature=Pi33jMBd5IWhpVDccotnQuwld7E0LXW4GOjKz41qqaaKp%2Bj9hjKaaaw7unyCkYaQ9JZg%2BbhHvRlHUXxJyliK4pFeo6irNVw9WDuNrQBxZQUiYvnqtc0dUL9M0wnMxIK2fEhCtjwJnDfHdqfRWba18WrJIhniOvyrYHO69SPLHD0u2CwiK8L6oqGyrz0w1OwbSh1kWT2iaNY05lVeHNzQbVaAZ0c%2Bb5OAm75vYlL8IVpKEzqv0Dz1wIdGhQWuTTBYNyyGcPWzT4G2gCYFzdIVqmy7B3HV1NhnWe7nbtQKXKaYV62ge%2FYQdP%2FkhuCbargvMw9a739c2hVg%2FILYfmcSpA%3D%3D" type="audio/mp3"></source>Tu navegador no soporta el audio.</audio>
+    </div>
+    <div class="text-controls">
+        <button class="boton" onclick="toggleTextContent('english-8065', 'spanish-8065', 'both-8065', 'english', this)">Show English</button>
+        <button class="boton" onclick="toggleTextContent('english-8065', 'spanish-8065', 'both-8065', 'spanish', this)">Show Spanish</button>
+        <button class="boton" onclick="toggleTextContent('english-8065', 'spanish-8065', 'both-8065', 'both', this)">Show Both</button>
+        
+        <div id="english-8065" class="text-content" style="display: none;">
+            <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; font-family: Poppins, sans-serif;">
+                <p><p><strong>1. My Family and Values</strong><br>I come from a very close-knit family. We have always supported each other through difficult times. My parents taught me the importance of hard work and kindness. I believe that family values are essential for building strong relationships. We often spend time together, talking about our experiences, and learning from each other.</p><br><p><strong>2. My Education</strong><br>I studied at a local university, where I majored in Business Administration. The university provided a wide range of courses, and I was able to specialize in marketing. During my studies, I learned a lot about managing projects, working in teams, and solving real-world business problems. I also participated in internships that gave me hands-on experience.</p><br><p><strong>3. Environmental Concerns</strong><br>I am very concerned about the environment. Climate change is a global issue that affects everyone. I believe that it is important to reduce our carbon footprint by using renewable energy, recycling, and reducing waste. Small changes in our daily lives, like using less plastic and conserving water, can have a big impact on the environment. Governments and companies also need to take action to protect our planet.</p><br><p><strong>4. My Career Aspirations</strong><br>I am currently working in the marketing department of a large company. My goal is to advance in my career and take on more responsibility. I am also considering further education, perhaps pursuing a master’s degree in business or digital marketing. In the future, I would like to start my own business and help other companies with their marketing strategies.</p><br><p><strong>5. The Future of Technology</strong><br>Technology is advancing at a rapid pace, and I believe it will continue to shape our future in profound ways. Artificial intelligence, for example, is already changing industries such as healthcare, finance, and transportation. In the next few years, we may see even more innovation in areas like virtual reality and automation. While technology brings many benefits, it also raises questions about privacy and job displacement, which we must address carefully.</p><br><hr /></p>
+            </div>
+        </div>
+        
+        <div id="spanish-8065" class="text-content" style="display: none;">
+            <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
+                <p>No content found</p>
+            </div>
+        </div>
+        
+        <div id="both-8065" class="text-content" style="display: none;">
+            <h4 style="color: #16c4e3; margin: 10px 0; font-family: Poppins, sans-serif;">English:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #16c4e3; margin-bottom: 15px; font-family: Poppins, sans-serif;">
+                <p><p><strong>1. My Family and Values</strong><br>I come from a very close-knit family. We have always supported each other through difficult times. My parents taught me the importance of hard work and kindness. I believe that family values are essential for building strong relationships. We often spend time together, talking about our experiences, and learning from each other.</p><br><p><strong>2. My Education</strong><br>I studied at a local university, where I majored in Business Administration. The university provided a wide range of courses, and I was able to specialize in marketing. During my studies, I learned a lot about managing projects, working in teams, and solving real-world business problems. I also participated in internships that gave me hands-on experience.</p><br><p><strong>3. Environmental Concerns</strong><br>I am very concerned about the environment. Climate change is a global issue that affects everyone. I believe that it is important to reduce our carbon footprint by using renewable energy, recycling, and reducing waste. Small changes in our daily lives, like using less plastic and conserving water, can have a big impact on the environment. Governments and companies also need to take action to protect our planet.</p><br><p><strong>4. My Career Aspirations</strong><br>I am currently working in the marketing department of a large company. My goal is to advance in my career and take on more responsibility. I am also considering further education, perhaps pursuing a master’s degree in business or digital marketing. In the future, I would like to start my own business and help other companies with their marketing strategies.</p><br><p><strong>5. The Future of Technology</strong><br>Technology is advancing at a rapid pace, and I believe it will continue to shape our future in profound ways. Artificial intelligence, for example, is already changing industries such as healthcare, finance, and transportation. In the next few years, we may see even more innovation in areas like virtual reality and automation. While technology brings many benefits, it also raises questions about privacy and job displacement, which we must address carefully.</p><br><hr /></p>
+            </div>
+            <h4 style="color: #FE4980; margin: 10px 0; font-family: Poppins, sans-serif;">Spanish:</h4>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #FE4980; font-family: Poppins, sans-serif;">
+                <p>No content found</p>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+        
+            </div>
+        </div>
+        <button class="fullscreen-btn" onclick="document.documentElement.requestFullscreen()">Pantalla completa</button>
+        <button class="exit-fullscreen-btn" onclick="document.exitFullscreen()">Salir pantalla completa</button>
+
+        <script>
+            // Initialize first menu item as active on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                // Find the first main menu button and mark it as active
+                const firstMainButton = document.querySelector('.menu-button');
+                if (firstMainButton) {
+                    firstMainButton.classList.add('active');
+                    
+                    // Also expand its submenu if it exists
+                    const onclick = firstMainButton.getAttribute('onclick');
+                    if (onclick) {
+                        const match = onclick.match(/showParentContent\('([^']+)'\)/);
+                        if (match) {
+                            const firstId = match[1];
+                            const submenu = document.getElementById('submenu-' + firstId);
+                            const arrow = document.getElementById('arrow-' + firstId);
+                            if (submenu && arrow) {
+                                submenu.classList.add('open');
+                                arrow.classList.add('rotate');
+                            }
+                        }
+                    }
+                }
+                
+                console.log('DOM loaded, toggleTextContent function available:', typeof toggleTextContent);
+                
+                // Test that all audio sections have proper IDs
+                const audioSections = document.querySelectorAll('.dia');
+                audioSections.forEach((section, index) => {
+                    const buttons = section.querySelectorAll('.text-controls .boton');
+                    console.log(`Audio section ${index + 1} has ${buttons.length} buttons`);
+                });
+            });
+
+            // NEW: Toggle function that shows/hides content and updates button text
+            function toggleTextContent(englishId, spanishId, bothId, type, button) {
+                console.log('toggleTextContent called:', englishId, spanishId, bothId, type); // Debug log
+                
+                try {
+                    // Get all elements
+                    const englishEl = document.getElementById(englishId);
+                    const spanishEl = document.getElementById(spanishId);
+                    const bothEl = document.getElementById(bothId);
+                    
+                    console.log('Elements found:', englishEl, spanishEl, bothEl); // Debug log
+                    
+                    // Determine which element we're toggling
+                    let targetEl = null;
+                    if (type === 'english' && englishEl) {
+                        targetEl = englishEl;
+                    } else if (type === 'spanish' && spanishEl) {
+                        targetEl = spanishEl;
+                    } else if (type === 'both' && bothEl) {
+                        targetEl = bothEl;
+                    }
+                    
+                    if (!targetEl) {
+                        console.error('Target element not found for type:', type);
+                        return;
+                    }
+                    
+                    // Check if the target is currently visible
+                    const isCurrentlyVisible = targetEl.style.display === 'block';
+                    
+                    // Hide ALL text content divs for this audio section first
+                    if (englishEl) {
+                        englishEl.style.display = 'none';
+                        englishEl.classList.remove('show');
+                    }
+                    if (spanishEl) {
+                        spanishEl.style.display = 'none';
+                        spanishEl.classList.remove('show');
+                    }
+                    if (bothEl) {
+                        bothEl.style.display = 'none';
+                        bothEl.classList.remove('show');
+                    }
+                    
+                    // Reset all button states and texts
+                    const parentContainer = button.closest('.dia');
+                    if (parentContainer) {
+                        const buttons = parentContainer.querySelectorAll('.text-controls .boton');
+                        buttons.forEach(btn => {
+                            btn.classList.remove('active');
+                            const text = btn.innerText;
+                            if (text.startsWith('Hide')) {
+                                btn.innerText = text.replace('Hide', 'Show');
+                            }
+                        });
+                    }
+                    
+                    // If it wasn't visible, show it and update button
+                    if (!isCurrentlyVisible) {
+                        targetEl.style.display = 'block';
+                        targetEl.classList.add('show');
+                        button.classList.add('active');
+                        
+                        // Update button text to "Hide"
+                        const currentText = button.innerText;
+                        button.innerText = currentText.replace('Show', 'Hide');
+                        
+                        console.log('Showing element:', targetEl.id); // Debug log
+                    }
+                    // If it was visible, it's now hidden (already done above) and button text is reset
+                    
+                } catch (error) {
+                    console.error('Error in toggleTextContent:', error);
+                }
+            }
+
+            // Keep the old function for backward compatibility (though it's not used now)
+            function showTextContent(englishId, spanishId, bothId, type) {
+                console.log('showTextContent called - redirecting to toggleTextContent');
+                // This is kept for backward compatibility but shouldn't be used
+            }
+
+            function toggleSidebar() {
+                const container = document.querySelector('.container');
+                container.classList.toggle('sidebar-hidden');
+            }
+
+            function toggleSubmenu(id) {
+                const submenu = document.getElementById('submenu-' + id);
+                const arrow = document.getElementById('arrow-' + id);
+                if (submenu && arrow) {
+                    submenu.classList.toggle('open');
+                    arrow.classList.toggle('rotate');
+                }
+            }
+
+            function toggleSubSubmenu(id) {
+                const subsubmenu = document.getElementById('subsubmenu-' + id);
+                const arrow = document.getElementById('arrow-' + id);
+                if (subsubmenu && arrow) {
+                    subsubmenu.classList.toggle('open');
+                    arrow.classList.toggle('rotate');
+                }
+            }
+
+            function showContent(id) {
+                // Hide all content areas
+                const areas = document.querySelectorAll('.content-area');
+                areas.forEach(area => area.classList.remove('active'));
+                
+                // Show the selected content
+                const target = document.getElementById('content-' + id);
+                if (target) target.classList.add('active');
+
+                // Update menu button states - remove all active states first
+                const allButtons = document.querySelectorAll('.menu-button, .submenu-button, .subsubmenu-button');
+                allButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Find and activate the current button
+                const currentButton = document.querySelector(`[onclick*="showContent('${id}')"]`);
+                if (currentButton) {
+                    currentButton.classList.add('active');
+                }
+
+                // Scroll to top when switching content
+                document.querySelector('.content').scrollTop = 0;
+            }
+
+            function showParentContent(id) {
+                // Hide all content areas
+                const areas = document.querySelectorAll('.content-area');
+                areas.forEach(area => area.classList.remove('active'));
+                
+                // Show the selected parent content
+                const target = document.getElementById('parent-content-' + id);
+                if (target) target.classList.add('active');
+
+                // Update menu button states - remove all active states first
+                const allButtons = document.querySelectorAll('.menu-button, .submenu-button, .subsubmenu-button');
+                allButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Find and activate the current main menu button
+                const currentButton = document.querySelector(`[onclick*="showParentContent('${id}')"]`);
+                if (currentButton) {
+                    currentButton.classList.add('active');
+                }
+
+                // Scroll to top when switching content
+                document.querySelector('.content').scrollTop = 0;
+            }
+
+            function toggleVisibility(id, button) {
+                const el = document.getElementById(id);
+                if (el) {
+                    const visible = el.style.display === 'block';
+                    el.style.display = visible ? 'none' : 'block';
+                    if (button) {
+                        const currentText = button.innerText;
+                        if (visible) {
+                            button.innerText = currentText.replace('Ocultar', 'Mostrar').replace('Hide', 'Show');
+                        } else {
+                            button.innerText = currentText.replace('Mostrar', 'Ocultar').replace('Show', 'Hide');
+                        }
+                    }
+                }
+            }
+        </script>
+
+    </body>
+    </html>
+    
