@@ -1,0 +1,77 @@
+    <style>
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px; /* Default for mobile */
+            background-color: #000;
+            border-radius: 20px 20px 0 0; /* Top corners rounded */
+            overflow: hidden; /* Ensures video respects border radius */
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 177.78%; /* 16:9 aspect ratio flipped = 9:16 */
+            background-color: #000;
+        }
+
+        /* PC/Desktop specific styles */
+        @media (min-width: 769px) {
+            .video-container {
+                max-width: 70vw;
+            }
+            
+            .video-wrapper {
+                padding-bottom: 56.25%; /* 16:9 aspect ratio for PC */
+            }
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 480px) {
+           
+            .video-container {
+                max-width: 100%;
+                width: 90vw;
+            }
+        }
+
+        /* For very tall screens, limit the height */
+        @media (max-height: 600px) {
+            .video-container {
+                max-width: 300px;
+            }
+        }
+
+        /* Portrait orientation specific */
+        @media (orientation: portrait) {
+            .video-container {
+                max-width: 80vw;
+            }
+        }
+
+        /* Landscape orientation on mobile */
+        @media (orientation: landscape) and (max-height: 600px) {
+            .video-container {
+                max-width: 40vh;
+            }
+        }
+    </style>
+    <div class="video-container">
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/-_DGRzwzEz4?rel=0&showinfo=0&modestbranding=1" 
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+            </iframe>
+        </div>
+    </div>
