@@ -1,32 +1,27 @@
-    <style>
+    <style>     
         .video-container {
             position: relative;
-            width: 100%;
-            max-width: 400px; /* Default for mobile */
+            width: 100vw; /* Ancho completo de la ventana */
             background-color: #000;
-            border-radius: 20px 20px 0 0; /* Top corners rounded */
-            overflow: hidden; /* Ensures video respects border radius */
+            border-radius: 0; /* Sin bordes redondeados para fullwidth */
+            overflow: hidden;
         }
-
+        
         .video-wrapper {
             position: relative;
             width: 100%;
             height: 0;
-            padding-bottom: 177.78%; /* 16:9 aspect ratio flipped = 9:16 */
+            padding-bottom: 177.78%; /* 16:9 aspect ratio flipped = 9:16 para móvil */
             background-color: #000;
         }
-
+        
         /* PC/Desktop specific styles */
         @media (min-width: 769px) {
-            .video-container {
-                max-width: 70vw;
-            }
-            
             .video-wrapper {
-                padding-bottom: 56.25%; /* 16:9 aspect ratio for PC */
+                padding-bottom: 56.25%; /* 16:9 aspect ratio para PC */
             }
         }
-
+        
         .video-wrapper iframe {
             position: absolute;
             top: 0;
@@ -35,34 +30,18 @@
             height: 100%;
             border: none;
         }
-
-        /* Mobile optimizations */
-        @media (max-width: 480px) {
-           
-            .video-container {
-                max-width: 100%;
-                width: 90vw;
-            }
-        }
-
-        /* For very tall screens, limit the height */
+        
+        /* Para pantallas muy altas, limitar la altura */
         @media (max-height: 600px) {
-            .video-container {
-                max-width: 300px;
+            .video-wrapper {
+                padding-bottom: 75%; /* Reducir altura en pantallas bajas */
             }
         }
-
-        /* Portrait orientation specific */
-        @media (orientation: portrait) {
-            .video-container {
-                max-width: 80vw;
-            }
-        }
-
-        /* Landscape orientation on mobile */
+        
+        /* Orientación landscape en móviles */
         @media (orientation: landscape) and (max-height: 600px) {
-            .video-container {
-                max-width: 40vh;
+            .video-wrapper {
+                padding-bottom: 56.25%; /* 16:9 en landscape */
             }
         }
     </style>
