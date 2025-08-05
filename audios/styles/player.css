@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.player-container {
+  width: 100%;
+  max-width: 700px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+video {
+  width: 100%;
+  height: 0px;
+  display: block;
+  margin-bottom: 0px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.controls button,
+.controls select {
+  background: #16c4e3;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.controls button:hover,
+.controls select:hover {
+  background: #FE4980;
+}
+
+.playback-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  margin: 0 12px;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+.time {
+  font-size: 12px;
+  min-width: 80px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.right-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.volume-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  order: 1;
+}
+
+.volume-icon {
+  font-size: 16px;
+  color: #16c4e3;
+  cursor: pointer;
+  padding: 6px;
+  transition: color 0.2s;
+}
+
+.volume-icon:hover {
+  color: #FE4980;
+}
+
+.volume-slider {
+  width: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: absolute;
+  right: 100%;
+  margin-right: 4px;
+}
+
+.volume-slider.expanded {
+  width: 80px;
+  opacity: 1;
+}
+
+.speed-control {
+  order: 2;
+}
+
+select {
+  padding: 6px 8px;
+  font-size: 12px;
+}
