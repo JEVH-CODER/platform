@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-/* Remove extra space and make mobile responsive*/
+/* Remove default body margins to eliminate extra space */
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 .player-container {
@@ -13,31 +14,40 @@ body {
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.1);
   padding: 15px;
-  margin: 0;
   box-sizing: border-box;
+  margin: 0;
 }
 
+video {
+  width: 100%;
+  height: 0px;
+  display: block;
+  margin-bottom: 0px;
+}
+
+/* Updated controls for two-row layout */
 .controls {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.progress-container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-  order: 1;
+.controls button,
+.controls select {
+  background: #16c4e3;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.2s;
 }
 
-.controls-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  order: 2;
-  flex-wrap: wrap;
+.controls button:hover,
+.controls select:hover {
+  background: #FE4980;
 }
 
 .playback-controls {
@@ -47,6 +57,36 @@ body {
   flex-shrink: 0;
 }
 
+/* First row: Progress container */
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  order: 1;
+}
+
+/* Second row: Controls row */
+.controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  order: 2;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+.time {
+  font-size: 12px;
+  min-width: 80px;
+  text-align: center;
+  white-space: nowrap;
+  font-family: 'Poppins', sans-serif;
+}
+
 .right-controls {
   display: flex;
   align-items: center;
@@ -54,30 +94,67 @@ body {
   flex-shrink: 0;
 }
 
+.volume-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  order: 1;
+}
+
+.volume-icon {
+  font-size: 16px;
+  color: #16c4e3;
+  cursor: pointer;
+  padding: 6px;
+  transition: color 0.2s;
+}
+
+.volume-icon:hover {
+  color: #FE4980;
+}
+
+.volume-slider {
+  width: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: absolute;
+  right: 100%;
+  margin-right: 4px;
+}
+
+.volume-slider.expanded {
+  width: 80px;
+  opacity: 1;
+}
+
 .speed-control {
-  min-width: 60px;
+  order: 2;
+  min-width: 65px;
 }
 
 select {
-  padding: 6px 4px;
+  padding: 6px 8px;
   font-size: 12px;
-  min-width: 60px;
-  max-width: 80px;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Mobile responsiveness */
 @media (max-width: 480px) {
   .player-container {
-    padding: 10px;
+    padding: 12px;
+  }
+  
+  .controls {
+    gap: 8px;
   }
   
   .controls-row {
-    flex-wrap: wrap;
     gap: 6px;
   }
   
   .playback-controls {
-    gap: 2px;
+    gap: 3px;
   }
   
   .controls button {
@@ -89,15 +166,48 @@ select {
     gap: 6px;
   }
   
-  select {
-    padding: 4px 2px;
-    font-size: 11px;
+  .speed-control {
     min-width: 55px;
-    max-width: 65px;
+  }
+  
+  select {
+    padding: 4px 6px;
+    font-size: 11px;
   }
   
   .time {
     font-size: 11px;
     min-width: 70px;
+  }
+  
+  .volume-icon {
+    font-size: 14px;
+    padding: 4px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 320px) {
+  .player-container {
+    padding: 10px;
+  }
+  
+  .controls button {
+    padding: 5px 6px;
+    font-size: 11px;
+  }
+  
+  .speed-control {
+    min-width: 50px;
+  }
+  
+  select {
+    padding: 3px 4px;
+    font-size: 10px;
+  }
+  
+  .time {
+    font-size: 10px;
+    min-width: 65px;
   }
 }
