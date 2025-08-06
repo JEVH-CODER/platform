@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mes 3 - Dia 18-esv2-90p-bg-10p</title>
+  <link rel="stylesheet" href="https://jevh-coder.github.io/platform/audios/player-settings/player.css">
+</head>
+  <div class="player-container">
+    <video id="video" playsinline loop></video>
+    <div class="controls">
+      <!-- First row: Progress bar -->
+      <div class="progress-container">
+        <input id="seek" type="range" min="0" value="0" step="0.1">
+        <span class="time" id="time">0:00 / 0:00</span>
+      </div>
+      
+      <!-- Second row: Control buttons -->
+      <div class="controls-row">
+        <div class="playback-controls">
+          <button id="back">⏪ 5s</button>
+          <button id="play">▶️</button>
+          <button id="forward">5s ⏩</button>
+        </div>
+        
+        <div class="right-controls">
+          <div class="volume-container">
+            <input id="volume" class="volume-slider" type="range" min="0" max="1" step="0.01" value="1">
+            <span class="volume-icon" id="volume-icon">🔊</span>
+          </div>
+          <select id="speed" class="speed-control">
+            <option value="0.5">0.5x</option>
+            <option value="0.75">0.75x</option>
+            <option value="1" selected>1x</option>
+            <option value="1.25">1.25x</option>
+            <option value="1.5">1.5x</option>
+            <option value="2">2x</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="https://jevh-coder.github.io/platform/audios/player-settings/player.js"></script>
+  <script>
+    // Initialize player with the specific playback ID for this audio
+    initializePlayer('NcdGbd5OMy65Q02O1cMqadyfv1hboy1KM01y3WE8IVAok');
+  </script>
+</html>
