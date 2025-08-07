@@ -11,20 +11,10 @@ function initializePlayer(playbackId) {
 
   const proxyUrl = `https://puedocrecer.com/jwt-proxy/jwt-proxy.php?playback_id=${playbackId}`;
 
-  // Fix for mobile: ensure video element has some height so it's not "collapsed"
-  video.style.height = '40px'; // Enough to initialize audio controls on all devices
-
   fetch(proxyUrl)
-    .then(res => {
-      if (!res.ok) throw new Error(`Server returned ${res.status}`);
-      return res.json();
-    })
+    .then(res => res.json())
     .then(data => {
       const videoSrc = data.m3u8_url;
-
-      if (!videoSrc) {
-        throw new Error("No video source returned from proxy.");
-      }
 
       if (Hls.isSupported()) {
         const hls = new Hls();
@@ -36,8 +26,7 @@ function initializePlayer(playbackId) {
         alert('Your browser does not support HLS playback.');
       }
     }).catch(err => {
-      console.error(err);
-      alert('⚠️ Failed to load video stream. Please check your connection or try again.');
+      alert('Failed to load video stream. ' + err);
     });
 
   // Volume slider toggle functionality
@@ -85,7 +74,7 @@ function initializePlayer(playbackId) {
 
   video.addEventListener('loadedmetadata', () => {
     seekSlider.max = video.duration;
-    video.loop = true;
+    video.loop = true; // Ensure loop is enabled
     updateTime();
   });
 
