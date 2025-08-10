@@ -5,9 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>bgmusic_Reductor How much, how many, I'd like...-esv2-90p-bg-10p</title>
   <link rel="stylesheet" href="https://jevh-coder.github.io/platform/audios/player-settings/player.css">
+  <style>
+    /* Additional inline styles to override Hotmart CSS */
+    html, body {
+      height: 100px !important;
+      max-height: 100px !important;
+      min-height: 100px !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+    }
+  </style>
 </head>
+<body>
   <div class="player-container">
-    <video id="video" playsinline loop></video>
+    <video id="video" playsinline loop style="height: 0px !important; visibility: hidden; position: absolute; top: -9999px;"></video>
     <div class="controls">
       <!-- First row: Progress bar -->
       <div class="progress-container">
@@ -46,4 +58,5 @@
     // Initialize player with the specific playback ID for this audio
     initializePlayer('cbbnfPGD2iLDLkJvbxqBtzuNUkFbl5cawzoTmRVDrKw');
   </script>
+</body>
 </html>
