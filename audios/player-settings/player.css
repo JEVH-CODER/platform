@@ -17,21 +17,17 @@ html, body {
   line-height: 1;
 }
 
-/* Force smaller container to make iframe appear smaller */
-html, body {
-  height: 25px !important;
-  max-height: 25px !important;
-  min-height: 25px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow: hidden !important;
+/* Target Hotmart's iframe override specifically */
+iframe {
+  height: 25% !important;
 }
 
-.player-container {
-  height: 25px !important;
-  max-height: 25px !important;
-  min-height: 25px !important;
-  padding: 2px !important;
+/* Alternative targeting for dynamic classes */
+[class*="BMwVg"] iframe,
+[class*="iframe"] iframe,
+div[class] iframe {
+  height: 25% !important;
+  max-height: 25% !important;
 }
 
 .player-container {
@@ -65,7 +61,7 @@ video {
 .controls {
   display: flex;
   flex-direction: column;
-  gap: 2px !important;
+  gap: 12px;
   margin: 0 !important;
   padding: 0 !important;
   height: auto !important;
@@ -76,15 +72,14 @@ video {
   background: #16c4e3;
   border: none;
   color: white;
-  padding: 2px 4px !important;
-  border-radius: 3px;
+  padding: 8px 12px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 10px !important;
+  font-size: 14px;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   transition: background 0.2s;
   white-space: nowrap;
-  line-height: 1 !important;
 }
 
 .controls button:hover,
@@ -96,7 +91,7 @@ video {
 .progress-container {
   display: flex;
   align-items: center;
-  gap: 4px !important;
+  gap: 10px;
   width: 100%;
   order: 1;
   margin: 0 !important;
@@ -108,7 +103,7 @@ video {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 4px !important;
+  gap: 12px;
   order: 2;
   margin: 0 !important;
   padding: 0 !important;
@@ -117,15 +112,15 @@ video {
 .playback-controls {
   display: flex;
   align-items: center;
-  gap: 2px !important;
+  gap: 8px;
   flex-shrink: 0;
 }
 
 input[type="range"] {
   width: 100%;
-  height: 3px !important;
+  height: 6px;
   background: #e0e0e0;
-  border-radius: 2px;
+  border-radius: 3px;
   outline: none;
   -webkit-appearance: none;
   margin: 0 !important;
@@ -135,16 +130,16 @@ input[type="range"] {
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 10px;
-  height: 10px;
+  width: 16px;
+  height: 16px;
   background: #16c4e3;
   border-radius: 50%;
   cursor: pointer;
 }
 
 input[type="range"]::-moz-range-thumb {
-  width: 10px;
-  height: 10px;
+  width: 16px;
+  height: 16px;
   background: #16c4e3;
   border-radius: 50%;
   cursor: pointer;
@@ -152,8 +147,8 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .time {
-  font-size: 8px !important;
-  min-width: 45px !important;
+  font-size: 12px;
+  min-width: 85px;
   text-align: center;
   white-space: nowrap;
   font-family: 'Poppins', sans-serif;
@@ -161,13 +156,12 @@ input[type="range"]::-moz-range-thumb {
   font-weight: 500;
   margin: 0 !important;
   padding: 0 !important;
-  line-height: 1 !important;
 }
 
 .right-controls {
   display: flex;
   align-items: center;
-  gap: 2px !important;
+  gap: 8px;
   flex-shrink: 0;
 }
 
@@ -179,10 +173,10 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .volume-icon {
-  font-size: 10px !important;
+  font-size: 16px;
   color: #16c4e3;
   cursor: pointer;
-  padding: 2px !important;
+  padding: 6px;
   transition: color 0.2s;
 }
 
@@ -201,21 +195,20 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .volume-slider.expanded {
-  width: 40px !important;
+  width: 80px;
   opacity: 1;
 }
 
 .speed-control {
   order: 2;
-  min-width: 35px !important;
+  min-width: 70px;
 }
 
 select {
-  padding: 2px 3px !important;
-  font-size: 8px !important;
+  padding: 6px 8px;
+  font-size: 12px;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
-  line-height: 1 !important;
 }
 
 /* Mobile responsiveness */
