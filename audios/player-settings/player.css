@@ -17,11 +17,17 @@ html, body {
   line-height: 1;
 }
 
-/* Force container to exact dimensions - fixes Hotmart override */
-body {
-  height: 100px !important;
-  max-height: 100px !important;
-  min-height: 100px !important;
+/* Target Hotmart's iframe override specifically */
+iframe {
+  height: 25% !important;
+}
+
+/* Alternative targeting for dynamic classes */
+[class*="BMwVg"] iframe,
+[class*="iframe"] iframe,
+div[class] iframe {
+  height: 25% !important;
+  max-height: 25% !important;
 }
 
 .player-container {
