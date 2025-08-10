@@ -9,49 +9,16 @@ function initializePlayer(playbackId) {
   const seekSlider = document.getElementById('seek');
   const timeLabel = document.getElementById('time');
 
-  // Add cache busting and improved error handling
-  const timestamp = Date.now();
-  const proxyUrl = `https://puedocrecer.com/jwt-proxy/jwt-proxy.php?playback_id=${playbackId}&t=${timestamp}`;
+  // Simplified fetch - back to original working approach
+  const proxyUrl = `https://puedocrecer.com/jwt-proxy/jwt-proxy.php?playback_id=${playbackId}`;
 
-  // Enhanced fetch with retry logic for mobile devices
-  async function fetchWithRetry(url, maxRetries = 3) {
-    for (let i = 0; i < maxRetries; i++) {
-      try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
-        
-        const response = await fetch(url, {
-          method: 'GET',
-          headers: {
-            'Cache-Control': 'no-cache, no-store, must-revalidate',
-            'Pragma': 'no-cache',
-            'Expires': '0'
-          },
-          signal: controller.signal
-        });
-        
-        clearTimeout(timeoutId);
-        
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-        }
-        
-        return await response.json();
-      } catch (error) {
-        console.warn(`Fetch attempt ${i + 1} failed:`, error.message);
-        
-        if (i === maxRetries - 1) {
-          throw new Error(`Failed after ${maxRetries} attempts: ${error.message}`);
-        }
-        
-        // Wait before retry with exponential backoff
-        await new Promise(resolve => setTimeout(resolve, Math.pow(2, i) * 1000));
+  fetch(proxyUrl)
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}: ${res.statusText}`);
       }
-    }
-  }
-
-  // Load video with improved error handling
-  fetchWithRetry(proxyUrl)
+      return res.json();
+    })
     .then(data => {
       if (!data || !data.m3u8_url) {
         throw new Error('Invalid response: missing m3u8_url');
@@ -62,31 +29,13 @@ function initializePlayer(playbackId) {
 
       if (Hls.isSupported()) {
         const hls = new Hls({
-          // Enhanced HLS configuration for mobile stability
+          // Basic configuration for stability
           enableWorker: true,
-          lowLatencyMode: false,
-          backBufferLength: 90,
           maxBufferLength: 30,
-          maxMaxBufferLength: 600,
           maxBufferSize: 60 * 1000 * 1000,
-          maxBufferHole: 0.5,
-          highBufferWatchdogPeriod: 2,
-          nudgeOffset: 0.1,
-          nudgeMaxRetry: 3,
-          maxFragLookUpTolerance: 0.25,
-          liveSyncDurationCount: 3,
-          liveMaxLatencyDurationCount: Infinity,
-          liveDurationInfinity: false,
-          enableSoftwareAES: true,
           manifestLoadingTimeOut: 10000,
-          manifestLoadingMaxRetry: 1,
-          manifestLoadingRetryDelay: 1000,
           levelLoadingTimeOut: 10000,
-          levelLoadingMaxRetry: 4,
-          levelLoadingRetryDelay: 1000,
-          fragLoadingTimeOut: 20000,
-          fragLoadingMaxRetry: 6,
-          fragLoadingRetryDelay: 1000
+          fragLoadingTimeOut: 20000
         });
         
         hls.on(Hls.Events.ERROR, (event, data) => {
@@ -283,10 +232,41 @@ function initializePlayer(playbackId) {
     }
   });
 
-  // Force container height after load
-  document.addEventListener('DOMContentLoaded', () => {
-    document.body.style.height = '100px';
-    document.body.style.maxHeight = '100px';
-    document.body.style.overflow = 'hidden';
-  });
+  // Force Hotmart iframe height override
+  function forceIframeHeight() {
+    // Target parent iframe if we're embedded
+    try {
+      if (window.parent && window.parent !== window) {
+        const parentDoc = window.parent.document;
+        const iframes = parentDoc.querySelectorAll('iframe');
+        
+        iframes.forEach(iframe => {
+          if (iframe.contentWindow === window) {
+            iframe.style.height = '25%';
+            iframe.style.maxHeight = '25%';
+          }
+        });
+      }
+    } catch (e) {
+      // Cross-origin restrictions, fallback to CSS injection
+      console.log('Cross-origin iframe detected, using CSS override');
+    }
+    
+    // Also inject CSS into parent if possible
+    try {
+      const style = document.createElement('style');
+      style.textContent = `
+        iframe { height: 25% !important; max-height: 25% !important; }
+        [class*="BMwVg"] iframe { height: 25% !important; max-height: 25% !important; }
+      `;
+      document.head.appendChild(style);
+    } catch (e) {
+      console.log('Could not inject iframe override CSS');
+    }
+  }
+
+  // Run iframe height fix immediately and after load
+  forceIframeHeight();
+  document.addEventListener('DOMContentLoaded', forceIframeHeight);
+  window.addEventListener('load', forceIframeHeight);
 }
