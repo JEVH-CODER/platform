@@ -232,5 +232,41 @@ function initializePlayer(playbackId) {
     }
   });
 
-  // Remove the iframe height override functions since we're using CSS approach
+  // Force Hotmart iframe height override
+  function forceIframeHeight() {
+    // Target parent iframe if we're embedded
+    try {
+      if (window.parent && window.parent !== window) {
+        const parentDoc = window.parent.document;
+        const iframes = parentDoc.querySelectorAll('iframe');
+        
+        iframes.forEach(iframe => {
+          if (iframe.contentWindow === window) {
+            iframe.style.height = '25%';
+            iframe.style.maxHeight = '25%';
+          }
+        });
+      }
+    } catch (e) {
+      // Cross-origin restrictions, fallback to CSS injection
+      console.log('Cross-origin iframe detected, using CSS override');
+    }
+    
+    // Also inject CSS into parent if possible
+    try {
+      const style = document.createElement('style');
+      style.textContent = `
+        iframe { height: 25% !important; max-height: 25% !important; }
+        [class*="BMwVg"] iframe { height: 25% !important; max-height: 25% !important; }
+      `;
+      document.head.appendChild(style);
+    } catch (e) {
+      console.log('Could not inject iframe override CSS');
+    }
+  }
+
+  // Run iframe height fix immediately and after load
+  forceIframeHeight();
+  document.addEventListener('DOMContentLoaded', forceIframeHeight);
+  window.addEventListener('load', forceIframeHeight);
 }
