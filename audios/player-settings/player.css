@@ -6,55 +6,31 @@
 }
 
 html, body {
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0;
+  padding: 0;
   font-family: 'Poppins', sans-serif;
-  height: auto !important;
-  min-height: auto !important;
-  max-height: none !important;
+  height: auto;
   overflow: hidden;
-  /* Force exact height for iframe embedding */
-  line-height: 1;
-}
-
-/* Target Hotmart's iframe override specifically */
-iframe {
-  height: 25% !important;
-}
-
-/* Alternative targeting for dynamic classes */
-[class*="BMwVg"] iframe,
-[class*="iframe"] iframe,
-div[class] iframe {
-  height: 25% !important;
-  max-height: 25% !important;
 }
 
 .player-container {
-  width: 100% !important;
+  width: 100%;
   max-width: 700px;
   background: white;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.1);
   padding: 15px;
-  margin: 0 !important;
-  height: auto !important;
-  min-height: auto !important;
-  max-height: none !important;
+  margin: 0;
+  height: fit-content;
   overflow: hidden;
-  /* Ensure container doesn't expand beyond iframe */
-  position: relative;
 }
 
 video {
   width: 100%;
-  height: 0px !important;
+  height: 0px;
   display: block;
-  margin: 0 !important;
-  padding: 0 !important;
-  visibility: hidden;
-  position: absolute;
-  top: -9999px;
+  margin: 0;
+  padding: 0;
 }
 
 /* Two-row layout for controls */
@@ -62,9 +38,8 @@ video {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin: 0 !important;
-  padding: 0 !important;
-  height: auto !important;
+  margin: 0;
+  padding: 0;
 }
 
 .controls button,
@@ -94,8 +69,6 @@ video {
   gap: 10px;
   width: 100%;
   order: 1;
-  margin: 0 !important;
-  padding: 0 !important;
 }
 
 /* Second row: Controls row */
@@ -105,8 +78,6 @@ video {
   justify-content: space-between;
   gap: 12px;
   order: 2;
-  margin: 0 !important;
-  padding: 0 !important;
 }
 
 .playback-controls {
@@ -123,8 +94,6 @@ input[type="range"] {
   border-radius: 3px;
   outline: none;
   -webkit-appearance: none;
-  margin: 0 !important;
-  padding: 0 !important;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -154,8 +123,6 @@ input[type="range"]::-moz-range-thumb {
   font-family: 'Poppins', sans-serif;
   color: #333;
   font-weight: 500;
-  margin: 0 !important;
-  padding: 0 !important;
 }
 
 .right-controls {
@@ -330,22 +297,4 @@ select {
 
 .controls-row:last-child {
   margin-bottom: 0 !important;
-}
-
-/* Additional safeguards against iframe expansion */
-html::after, body::after, .player-container::after {
-  content: '';
-  display: block;
-  height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  clear: both;
-}
-
-/* Force specific height constraints for iframe embedding */
-@media screen {
-  html {
-    height: 100px !important;
-    max-height: 100px !important;
-  }
 }
