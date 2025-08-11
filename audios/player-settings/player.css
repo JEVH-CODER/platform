@@ -6,57 +6,40 @@
 }
 
 html, body {
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0;
+  padding: 0;
   font-family: 'Poppins', sans-serif;
-  height: auto !important;
-  overflow: hidden !important;
-  min-height: 0 !important;
+  height: auto;
+  overflow: hidden;
 }
 
-/* Force container to exact height to prevent iframe overflow */
 .player-container {
-  width: 100% !important;
+  width: 100%;
   max-width: 700px;
   background: white;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-  padding: 15px !important;
-  margin: 0 !important;
-  height: 85px !important; /* Fixed height to prevent overflow */
-  max-height: 85px !important;
-  min-height: 85px !important;
-  overflow: hidden !important;
-  display: block !important;
-  position: relative !important;
-}
-
-/* Override any parent iframe styles that might interfere */
-.player-container {
-  height: 85px !important;
+  padding: 15px;
+  margin: 0;
+  height: fit-content;
+  overflow: hidden;
 }
 
 video {
-  width: 100% !important;
-  height: 0px !important;
-  display: block !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  position: absolute !important;
-  top: -9999px !important; /* Hide video completely */
-  left: -9999px !important;
+  width: 100%;
+  height: 0px;
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 
 /* Two-row layout for controls */
 .controls {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 12px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  height: 55px !important; /* Fixed controls height */
-  max-height: 55px !important;
-  overflow: hidden !important;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
 }
 
 .controls button,
@@ -81,26 +64,20 @@ video {
 
 /* First row: Progress container */
 .progress-container {
-  display: flex !important;
-  align-items: center !important;
-  gap: 10px !important;
-  width: 100% !important;
-  order: 1 !important;
-  height: 20px !important;
-  max-height: 20px !important;
-  overflow: hidden !important;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  order: 1;
 }
 
 /* Second row: Controls row */
 .controls-row {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  gap: 12px !important;
-  order: 2 !important;
-  height: 35px !important;
-  max-height: 35px !important;
-  overflow: hidden !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  order: 2;
 }
 
 .playback-controls {
@@ -204,27 +181,15 @@ select {
 /* Mobile responsiveness */
 @media (max-width: 600px) {
   .player-container {
-    padding: 12px !important;
-    height: 80px !important;
-    max-height: 80px !important;
-    min-height: 80px !important;
+    padding: 12px;
   }
   
   .controls {
-    gap: 10px !important;
-    height: 50px !important;
-    max-height: 50px !important;
+    gap: 10px;
   }
   
   .controls-row {
     gap: 8px;
-    height: 30px !important;
-    max-height: 30px !important;
-  }
-  
-  .progress-container {
-    height: 18px !important;
-    max-height: 18px !important;
   }
   
   .playback-controls {
@@ -244,27 +209,15 @@ select {
 
 @media (max-width: 480px) {
   .player-container {
-    padding: 10px !important;
-    height: 75px !important;
-    max-height: 75px !important;
-    min-height: 75px !important;
+    padding: 10px;
   }
   
   .controls {
-    gap: 8px !important;
-    height: 45px !important;
-    max-height: 45px !important;
+    gap: 8px;
   }
   
   .controls-row {
     gap: 6px;
-    height: 28px !important;
-    max-height: 28px !important;
-  }
-  
-  .progress-container {
-    height: 16px !important;
-    max-height: 16px !important;
   }
   
   .playback-controls {
@@ -302,26 +255,11 @@ select {
 
 @media (max-width: 320px) {
   .player-container {
-    padding: 8px !important;
-    height: 70px !important;
-    max-height: 70px !important;
-    min-height: 70px !important;
+    padding: 8px;
   }
   
   .controls {
-    gap: 6px !important;
-    height: 40px !important;
-    max-height: 40px !important;
-  }
-  
-  .controls-row {
-    height: 25px !important;
-    max-height: 25px !important;
-  }
-  
-  .progress-container {
-    height: 14px !important;
-    max-height: 14px !important;
+    gap: 6px;
   }
   
   .playback-controls {
@@ -346,22 +284,6 @@ select {
     font-size: 9px;
     min-width: 65px;
   }
-}
-
-/* Force override any parent container styles - specifically for Hotmart */
-/* These rules will override the .BMwVg iframe styles */
-html {
-  height: auto !important;
-  max-height: none !important;
-  overflow: hidden !important;
-}
-
-body {
-  height: auto !important;
-  max-height: none !important;
-  overflow: hidden !important;
-  margin: 0 !important;
-  padding: 0 !important;
 }
 
 /* Ensure no bottom margins that could affect iframe embedding */
