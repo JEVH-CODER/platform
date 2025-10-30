@@ -1,0 +1,166 @@
+WEBVTT
+
+1
+00:00:00.150 --> 00:00:04.800 
+Hi, my name is Sarah and welcome to a day
+in the life of a software engineer, come
+
+2
+00:00:04.810 --> 00:00:05.240 
+on in.
+
+3
+00:00:06.810 --> 00:00:08.940 
+So, I woke up at 5 today, I already got
+
+4
+00:00:08.950 --> 00:00:13.680 
+my workout in, I took care of my fur kids
+and gave them a little love, but I
+
+5
+00:00:13.690 --> 00:00:18.920 
+officially can't start my workday without
+a cup of coffee, so I make a cup of coffee.
+
+6
+00:00:19.930 --> 00:00:24.120 
+A software engineer develops software for
+multiple companies.
+
+7
+00:00:24.130 --> 00:00:30.040 
+I have been working at my company for
+about 5 years, but I have been coding for
+
+8
+00:00:30.050 --> 00:00:35.920 
+a little over a decade .My usual schedule
+is 8 to 4 and it is kind of nice to be
+
+9
+00:00:35.930 --> 00:00:40.300 
+able to take a break here and there to do
+anything that I need to around the house
+
+10
+00:00:40.310 --> 00:00:45.480 
+or go to a store if I need to .So, the
+tasks that I perform on a daily basis
+
+11
+00:00:45.490 --> 00:00:50.740 
+include updating my code if somebody
+requested a change that I make, sometimes
+
+12
+00:00:50.750 --> 00:00:58.560 
+I spend a lot of time replying to emails
+if that is necessary, I check in on my
+
+13
+00:00:58.570 --> 00:01:01.180 
+interns to see if they need any help with anything.
+
+14
+00:01:01.410 --> 00:01:04.520 
+My desk setup consists of two external
+
+15
+00:01:04.530 --> 00:01:09.240 
+monitors and one is for code, one is for
+seeing my changes and then my computer
+
+16
+00:01:09.250 --> 00:01:12.460 
+for emails and different terminal things.
+
+17
+00:01:12.470 --> 00:01:15.000 
+Yo también tengo un espacio divertido
+
+18
+00:01:15.010 --> 00:01:20.060 
+donde me pongo mis cartas de cumpleaños y
+un montón de maestros y computadoras.
+
+19
+00:01:20.150 --> 00:01:24.980 
+La primera cosa que voy a hacer en cuanto
+a la codificación es asegurarme de que lo
+
+20
+00:01:24.990 --> 00:01:26.520 
+que he construido funcione.
+
+21
+00:01:26.690 --> 00:01:29.200 
+Esto puede tomarse entre 30 minutos y una
+
+22
+00:01:29.210 --> 00:01:30.380 
+hora, dependiendo de lo que estoy tomando.
+
+23
+00:01:30.790 --> 00:01:32.500 
+Ahora mismo, mis lenguajes principales
+
+24
+00:01:32.510 --> 00:01:40.940 
+incluyen Java, HTML y CSS, pero yo creo
+que lo más divertido en escribir algo
+
+25
+00:01:40.950 --> 00:01:46.760 
+basado en JavaScript es Node .js, así que
+yo personalmente uso Sublime, creo que es
+
+26
+00:01:46.770 --> 00:01:50.580 
+muy fácil de usar y es muy fácil de usar.
+
+27
+00:01:50.770 --> 00:01:53.140 
+Es muy difícil escribir código por
+
+28
+00:01:53.150 --> 00:01:57.600 
+primera vez y estar bien, así que también
+vas a encontrar un error o alguien dirá
+
+29
+00:01:57.610 --> 00:02:01.840 
+que no está funcionando de la manera que
+esperabas y también tendrás que estar
+
+30
+00:02:01.850 --> 00:02:02.460 
+bien con eso.
+
+31
+00:02:02.470 --> 00:02:04.240 
+La primera cosa que he codificado hoy fue
+
+32
+00:02:04.250 --> 00:02:08.460 
+el botón de eliminación, así que puedes
+ver el código aquí y esta página se
+
+33
+00:02:08.470 --> 00:02:14.540 
+representa en esta página como la UI, o
+la frente, y puedes ver que cada carta
+
+34
+00:02:14.550 --> 00:02:16.740 
+tiene un botón de eliminación.
+
+35
+00:02:16.990 --> 00:02:19.260 
+Así que ahora, si pones el botón de
+
+36
+00:02:19.270 --> 00:02:23.280 
+eliminación, el código eliminará esa
+carta específica y ahora no hay colecciones.
+
