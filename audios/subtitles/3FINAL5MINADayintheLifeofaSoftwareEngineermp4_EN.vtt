@@ -1,0 +1,720 @@
+WEBVTT
+
+1
+00:00:00.444 --> 00:00:01.014 
+Hi.
+
+2
+00:00:01.014 --> 00:00:02.904 
+My name is Sarah, and
+welcome to you a day
+
+3
+00:00:02.904 --> 00:00:04.554 
+in the life of a
+software engineer.
+
+4
+00:00:04.554 --> 00:00:06.894 
+Come on in.
+
+5
+00:00:06.894 --> 00:00:08.424 
+So I woke up at 5:00 today.
+
+6
+00:00:08.424 --> 00:00:09.894 
+I already got my workout in.
+
+7
+00:00:09.894 --> 00:00:13.314 
+I took care of my fur kids
+and gave them a little love.
+
+8
+00:00:13.314 --> 00:00:15.173 
+But I officially
+can't start my workday
+
+9
+00:00:15.173 --> 00:00:19.874 
+without a cup of coffee,
+so I make a cup of coffee.
+
+10
+00:00:19.874 --> 00:00:22.464 
+A software engineer
+develops software
+
+11
+00:00:22.464 --> 00:00:24.624 
+for multiple companies.
+
+12
+00:00:24.624 --> 00:00:28.494 
+I have been working at my
+company for about five years,
+
+13
+00:00:28.494 --> 00:00:31.564 
+but I've been coding for
+a little over a decade.
+
+14
+00:00:31.564 --> 00:00:34.734 
+My usual schedule
+is 8:00 to 4:00,
+
+15
+00:00:34.734 --> 00:00:36.984 
+it's kind of nice to be
+able to take a break here
+
+16
+00:00:36.984 --> 00:00:40.704 
+and there to do anything that
+I need to around the house
+
+17
+00:00:40.704 --> 00:00:43.114 
+or go to a store if I need to.
+
+18
+00:00:43.114 --> 00:00:45.564 
+So the task that I
+perform on a daily basis
+
+19
+00:00:45.564 --> 00:00:48.504 
+include updating
+my code if somebody
+
+20
+00:00:48.504 --> 00:00:50.394 
+requested a change that I make.
+
+21
+00:00:50.394 --> 00:00:55.254 
+Sometimes I spend a
+lot of time replying
+
+22
+00:00:55.254 --> 00:00:57.444 
+to emails if that's necessary.
+
+23
+00:00:57.444 --> 00:00:59.724 
+I check in on my
+interns to see if they
+
+24
+00:00:59.724 --> 00:01:01.374 
+need any help with anything.
+
+25
+00:01:01.374 --> 00:01:05.304 
+My desk setup consists
+of two external monitors,
+
+26
+00:01:05.304 --> 00:01:08.694 
+and one's for code, one is for
+seeing my changes, and then
+
+27
+00:01:08.694 --> 00:01:12.444 
+my computer for emails and
+different terminal things.
+
+28
+00:01:12.444 --> 00:01:16.044 
+I also just have a little
+fun space where my birthday
+
+29
+00:01:16.044 --> 00:01:19.104 
+cards sit, and then a whole
+slew of different mice
+
+30
+00:01:19.104 --> 00:01:20.124 
+and keyboards.
+
+31
+00:01:20.124 --> 00:01:23.184 
+So the first thing that I'm
+going to do today coding-wise
+
+32
+00:01:23.184 --> 00:01:26.604 
+is making sure that
+what I built works.
+
+33
+00:01:26.604 --> 00:01:29.394 
+This can usually take
+between 30 minutes to an hour
+
+34
+00:01:29.394 --> 00:01:30.874 
+depending on what
+I'm working on.
+
+35
+00:01:30.874 --> 00:01:33.264 
+So right now my primary
+language is include
+
+36
+00:01:33.264 --> 00:01:36.574 
+Java and a lot of HTML and CSS.
+
+37
+00:01:36.574 --> 00:01:41.364 
+But I find the most fun in
+writing anything based out
+
+38
+00:01:41.364 --> 00:01:42.264 
+of JavaScript.
+
+39
+00:01:42.264 --> 00:01:43.734 
+So like Node.js.
+
+40
+00:01:43.734 --> 00:01:46.164 
+So I personally use Sublime.
+
+41
+00:01:46.164 --> 00:01:50.824 
+I think it's very low-effort
+and is really easy to use.
+
+42
+00:01:50.824 --> 00:01:53.663 
+It's really difficult to
+write code the first time
+
+43
+00:01:53.663 --> 00:01:54.414 
+and it be right.
+
+44
+00:01:54.414 --> 00:01:57.414 
+So either you're going to find
+a mistake or somebody is going
+
+45
+00:01:57.414 --> 00:01:59.364 
+to say, hey, this isn't
+really working the way
+
+46
+00:01:59.364 --> 00:02:01.374 
+that you said it would,
+and you're just going
+
+47
+00:02:01.374 --> 00:02:02.634 
+to have to be OK with that.
+
+48
+00:02:02.634 --> 00:02:05.034 
+The first thing I quoted
+today was the Delete button.
+
+49
+00:02:05.034 --> 00:02:06.684 
+And so you can
+see the code here.
+
+50
+00:02:06.684 --> 00:02:10.824 
+And this page is
+represented on this page
+
+51
+00:02:10.824 --> 00:02:12.774 
+as the UI or the frontend.
+
+52
+00:02:12.774 --> 00:02:16.794 
+And you can see that each what
+I call card has a Delete button.
+
+53
+00:02:16.794 --> 00:02:19.674 
+And so now, if you
+click on Delete,
+
+54
+00:02:19.674 --> 00:02:22.524 
+it'll delete that specific
+card, and now there
+
+55
+00:02:22.524 --> 00:02:23.484 
+are no collections.
+
+56
+00:02:29.274 --> 00:02:31.584 
+One of the benefits of working
+from home as a software
+
+57
+00:02:31.584 --> 00:02:34.354 
+engineer is being
+able to cook at home.
+
+58
+00:02:34.354 --> 00:02:37.314 
+It's my form of
+meditation to kind of-- it
+
+59
+00:02:37.314 --> 00:02:38.777 
+repositions my brain.
+
+60
+00:02:38.777 --> 00:02:40.944 
+I get to think about what
+I'm going to work on next.
+
+61
+00:02:40.944 --> 00:02:45.384 
+I get to process maybe a
+meeting that I was just in.
+
+62
+00:02:45.384 --> 00:02:47.364 
+But cooking is
+really a way for me
+
+63
+00:02:47.364 --> 00:02:50.342 
+to recenter myself for the day.
+
+64
+00:02:50.342 --> 00:02:52.634 
+I like to spend time on
+Reddit, and I think a lot of us
+
+65
+00:02:52.634 --> 00:02:54.824 
+do when we're on the
+computer, pretty much all day.
+
+66
+00:02:54.824 --> 00:02:57.374 
+But just so catch
+up on YouTube videos
+
+67
+00:02:57.374 --> 00:02:59.924 
+or maybe just talk to
+my friends on Discord,
+
+68
+00:02:59.924 --> 00:03:02.564 
+maybe plan what I'm going
+to do for the evening.
+
+69
+00:03:02.564 --> 00:03:05.114 
+But that usually is
+about 30 to 45 minutes.
+
+70
+00:03:05.114 --> 00:03:07.964 
+Right after lunch,
+I to get into work.
+
+71
+00:03:07.964 --> 00:03:12.014 
+And since most of my meetings
+occur in the morning,
+
+72
+00:03:12.014 --> 00:03:13.844 
+I really get a
+longer time period
+
+73
+00:03:13.844 --> 00:03:16.874 
+in the afternoon to have
+my next coding session.
+
+74
+00:03:16.874 --> 00:03:20.084 
+So it can range between
+one to two hours instead
+
+75
+00:03:20.084 --> 00:03:21.644 
+of having to take breaks.
+
+76
+00:03:21.644 --> 00:03:24.204 
+I feel the most creative
+in the afternoon.
+
+77
+00:03:24.204 --> 00:03:27.104 
+I think that's because
+I've had all of my coffee
+
+78
+00:03:27.104 --> 00:03:30.614 
+and I've had my
+food or my snacks,
+
+79
+00:03:30.614 --> 00:03:34.854 
+and I really just am
+into the meat of the day.
+
+80
+00:03:34.854 --> 00:03:37.574 
+So in the afternoons,
+I have more energy
+
+81
+00:03:37.574 --> 00:03:41.384 
+in my brain to accomplish the
+tasks that I set for myself.
+
+82
+00:03:41.384 --> 00:03:45.044 
+I like to keep up with new
+software and new frameworks
+
+83
+00:03:45.044 --> 00:03:47.774 
+that happen and
+come up by actually
+
+84
+00:03:47.774 --> 00:03:50.534 
+looking through job openings.
+
+85
+00:03:50.534 --> 00:03:54.384 
+And if there is a new framework
+that's really important,
+
+86
+00:03:54.384 --> 00:03:56.474 
+a lot of companies will
+post that in their job
+
+87
+00:03:56.474 --> 00:03:57.834 
+description or a requirement.
+
+88
+00:03:57.834 --> 00:04:01.124 
+So I'll kind of go through
+what jobs are available
+
+89
+00:04:01.124 --> 00:04:03.224 
+and see what companies
+are using most of,
+
+90
+00:04:03.224 --> 00:04:06.414 
+and sometimes I even learn
+about new frameworks that way.
+
+91
+00:04:06.414 --> 00:04:08.384 
+Another great thing
+about working from home
+
+92
+00:04:08.384 --> 00:04:10.304 
+is being able to
+leave if I have to.
+
+93
+00:04:10.304 --> 00:04:12.434 
+And I'm feeling something
+really spicy tonight,
+
+94
+00:04:12.434 --> 00:04:14.294 
+so there's this store that
+I'm going to go to and do
+
+95
+00:04:14.294 --> 00:04:15.377 
+a little grocery shopping.
+
+96
+00:04:21.934 --> 00:04:24.364 
+If you're looking to become
+a better software engineer,
+
+97
+00:04:24.364 --> 00:04:28.174 
+I would recommend maybe
+going to a class website
+
+98
+00:04:28.174 --> 00:04:30.874 
+like Udemy or a
+coding boot camp,
+
+99
+00:04:30.874 --> 00:04:33.214 
+or even just kind of
+thinking about a project
+
+100
+00:04:33.214 --> 00:04:35.584 
+that you'd like to build and
+starting it from scratch.
+
+101
+00:04:35.584 --> 00:04:37.924 
+Gaining experience by
+doing is the best way
+
+102
+00:04:37.924 --> 00:04:40.534 
+to keep yourself up to date
+and become a better software
+
+103
+00:04:40.534 --> 00:04:41.164 
+engineer.
+
+104
+00:04:41.164 --> 00:04:44.291 
+I got into my profession
+kind of by accident.
+
+105
+00:04:44.291 --> 00:04:46.624 
+I knew that I wanted to write,
+so I actually started off
+
+106
+00:04:46.624 --> 00:04:48.004 
+as a journalism major.
+
+107
+00:04:48.004 --> 00:04:50.834 
+But I wanted to kind of
+work with my creative side,
+
+108
+00:04:50.834 --> 00:04:53.884 
+so I decided to write
+code, which I am writing,
+
+109
+00:04:53.884 --> 00:04:55.724 
+but I'm also using
+my creative side.
+
+110
+00:04:55.724 --> 00:04:58.264 
+So I went from being a
+journalism major to a software
+
+111
+00:04:58.264 --> 00:04:59.374 
+engineer.
+
+112
+00:04:59.374 --> 00:05:02.434 
+My goals for my future
+are to kind of transition
+
+113
+00:05:02.434 --> 00:05:04.604 
+into more of a management role.
+
+114
+00:05:04.604 --> 00:05:08.884 
+So I enrolled myself into a
+project management course.
+
+115
+00:05:08.884 --> 00:05:11.134 
+What's nice about
+being in this field
+
+116
+00:05:11.134 --> 00:05:13.924 
+is that continuing
+education is very
+
+117
+00:05:13.924 --> 00:05:16.444 
+important to a lot of
+people, so you get time
+
+118
+00:05:16.444 --> 00:05:17.614 
+to be able to do that.
+
+119
+00:05:17.614 --> 00:05:20.494 
+I usually wrap up my day
+by going through my emails
+
+120
+00:05:20.494 --> 00:05:22.744 
+and making sure that I didn't
+miss anything that I was
+
+121
+00:05:22.744 --> 00:05:24.994 
+supposed to get to by today.
+
+122
+00:05:24.994 --> 00:05:27.424 
+I check my work
+schedule for tomorrow
+
+123
+00:05:27.424 --> 00:05:28.879 
+to see if there
+are any meanings.
+
+124
+00:05:28.879 --> 00:05:31.264 
+The last thing I like to
+do at the end of the day
+
+125
+00:05:31.264 --> 00:05:34.384 
+or I have to do at the end
+of the day is log my time.
+
+126
+00:05:34.384 --> 00:05:38.854 
+So I worked on the frontend
+for about four hours today,
+
+127
+00:05:38.854 --> 00:05:42.844 
+and I worked on other things
+for about another four hours.
+
+128
+00:05:42.844 --> 00:05:44.944 
+So that's eight hours.
+
+129
+00:05:44.944 --> 00:05:47.414 
+And I try to end
+my day around 4:00
+
+130
+00:05:47.414 --> 00:05:49.414 
+so that I have enough
+time at the end of the day
+
+131
+00:05:49.414 --> 00:05:51.544 
+to kind of wind down from it.
+
+132
+00:05:51.544 --> 00:05:53.704 
+Software engineering
+can be pretty stressful,
+
+133
+00:05:53.704 --> 00:05:57.154 
+so the best way for me to wind
+down from a stressful workday
+
+134
+00:05:57.154 --> 00:05:58.714 
+is to play video games.
+
+135
+00:05:58.714 --> 00:06:00.994 
+It's just a really
+easy and relaxing game
+
+136
+00:06:00.994 --> 00:06:03.004 
+to wind down my day.
+
+137
+00:06:03.004 --> 00:06:06.394 
+So I think coding
+asks a lot from you
+
+138
+00:06:06.394 --> 00:06:09.794 
+and it takes a lot
+of energy to do it.
+
+139
+00:06:09.794 --> 00:06:13.094 
+So I would recommend just
+being OK with a high-stress,
+
+140
+00:06:13.094 --> 00:06:15.164 
+high-energy environment.
+
+141
+00:06:15.164 --> 00:06:19.294 
+I wish I knew how tough it
+would be entering the field,
+
+142
+00:06:19.294 --> 00:06:21.724 
+but all you have to do
+is be confident and make
+
+143
+00:06:21.724 --> 00:06:25.414 
+sure to speak your mind
+and just be yourself
+
+144
+00:06:25.414 --> 00:06:27.934 
+and it's going to be OK.
+
+145
+00:06:27.934 --> 00:06:29.264 
+Thanks for watching.
+
+146
+00:06:29.264 --> 00:06:32.144 
+Be sure to give us like and
+subscribe to Indeed's channel.
+
+147
+00:06:32.144 --> 00:06:34.984 
+See you next time.
+
+148
+00:06:34.984 --> 00:06:36.634 
+Hi, welcome to
+the grocery store.
+
+149
+00:06:36.634 --> 00:06:37.474 
+Let's go shopping.
+
+150
+00:06:37.474 --> 00:06:39.514 
+Come on over.
+
+151
+00:06:39.514 --> 00:06:40.324 
+Oh, am I going?
+
+152
+00:06:40.324 --> 00:06:42.774 
+OK, away we go.
+
